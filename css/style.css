@@ -363,6 +363,26 @@
         padding: 0 2rem 1.5rem 2rem;
       }
 
+/* Carousel styles */
+.image-carousel {
+  position: relative;
+}
+
+.carousel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-img.active {
+  opacity: 1;
+  position: relative;
+}
+
       .section {
         padding: 6rem 3rem;
         position: relative;
@@ -405,17 +425,18 @@
       }
 
       .section-image {
-        background: rgba(255, 255, 255, 0.03);
-        border: 2px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 0.1rem;
-        text-align: center;
-        min-height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden; /* ensures image doesn't overflow box */
-      }
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 0.1rem;
+  text-align: center;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative; /* ADD THIS LINE */
+}
 
       .section-image img {
         width: 100%; /* fill the width of the container */

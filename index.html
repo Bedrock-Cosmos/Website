@@ -110,8 +110,8 @@
             or world.
           </p>
         </div>
-        <div class="section-image">
-          <img src="./imgs/img_1.png" alt="Custom Capes" />
+        <div class="section-image image-carousel" data-images='["./imgs/img_1.png"]'>
+          <img src="./imgs/img_1.png" alt="Custom Capes" class="carousel-img active" />
         </div>
       </div>
     </section>
@@ -126,8 +126,8 @@
           </p>
           <p>Access missing packs and experience content that was previously unavailable in your region or platform.</p>
         </div>
-        <div class="section-image">
-          <img src="./imgs/img_2.png" alt="Marketplace" />
+        <div class="section-image image-carousel" data-images='["./imgs/img_2.png"]'>
+          <img src="./imgs/img_2.png" alt="Marketplace" class="carousel-img active" />
         </div>
       </div>
     </section>
@@ -145,8 +145,8 @@
             accessible.
           </p>
         </div>
-        <div class="section-image">
-          <img src="./imgs/img_3.png" alt="Restored Content" />
+        <div class="section-image image-carousel" data-images='["./imgs/fixedcape.png", "./imgs/fixedanimations.png"]'>
+          <img src="./imgs/fixedcape.png" alt="Restored Content" class="carousel-img active" />
         </div>
       </div>
     </section>
@@ -313,6 +313,37 @@
 
       // Load stats on page load
       fetchCurrentUsers();
+
+      // Image carousel functionality
+      const carousels = document.querySelectorAll(".image-carousel");
+      carousels.forEach((carousel) => {
+        const images = JSON.parse(carousel.dataset.images);
+
+        // Only initialize carousel if there are multiple images
+        if (images.length > 1) {
+          let currentIndex = 0;
+
+          // Create all image elements
+          images.forEach((src, index) => {
+            if (index > 0) {
+              const img = document.createElement("img");
+              img.src = src;
+              img.alt = carousel.querySelector("img").alt;
+              img.className = "carousel-img";
+              carousel.appendChild(img);
+            }
+          });
+
+          // Rotate images every 4 seconds
+          setInterval(() => {
+            const allImages = carousel.querySelectorAll(".carousel-img");
+            allImages[currentIndex].classList.remove("active");
+
+            currentIndex = (currentIndex + 1) % images.length;
+            allImages[currentIndex].classList.add("active");
+          }, 10000);
+        }
+      });
     </script>
   </body>
 </html>
