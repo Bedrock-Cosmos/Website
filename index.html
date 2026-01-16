@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta property="og:title" content="Bedrock Cosmos Launcher" />
+    <meta name="description" content="Bedrock Cosmos Launcher – Custom capes, Legacy Skin Packs, and more for Minecraft Bedrock Edition." />
+    <meta property="og:description" content="Bedrock Cosmos Launcher – Custom capes, Legacy Skin Packs, and more for Minecraft Bedrock Edition." />
+    <meta property="twitter:description" content="Bedrock Cosmos Launcher – Custom capes, Legacy Skin Packs, and more for Minecraft Bedrock Edition." />
+    <meta property="theme-color" content="#2aa7a7" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/Bedrock-Cosmos/Backend/main/Main/Thumbnails/Marketplace/Skin%20Packs/Minecraft%20Restored/1st%20Birthday%20Skin%20Pack%20Restored/1stBirthdayRestored_thumbnail.jpg"
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/Bedrock-Cosmos/Backend/main/Main/Thumbnails/Marketplace/Skin%20Packs/Minecraft%20Restored/1st%20Birthday%20Skin%20Pack%20Restored/1stBirthdayRestored_thumbnail.jpg"
+    />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="450" />
+    <meta name="keywords" content="Minecraft, Bedrock, Marketplace, Launcher, Proxy" />
+    <link rel="canonical" href="https://bedrock-cosmos.app" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Bedrock Cosmos Launcher</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background: #0a0a0a;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      .stars-container {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle 3s ease-in-out infinite;
+      }
+
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+
+      .shooting-star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+        animation: shoot 3s linear infinite;
+      }
+
+      @keyframes shoot {
+        0% {
+          transform: translateX(0) translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-400px) translateY(400px);
+          opacity: 0;
+        }
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1.5rem 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1000;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-links {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+      }
+
+      .nav-links a {
+        color: #ccc;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #fff;
+      }
+
+      .discord-btn {
+        background: #fff;
+        padding: 0.7rem 1.5rem;
+        border-radius: 8px;
+        color: #0a0a0a;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .discord-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+      }
+
+      .clouds-container {
+        display: none;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 2rem;
+        z-index: 10;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        text-align: center;
+        max-width: 800px;
+        z-index: 10;
+      }
+
+      .hero-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+        animation: float-icon 3s ease-in-out infinite;
+        filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.5));
+      }
+
+      @keyframes float-icon {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        color: #fff;
+        text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        color: #aaa;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .stats-container {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        color: #ccc;
+        font-size: 0.95rem;
+      }
+
+      .stat-number {
+        color: #fff;
+        font-weight: 700;
+      }
+
+      .btn-primary {
+        background: #fff;
+        padding: 1rem 2.5rem;
+        border-radius: 10px;
+        color: #0a0a0a;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+        border: 2px solid #fff;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        padding: 1rem 2.5rem;
+        border-radius: 10px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.3s;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #fff;
+        transform: translateY(-3px);
+      }
+
+      .features {
+        padding: 6rem 3rem;
+        position: relative;
+        z-index: 10;
+        background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .feature-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
+      }
+
+      .feature-icon {
+  width: 1.2em;
+  height: 1.2em;
+  display: block;
+  margin: 0 auto;
+
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        filter: grayscale(100%) brightness(2);
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+        color: #fff;
+      }
+
+      .feature-card p {
+        color: #999;
+        line-height: 1.6;
+      }
+
+      .faq-section {
+        padding: 6rem 3rem;
+        position: relative;
+        z-index: 10;
+        background: #0a0a0a;
+      }
+
+      .faq-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .faq-title {
+        font-size: 3rem;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #fff;
+      }
+
+      .faq-item {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .faq-item:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .faq-question {
+        padding: 1.5rem 2rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fff;
+        user-select: none;
+      }
+
+      .faq-toggle {
+        font-size: 1.5rem;
+        transition: transform 0.3s;
+      }
+
+      .faq-item.active .faq-toggle {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        padding: 0 2rem;
+        color: #999;
+        line-height: 1.8;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+        padding: 0 2rem 1.5rem 2rem;
+      }
+
+      .section {
+        padding: 6rem 3rem;
+        position: relative;
+        z-index: 10;
+        background: #0a0a0a;
+      }
+
+      .section:nth-child(even) {
+        background: #151515;
+      }
+
+      .section-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .section:nth-child(even) .section-content {
+        direction: rtl;
+      }
+
+      .section:nth-child(even) .section-content > * {
+        direction: ltr;
+      }
+
+      .section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: #fff;
+      }
+
+      .section p {
+        color: #999;
+        line-height: 1.8;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-image {
+        background: rgba(255, 255, 255, 0.03);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 0.1rem;
+        text-align: center;
+        min-height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden; /* ensures image doesn't overflow box */
+      }
+
+      .section-image img {
+        width: 100%; /* fill the width of the container */
+        height: 100%; /* fill the height of the container */
+        object-fit: contain; /* or use 'cover' if you want to fill and crop edges */
+        border-radius: 12px; /* optional: rounded corners on the image */
+        filter: brightness(1.2);
+      }
+
+      footer {
+        background: #000;
+        padding: 3rem 2rem;
+        position: relative;
+        z-index: 10;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h3 {
+        color: #fff;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .footer-section a {
+        display: block;
+        color: #999;
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s;
+      }
+
+      .footer-section a:hover {
+        color: #fff;
+      }
+
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        color: #666;
+      }
+
+      @media (max-width: 768px) {
+        /* Existing mobile adjustments */
+        .hero h1 {
+          font-size: 1.5rem;
+        }
+        .hero p {
+          font-size: 1.1rem;
+        }
+        .hero-icon {
+          width: 80px;
+          height: 80px;
+        }
+        .section-content {
+          grid-template-columns: 1fr;
+        }
+        .navbar {
+          padding: 1rem;
+          flex-wrap: wrap;
+        }
+
+        /* Hide nav links and Discord button on small screens */
+        .nav-links,
+        .discord-btn {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stars-container" id="stars"></div>
+
+    <nav class="navbar">
+      <div class="logo">
+        <img src="./icons/shootingstar.png" alt="Bedrock Cosmos" class="logo-icon" />
+        Bedrock Cosmos
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="https://www.youtube.com/watch?v=RCSnBT2YOEo" class="discord-btn">Join Discord</a>
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <img src="./icons/shootingstar.png" alt="Bedrock Cosmos" class="hero-icon" />
+        <h1>Welcome To Bedrock Cosmos</h1>
+        <p>
+          A custom-built proxy launcher for Minecraft Bedrock Edition that unlocks endless customization possibilities
+          and restores missing content.
+        </p>
+        <div class="hero-buttons">
+          <a
+            href="https://www.youtube.com/watch?v=RCSnBT2YOEo"
+            class="btn-primary"
+            >Download (Windows)</a
+          >
+          <a href="#features" class="btn-secondary">Learn More</a>
+        </div>
+        <div class="stats-container">
+          <div class="stat-item"><span class="stat-number" id="userCount">Loading...</span> Current Users!</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="features-grid">
+        <div class="feature-card">
+          <img src="./icons/folder.png" alt="Folder" class="feature-icon">
+          <h3>Open Source</h3>
+          <p>The Launcher is open source and available on Github</p>
+        </div>
+        <div class="feature-card">
+          <img src="./icons/like.png" alt="Like" class="feature-icon">
+          <h3>Easy To Use</h3>
+          <p>Install it in seconds and turn it on!</p>
+        </div>
+        <div class="feature-card">
+          <img src="./icons/link.png" alt="Link" class="feature-icon">
+          <h3>Compatible</h3>
+          <p>Works with any bedrock client installed</p>
+        </div>
+        <div class="feature-card">
+          <img src="./icons/resize.png" alt="Resize" class="feature-icon">
+          <h3>Lightweight</h3>
+          <p>Runs in the background using no resources</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-content">
+        <div>
+          <h2>Custom Capes</h2>
+          <p>
+            Express yourself with an extensive library of custom capes. Bedrock Cosmos acts as a custom-built proxy that
+            seamlessly adds tons of unique cape designs to your Minecraft Bedrock experience.
+          </p>
+          <p>
+            Browse through hundreds of community-created designs and equip your favorite cape to stand out in any server
+            or world.
+          </p>
+        </div>
+        <div class="section-image">
+          <img src="./imgs/img_1.png" alt="Custom Capes" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-content">
+        <div>
+          <h2>Marketplace Unlocked</h2>
+          <p>
+            Discover hidden gems in the Minecraft Marketplace. Bedrock Cosmos reveals hidden packs that are normally
+            inaccessible, giving you access to exclusive content.
+          </p>
+          <p>Access missing packs and experience content that was previously unavailable in your region or platform.</p>
+        </div>
+        <div class="section-image">
+          <img src="./imgs/img_2.jpg" alt="Marketplace" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-content">
+        <div>
+          <h2>Restored Content</h2>
+          <p>
+            Bedrock Cosmos fixes broken marketplace packs by restoring missing features. Get back capes, animations, and
+            skins that were removed or broken in official updates.
+          </p>
+          <p>
+            Enjoy the full Minecraft Bedrock experience as it was meant to be, with all features fully functional and
+            accessible.
+          </p>
+        </div>
+        <div class="section-image">
+          <img src="./imgs/img_3.png" alt="Restored Content" />
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="faq-container">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            What is Bedrock Cosmos?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Bedrock Cosmos is a custom-built proxy launcher for Minecraft Bedrock Edition that adds custom capes,
+            reveals hidden marketplace packs, and restores missing content like capes, animations, and skins that were
+            removed from official packs.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Is Bedrock Cosmos safe to use?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes! Bedrock Cosmos is completely open source and available on GitHub. You can review the code and build it yourself to
+            see exactly what it does.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Which platforms are supported?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Currently, Bedrock Cosmos is only available for Windows. It works with any Minecraft Bedrock Edition client
+            installed on Windows systems.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Will this get me banned?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Bedrock Cosmos operates as a client-side proxy and does not modify game files or give unfair advantages.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Can I upload my own custom capes?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes! We provide templates and tools for you to upload your
+            own. Join our Discord server to submit your capes for use with Bedrock Cosmos.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Does it affect game performance?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            No! Bedrock Cosmos is designed to be lightweight and runs in the background using minimal system resources.
+            You won't notice any performance impact while playing.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            How do I get support?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Join our Discord server where our community and support team are ready to help! You can ask questions,
+            report issues, and connect with other Bedrock Cosmos users.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Socials</h3>
+          <a href="https://www.youtube.com/watch?v=RCSnBT2YOEo" target="_blank">Youtube</a>
+          <a href="https://www.youtube.com/watch?v=RCSnBT2YOEo" target="_blank">Discord</a>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <a
+            href="https://www.youtube.com/watch?v=RCSnBT2YOEo"
+            >Download</a
+          >
+          <a
+            href="https://www.youtube.com/watch?v=RCSnBT2YOEo"
+            >Github</a
+          >
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <a href="https://www.youtube.com/watch?v=RCSnBT2YOEo#terms">Terms of Service</a>
+          <a href="https://www.youtube.com/watch?v=RCSnBT2YOEo#privacy">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>All Rights Reserved - Not affiliated with Mojang Studios or Microsoft</p>
+      </div>
+    </footer>
+
+    <script>
+      // Create twinkling stars
+      const starsContainer = document.getElementById("stars");
+      for (let i = 0; i < 200; i++) {
+        const star = document.createElement("div");
+        star.className = "star";
+        star.style.width = Math.random() * 3 + "px";
+        star.style.height = star.style.width;
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
+        star.style.animationDelay = Math.random() * 3 + "s";
+        starsContainer.appendChild(star);
+      }
+
+      // Create shooting stars - more frequent
+      setInterval(() => {
+        const shootingStar = document.createElement("div");
+        shootingStar.className = "shooting-star";
+        shootingStar.style.left = Math.random() * 100 + "%";
+        shootingStar.style.top = Math.random() * 50 + "%";
+        starsContainer.appendChild(shootingStar);
+
+        setTimeout(() => shootingStar.remove(), 3000);
+      }, 2000);
+
+      // Fetch current users from Discord
+      async function fetchCurrentUsers() {
+        try {
+          const response = await fetch("https://discord.com/api/guilds/1460766433536508201/widget.json");
+          const data = await response.json();
+          document.getElementById("userCount").textContent = data.presence_count.toLocaleString();
+        } catch (error) {
+          document.getElementById("userCount").textContent = "1,000+";
+          console.error("Error fetching Discord data:", error);
+        }
+      }
+
+      // FAQ accordion functionality
+      const faqItems = document.querySelectorAll(".faq-item");
+      faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+        question.addEventListener("click", () => {
+          const isActive = item.classList.contains("active");
+
+          // Close all FAQ items
+          faqItems.forEach((faq) => faq.classList.remove("active"));
+
+          // Open clicked item if it wasn't active
+          if (!isActive) {
+            item.classList.add("active");
+          }
+        });
+      });
+
+      // Load stats on page load
+      fetchCurrentUsers();
+    </script>
+  </body>
+</html>
