@@ -52,7 +52,7 @@
         <li><a href="#faq">FAQ</a></li>
         <li><a href="/changelogs">Changelogs</a></li>
       </ul>
-      <a href="https://discord.com/invite/bcrZQKxe" class="discord-btn">Join Discord</a>
+      <a href="https://discord.com/invite/veHaxsfSyb" class="discord-btn" id="discord-btn-nav">Join Discord</a>
     </nav>
 
     <section class="hero" id="home">
@@ -238,7 +238,7 @@
         <div class="footer-section">
           <h3>Socials</h3>
           <a href="https://www.youtube.com/watch?v=RCSnBT2YOEo" target="_blank">Youtube</a>
-          <a href="https://discord.com/invite/bcrZQKxe" target="_blank">Discord</a>
+          <a href="https://discord.com/invite/veHaxsfSyb" id="discord-btn-footer" target="_blank">Discord</a>
         </div>
         <div class="footer-section">
           <h3>Resources</h3>
@@ -282,13 +282,23 @@
       }, 2000);
 
       // Fetch current users from Discord
+      const DISCORD_FALLBACK_INVITE = "https://discord.com/invite/veHaxsfSyb";
+
+      function setDiscordLinks(url) {
+        document.querySelectorAll("#discord-btn-nav, #discord-btn-footer").forEach((el) => {
+          el.href = url;
+        });
+      }
+
       async function fetchCurrentUsers() {
         try {
           const response = await fetch("https://discord.com/api/guilds/1460766433536508201/widget.json");
           const data = await response.json();
           document.getElementById("userCount").textContent = data.presence_count.toLocaleString();
+          setDiscordLinks(data.instant_invite || DISCORD_FALLBACK_INVITE);
         } catch (error) {
           document.getElementById("userCount").textContent = "1,000+";
+          setDiscordLinks(DISCORD_FALLBACK_INVITE);
           console.error("Error fetching Discord data:", error);
         }
       }
