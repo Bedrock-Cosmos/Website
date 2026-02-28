@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cookies Skin Pack - Bedrock Cosmos" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cookies Skin Pack - Bedrock Cosmos" />
+    <meta property="og:url" content="https://bedrock-cosmos.app/packs/cookies" />
+    <meta name="theme-color" content="#010101" />
+    <title>Cookies Skin Pack - Bedrock Cosmos</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body>
+
+    <div id="redirect-overlay">
+      <div class="redirect-spinner"></div>
+      <p class="redirect-text">Opening in Minecraft…</p>
+    </div>
+
+    <div class="stars-container" id="stars"></div>
+
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../../icons/shootingstar.png" alt="Bedrock Cosmos" class="logo-icon" />
+        Bedrock Cosmos
+      </div>
+      <ul class="nav-links">
+        <li><a href="../../#home">Home</a></li>
+        <li><a href="../../#features">Features</a></li>
+        <li><a href="../../#faq">FAQ</a></li>
+      </ul>
+      <a href="https://discord.com/invite/veHaxsfSyb" class="discord-btn">Join Discord</a>
+    </nav>
+
+    <div class="pack-page">
+      <a href="../../" class="back-link">← Back to Home</a>
+
+      <div class="pack-card">
+        <div class="pack-hero">
+
+          <div class="pack-thumbnail-wrap">
+            <img
+              src="https://raw.githubusercontent.com/Bedrock-Cosmos/Backend/main/Main/Thumbnails/Marketplace/Skin%20Packs/Creator%20Hub/Exports/Exports%20Matching%20Cosmetics%201/ExportsMatchingCosmetics1_thumbnail.jpg"
+              alt="thumbnail"
+              loading="eager"
+            />
+          </div>
+
+          <div class="pack-info">
+
+            <span class="pack-type-badge">Skin Pack</span>
+
+            <h1 class="pack-name">Matching Cosmetics 1</h1>
+
+            <p class="pack-description">Express yourself in-game with a friend or partner using the 30 skins in this pack!</p>
+
+            <div class="pack-meta">
+              <div class="meta-row">
+                <span class="meta-label">Creator</span>
+                <span class="meta-value">
+                  <a href="https://www.youtube.com/@exportscosmetics" target="_blank" rel="noopener">Exports</a>
+                </span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Skins</span>
+                <span class="meta-value">30</span>
+              </div>
+            </div>
+
+            <div class="pack-divider"></div>
+
+            <div class="pack-actions">
+              <a
+                href="minecraft://openStore?showStoreOffer=22688cde-3822-4bd8-9638-625713ba4dfd"
+                class="btn-open-minecraft"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                View This Item
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Socials</h3>
+          <a href="https://www.youtube.com/watch?v=RCSnBT2YOEo" target="_blank">Youtube</a>
+          <a href="https://discord.com/invite/veHaxsfSyb" target="_blank">Discord</a>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <a href="https://github.com/Bedrock-Cosmos/Launcher/releases/">Download</a>
+          <a href="https://github.com/Bedrock-Cosmos/Launcher">Github</a>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <a href="/terms-of-service">Terms of Service</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Bedrock Cosmos © 2026 - All Rights Reserved - Not affiliated with Mojang Studios or Microsoft</p>
+      </div>
+    </footer>
+
+    <script>
+      // ── Instant Minecraft redirect ──
+      (function () {
+        window.location = "minecraft://openStore?showStoreOffer=22688cde-3822-4bd8-9638-625713ba4dfd";
+        setTimeout(function () {
+          var overlay = document.getElementById('redirect-overlay');
+          if (overlay) {
+            overlay.classList.add('fade-out');
+            setTimeout(function () { overlay.style.display = 'none'; }, 650);
+          }
+        }, 1800);
+      })();
+
+      // ── Stars ──
+      const starsContainer = document.getElementById("stars");
+      for (let i = 0; i < 200; i++) {
+        const star = document.createElement("div");
+        star.className = "star";
+        star.style.width = Math.random() * 3 + "px";
+        star.style.height = star.style.width;
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
+        star.style.animationDelay = Math.random() * 3 + "s";
+        starsContainer.appendChild(star);
+      }
+
+      // ── Shooting stars ──
+      setInterval(() => {
+        const s = document.createElement("div");
+        s.className = "shooting-star";
+        s.style.left = Math.random() * 100 + "%";
+        s.style.top = Math.random() * 50 + "%";
+        starsContainer.appendChild(s);
+        setTimeout(() => s.remove(), 3000);
+      }, 2000);
+    </script>
+  </body>
+</html>

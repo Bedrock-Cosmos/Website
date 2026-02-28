@@ -748,3 +748,253 @@ footer {
     transform: translate(-50%, -50%) scale(1.05) !important;
   }
 }
+
+/* ── redirect overlay ── */
+#redirect-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  transition: opacity 0.6s ease;
+}
+
+#redirect-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.redirect-spinner {
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.redirect-text {
+  font-size: 0.9rem;
+  color: #666;
+  letter-spacing: 0.05em;
+}
+
+/* ── page wrapper ── */
+.pack-page {
+  position: relative;
+  z-index: 10;
+  padding: 8rem 2rem 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.back-link {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto 2rem;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.3s;
+}
+
+.back-link:hover {
+  opacity: 0.7;
+}
+
+/* ── card ── */
+.pack-card {
+  max-width: 1300px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.pack-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── two-column layout ── */
+.pack-hero {
+  display: flex;
+  flex-direction: row;
+  min-height: 400px;
+}
+
+.pack-thumbnail-wrap {
+  flex: 320px;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.pack-thumbnail-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s ease;
+  filter: brightness(1.1);
+}
+
+.pack-card:hover .pack-thumbnail-wrap img {
+  transform: scale(1.04);
+}
+
+/* ── info panel ── */
+.pack-info {
+  flex: 1;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  justify-content: space-between;
+}
+
+.pack-type-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ccc;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.pack-name {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+.pack-description {
+  color: #999;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ── meta ── */
+.pack-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.meta-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.meta-label {
+  color: #555;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  min-width: 70px;
+}
+
+.meta-value {
+  color: #ccc;
+  font-weight: 500;
+}
+
+.meta-value a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s;
+}
+
+.meta-value a:hover {
+  border-bottom-color: #fff;
+  opacity: 0.8;
+}
+
+/* ── divider ── */
+.pack-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── CTA ── */
+.pack-actions {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-open-minecraft {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fff;
+  color: #0a0a0a;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.85rem 2rem;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  transition: all 0.3s;
+}
+
+.btn-open-minecraft:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+}
+
+.btn-open-minecraft svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+/* ── mobile ── */
+@media (max-width: 700px) {
+  .pack-hero {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .pack-thumbnail-wrap {
+    flex: unset;
+    width: 100%;
+    height: 240px;
+  }
+
+  .pack-info {
+    padding: 1.5rem;
+  }
+
+  .pack-name {
+    font-size: 1.8rem;
+  }
+}
