@@ -799,21 +799,6 @@ footer {
   align-items: center;
 }
 
-.back-link {
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto 2rem;
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: opacity 0.3s;
-}
-
-.back-link:hover {
-  opacity: 0.7;
-}
-
 /* ── card ── */
 .pack-card {
   max-width: 1300px;
@@ -838,7 +823,7 @@ footer {
 }
 
 .pack-thumbnail-wrap {
-  flex: 320px;
+  flex: 0 0 320px;
   overflow: hidden;
   background: #0a0a0a;
 }
