@@ -823,7 +823,6 @@ footer {
 }
 
 .pack-thumbnail-wrap {
-  flex: 0 0 320px;
   overflow: hidden;
   background: #0a0a0a;
 }
