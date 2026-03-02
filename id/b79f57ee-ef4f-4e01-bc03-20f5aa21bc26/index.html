@@ -4,14 +4,14 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="Matching Cosmetics 1" />
-    <meta property="og:description" content="Express yourself in-game with a friend or partner using the 30 skins in this pack! By Exports" />
-    <meta property="og:url" content="https://bedrock-cosmos.app/id/22688cde-3822-4bd8-9638-625713ba4dfd/" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/Bedrock-Cosmos/Backend/main/Main/Thumbnails/Marketplace/Skin%20Packs/Creator%20Hub/Exports/Exports%20Matching%20Cosmetics%201/ExportsMatchingCosmetics1_thumbnail.jpg" />
+    <meta property="og:title" content="Marvel Spider-Man Skin Pack" />
+    <meta property="og:description" content="Look out! Here comes the Spider-Man Skin Pack! Featuring an assortment of 35 friends and foes straight from the saga of your favorite Wall-Crawler, this pack is sure to amaze. Catch it now!" />
+    <meta property="og:url" content="https://bedrock-cosmos.app/id/b79f57ee-ef4f-4e01-bc03-20f5aa21bc26/" />
+    <meta property="og:image" content="https://xforgeassets001.xboxlive.com/serviceid-18231953-4b1d-472c-a39e-48b10105b7b7-public/d2766dd7-c7e9-4836-99f2-ca87eac688cb/MC__SpiderMan_Thumbnail_0.jpg" />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#020202" />
     <link rel="stylesheet" href="../../css/style.css" />
-    <title>Loading…</title>
+    <title>Marvel Spider-Man Skin Pack</title>
   </head>
   <body>
 
@@ -102,99 +102,68 @@
     </footer>
 
     <script>
-      // ── Config ──────────────────────────────────────────────────────────────
-      // Point this at the raw JSON in your GitHub repo.
-      // Use raw.githubusercontent.com so the browser can fetch it directly.
-      const JSON_URL =
-        "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/MainPages/Creators/SkinPacks/Exports/ItemDetail_EMC1.json";
+      const JSON_URL = "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks/MarvelSkinPacks/ItemDetail_MarvelSpiderManSkinPack.json";
 
-      // Map packType values from the JSON to human-readable badge labels
       const PACK_TYPE_LABELS = {
-        SkinPack:    "Skin Pack",
+        SkinPack:      "Skin Pack",
         WorldTemplate: "World",
-        Mashup:      "Mashup",
-        TexturePack: "Texture Pack",
-        Addon:       "Add-On",
+        Mashup:        "Mashup",
+        TexturePack:   "Texture Pack",
+        Addon:         "Add-On",
       };
 
-      // ── Load & render ────────────────────────────────────────────────────────
       async function loadPack() {
         try {
           const res  = await fetch(JSON_URL);
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const json = await res.json();
 
-          // Navigate to the ItemSummary component's item object
           const rows       = json?.result?.rows ?? [];
           const summaryRow = rows.find(r => r.controlId === "ItemSummary");
           const item       = summaryRow?.components?.find(c => c.type === "itemSummaryComp")?.item;
 
-          // Get description from ItemDescription row
-          const descRow    = rows.find(r => r.controlId === "ItemDescription");
-          const descComp   = descRow?.components?.find(c => c.type === "itemDescriptionComp");
+          const descRow  = rows.find(r => r.controlId === "ItemDescription");
+          const descComp = descRow?.components?.find(c => c.type === "itemDescriptionComp");
           const description = descComp?.description ?? "";
 
           if (!item) throw new Error("item not found in JSON");
 
-          const {
-            id,
-            title,
-            creatorName,
-            thumbnail,
-            statistics,
-            packType,
-          } = item;
+          const { id, title, creatorName, thumbnail, statistics, packType } = item;
 
-          // ── Page title & OG meta
           document.title = title;
 
-          // ── Thumbnail
-          const thumbUrl = thumbnail?.url ?? "";
-          document.getElementById("pack-thumbnail").src = thumbUrl;
+          document.getElementById("pack-thumbnail").src = thumbnail?.url ?? "";
           document.getElementById("pack-thumbnail").alt = title;
-
-          // ── Badge
-          const badgeEl = document.getElementById("pack-type-badge");
-          badgeEl.textContent = PACK_TYPE_LABELS[packType] ?? packType ?? "Pack";
-
-          // ── Name
+          document.getElementById("pack-type-badge").textContent = PACK_TYPE_LABELS[packType] ?? packType ?? "Pack";
           document.getElementById("pack-name").textContent = title;
-
-          // ── Description
           document.getElementById("pack-description").textContent = description;
 
-          // ── Meta rows
           const metaEl = document.getElementById("pack-meta");
-          metaEl.innerHTML = ""; // clear
+          metaEl.innerHTML = "";
 
-          function addMeta(label, valueHTML) {
+          function addMeta(label, value) {
             metaEl.insertAdjacentHTML("beforeend", `
               <div class="meta-row">
                 <span class="meta-label">${label}</span>
-                <span class="meta-value">${valueHTML}</span>
+                <span class="meta-value">${value}</span>
               </div>
             `);
           }
 
           addMeta("Creator", creatorName ?? "Unknown");
-
           if (statistics) {
-            if (statistics.skins  > 0) addMeta("Skins",     statistics.skins);
-            if (statistics.worlds > 0) addMeta("Worlds",    statistics.worlds);
-            if (statistics.textures > 0) addMeta("Textures", statistics.textures);
+            if (statistics.skins     > 0) addMeta("Skins",     statistics.skins);
+            if (statistics.worlds    > 0) addMeta("Worlds",    statistics.worlds);
+            if (statistics.textures  > 0) addMeta("Textures",  statistics.textures);
             if (statistics.behaviors > 0) addMeta("Behaviors", statistics.behaviors);
-            if (statistics.addOns  > 0) addMeta("Add-Ons",  statistics.addOns);
+            if (statistics.addOns    > 0) addMeta("Add-Ons",   statistics.addOns);
           }
 
-          // ── CTA button
           const minecraftUrl = `minecraft://openStore?showStoreOffer=${id}`;
           document.getElementById("btn-open-minecraft").href = minecraftUrl;
-
-          // ── Show card, hide error
           document.getElementById("pack-card").style.display = "";
           document.getElementById("pack-error").style.display = "none";
 
-          // ── Trigger Minecraft redirect
           window.location = minecraftUrl;
           setTimeout(function () {
             const overlay = document.getElementById("redirect-overlay");
@@ -218,7 +187,6 @@
         }
       }
 
-      // Update overlay text while loading
       document.getElementById("redirect-text").textContent = "Loading…";
       loadPack();
 
@@ -235,7 +203,6 @@
         starsContainer.appendChild(star);
       }
 
-      // ── Shooting stars ──
       setInterval(() => {
         const s = document.createElement("div");
         s.className = "shooting-star";
