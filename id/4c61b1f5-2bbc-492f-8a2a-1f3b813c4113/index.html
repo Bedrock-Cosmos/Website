@@ -122,9 +122,13 @@
           const summaryRow = rows.find(r => r.controlId === "ItemSummary");
           const item       = summaryRow?.components?.find(c => c.type === "itemSummaryComp")?.item;
 
-          const descRow  = rows.find(r => r.controlId === "ItemDescription");
-          const descComp = descRow?.components?.find(c => c.type === "itemDescriptionComp");
-          const description = descComp?.description ?? "";
+          const navComp = summaryRow?.components?.find((c) => c.type === "navigationTabComp");
+
+          const description =
+            navComp?.tabs
+              ?.flatMap((tab) => tab.rows ?? [])
+              ?.find((r) => r.controlId === "ItemDescription")
+              ?.components?.find((c) => c.type === "itemDescriptionComp")?.description ?? "";
 
           if (!item) throw new Error("item not found in JSON");
 
