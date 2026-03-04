@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
@@ -60,11 +60,13 @@
         <img src="./icons/shootingstar.png" alt="Bedrock Cosmos" class="hero-icon" />
         <h1>Welcome To Bedrock Cosmos</h1>
         <p>
-          A custom proxy for Minecraft Bedrock Edition that adds new ways to customize your
-          character and restores missing content.
+          A custom proxy for Minecraft Bedrock Edition that adds new ways to customize your character and restores
+          missing content.
         </p>
         <div class="hero-buttons">
-          <a href="https://github.com/Bedrock-Cosmos/Launcher/releases/" class="btn-primary">Download (Windows)</a>
+          <a href="https://github.com/Bedrock-Cosmos/Launcher/releases/" class="btn-primary" id="download-btn">
+            Download (Windows)
+          </a>
           <a href="#features" class="btn-secondary">Learn More</a>
         </div>
         <div class="stats-container">
@@ -107,8 +109,7 @@
             seamlessly adds tons of unique cape designs to your Minecraft Bedrock experience.
           </p>
           <p>
-            Browse through hundreds of unique designs and equip your favorite cape to stand out in any server
-            or world.
+            Browse through hundreds of unique designs and equip your favorite cape to stand out in any server or world.
           </p>
         </div>
         <div class="section-image image-carousel" data-images='["./imgs/img_1.png"]'>
@@ -122,8 +123,10 @@
         <div>
           <h2>Marketplace Highlights</h2>
           <p>
-            Discover hidden gems in the Minecraft Marketplace. Bedrock Cosmos highlights packs that aren’t always visible,
-            helping you discover exclusive content that may not be prominently shown on your region or platform.</p>
+            Discover hidden gems in the Minecraft Marketplace. Bedrock Cosmos highlights packs that aren’t always
+            visible, helping you discover exclusive content that may not be prominently shown on your region or
+            platform.
+          </p>
         </div>
         <div class="section-image image-carousel" data-images='["./imgs/img_2.png"]'>
           <img src="./imgs/img_2.png" alt="Marketplace" class="carousel-img active" />
@@ -302,6 +305,31 @@
           console.error("Error fetching Discord data:", error);
         }
       }
+
+      // Latest Releases
+      async function fetchLatestRelease() {
+        const btn = document.getElementById("download-btn");
+        try {
+          const response = await fetch("https://api.github.com/repos/Bedrock-Cosmos/Launcher/releases/latest");
+          const data = await response.json();
+
+          // Find the first .zip asset
+          const zipAsset = data.assets.find((a) => a.name.endsWith(".zip"));
+
+          if (zipAsset) {
+            btn.href = zipAsset.browser_download_url;
+            btn.textContent = `Download ${data.tag_name}`;
+          } else {
+            // Fallback to the release page if no zip found
+            btn.href = data.html_url;
+          }
+        } catch (error) {
+          console.error("Error fetching latest release:", error);
+          // Fallback stays as-is (the original href)
+        }
+      }
+
+      fetchLatestRelease();
 
       // FAQ accordion functionality
       const faqItems = document.querySelectorAll(".faq-item");
