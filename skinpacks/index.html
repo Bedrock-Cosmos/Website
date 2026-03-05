@@ -183,7 +183,7 @@
           const a=document.createElement("a");
           a.className="pack-card-item";
           a.href=`/id/?pack=${pack.uuid}`;
-          a.innerHTML=`<img class="pack-banner" src="${pack.banner}" alt="${pack.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pack-banner-placeholder">No Banner</div><div class="pack-card-footer"><span class="pack-card-name">${pack.name}</span></div>`;
+          a.innerHTML=`<img class="pack-banner" src="${pack.banner}" alt="Minecraft Bedrock ${pack.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pack-banner-placeholder">No Banner</div><div class="pack-card-footer"><span class="pack-card-name">${pack.name}</span></div>`;
           grid.insertBefore(a,noResults);
         });
       }
