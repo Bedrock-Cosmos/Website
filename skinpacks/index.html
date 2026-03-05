@@ -133,7 +133,7 @@
       //  { name:"The Incredibles Skin Pack",     uuid:"5964b96f-8318-4ee3-929c-aed1e1479cfd", banner:"https://bedrock-cosmos.app/banners/TheIncrediblesSkinPack.png", category:"Legacy" }, //6a9ba78d-2c6e-41d6-b699-27331cc8bb8e
         { name:"The Simpsons Skin Pack",        uuid:"39ddc16e-e398-4c71-b562-75b2ac5b1319", banner:"https://bedrock-cosmos.app/banners/TheSimpsonsSkinPack.png", category:"Legacy" }, //dc0b0a68-dc84-423e-91e2-3d1b66578fe7
         // ── Creator
-        { name:"Matching Cosmetics 1",     uuid:"22688cde-3822-4bd8-9638-625713ba4dfd", banner:"https://bedrock-cosmos.app/banners/Placeholder.png", category:"Creator" },
+        { name:"Matching Cosmetics 1",     uuid:"22688cde-3822-4bd8-9638-625713ba4dfd", banner:"https://bedrock-cosmos.app/banners/EMC1.png", category:"Creator" },
         { name:"Matching Cosmetics 2",     uuid:"a045e0ba-b58e-44d5-b463-e8968f28ae99", banner:"https://bedrock-cosmos.app/banners/Placeholder.png", category:"Creator" },
         { name:"Matching Cosmetics 3",     uuid:"2d43de6c-6846-4cdc-a43b-55f8627b7b01", banner:"https://bedrock-cosmos.app/banners/Placeholder.png", category:"Creator" },
         { name:"Matching Cosmetics 4",     uuid:"d1c19132-0b7d-453d-b39b-5b06a5fb30f9", banner:"https://bedrock-cosmos.app/banners/Placeholder.png", category:"Creator" },
@@ -153,7 +153,7 @@
         filtered.forEach(pack=>{
           const a=document.createElement("a");
           a.className="pack-card-item";
-          a.href=`/id/${pack.uuid}/`;
+          a.href=`/id/?pack=${pack.uuid}`;
           a.innerHTML=`<img class="pack-banner" src="${pack.banner}" alt="${pack.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pack-banner-placeholder">No Banner</div><div class="pack-card-footer"><span class="pack-card-name">${pack.name}</span></div>`;
           grid.insertBefore(a,noResults);
         });

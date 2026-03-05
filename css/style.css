@@ -708,7 +708,6 @@ footer {
     grid-template-columns: 1fr;
   }
   .navbar {
-    padding: 1rem;
     flex-wrap: wrap;
   }
 

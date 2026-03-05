@@ -4,16 +4,11 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="Skin Pack 1" />
-    <meta property="og:description" content="A dedicated version of Skin Pack 1, featuring exclusive characters along with others from the Classic version.
-
-Only available for Minecraft on PlayStation®4." />
-    <meta property="og:url" content="https://bedrock-cosmos.app/id/a681c130-1ac9-456f-a13a-1f985365bb77/" />
-    <meta property="og:image" content="https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-ee7b/db90b652-cfe4-40a5-bb5f-9e534d01daa4/SkinPack1Sony_Thumbnail_0.jpg" />
+    <meta property="og:title" content="Bedrock Cosmos" />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#020202" />
-    <link rel="stylesheet" href="../../css/style.css" />
-    <title>Skin Pack 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Loading…</title>
   </head>
   <body>
 
@@ -26,19 +21,14 @@ Only available for Minecraft on PlayStation®4." />
 
     <nav class="navbar">
       <div class="logo">
-        <img src="../../icons/shootingstar.png" alt="Bedrock Cosmos" class="logo-icon" />
+        <img src="../icons/shootingstar.png" alt="Bedrock Cosmos" class="logo-icon" />
         Bedrock Cosmos
       </div>
-      <ul class="nav-links">
-        <li><a href="../../#home">Home</a></li>
-        <li><a href="../../#features">Features</a></li>
-        <li><a href="../../#faq">FAQ</a></li>
-      </ul>
       <a href="https://discord.com/invite/HRG2NapegP" class="discord-btn">Join Discord</a>
     </nav>
 
-    <d<a href="../../skinpacks/" class="back-link">← Back to Skin Packs</a>
-      <a href="../../" class="back-link">← Back to Home</a>
+    <div class="pack-page">
+      <a href="/skinpacks/" class="back-link">← Back to Skin Packs</a>
 
       <div class="pack-card" id="pack-card" style="display:none">
         <div class="pack-hero">
@@ -76,7 +66,6 @@ Only available for Minecraft on PlayStation®4." />
         </div>
       </div>
 
-      <!-- Error state -->
       <p id="pack-error" style="display:none; color:#999; margin-top:2rem;">Failed to load pack data. Please try again later.</p>
     </div>
 
@@ -104,7 +93,10 @@ Only available for Minecraft on PlayStation®4." />
     </footer>
 
     <script>
-      const JSON_URL = "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks/SkinPack/ItemDetail_SkinPack1.json";
+      // ── Config ──────────────────────────────────────────────────────────────
+      // Master index: maps UUID → JSON filename (all files in the same folder)
+      const INDEX_URL  = "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks/index.json";
+      const PACKS_BASE = "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks/";
 
       const PACK_TYPE_LABELS = {
         SkinPack:      "Skin Pack",
@@ -113,13 +105,32 @@ Only available for Minecraft on PlayStation®4." />
         TexturePack:   "Texture Pack",
         Addon:         "Add-On",
       };
+      // ────────────────────────────────────────────────────────────────────────
 
       async function loadPack() {
-        try {
-          const res  = await fetch(JSON_URL);
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          const json = await res.json();
+        // 1. Get the UUID from ?pack=<uuid>
+        const uuid = new URLSearchParams(window.location.search).get("pack");
 
+        if (!uuid) {
+          showError("No pack ID specified.");
+          return;
+        }
+
+        try {
+          // 2. Fetch master index and look up the filename for this UUID
+          const indexRes = await fetch(INDEX_URL);
+          if (!indexRes.ok) throw new Error(`Index fetch failed: HTTP ${indexRes.status}`);
+          const index = await indexRes.json();
+
+          const filename = index[uuid];
+          if (!filename) throw new Error(`Unknown pack ID: ${uuid}`);
+
+          // 3. Fetch the actual pack JSON
+          const packRes = await fetch(PACKS_BASE + filename);
+          if (!packRes.ok) throw new Error(`Pack fetch failed: HTTP ${packRes.status}`);
+          const json = await packRes.json();
+
+          // 4. Parse the JSON
           const rows       = json?.result?.rows ?? [];
           const summaryRow = rows.find(r => r.controlId === "ItemSummary");
           const item       = summaryRow?.components?.find(c => c.type === "itemSummaryComp")?.item;
@@ -132,7 +143,12 @@ Only available for Minecraft on PlayStation®4." />
 
           const { id, title, creatorName, thumbnail, statistics, packType } = item;
 
+          // 5. Populate the page
           document.title = title;
+          setMeta("og:title",       title);
+          setMeta("og:description", description);
+          setMeta("og:image",       thumbnail?.url ?? "");
+          setMeta("og:url",         window.location.href);
 
           document.getElementById("pack-thumbnail").src = thumbnail?.url ?? "";
           document.getElementById("pack-thumbnail").alt = title;
@@ -166,33 +182,46 @@ Only available for Minecraft on PlayStation®4." />
           document.getElementById("pack-card").style.display = "";
           document.getElementById("pack-error").style.display = "none";
 
+          // 6. Redirect into Minecraft
           window.location = minecraftUrl;
-          setTimeout(function () {
-            const overlay = document.getElementById("redirect-overlay");
-            if (overlay) {
-              overlay.classList.add("fade-out");
-              setTimeout(() => { overlay.style.display = "none"; }, 650);
-            }
-          }, 1800);
+          dismissOverlay();
 
         } catch (err) {
-          console.error("Failed to load pack data:", err);
-          document.getElementById("pack-error").style.display = "";
-          document.getElementById("redirect-text").textContent = "Could not load pack.";
-          setTimeout(function () {
-            const overlay = document.getElementById("redirect-overlay");
-            if (overlay) {
-              overlay.classList.add("fade-out");
-              setTimeout(() => { overlay.style.display = "none"; }, 650);
-            }
-          }, 1800);
+          console.error("Failed to load pack:", err);
+          showError("Failed to load pack data. Please try again later.");
         }
       }
 
-      document.getElementById("redirect-text").textContent = "Loading…";
+      function showError(msg) {
+        document.getElementById("pack-error").textContent = msg;
+        document.getElementById("pack-error").style.display = "";
+        document.getElementById("redirect-text").textContent = "Error.";
+        dismissOverlay();
+      }
+
+      function dismissOverlay() {
+        setTimeout(() => {
+          const overlay = document.getElementById("redirect-overlay");
+          if (overlay) {
+            overlay.classList.add("fade-out");
+            setTimeout(() => { overlay.style.display = "none"; }, 650);
+          }
+        }, 1800);
+      }
+
+      function setMeta(property, content) {
+        let el = document.querySelector(`meta[property="${property}"]`);
+        if (!el) {
+          el = document.createElement("meta");
+          el.setAttribute("property", property);
+          document.head.appendChild(el);
+        }
+        el.setAttribute("content", content);
+      }
+
       loadPack();
 
-      // ── Stars ──
+      // ── Stars ───────────────────────────────────────────────────────────────
       const starsContainer = document.getElementById("stars");
       for (let i = 0; i < 200; i++) {
         const star = document.createElement("div");
@@ -200,7 +229,7 @@ Only available for Minecraft on PlayStation®4." />
         star.style.width = Math.random() * 3 + "px";
         star.style.height = star.style.width;
         star.style.left = Math.random() * 100 + "%";
-        star.style.top = Math.random() * 100 + "%";
+        star.style.top  = Math.random() * 100 + "%";
         star.style.animationDelay = Math.random() * 3 + "s";
         starsContainer.appendChild(star);
       }
@@ -209,7 +238,7 @@ Only available for Minecraft on PlayStation®4." />
         const s = document.createElement("div");
         s.className = "shooting-star";
         s.style.left = Math.random() * 100 + "%";
-        s.style.top = Math.random() * 50 + "%";
+        s.style.top  = Math.random() * 50 + "%";
         starsContainer.appendChild(s);
         setTimeout(() => s.remove(), 3000);
       }, 2000);
