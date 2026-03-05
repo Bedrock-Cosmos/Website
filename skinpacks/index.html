@@ -84,7 +84,7 @@
       <a href="../" class="back-link">← Back to Home</a>
       <div class="skinpacks-header">
         <h1>Skin Packs</h1>
-        <p>Opens packs directly into Minecraft while Bedrock Cosmos is running.</p>
+        <p>Click to open packs directly into Minecraft while Bedrock Cosmos is running.</p>
       </div>
       <div class="skinpacks-toolbar">
         <div class="search-wrap">
@@ -183,7 +183,7 @@
           const a=document.createElement("a");
           a.className="pack-card-item";
           a.href=`/id/?pack=${pack.uuid}`;
-          a.innerHTML=`<img class="pack-banner" src="${pack.banner}" alt="Minecraft Bedrock ${pack.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pack-banner-placeholder">No Banner</div><div class="pack-card-footer"><span class="pack-card-name">${pack.name}</span></div>`;
+          a.innerHTML=`<img class="pack-banner" src="${pack.banner}" alt="Minecraft Bedrock Marketplace DLC ${pack.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pack-banner-placeholder">No Banner</div><div class="pack-card-footer"><span class="pack-card-name">${pack.name}</span></div>`;
           grid.insertBefore(a,noResults);
         });
       }
