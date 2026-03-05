@@ -1,37 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://bedrock-cosmos.app/</loc>
-  <lastmod>2026-03-05T06:44:01+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://bedrock-cosmos.app/changelogs/</loc>
-  <lastmod>2026-03-05T06:44:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://bedrock-cosmos.app/skinpacks/</loc>
-  <lastmod>2026-03-05T06:44:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://bedrock-cosmos.app/terms-of-service/</loc>
-  <lastmod>2026-03-05T06:44:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://bedrock-cosmos.app/privacy-policy/</loc>
-  <lastmod>2026-03-05T06:44:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+    <url>
+        <loc>
+            https://bedrock-cosmos.app/
+        </loc>
+        <lastmod>
+            2026-03-05T06:44:01+00:00
+        </lastmod>
+        <priority>
+            1.00
+        </priority>
+    </url>
+    <url>
+        <loc>
+            https://bedrock-cosmos.app/skinpacks/
+        </loc>
+        <lastmod>
+            2026-03-05T06:44:01+00:00
+        </lastmod>
+        <priority>
+            0.80
+        </priority>
+    </url>
+    <url>
+        <loc>
+            https://bedrock-cosmos.app/changelogs/
+        </loc>
+        <lastmod>
+            2026-03-05T06:44:01+00:00
+        </lastmod>
+        <changefreq>
+            monthly
+        </changefreq>
+        <priority>
+            0.80
+        </priority>
+    </url>
+    <url>
+        <loc>
+            https://bedrock-cosmos.app/id/?pack=60a2047b-fe99-4a1d-9ccf-79d6a9b63adb
+        </loc>
+        <changefreq>
+            monthly
+        </changefreq>
+        <priority>
+            0.5
+        </priority>
+    </url>
+    <url>
+        <loc>
+            https://bedrock-cosmos.app/id/?pack=c65b1919-df90-4c9b-b3d5-a59c7d7a3979
+        </loc>
+        <changefreq>
+            monthly
+        </changefreq>
+        <priority>
+            0.5
+        </priority>
+    </url>
+    <url>
+        <loc>
+            https://bedrock-cosmos.app/id/?pack=1fc32dd0-b399-4255-a4c7-e6e262a40ab6
+        </loc>
+        <changefreq>
+            monthly
+        </changefreq>
+        <priority>
+            0.5
+        </priority>
+    </url>
+    <url>
+        <loc>
+            https://bedrock-cosmos.app/id/?pack=93f3fa18-7b4e-4523-ac1d-a5d022b7480d
+        </loc>
+        <changefreq>
+            monthly
+        </changefreq>
+        <priority>
+            0.5
+        </priority>
+    </url>
+    <url>
+        <loc>
+            https://bedrock-cosmos.app/id/?pack=c0d8be40-e4a4-4304-b4ca-9c86b53cf417
+        </loc>
+        <changefreq>
+            monthly
+        </changefreq>
+        <priority>
+            0.5
+        </priority>
+    </url>
+    <url>
+        <loc>
+            https://bedrock-cosmos.app/id/?pack=1576dda6-814e-4ca2-9476-aa134105e5a8
+        </loc>
+        <changefreq>
+            monthly
+        </changefreq>
+        <priority>
+            0.5
+        </priority>
+    </url>
+    <url>
+        <loc>
+            https://bedrock-cosmos.app/terms-of-service/
+        </loc>
+        <lastmod>
+            2026-03-05T06:44:01+00:00
+        </lastmod>
+        <priority>
+            0.1
+        </priority>
+    </url>
+    <url>
+        <loc>
+            https://bedrock-cosmos.app/privacy-policy/
+        </loc>
+        <lastmod>
+            2026-03-05T06:44:01+00:00
+        </lastmod>
+        <priority>
+            0.1
+        </priority>
+    </url>
 </urlset>
