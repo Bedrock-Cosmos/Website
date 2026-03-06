@@ -23,6 +23,10 @@
     "file": "5thBirthdaySkinPack/ItemDetail_5thBirthdaySkinPack.json",
     "category": "skinpacks"
   },
+  "26c398b0-9649-459d-8406-71f744a668ab": {
+    "file": "McDonalds/ItemDetail_BigMacCrystal.json",
+    "category": "skinpacks"
+  },
   "57dfb793-29cb-4faf-acd9-bc0200ad108c": {
     "file": "BiomeSettlers/ItemDetail_BiomeSettlersSkinPack1.json",
     "category": "skinpacks"
@@ -31,12 +35,32 @@
     "file": "BiomeSettlers/ItemDetail_BiomeSettlersSkinPack3.json",
     "category": "skinpacks"
   },
+  "7d85c0b7-7847-4fd4-bf39-8510d41ca33f": {
+    "file": "McDonalds/ItemDetail_BirdieWings.json",
+    "category": "skinpacks"
+  },
+  "920a3a5c-b344-42a8-bf23-021b0d315239": {
+    "file": "GiveCampaignSkins/ItemDetail_BrodysGiveCampaignSkin.json",
+    "category": "skinpacks"
+  },
+  "83722c79-a25d-4448-a853-3a4b0fdd99d5": {
+    "file": "GiveCampaignSkins/ItemDetail_ClairesGiveCampaignSkin.json",
+    "category": "skinpacks"
+  },
+  "29ce2f54-be6e-4748-b63e-335d6fa8a9d0": {
+    "file": "CharitySkinPacks/ItemDetail_CoralCraftersSkinPack.json",
+    "category": "skinpacks"
+  },
   "60a2047b-fe99-4a1d-9ccf-79d6a9b63adb": {
     "file": "DoctorWho/ItemDetail_DoctorWhoV1.json",
     "category": "skinpacks"
   },
   "c65b1919-df90-4c9b-b3d5-a59c7d7a3979": {
     "file": "DoctorWho/ItemDetail_DoctorWhoV2.json",
+    "category": "skinpacks"
+  },
+  "0c77040a-abb6-4938-963d-5a8e9872c85c": {
+    "file": "EarthSkins/ItemDetail_EarthSkin.json",
     "category": "skinpacks"
   },
   "67318eb0-f570-428d-b667-31dcff56e272": {
@@ -51,12 +75,24 @@
     "file": "GreekMythologyMashUp/ItemDetail_GreekMythologyMashUp.json",
     "category": "skinpacks"
   },
+  "b052935a-9c47-43eb-ac50-ac3760100fd8": {
+    "file": "McDonalds/ItemDetail_GrimaceEgg.json",
+    "category": "skinpacks"
+  },
   "e735bf16-2da9-433e-adfb-9126dfe487b5": {
-    "file": "Charity/ItemDetail_HalloweenCharitySkinPack.json",
+    "file": "CharitySkinPacks/ItemDetail_HalloweenCharitySkinPack.json",
+    "category": "skinpacks"
+  },
+  "e205acc9-2c5a-430f-8576-d87c5ba67db4": {
+    "file": "GiveCampaignSkins/ItemDetail_JoslynsGiveCampaignSkin.json",
     "category": "skinpacks"
   },
   "4d7590d6-8f7f-4f53-989a-2df76b6b015b": {
     "file": "LittleBigPlanetMashUp/ItemDetail_LittleBigPlanetMashup.json",
+    "category": "skinpacks"
+  },
+  "633422ca-cdc9-44c8-a25d-a43fb2d76bc7": {
+    "file": "GiveCampaignSkins/ItemDetail_LucysGiveCampaignSkin.json",
     "category": "skinpacks"
   },
   "1fc32dd0-b399-4255-a4c7-e6e262a40ab6": {
@@ -85,6 +121,14 @@
   },
   "20b4d681-df67-420c-aff3-07673bb44d07": {
     "file": "CapeSkinPacks/ItemDetail_Minecon2016SkinPack.json",
+    "category": "skinpacks"
+  },
+  "01d22780-c8c6-421d-a5cf-c615a398c480": {
+    "file": "EarthSkins/ItemDetail_MumboJumboGrianSkins.json",
+    "category": "skinpacks"
+  },
+  "0d8ce926-257f-4297-b585-05d1f88e782a": {
+    "file": "CharitySkinPacks/ItemDetail_PawsandClawsCosplayPack.json",
     "category": "skinpacks"
   },
   "a681c130-1ac9-456f-a13a-1f985365bb77": {
@@ -119,16 +163,24 @@
     "file": "SkinPack/ItemDetail_SkinPack6.json",
     "category": "skinpacks"
   },
+  "5d1b928c-71ac-412a-8f2a-65e66247afbb": {
+    "file": "McDonalds/ItemDetail_SodaPotion.json",
+    "category": "skinpacks"
+  },
   "f60ed293-2f4c-46e5-92b3-922a95df2dd6": {
     "file": "StrangerThingsSkinPack/ItemDetail_StrangerThingsSkinPack.json",
     "category": "skinpacks"
   },
   "79541885-a3ca-4c3a-aaee-7e1f65288860": {
-    "file": "Charity/ItemDetail_SummerOfArcadeSkinPack.json",
+    "file": "CharitySkinPacks/ItemDetail_SummerOfArcadeSkinPack.json",
     "category": "skinpacks"
   },
   "39ddc16e-e398-4c71-b562-75b2ac5b1319": {
     "file": "TheSimpsonsSkinPack/ItemDetail_TheSimpsonsSkinPack.json",
+    "category": "skinpacks"
+  },
+  "337cf2c8-134c-4a72-b193-7cc19f052b53": {
+    "file": "McDonalds/ItemDetail_ZombieHamburglar.json",
     "category": "skinpacks"
   },
   "22688cde-3822-4bd8-9638-625713ba4dfd": {
