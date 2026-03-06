@@ -40,11 +40,15 @@
     "category": "skinpacks"
   },
   "67318eb0-f570-428d-b667-31dcff56e272": {
-    "file": "Festive/ItemDetail_Festive.json",
+    "file": "FestiveMashUp/ItemDetail_Festive.json",
     "category": "skinpacks"
   },
   "b98cd0eb-a09e-4147-a49d-cb438995e620": {
     "file": "Festive/ItemDetail_FestiveSkinPack.json",
+    "category": "skinpacks"
+  },
+  "32c1ef67-3cb2-4094-bd0d-92eb55b5ad75": {
+    "file": "GreekMythologyMashUp/ItemDetail_GreekMythologyMashUp.json",
     "category": "skinpacks"
   },
   "e735bf16-2da9-433e-adfb-9126dfe487b5": {
@@ -52,7 +56,7 @@
     "category": "skinpacks"
   },
   "4d7590d6-8f7f-4f53-989a-2df76b6b015b": {
-    "file": "LittleBigPlanet/ItemDetail_LittleBigPlanetMashup.json",
+    "file": "LittleBigPlanetMashUp/ItemDetail_LittleBigPlanetMashup.json",
     "category": "skinpacks"
   },
   "1fc32dd0-b399-4255-a4c7-e6e262a40ab6": {
