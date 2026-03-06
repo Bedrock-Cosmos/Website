@@ -133,30 +133,37 @@
   },
   "22688cde-3822-4bd8-9638-625713ba4dfd": {
     "file": "Exports/ItemDetail_EMC1.json",
-    "category": "creators"
+    "category": "creators",
+    "youtubeUrl": "https://www.youtube.com/@exportscosmetics"
   },
   "a045e0ba-b58e-44d5-b463-e8968f28ae99": {
     "file": "Exports/ItemDetail_EMC2.json",
-    "category": "creators"
+    "category": "creators",
+    "youtubeUrl": "https://www.youtube.com/@exportscosmetics"
   },
   "2d43de6c-6846-4cdc-a43b-55f8627b7b01": {
     "file": "Exports/ItemDetail_EMC3.json",
-    "category": "creators"
+    "category": "creators",
+    "youtubeUrl": "https://www.youtube.com/@exportscosmetics"
   },
   "d1c19132-0b7d-453d-b39b-5b06a5fb30f9": {
     "file": "Exports/ItemDetail_EMC4.json",
-    "category": "creators"
+    "category": "creators",
+    "youtubeUrl": "https://www.youtube.com/@exportscosmetics"
   },
   "1dafe8e5-aacc-4518-98ed-f6ce66bfba80": {
     "file": "BionicBen/ItemDetail_6thBirthdaySkinPack.json",
-    "category": "creators"
+    "category": "creators",
+    "youtubeUrl": "https://www.youtube.com/@BionicBen1218"
   },
   "aa8a18de-f2b0-40be-bc70-c4cd9dd6ae62": {
     "file": "BionicBen/ItemDetail_BionicBenSkinPack.json",
-    "category": "creators"
+    "category": "creators",
+    "youtubeUrl": "https://www.youtube.com/@BionicBen1218"
   },
   "0ce8d2eb-d178-4ae9-8060-00fd9714c93b": {
     "file": "BionicBen/ItemDetail_ProjectStarSkinPack.json",
-    "category": "creators"
+    "category": "creators",
+    "youtubeUrl": "https://www.youtube.com/@BionicBen1218"
   }
 }

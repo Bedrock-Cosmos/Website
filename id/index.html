@@ -138,7 +138,7 @@
       const PACK_TYPE_LABELS = {
         SkinPack: "Skin Pack",
         WorldTemplate: "World",
-        Mashup: "Mashup",
+        Mashup: "Mash-Up",
         TexturePack: "Texture Pack",
         Addon: "Add-On",
       };
@@ -236,6 +236,7 @@
 
           // ── JSON-LD Structured Data ──────────────────────────────────────────
           const rating = ratingData ?? (item.rating?.totalCount > 0 ? item.rating : null);
+          const youtubeUrl = entry?.youtubeUrl ?? null;
           const listPrice = item.price?.listPrice ?? -1;
 
           const jsonLd = {
@@ -248,7 +249,8 @@
             "releaseDate": item.startDate ? item.startDate.split("T")[0] : undefined,
             "brand": {
               "@type": "Brand",
-              "name": creatorName ?? "Unknown"
+              "name": creatorName ?? "Unknown",
+              ...(youtubeUrl ? { "url": youtubeUrl } : {})
             },
             ...(rating ? {
               "aggregateRating": {
@@ -304,7 +306,9 @@
             );
           }
 
-          addMeta("Creator", creatorName ?? "Unknown");
+          addMeta("Creator", youtubeUrl
+            ? `<a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer">${creatorName ?? "Unknown"}</a>`
+            : (creatorName ?? "Unknown"));
           if (ratingData) {
             addMeta("Rating", `${ratingData.average.toFixed(1)} ★ (${ratingData.totalCount.toLocaleString()} reviews)`);
           }
