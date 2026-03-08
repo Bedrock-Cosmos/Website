@@ -657,7 +657,7 @@
       //  CAPE DATA  — expand with your full list
       // ═══════════════════════════════════════════════════════════
       let PACKS = [];
-      fetch("http://127.0.0.1:5500/capes/capes.json")
+      fetch("https://bedrock-cosmos.app/capes/capes.json")
         .then((r) => r.json())
         .then((data) => {
           PACKS = data;
@@ -680,7 +680,7 @@
           canvas: canvas,
           width: canvas.clientWidth || 320,
           height: canvas.clientHeight || 427,
-          skin: "http://127.0.0.1:5500/capes/Skin.png",
+          skin: "https://bedrock-cosmos.app/capes/Skin.png",
         });
 
         // Transparent background so our CSS gradient shows through
@@ -710,7 +710,7 @@
           viewer.height = canvas.clientHeight || 427;
         });
 
-        let currentSkinUrl = "http://127.0.0.1:5500/capes/Skin.png";
+        let currentSkinUrl = "https://bedrock-cosmos.app/capes/Skin.png";
         let currentModel = "default";
         let currentBackEquipment = "cape";
 
