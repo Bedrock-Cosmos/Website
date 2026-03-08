@@ -5,8 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
-    <meta name="keywords" content="Minecraft, Bedrock, Marketplace, Launcher, Proxy, Custom Capes, Legacy Skin Packs, Custom Skins" />
-    <link rel="canonical" href="https://bedrock-cosmos.app/id/" />
+    <meta
+      name="keywords"
+      content="Minecraft, Bedrock, Marketplace, Launcher, Proxy, Custom Capes, Legacy Skin Packs, Custom Skins"
+    />
+    <link rel="canonical" href="" />
+    <script>
+      (function () {
+        var link = document.querySelector("link[rel='canonical']");
+        if (link) link.href = window.location.href;
+      })();
+    </script>
     <!-- Open Graph -->
     <meta content="Bedrock Cosmos" property="og:site_name" />
     <meta content="en" property="og:locale" />
@@ -162,11 +171,10 @@
           // ── Base URL per category ────────────────────────────────────────────
           const PACKS_BASES = {
             skinpacks: "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks/",
-            creators:  "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/refs/heads/main/MainPages/Creators/SkinPacks/",
+            creators:
+              "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/refs/heads/main/MainPages/Creators/SkinPacks/",
           };
           const packBase = PACKS_BASES[category] ?? PACKS_BASES.skinpacks;
-
-
 
           // 3. Fetch the actual pack JSON
           const packRes = await fetch(packBase + filename);
@@ -235,39 +243,41 @@
           const jsonLd = {
             "@context": "https://schema.org",
             "@type": "Product",
-            "name": title,
-            "description": description,
-            "image": thumbnail?.url ?? "",
-            "url": window.location.href,
-            "releaseDate": item.startDate ? item.startDate.split("T")[0] : undefined,
-            "brand": {
+            name: title,
+            description: description,
+            image: thumbnail?.url ?? "",
+            url: window.location.href,
+            releaseDate: item.startDate ? item.startDate.split("T")[0] : undefined,
+            brand: {
               "@type": "Brand",
-              "name": creatorName ?? "Unknown",
-              ...(youtubeUrl ? { "url": youtubeUrl } : {})
+              name: creatorName ?? "Unknown",
+              ...(youtubeUrl ? { url: youtubeUrl } : {}),
             },
-            ...(rating ? {
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": rating.average.toFixed(1),
-                "reviewCount": rating.totalCount,
-                "bestRating": "5",
-                "worstRating": "1"
-              }
-            } : {}),
-            "offers": {
+            ...(rating
+              ? {
+                  aggregateRating: {
+                    "@type": "AggregateRating",
+                    ratingValue: rating.average.toFixed(1),
+                    reviewCount: rating.totalCount,
+                    bestRating: "5",
+                    worstRating: "1",
+                  },
+                }
+              : {}),
+            offers: {
               "@type": "Offer",
-              "url": window.location.href,
-              "availability": "https://schema.org/InStock",
-              "price": listPrice > 0 ? listPrice : "0",
-              "priceCurrency": "Minecoin"
+              url: window.location.href,
+              availability: "https://schema.org/InStock",
+              price: listPrice > 0 ? listPrice : "0",
+              priceCurrency: "Minecoin",
             },
-            "additionalProperty": Object.entries(statistics ?? {})
+            additionalProperty: Object.entries(statistics ?? {})
               .filter(([, v]) => v > 0)
               .map(([k, v]) => ({
                 "@type": "PropertyValue",
-                "name": k.charAt(0).toUpperCase() + k.slice(1),
-                "value": v
-              }))
+                name: k.charAt(0).toUpperCase() + k.slice(1),
+                value: v,
+              })),
           };
           let ldScript = document.querySelector('script[type="application/ld+json"]');
           if (!ldScript) {
@@ -299,9 +309,12 @@
             );
           }
 
-          addMeta("Creator", youtubeUrl
-            ? `<a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer">${creatorName ?? "Unknown"}</a>`
-            : (creatorName ?? "Unknown"));
+          addMeta(
+            "Creator",
+            youtubeUrl
+              ? `<a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer">${creatorName ?? "Unknown"}</a>`
+              : (creatorName ?? "Unknown"),
+          );
           if (ratingData) {
             addMeta("Rating", `${ratingData.average.toFixed(1)} ★ (${ratingData.totalCount.toLocaleString()} reviews)`);
           }
