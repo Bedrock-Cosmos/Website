@@ -470,16 +470,23 @@
       footer {
         position: relative;
         z-index: 10;
+        align-items: center;
+        display: grid;
         border-top: 1px solid var(--border);
         padding: 2.5rem 2rem;
         background: rgba(0, 0, 0, 0.3);
       }
       .footer-content {
         display: flex;
-        gap: 4rem;
+        gap: 8rem;
         flex-wrap: wrap;
         max-width: 1200px;
         margin: 0 auto 1.5rem;
+      }
+      @media (max-width: 600px) {
+        .footer-content {
+          gap: 1.5rem;
+        }
       }
       .footer-section h3 {
         font-size: 0.82rem;
