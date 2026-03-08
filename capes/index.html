@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Preview all the capes we currently offer when using Bedrock Cosmos for Minecraft Bedrock!" />
+    <meta name="keywords" content="Custom Capes, Minecraft, Bedrock" />
+    <link rel="canonical" href="https://bedrock-cosmos.app/capes/" />
+    <meta content="Bedrock Cosmos" property="og:site_name" />
+    <meta content="en" property="og:locale" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Custom Capes | Bedrock Cosmos" />
+    <meta property="og:description" content="Preview all the capes we currently offer when using Bedrock Cosmos for Minecraft Bedrock!" />
+    <meta property="og:url" content="https://bedrock-cosmos.app/capes/" />
+    <meta property="og:image" content="https://bedrock-cosmos.app/imgs/img_1.png" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Custom Capes | Bedrock Cosmos" />
+    <meta name="twitter:description" content="Preview all the capes we currently offer when using Bedrock Cosmos for Minecraft Bedrock!" />
+    <meta name="twitter:image" content="https://bedrock-cosmos.app/imgs/img_1.png" />
+    <meta content="bedrock-cosmos.app" name="twitter:domain" />
+    <link href="https://bedrock-cosmos.app/capes/" hreflang="x-default" rel="alternate" />
+    <meta name="theme-color" content="#ededed" />
+    <title>Capes | Bedrock Cosmos</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0f;
+        --surface: rgba(255, 255, 255, 0.03);
+        --border: rgba(255, 255, 255, 0.07);
+        --border-hover: rgba(255, 255, 255, 0.22);
+        --text: #e8e8e8;
+        --muted: #555;
+        --accent: #5b8cff;
+        --accent-glow: rgba(91, 140, 255, 0.25);
+        --sel: rgba(91, 140, 255, 0.15);
+        --sel-border: rgba(91, 140, 255, 0.6);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Outfit", sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      .stars-container {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .star {
+        position: absolute;
+        border-radius: 50%;
+        background: #fff;
+        opacity: 0;
+        animation: twinkle 3s infinite;
+      }
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.7;
+        }
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding: 1rem 2rem;
+        background: rgba(10, 10, 15, 0.85);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border);
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--text);
+        text-decoration: none;
+      }
+      .logo-icon {
+        width: 28px;
+        height: 28px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.6rem;
+        list-style: none;
+        margin-left: auto;
+      }
+      .nav-links a {
+        color: #888;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: #fff;
+      }
+      .discord-btn {
+        background: #5865f2;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.5rem 1.1rem;
+        font-size: 0.88rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+      .discord-btn:hover {
+        background: #4752c4;
+      }
+      .page-wrap {
+        display: flex;
+        min-height: 100vh;
+        padding-top: 60px;
+        position: relative;
+        z-index: 10;
+      }
+      .viewer-panel {
+        position: sticky;
+        top: 60px;
+        width: 400px;
+        flex-shrink: 0;
+        height: calc(100vh - 60px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1.5rem;
+        border-right: 1px solid var(--border);
+        background: rgba(0, 0, 0, 0.25);
+      }
+      .viewer-title {
+        font-family: "VT323", monospace;
+        font-size: 1.6rem;
+        color: var(--accent);
+        letter-spacing: 0.08em;
+        margin-bottom: 0.8rem;
+        text-shadow: 0 0 20px var(--accent-glow);
+      }
+      #three-canvas {
+        width: 100%;
+        max-width: 320px;
+        aspect-ratio: 3/4;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: radial-gradient(ellipse at 50% 70%, rgba(91, 140, 255, 0.07) 0%, rgba(10, 10, 15, 0.95) 70%);
+        cursor: grab;
+        display: block;
+      }
+      #three-canvas:active {
+        cursor: grabbing;
+      }
+      .selected-cape-label {
+        margin-top: 0.9rem;
+        font-size: 0.87rem;
+        color: #aaa;
+        text-align: center;
+        min-height: 1.4em;
+      }
+      .selected-cape-label span {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .equip-btn {
+        margin-top: 0.9rem;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 9px;
+        padding: 0.6rem 1.6rem;
+        font-size: 0.9rem;
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          box-shadow 0.2s,
+          opacity 0.2s;
+        box-shadow: 0 4px 20px var(--accent-glow);
+        opacity: 0;
+        pointer-events: none;
+      }
+      .equip-btn.visible {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .equip-btn:hover {
+        background: #7aa3ff;
+        box-shadow: 0 6px 28px rgba(91, 140, 255, 0.45);
+      }
+      .skin-upload-btn {
+        margin-top: 0.7rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.06);
+        color: #bbb;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        padding: 0.5rem 1.2rem;
+        font-size: 0.82rem;
+        font-family: "Outfit", sans-serif;
+        font-weight: 500;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          color 0.2s;
+        white-space: nowrap;
+      }
+      .skin-upload-btn:hover {
+        background: rgba(255, 255, 255, 0.11);
+        border-color: var(--border-hover);
+        color: #fff;
+      }
+      .skin-name {
+        margin-top: 0.35rem;
+        font-size: 0.72rem;
+        color: var(--muted);
+        text-align: center;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        min-height: 1em;
+      }
+      .skin-type-wrap {
+        margin-top: 0.7rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .skin-type-label {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .skin-type-toggle {
+        display: flex;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .stt-btn {
+        background: transparent;
+        color: #888;
+        border: none;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.78rem;
+        font-family: "Outfit", sans-serif;
+        font-weight: 500;
+        cursor: pointer;
+        transition:
+          background 0.18s,
+          color 0.18s;
+      }
+      .stt-btn.active {
+        background: var(--accent);
+        color: #fff;
+      }
+      .stt-btn:not(.active):hover {
+        background: rgba(255, 255, 255, 0.07);
+        color: #ccc;
+      }
+      .list-panel {
+        flex: 1;
+        overflow-y: auto;
+        padding: 2.5rem 2rem;
+      }
+      .list-header {
+        margin-bottom: 2rem;
+      }
+      .list-header h1 {
+        font-size: 2.4rem;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.1;
+      }
+      .list-header h1 em {
+        font-style: normal;
+        color: var(--accent);
+        text-shadow: 0 0 30px var(--accent-glow);
+      }
+      .list-header p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-top: 0.4rem;
+      }
+      .toolbar {
+        display: flex;
+        gap: 0.8rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .search-wrap {
+        flex: 1;
+        min-width: 180px;
+        position: relative;
+      }
+      .search-wrap svg {
+        position: absolute;
+        left: 0.9rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 15px;
+        color: var(--muted);
+        pointer-events: none;
+      }
+      .search-input {
+        width: 100%;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        padding: 0.65rem 1rem 0.65rem 2.5rem;
+        color: var(--text);
+        font-size: 0.9rem;
+        font-family: "Outfit", sans-serif;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .search-input::placeholder {
+        color: var(--muted);
+      }
+      .search-input:focus {
+        border-color: var(--border-hover);
+      }
+      .filter-select {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        padding: 0.65rem 2.2rem 0.65rem 1rem;
+        color: #bbb;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.9rem;
+        outline: none;
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.8rem center;
+        background-color: var(--surface);
+        transition: border-color 0.2s;
+      }
+      .filter-select option {
+        background: #111;
+      }
+      .filter-select:focus {
+        border-color: var(--border-hover);
+      }
+      .capes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+        gap: 1rem;
+      }
+      .cape-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+        transition:
+          transform 0.22s ease,
+          border-color 0.22s ease,
+          background 0.22s ease,
+          box-shadow 0.22s ease;
+      }
+      .cape-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--border-hover);
+        background: rgba(255, 255, 255, 0.055);
+        box-shadow: 0 10px 36px rgba(0, 0, 0, 0.5);
+      }
+      .cape-card.active {
+        border-color: var(--sel-border);
+        background: var(--sel);
+        box-shadow:
+          0 0 0 1px var(--sel-border),
+          0 8px 32px rgba(91, 140, 255, 0.2);
+      }
+      .cape-card.active::after {
+        content: "✓";
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        font-size: 0.75rem;
+        color: var(--accent);
+        font-weight: 700;
+        background: rgba(10, 10, 15, 0.85);
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cape-img-wrap {
+        width: 100%;
+        aspect-ratio: 1;
+        background: rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .cape-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        image-rendering: pixelated;
+        padding: 8px;
+        transition: transform 0.22s ease;
+      }
+      .cape-card:hover .cape-img-wrap img {
+        transform: scale(1.08);
+      }
+      .cape-card-name {
+        font-size: 0.79rem;
+        font-weight: 600;
+        color: #d0d0d0;
+        padding: 0.4rem 0.6rem 0.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        border-top: 1px solid var(--border);
+      }
+      .cape-card.active .cape-card-name {
+        color: #c4d6ff;
+      }
+      .no-results {
+        display: none;
+        color: var(--muted);
+        padding: 3rem 0;
+        text-align: center;
+        font-size: 0.95rem;
+        grid-column: 1/-1;
+      }
+      footer {
+        position: relative;
+        z-index: 10;
+        border-top: 1px solid var(--border);
+        padding: 2.5rem 2rem;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .footer-content {
+        display: flex;
+        gap: 4rem;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto 1.5rem;
+      }
+      .footer-section h3 {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.7rem;
+      }
+      .footer-section a {
+        display: block;
+        color: #777;
+        text-decoration: none;
+        font-size: 0.88rem;
+        margin-bottom: 0.35rem;
+        transition: color 0.2s;
+      }
+      .footer-section a:hover {
+        color: #ccc;
+      }
+      .footer-bottom {
+        text-align: center;
+        color: #444;
+        font-size: 0.78rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-top: 1px solid var(--border);
+        padding-top: 1.2rem;
+      }
+      @media (max-width: 900px) {
+        .page-wrap {
+          flex-direction: column;
+        }
+        .viewer-panel {
+          position: relative;
+          top: 0;
+          width: 100%;
+          height: auto;
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+          padding: 1.5rem 1rem;
+        }
+        #three-canvas {
+          max-width: 240px;
+        }
+        .list-panel {
+          padding: 1.5rem 1rem;
+        }
+        .list-header h1 {
+          font-size: 1.8rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .nav-links {
+          display: none;
+        }
+        .capes-grid {
+          grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+          gap: 0.7rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stars-container" id="stars"></div>
+    <nav class="navbar">
+      <a class="logo" href="/"
+        ><img src="../icons/shootingstar.png" alt="Bedrock Cosmos" class="logo-icon" />Bedrock Cosmos</a
+      >
+      <ul class="nav-links">
+        <li><a href="../#home">Home</a></li>
+        <li><a href="/changelogs">Changelogs</a></li>
+        <li><a href="/skinpacks">Skin Packs</a></li>
+      </ul>
+      <a href="https://discord.com/invite/HRG2NapegP" class="discord-btn">Join Discord</a>
+    </nav>
+
+    <div class="page-wrap">
+      <aside class="viewer-panel">
+        <div class="viewer-title">CAPE PREVIEW</div>
+        <canvas id="three-canvas"></canvas>
+        <div class="selected-cape-label" id="cape-label">No cape selected</div>
+        <button class="equip-btn" id="equip-btn">Equip in Minecraft</button>
+        <label class="skin-upload-btn" id="skin-upload-label">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            width="14"
+            height="14"
+            style="flex-shrink: 0"
+          >
+            <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 10V11" />
+          </svg>
+          Upload Skin
+          <input type="file" id="skin-upload" accept="image/png" style="display: none" />
+        </label>
+        <div class="skin-name" id="skin-name"></div>
+        <div class="skin-type-wrap" id="skin-type-wrap">
+          <span class="skin-type-label">Type:</span>
+          <div class="skin-type-toggle">
+            <button class="stt-btn active" id="btn-classic">Classic</button>
+            <button class="stt-btn" id="btn-slim">Slim</button>
+          </div>
+        </div>
+        <div class="skin-type-wrap" id="back-equip-wrap">
+          <span class="skin-type-label">Back:</span>
+          <div class="skin-type-toggle">
+            <button class="stt-btn active" id="btn-cape">Cape</button>
+            <button class="stt-btn" id="btn-elytra">Elytra</button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="list-panel">
+        <div class="list-header">
+          <h1>Custom <em>Capes</em></h1>
+          <p>Preview all the capes we currently offer when using Bedrock Cosmos!</p>
+        </div>
+        <div class="toolbar">
+          <div class="search-wrap">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input class="search-input" type="text" id="search" placeholder="Search capes…" autocomplete="off" />
+          </div>
+          <select class="filter-select" id="filter-category">
+            <option value="">All Categories</option>
+            <option value="Vanilla">Vanilla</option>
+            <option value="Custom">Custom</option>
+            <option value="BionicBen">BionicBen</option>
+            <option value="SkinPack">SkinPack</option>
+          </select>
+        </div>
+        <div class="capes-grid" id="capes-grid">
+          <p class="no-results" id="no-results">No capes match your search.</p>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Socials</h3>
+          <a href="https://www.youtube.com/watch?v=mExTns_TjSM" target="_blank">YouTube</a
+          ><a href="https://discord.com/invite/HRG2NapegP" target="_blank">Discord</a>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <a href="https://github.com/Bedrock-Cosmos/Launcher/releases/">Download</a
+          ><a href="https://github.com/Bedrock-Cosmos/Launcher">GitHub</a>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <a href="/terms-of-service">Terms of Service</a><a href="/privacy-policy">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Bedrock Cosmos © 2026 - All Rights Reserved - Not affiliated with Mojang Studios or Microsoft</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/skinview3d@3.4.1/bundles/skinview3d.bundle.js"></script>
+    <script>
+      // ═══════════════════════════════════════════════════════════
+      //  CAPE DATA  — expand with your full list
+      // ═══════════════════════════════════════════════════════════
+      let PACKS = [];
+      fetch("http://127.0.0.1:5500/capes/capes.json")
+        .then((r) => r.json())
+        .then((data) => {
+          PACKS = data;
+          renderGrid();
+          const uuidParam = new URLSearchParams(window.location.search).get("cape");
+          const initialPack = (uuidParam && PACKS.find((p) => p.uuid === uuidParam))
+            || PACKS[Math.floor(Math.random() * PACKS.length)];
+          if (initialPack) selectCape(initialPack);
+        })
+        .catch((err) => console.error("Failed to load capes.json:", err));
+
+      // ═══════════════════════════════════════════════════════════
+      //  SKINVIEW3D VIEWER
+      // ═══════════════════════════════════════════════════════════
+      (function () {
+        const canvas = document.getElementById("three-canvas");
+
+        // skinview3d handles skin, outer layers, slim arms, cape, and animation
+        const viewer = new skinview3d.SkinViewer({
+          canvas: canvas,
+          width: canvas.clientWidth || 320,
+          height: canvas.clientHeight || 427,
+          skin: "http://127.0.0.1:5500/capes/Skin.png",
+        });
+
+        // Transparent background so our CSS gradient shows through
+        viewer.renderer.setClearColor(0x000000, 0);
+
+        // Walking animation
+        viewer.animation = new skinview3d.WalkingAnimation();
+        viewer.animation.speed = 0.6;
+
+        viewer.autoRotate = false;
+
+        // Face the back of the model (cape side) by rotating the camera 180° around Y
+        viewer.camera.rotation.y = Math.PI;
+        viewer.camera.position.set(32, 22, -42);
+
+        // Zoom
+        viewer.zoom = 0.9;
+
+        // Allow mouse drag to rotate
+        viewer.controls.enableRotate = true;
+        viewer.controls.enableZoom = false;
+        viewer.controls.enablePan = false;
+
+        // Resize
+        window.addEventListener("resize", () => {
+          viewer.width = canvas.clientWidth || 320;
+          viewer.height = canvas.clientHeight || 427;
+        });
+
+        let currentSkinUrl = "http://127.0.0.1:5500/capes/Skin.png";
+        let currentModel = "default";
+        let currentBackEquipment = "cape";
+
+        // ── Public APIs ──
+        window.setCapeTexture = function (url) {
+          if (!url) {
+            viewer.loadCape(null);
+            return;
+          }
+          viewer.loadCape(url, { backEquipment: currentBackEquipment });
+        };
+
+        window.setSkinTexture = function (url) {
+          currentSkinUrl = url;
+          viewer.loadSkin(url, { model: currentModel });
+        };
+
+        window.setSlimArms = function (slim) {
+          currentModel = slim ? "slim" : "default";
+          viewer.loadSkin(currentSkinUrl, { model: currentModel });
+        };
+
+        window.setBackEquipment = function (type) {
+          currentBackEquipment = type; // 'cape' or 'elytra'
+          // Re-apply to current cape URL if one is loaded
+          if (currentCapeUrl) viewer.loadCape(currentCapeUrl, { backEquipment: currentBackEquipment });
+        };
+      })();
+
+      // ═══════════════════════════════════════════════════════════
+      //  CAPE GRID UI
+      // ═══════════════════════════════════════════════════════════
+      const grid = document.getElementById("capes-grid"),
+        noResults = document.getElementById("no-results"),
+        searchEl = document.getElementById("search"),
+        filterEl = document.getElementById("filter-category"),
+        capeLabel = document.getElementById("cape-label"),
+        equipBtn = document.getElementById("equip-btn");
+      let selectedUUID = null;
+      let currentCapeUrl = null;
+
+      function selectCape(pack) {
+        if (selectedUUID === pack.uuid) {
+          selectedUUID = null;
+          currentCapeUrl = null;
+          window.setCapeTexture(null);
+          capeLabel.innerHTML = "No cape selected";
+          equipBtn.classList.remove("visible");
+          grid.querySelectorAll(".cape-card").forEach((c) => c.classList.remove("active"));
+          history.replaceState(null, "", "/capes/");
+          return;
+        }
+        selectedUUID = pack.uuid;
+        currentCapeUrl = pack.texture;
+        grid.querySelectorAll(".cape-card").forEach((c) => c.classList.remove("active"));
+        const card = grid.querySelector(`[data-uuid="${pack.uuid}"]`);
+        if (card) card.classList.add("active");
+        window.setCapeTexture(pack.texture);
+        capeLabel.innerHTML = pack.creator
+          ? `Previewing: <span>${pack.name}</span><br>By: <span>${pack.creator}</span>`
+          : `Previewing: <span>${pack.name}</span>`;
+        equipBtn.classList.add("visible");
+        equipBtn.onclick = () => {
+          location.href = `minecraft://showDressingRoomOffer?offerID=${pack.uuid}`;
+        };
+        history.replaceState(null, "", `/capes/?cape=${pack.uuid}`);
+      }
+
+      function renderGrid() {
+        const q = searchEl.value.trim().toLowerCase(),
+          cat = filterEl.value;
+        grid.querySelectorAll(".cape-card").forEach((el) => el.remove());
+        const filtered = PACKS.filter((p) => (!q || p.name.toLowerCase().includes(q)) && (!cat || p.category === cat));
+        noResults.style.display = filtered.length === 0 ? "block" : "none";
+        filtered.forEach((pack) => {
+          const card = document.createElement("div");
+          card.className = "cape-card" + (selectedUUID === pack.uuid ? " active" : "");
+          card.dataset.uuid = pack.uuid;
+          card.innerHTML = `<div class="cape-img-wrap"><img src="${pack.icon}" alt="${pack.name}" loading="lazy" onerror="this.style.opacity='.15'"/></div><div class="cape-card-name">${pack.name}</div>`;
+          card.addEventListener("click", () => selectCape(pack));
+          grid.insertBefore(card, noResults);
+        });
+      }
+      searchEl.addEventListener("input", renderGrid);
+      filterEl.addEventListener("change", renderGrid);
+
+      // ── Skin upload ──
+      document.getElementById("skin-upload").addEventListener("change", function () {
+        const file = this.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          window.setSkinTexture(e.target.result);
+          document.getElementById("skin-name").textContent = file.name;
+        };
+        reader.readAsDataURL(file);
+      });
+
+      // ── Classic / Slim toggle ──
+      const btnClassic = document.getElementById("btn-classic");
+      const btnSlim = document.getElementById("btn-slim");
+      btnClassic.addEventListener("click", () => {
+        btnClassic.classList.add("active");
+        btnSlim.classList.remove("active");
+        window.setSlimArms(false);
+      });
+      btnSlim.addEventListener("click", () => {
+        btnSlim.classList.add("active");
+        btnClassic.classList.remove("active");
+        window.setSlimArms(true);
+      });
+
+      // ── Cape / Elytra toggle ──
+      const btnCape = document.getElementById("btn-cape");
+      const btnElytra = document.getElementById("btn-elytra");
+      btnCape.addEventListener("click", () => {
+        btnCape.classList.add("active");
+        btnElytra.classList.remove("active");
+        window.setBackEquipment("cape");
+      });
+      btnElytra.addEventListener("click", () => {
+        btnElytra.classList.add("active");
+        btnCape.classList.remove("active");
+        window.setBackEquipment("elytra");
+      });
+
+      // ── Stars ──
+      const sc = document.getElementById("stars");
+      for (let i = 0; i < 180; i++) {
+        const s = document.createElement("div"),
+          sz = Math.random() * 2.5 + "px";
+        s.className = "star";
+        s.style.cssText = `width:${sz};height:${sz};left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation-delay:${Math.random() * 3}s`;
+        sc.appendChild(s);
+      }
+
+    </script>
+  </body>
+</html>
