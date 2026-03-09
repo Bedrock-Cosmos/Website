@@ -37,6 +37,84 @@
     <meta name="theme-color" content="#ededed" />
     <title>Loading&#8230; | Bedrock Cosmos</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      /* ── Skin Grid ─────────────────────────────────────────────────────────── */
+      .skin-grid-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #f0f0f0;
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+        letter-spacing: 0.01em;
+      }
+
+      .skin-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .skin-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 11px;
+        overflow: hidden;
+        cursor: default;
+        position: relative;
+        transition:
+          transform 0.22s ease,
+          border-color 0.22s ease,
+          background 0.22s ease,
+          box-shadow 0.22s ease;
+      }
+
+      .skin-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 255, 255, 0.22);
+        background: rgba(255, 255, 255, 0.055);
+        box-shadow: 0 10px 36px rgba(0, 0, 0, 0.5);
+      }
+
+      .skin-img-wrap {
+        width: 100%;
+        aspect-ratio: 1;
+        background: rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .skin-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        image-rendering: pixelated;
+        padding: 8px;
+        transition: transform 0.22s ease;
+      }
+
+      .skin-card:hover .skin-img-wrap img {
+        transform: scale(1.08);
+      }
+
+      .skin-card-name {
+        font-size: 0.79rem;
+        font-weight: 600;
+        color: #d0d0d0;
+        padding: 0.4rem 0.6rem 0.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        #skin-grid-section {
+          display: none !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="redirect-overlay">
@@ -95,6 +173,12 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Skin Grid -->
+      <div id="skin-grid-section" style="display: none">
+        <h2 class="skin-grid-title">Skins in this Pack</h2>
+        <div class="skin-grid" id="skin-grid"></div>
       </div>
 
       <p id="pack-error" style="display: none; color: #999; margin-top: 2rem">
@@ -331,7 +415,35 @@
           document.getElementById("pack-card").style.display = "";
           document.getElementById("pack-error").style.display = "none";
 
-          // 6. Redirect into Minecraft
+          // 6. Build skin grid from index.json entry.skins
+          const skins = Array.isArray(entry.skins) ? entry.skins : [];
+
+          if (skins.length > 0) {
+            const gridSection = document.getElementById("skin-grid-section");
+            const gridEl = document.getElementById("skin-grid");
+            gridEl.innerHTML = "";
+            for (const skin of skins) {
+              if (!skin.name || !skin.image) continue;
+              const card = document.createElement("div");
+              card.className = "skin-card";
+              const imgWrap = document.createElement("div");
+              imgWrap.className = "skin-img-wrap";
+              const img = document.createElement("img");
+              img.src = skin.image;
+              img.alt = `${skin.name} from Minecraft Bedrock for PC`;
+              img.loading = "lazy";
+              imgWrap.appendChild(img);
+              const label = document.createElement("span");
+              label.className = "skin-card-name";
+              label.textContent = skin.name;
+              card.appendChild(imgWrap);
+              card.appendChild(label);
+              gridEl.appendChild(card);
+            }
+            gridSection.style.display = "";
+          }
+
+          // 7. Redirect into Minecraft
           window.location = minecraftUrl;
           dismissOverlay();
         } catch (err) {
