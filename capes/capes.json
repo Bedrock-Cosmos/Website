@@ -736,6 +736,30 @@
     "category": "BionicBen"
   },
   {
+    "name": "Blossom Cape",
+    "creator": "Stars",
+    "uuid": "b8657da9-d315-462f-9c0f-0dbb00fc208f",
+    "icon": "https://capes.bedrock-cosmos.app/icons/Blossom_cape.png",
+    "texture": "https://bedrock-cosmos.app/capes/Blossom.png",
+    "category": "Stars"
+  },
+  {
+    "name": "Snowy Cape",
+    "creator": "Stars",
+    "uuid": "33ea3751-eaac-4139-95d2-f9d4978cb039",
+    "icon": "https://capes.bedrock-cosmos.app/icons/Snowy_cape.png",
+    "texture": "https://bedrock-cosmos.app/capes/Snowy.png",
+    "category": "Stars"
+  },
+  {
+    "name": "Sunflower Cape",
+    "creator": "Stars",
+    "uuid": "cdc530a3-b427-4368-9cb9-5fa816a64b89",
+    "icon": "https://capes.bedrock-cosmos.app/icons/Sunflower_cape.png",
+    "texture": "https://bedrock-cosmos.app/capes/Sunflower.png",
+    "category": "Stars"
+  },
+  {
     "name": "Adam Warlock Cape",
     "creator": "Marvel Guardians of the Galaxy Skin Pack",
     "uuid": "717c8fc3-b3fb-40b1-93e1-759e28e59cd3",
