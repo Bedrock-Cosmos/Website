@@ -263,7 +263,72 @@
   "aa8a18de-f2b0-40be-bc70-c4cd9dd6ae62": {
     "file": "BionicBen/ItemDetail_BionicBenSkinPack.json",
     "category": "creators",
-    "youtubeUrl": "https://www.youtube.com/@BionicBen1218"
+    "youtubeUrl": "https://www.youtube.com/@BionicBen1218",
+    "skins": [
+      { "name": "BionicBen", "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBen.png" },
+      {
+        "name": "BionicBen (Classic)",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenClassic.png"
+      },
+      {
+        "name": "St. Patricks Day BionicBen",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenStPatricksDay.png"
+      },
+      {
+        "name": "St. Patricks Day BionicBen (Classic)",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenStPatricksDayClassic.png"
+      },
+      { "name": "Easter BionicBen", "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenEaster.png" },
+      {
+        "name": "Easter BionicBen (3D)",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenEaster3D.png"
+      },
+      {
+        "name": "Easter BionicBen (Classic)",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenEasterClassic.png"
+      },
+      {
+        "name": "April Fools BionicBen",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenAprilFools.png"
+      },
+      {
+        "name": "April Fools BionicBen (Upside Down)",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenAprilFoolsUpsideDown.png"
+      },
+      {
+        "name": "April Fools BionicBen (Classic)",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenAprilFoolsClassic.png"
+      },
+      {
+        "name": "Halloween BionicBen",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenHalloween.png"
+      },
+      {
+        "name": "Halloween BionicBen (Classic)",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenHalloweenClassic.png"
+      },
+      {
+        "name": "Christmas BionicBen",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenChristmas.png"
+      },
+      {
+        "name": "Christmas BionicBen (3D)",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenChristmas3D.png"
+      },
+      {
+        "name": "Christmass BionicBen (Classic)",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenChristmasClassic.png"
+      },
+      {
+        "name": "Armored BionicBen",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenArmored.png"
+      },
+      { "name": "Mega BionicBen", "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenMega.png" },
+      {
+        "name": "Mega BionicBen (Classic)",
+        "image": "https://bedrock-cosmos.app/imgs/BionicBenSkinPack/BionicBenMegaClassic.png"
+      }
+    ]
   },
   "0ce8d2eb-d178-4ae9-8060-00fd9714c93b": {
     "file": "BionicBen/ItemDetail_ProjectStarSkinPack.json",
