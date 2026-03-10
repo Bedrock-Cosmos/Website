@@ -472,6 +472,22 @@
     "category": "Custom"
   },
   {
+    "name": "Breeze Cape",
+    "creator": "Actions & Stuff",
+    "uuid": "aae7860e-fc65-4dee-a261-5b31018a1aff",
+    "icon": "https://capes.bedrock-cosmos.app/icons/Breeze_cape.png",
+    "texture": "https://bedrock-cosmos.app/capes/Breeze.png",
+    "category": "Custom"
+  },
+  {
+    "name": "Breeze (Purple) Cape",
+    "creator": "Actions & Stuff",
+    "uuid": "3a8a8a10-da0e-4622-962c-955c8e02385f",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BreezePurple_cape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BreezePurple.png",
+    "category": "Custom"
+  },
+  {
     "name": "Creeper King Cape",
     "creator": "!NerfModder",
     "uuid": "7932e680-a9f0-45fa-b422-88ed7f1b2335",
