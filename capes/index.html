@@ -789,7 +789,7 @@
           : `Previewing: <span>${pack.name}</span>`;
         equipBtn.classList.add("visible");
         equipBtn.onclick = () => {
-          location.href = `minecraft://showDressingRoomOffer?offerID=${pack.uuid}`;
+          location.href = `bedrockcosmos://showDressingRoomOffer?offerID=${pack.uuid}`;
         };
         history.replaceState(null, "", `/capes/?cape=${pack.uuid}`);
       }
