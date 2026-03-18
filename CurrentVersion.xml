@@ -2,6 +2,6 @@
 <item>
   <version>1.0.0.0</version>
   <responses_version>1</responses_version>
-  <url>https://bedrock-cosmos.app/Launcher.zip</url>
+  <url>https://github.com/Bedrock-Cosmos/Website/raw/refs/heads/main/Launcher.zip</url>
   <mandatory minVersion="0.0.1.0">true</mandatory>
 </item>
