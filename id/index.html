@@ -267,7 +267,11 @@
           const json = await packRes.json();
 
           // 4. Parse the JSON
-          const rows = json?.result?.rows ?? [];
+          // Support both old flat format (result.rows) and new layout-wrapped format (result.layout[].rows)
+          const layout = json?.result?.layout;
+          const rows = Array.isArray(layout)
+            ? (layout.find((s) => s.sectionName === "rows")?.rows ?? [])
+            : (json?.result?.rows ?? []);
           const summaryRow = rows.find((r) => r.controlId === "ItemSummary");
           const item = summaryRow?.components?.find((c) => c.type === "itemSummaryComp")?.item;
 
