@@ -692,6 +692,48 @@ footer {
   image-rendering: crisp-edges;
 }
 
+.img-popup {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.skin-name:hover .img-popup {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.img-popup::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.6);
+}
+
+.img-popup img {
+  display: block;
+  width: 300px;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
 @media (max-width: 768px) {
   /* Existing mobile adjustments */
   .hero h1 {
