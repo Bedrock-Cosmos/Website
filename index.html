@@ -395,7 +395,7 @@
             return sum + release.assets.reduce((s, asset) => s + asset.download_count, 0);
           }, 0);
 
-          const OFFSET = 383; // your previous count
+          const OFFSET = 415; // Temporary count offset from when releases were cleared
           const finalCount = totalDownloads + OFFSET;
 
           document.getElementById("downloadCount").textContent = finalCount.toLocaleString();
