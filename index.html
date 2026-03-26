@@ -13,7 +13,7 @@
       content="Minecraft, Bedrock, Marketplace, Launcher, Proxy, Custom Capes, Legacy Skin Packs, Custom Skins"
     />
     <link rel="canonical" href="https://bedrock-cosmos.app/" />
-    
+
     <meta content="Bedrock Cosmos" property="og:site_name" />
     <meta content="en" property="og:locale" />
     <meta property="og:type" content="website" />
@@ -88,7 +88,11 @@
           with new ways to customize your character.
         </p>
         <div class="hero-buttons">
-          <a href="https://github.com/Bedrock-Cosmos/Launcher/releases/download/(Windows)/BedrockCosmosSetup.exe" class="btn-primary" id="download-btn">
+          <a
+            href="https://github.com/Bedrock-Cosmos/Launcher/releases/download/(Windows)/BedrockCosmosSetup.exe"
+            class="btn-primary"
+            id="download-btn"
+          >
             Download (Windows)
           </a>
           <a href="#features" class="btn-secondary">Learn More</a>
@@ -386,10 +390,15 @@
         try {
           const response = await fetch("https://api.github.com/repos/Bedrock-Cosmos/Launcher/releases");
           const data = await response.json();
+
           const totalDownloads = data.reduce((sum, release) => {
             return sum + release.assets.reduce((s, asset) => s + asset.download_count, 0);
           }, 0);
-          document.getElementById("downloadCount").textContent = totalDownloads.toLocaleString();
+
+          const OFFSET = 383; // your previous count
+          const finalCount = totalDownloads + OFFSET;
+
+          document.getElementById("downloadCount").textContent = finalCount.toLocaleString();
         } catch (error) {
           document.getElementById("downloadCount").textContent = "220+";
           console.error("Error fetching download count:", error);
