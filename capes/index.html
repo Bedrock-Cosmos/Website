@@ -32,15 +32,16 @@
     <style>
       :root {
         --bg: #0a0a0f;
-        --surface: rgba(255, 255, 255, 0.03);
-        --border: rgba(255, 255, 255, 0.07);
-        --border-hover: rgba(255, 255, 255, 0.22);
+        --surface: rgba(91, 33, 182, 0.05);
+        --border: rgba(91, 33, 182, 0.18);
+        --border-hover: rgba(91, 33, 182, 0.5);
         --text: #e8e8e8;
-        --muted: #555;
-        --accent: #5b8cff;
-        --accent-glow: rgba(91, 140, 255, 0.25);
-        --sel: rgba(91, 140, 255, 0.15);
-        --sel-border: rgba(91, 140, 255, 0.6);
+        --muted: #6b5f80;
+        --accent: #5b21b6;
+        --accent-light: #8b5cf6;
+        --accent-glow: rgba(91, 33, 182, 0.3);
+        --sel: rgba(91, 33, 182, 0.15);
+        --sel-border: rgba(91, 33, 182, 0.6);
       }
       *,
       *::before,
@@ -123,7 +124,7 @@
         color: #fff;
       }
       .discord-btn {
-        background: #5865f2;
+        background: #5b21b6;
         color: #fff;
         border: none;
         border-radius: 8px;
@@ -136,7 +137,7 @@
         white-space: nowrap;
       }
       .discord-btn:hover {
-        background: #4752c4;
+        background: #46198e;
       }
       .page-wrap {
         display: flex;
@@ -173,7 +174,7 @@
         aspect-ratio: 3/4;
         border-radius: 12px;
         border: 1px solid var(--border);
-        background: radial-gradient(ellipse at 50% 70%, rgba(91, 140, 255, 0.07) 0%, rgba(10, 10, 15, 0.95) 70%);
+        background: radial-gradient(ellipse at 50% 70%, rgba(91, 33, 182, 0.07) 0%, rgba(10, 10, 15, 0.95) 70%);
         cursor: grab;
         display: block;
       }
@@ -215,8 +216,8 @@
         pointer-events: all;
       }
       .equip-btn:hover {
-        background: #7aa3ff;
-        box-shadow: 0 6px 28px rgba(91, 140, 255, 0.45);
+        background: #8b5cf6;
+        box-shadow: 0 6px 28px rgba(91, 33, 182, 0.45);
       }
       .skin-upload-btn {
         margin-top: 0.7rem;
@@ -407,7 +408,7 @@
         background: var(--sel);
         box-shadow:
           0 0 0 1px var(--sel-border),
-          0 8px 32px rgba(91, 140, 255, 0.2);
+          0 8px 32px rgba(91, 33, 182, 0.2);
       }
       .cape-card.active::after {
         content: "✓";
@@ -457,7 +458,7 @@
         border-top: 1px solid var(--border);
       }
       .cape-card.active .cape-card-name {
-        color: #c4d6ff;
+        color: #c4b5fd;
       }
       .no-results {
         display: none;
@@ -560,6 +561,7 @@
         <li><a href="../#home">Home</a></li>
         <li><a href="/changelogs">Changelogs</a></li>
         <li><a href="/skinpacks">Skin Packs</a></li>
+        <li><a href="/videos">Videos</a></li>
       </ul>
       <a href="https://discord.com/invite/HRG2NapegP" class="discord-btn">Join Discord</a>
     </nav>
@@ -651,14 +653,15 @@
         </div>
         <div class="footer-section">
           <h3>Legal</h3>
-          <a href="/terms-of-service/">Terms of Service</a>
-          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms-of-service">Terms of Service</a>
+          <a href="/privacy-policy">Privacy Policy</a>
         </div>
         <div class="footer-section">
           <h3>Pages</h3>
-          <a href="/changelogs/">Changelogs</a>
-          <a href="/skinpacks/">Skin Packs</a>
-          <a href="/capes/">Capes</a>
+          <a href="/changelogs">Changelogs</a>
+          <a href="/skinpacks">Skin Packs</a>
+          <a href="/capes">Capes</a>
+          <a href="/videos">Videos</a>
         </div>
       </div>
       <div class="footer-bottom">
