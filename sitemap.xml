@@ -21,6 +21,12 @@
         <priority>0.80</priority>
     </url>
     <url>
+        <loc>https://bedrock-cosmos.app/videos/</loc>
+        <lastmod>2026-03-28T12:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
         <loc>https://bedrock-cosmos.app/changelogs/</loc>
         <lastmod>2026-03-07T12:00:00+00:00</lastmod>
         <changefreq>monthly</changefreq>
