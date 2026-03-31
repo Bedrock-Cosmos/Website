@@ -792,7 +792,8 @@
           : `Previewing: <span>${pack.name}</span>`;
         equipBtn.classList.add("visible");
         equipBtn.onclick = () => {
-          location.href = `bedrockcosmos://showDressingRoomOffer?offerID=${pack.uuid}`;
+          const creatorSuffix = pack.creatorParam ? `/?creator=${encodeURIComponent(pack.creator)}` : "";
+          location.href = `bedrockcosmos://showDressingRoomOffer?offerID=${pack.uuid}${creatorSuffix}`;
         };
         history.replaceState(null, "", `/capes/?cape=${pack.uuid}`);
       }

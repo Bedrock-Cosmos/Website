@@ -709,7 +709,8 @@
     "uuid": "fa44ffcf-6c60-45f4-b959-296faa9895d4",
     "icon": "https://capes.bedrock-cosmos.app/icons/BadPing_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/BadPing.png",
-    "category": "BionicBen"
+    "category": "BionicBen",
+    "creatorParam": true
   },
   {
     "name": "BionicBen Classic Cape",
@@ -717,7 +718,8 @@
     "uuid": "29b830ac-19c0-463f-a9e1-4811c290d19e",
     "icon": "https://capes.bedrock-cosmos.app/icons/BionicBenClassic_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/BionicBenClassic.png",
-    "category": "BionicBen"
+    "category": "BionicBen",
+    "creatorParam": true
   },
   {
     "name": "Bread Cape",
@@ -725,7 +727,8 @@
     "uuid": "6acb51d1-dfe1-435e-803f-425f959b9382",
     "icon": "https://capes.bedrock-cosmos.app/icons/Bread_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/Bread.png",
-    "category": "BionicBen"
+    "category": "BionicBen",
+    "creatorParam": true
   },
   {
     "name": "Good Ping Cape",
@@ -733,7 +736,8 @@
     "uuid": "9616be9d-eca6-4d5d-aae7-fce58530a9f5",
     "icon": "https://capes.bedrock-cosmos.app/icons/GoodPing_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/GoodPing.png",
-    "category": "BionicBen"
+    "category": "BionicBen",
+    "creatorParam": true
   },
   {
     "name": "Medium Ping Cape",
@@ -741,7 +745,8 @@
     "uuid": "77fc588f-be6f-4def-8ab6-26ac46901897",
     "icon": "https://capes.bedrock-cosmos.app/icons/MediumPing_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/MediumPing.png",
-    "category": "BionicBen"
+    "category": "BionicBen",
+    "creatorParam": true
   },
   {
     "name": "Scythe Cape",
@@ -749,7 +754,8 @@
     "uuid": "1472a239-f11c-4462-a302-59bc9df01a8b",
     "icon": "https://capes.bedrock-cosmos.app/icons/Scythe_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/Scythe.png",
-    "category": "BionicBen"
+    "category": "BionicBen",
+    "creatorParam": true
   },
   {
     "name": "Blossom Cape",
@@ -757,7 +763,8 @@
     "uuid": "b8657da9-d315-462f-9c0f-0dbb00fc208f",
     "icon": "https://capes.bedrock-cosmos.app/icons/Blossom_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/Blossom.png",
-    "category": "Stars"
+    "category": "Stars",
+    "creatorParam": true
   },
   {
     "name": "Snowy Cape",
@@ -765,7 +772,8 @@
     "uuid": "33ea3751-eaac-4139-95d2-f9d4978cb039",
     "icon": "https://capes.bedrock-cosmos.app/icons/Snowy_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/Snowy.png",
-    "category": "Stars"
+    "category": "Stars",
+    "creatorParam": true
   },
   {
     "name": "Sunflower Cape",
@@ -773,7 +781,8 @@
     "uuid": "cdc530a3-b427-4368-9cb9-5fa816a64b89",
     "icon": "https://capes.bedrock-cosmos.app/icons/Sunflower_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/Sunflower.png",
-    "category": "Stars"
+    "category": "Stars",
+    "creatorParam": true
   },
   {
     "name": "Adam Warlock's Cape",
@@ -1470,5 +1479,13 @@
     "icon": "https://capes.bedrock-cosmos.app/icons/Zeus_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/Zeus.png",
     "category": "SkinPack"
+  },
+  {
+    "name": "Tiny Takeover Cape.png",
+    "creator": "Essential",
+    "uuid": "0e377825-9488-4496-b75a-21de4b008b0a",
+    "icon": "https://capes.bedrock-cosmos.app/icons/TinyTakeoverCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/TinyTakeoverCape.png",
+    "category": "Custom"
   }
 ]
