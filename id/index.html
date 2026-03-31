@@ -115,6 +115,78 @@
           display: none !important;
         }
       }
+
+      /* ── Skin Stats Tooltip ───────────────────────────────────────────────── */
+      .skin-stat-tooltip {
+        position: absolute;
+        z-index: 9999;
+        background: rgba(15, 15, 20, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        padding: 0.55rem 0.75rem 0.6rem;
+        min-width: 170px;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(4px);
+        transition: opacity 0.15s ease, transform 0.15s ease;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+      }
+      .skin-stat-tooltip.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .stat-tooltip-title {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: #a0a8c0;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.45rem;
+        white-space: nowrap;
+      }
+      .stat-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.2rem 0;
+      }
+      .stat-row + .stat-row {
+        border-top: 1px solid rgba(255,255,255,0.06);
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        color: #c8ccd8;
+        white-space: nowrap;
+      }
+      .stat-val {
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+      .stat-yes { color: #4ade80; }
+      .stat-no  { color: #f87171; }
+      .skin-card.has-stats::after {
+        content: '';
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+      }
+      .skin-card.stats-all-true::after {
+        background: rgba(74, 222, 128, 0.85);
+        box-shadow: 0 0 5px rgba(74, 222, 128, 0.6);
+      }
+      .skin-card.stats-mixed::after {
+        background: rgba(250, 204, 21, 0.85);
+        box-shadow: 0 0 5px rgba(250, 204, 21, 0.6);
+      }
+      .skin-card.stats-all-false::after {
+        background: rgba(248, 113, 113, 0.85);
+        box-shadow: 0 0 5px rgba(248, 113, 113, 0.6);
+      }
     </style>
   </head>
   <body>
@@ -428,6 +500,16 @@
             const gridSection = document.getElementById("skin-grid-section");
             const gridEl = document.getElementById("skin-grid");
             gridEl.innerHTML = "";
+
+            // Shared floating tooltip element
+            let tooltip = document.getElementById("skin-stat-tooltip");
+            if (!tooltip) {
+              tooltip = document.createElement("div");
+              tooltip.id = "skin-stat-tooltip";
+              tooltip.className = "skin-stat-tooltip";
+              document.body.appendChild(tooltip);
+            }
+
             for (const skin of skins) {
               if (!skin.name || !skin.image) continue;
               const card = document.createElement("div");
@@ -444,9 +526,60 @@
               label.textContent = skin.name;
               card.appendChild(imgWrap);
               card.appendChild(label);
+
+              // Attach tooltip only if skin has stats
+              if (skin.stats && typeof skin.stats === "object" && Object.keys(skin.stats).length > 0) {
+                card.classList.add("has-stats");
+                const vals = Object.values(skin.stats);
+                const trueCount = vals.filter(Boolean).length;
+                if (trueCount === vals.length)      card.classList.add("stats-all-true");
+                else if (trueCount === 0)           card.classList.add("stats-all-false");
+                else                                card.classList.add("stats-mixed");
+                card.addEventListener("mouseenter", (e) => {
+                  const s = skin.stats;
+                  const rows = [];
+                  if ("isTrusted" in s) {
+                    rows.push(`<div class="stat-row"><span class="stat-label">Is Trusted?</span><span class="stat-val ${s.isTrusted ? 'stat-yes' : 'stat-no'}">${s.isTrusted ? '✔' : '✖'}</span></div>`);
+                  }
+                  if ("worksOnHive" in s) {
+                    rows.push(`<div class="stat-row"><span class="stat-label">Works on Hive?</span><span class="stat-val ${s.worksOnHive ? 'stat-yes' : 'stat-no'}">${s.worksOnHive ? '✔' : '✖'}</span></div>`);
+                  }
+                  tooltip.innerHTML = rows.join("");
+                  tooltip.classList.add("visible");
+                  positionTooltip(e, card);
+                });
+                card.addEventListener("mousemove", (e) => positionTooltip(e, card));
+                card.addEventListener("mouseleave", () => {
+                  tooltip.classList.remove("visible");
+                });
+              }
+
               gridEl.appendChild(card);
             }
             gridSection.style.display = "";
+          }
+
+          function positionTooltip(e, card) {
+            const tooltip = document.getElementById("skin-stat-tooltip");
+            const rect = card.getBoundingClientRect();
+            const ttW = tooltip.offsetWidth || 180;
+            const ttH = tooltip.offsetHeight || 80;
+            const margin = 10;
+
+            // Prefer above the card, centered
+            let left = rect.left + rect.width / 2 - ttW / 2 + window.scrollX;
+            let top = rect.top - ttH - margin + window.scrollY;
+
+            // Clamp horizontally
+            left = Math.max(margin, Math.min(left, window.innerWidth - ttW - margin + window.scrollX));
+
+            // If off top, show below
+            if (top < window.scrollY + margin) {
+              top = rect.bottom + margin + window.scrollY;
+            }
+
+            tooltip.style.left = left + "px";
+            tooltip.style.top = top + "px";
           }
 
           // 7. Redirect into Minecraft
