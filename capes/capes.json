@@ -704,6 +704,14 @@
     "category": "Custom"
   },
   {
+    "name": "Tiny Takeover Cape.png",
+    "creator": "Essential",
+    "uuid": "0e377825-9488-4496-b75a-21de4b008b0a",
+    "icon": "https://capes.bedrock-cosmos.app/icons/TinyTakeoverCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/TinyTakeoverCape.png",
+    "category": "Custom"
+  },
+  {
     "name": "Bad Ping Cape",
     "creator": "BionicBen",
     "uuid": "fa44ffcf-6c60-45f4-b959-296faa9895d4",
@@ -1479,13 +1487,5 @@
     "icon": "https://capes.bedrock-cosmos.app/icons/Zeus_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/Zeus.png",
     "category": "SkinPack"
-  },
-  {
-    "name": "Tiny Takeover Cape.png",
-    "creator": "Essential",
-    "uuid": "0e377825-9488-4496-b75a-21de4b008b0a",
-    "icon": "https://capes.bedrock-cosmos.app/icons/TinyTakeoverCape.png",
-    "texture": "https://bedrock-cosmos.app/capes/TinyTakeoverCape.png",
-    "category": "Custom"
   }
 ]
