@@ -1022,3 +1022,13 @@ footer {
     font-size: 1.8rem;
   }
 }
+/* ── medium laptop screens (769px–1279px) ── */
+@media (min-width: 800px) and (max-width: 1400px) {
+  .hero {
+    min-height: 114vh;
+  }
+
+  .navbar {
+    padding: 0.5rem 3rem;
+  }
+}
