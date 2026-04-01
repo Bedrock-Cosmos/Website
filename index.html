@@ -90,7 +90,7 @@
         </p>
         <div class="hero-buttons">
           <a
-            href="https://github.com/Bedrock-Cosmos/Launcher/releases/download/(Windows)/BedrockCosmosSetup.exe"
+            href="https://github.com/Bedrock-Cosmos/Launcher/releases/download/1.0.1/BedrockCosmosSetup.exe"
             class="btn-primary"
             id="download-btn"
           >
@@ -99,7 +99,7 @@
           <a href="#features" class="btn-secondary">Learn More</a>
         </div>
         <div class="stats-container">
-          <div class="stat-item"><span class="stat-number" id="downloadCount">Loading...</span> Current Downloads!</div>
+          <div class="stat-item"><span class="stat-number" id="downloadCount">Loading...</span> Total Downloads!</div>
           <div class="stat-item"><span class="stat-number" id="userCount">Loading...</span> Current Members!</div>
         </div>
       </div>
@@ -397,7 +397,7 @@
             return sum + release.assets.reduce((s, asset) => s + asset.download_count, 0);
           }, 0);
 
-          const OFFSET = 415; // Temporary count offset from when releases were cleared
+          const OFFSET = 1630; // Temporary count offset from when releases were cleared
           const finalCount = totalDownloads + OFFSET;
 
           document.getElementById("downloadCount").textContent = finalCount.toLocaleString();

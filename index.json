@@ -276,7 +276,7 @@
         "image": "https://bedrock-cosmos.app/imgs/DrWho1/ClockworkRobot2.png",
         "stats": {
           "isTrusted": false,
-          "worksOnHive": false
+          "worksOnHive": true
         }
       },
       {
