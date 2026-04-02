@@ -37,6 +37,10 @@
     <meta name="theme-color" content="#ededed" />
     <title>Home | Bedrock Cosmos</title>
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Discord Nametag Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cherry+Bomb+One&family=Chicle&family=Museomoderno:wght@100..900&family=New+Amsterdam&family=Cinzel:wght@400..900&display=swap" rel="stylesheet" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -361,7 +365,7 @@
                 class="nameplate-deco"
                 alt=""
               />
-              <p class="nameplate-user-name" style="color: #f1bef0">exports</p>
+              <p class="nameplate-user-name dns-font-8bit dns-neon" data-name="exports" style="--dns-neon-color: #b088f6; --dns-neon-stroke: #7d33ff;">exports</p>
               <span class="nameplate-role-label">Cosmos Creator</span>
             </div>
             <div
@@ -388,7 +392,7 @@
                 class="nameplate-deco"
                 alt="Capybara"
               />
-              <p class="nameplate-user-name" style="color: #f1bef0">Stars</p>
+              <p class="nameplate-user-name dns-font-8bit dns-gradient" style="--dns-color-start: #903cda; --dns-color-end: #1fb373;">Stars</p>
               <span class="nameplate-role-label">Cosmos Creator</span>
             </div>
             <div
@@ -577,6 +581,57 @@
         z-index: 22;
         line-height: 1;
       }
+      /* Discord Nametag Font Classes */
+      /* Tempo  → Zilla Slab */
+      .dns-font-tempo { font-family: 'Zilla Slab', serif !important; font-size: 0.9rem !important; }
+      /* Sakura → Cherry Bomb One */
+      .dns-font-sakura { font-family: 'Cherry Bomb One', cursive !important; font-size: 0.9rem !important; }
+      /* Jellybean → Chicle */
+      .dns-font-jellybean { font-family: 'Chicle', cursive !important; font-size: 0.9rem !important; }
+      /* Modern → Museo Moderno */
+      .dns-font-modern { font-family: 'MuseoModerno', sans-serif !important; font-size: 0.9rem !important; }
+      /* Medieval → New Amsterdam (closest available; Neo Castel not on Google Fonts) */
+      .dns-font-medieval { font-family: 'New Amsterdam', sans-serif !important; font-size: 0.9rem !important; }
+      /* 8Bit / Pixelfy Sans */
+      .dns-font-8bit { font-family: 'Pixelify Sans', monospace !important; font-size: 0.9rem !important; }
+      /* Vampyre → Cinzel (closest available; Sinistre not on Google Fonts) */
+      .dns-font-vampyre { font-family: 'Cinzel', serif !important; font-size: 0.9rem !important; }
+
+      /* Gradient name effect (mirrors Discord's gradient_dfb989) */
+      .nameplate-user-name.dns-gradient {
+        background: linear-gradient(
+          90deg,
+          var(--dns-color-start, #903cda),
+          var(--dns-color-end, #1fb373)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent !important;
+      }
+
+      /* Neon effect (mirrors Discord's neon_dfb989 + neonGlow_dfb989) */
+      .nameplate-user-name.dns-neon {
+        position: relative;
+        color: var(--dns-neon-color, #7d33ff) !important;
+        -webkit-text-stroke: 0.5px var(--dns-neon-stroke, #7d33ff);
+        text-shadow:
+          0 0 6px var(--dns-neon-stroke, #7d33ff),
+          0 0 14px var(--dns-neon-stroke, #7d33ff);
+        overflow: visible;
+      }
+      .nameplate-user-name.dns-neon::after {
+        content: attr(data-name);
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--dns-neon-stroke, #7d33ff);
+        filter: blur(7px);
+        opacity: 0.65;
+        pointer-events: none;
+        white-space: nowrap;
+      }
+
       .nameplate-role-label {
         position: absolute;
         top: 26px;
