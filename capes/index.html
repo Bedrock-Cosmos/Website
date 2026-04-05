@@ -486,7 +486,9 @@
       }
       @media (max-width: 600px) {
         .footer-content {
-          gap: 1.5rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem 2rem;
         }
       }
       .footer-section h3 {
@@ -544,6 +546,8 @@
         .nav-links {
           display: none;
         }
+        .navbar { justify-content: center; }
+        .discord-btn { display: none; }
         .capes-grid {
           grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
           gap: 0.7rem;
@@ -660,7 +664,6 @@
           <h3>Pages</h3>
           <a href="/changelogs">Changelogs</a>
           <a href="/skinpacks">Skin Packs</a>
-          <a href="/capes">Capes</a>
           <a href="/videos">Videos</a>
         </div>
       </div>

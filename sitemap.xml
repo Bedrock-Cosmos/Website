@@ -5,30 +5,36 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>https://bedrock-cosmos.app/</loc>
-        <lastmod>2026-03-07T12:00:00+00:00</lastmod>
+        <lastmod>2026-03-27T12:00:00+00:00</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
         <loc>https://bedrock-cosmos.app/skinpacks/</loc>
         <lastmod>2026-03-07T12:00:00+00:00</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://bedrock-cosmos.app/capes/</loc>
-        <lastmod>2026-03-08T12:00:00+00:00</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2026-03-31T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://bedrock-cosmos.app/videos/</loc>
-        <lastmod>2026-03-28T12:00:00+00:00</lastmod>
+        <lastmod>2026-04-01T12:00:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://bedrock-cosmos.app/changelogs/</loc>
-        <lastmod>2026-03-07T12:00:00+00:00</lastmod>
+        <lastmod>2026-04-05T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://bedrock-cosmos.app/config/</loc>
+        <lastmod>2026-04-05T12:00:00+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>

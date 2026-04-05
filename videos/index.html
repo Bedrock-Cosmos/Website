@@ -45,7 +45,7 @@
             "url": "https://www.youtube.com/watch?v=CB_wdWJyYb4",
             "embedUrl": "https://www.youtube.com/embed/CB_wdWJyYb4",
             "duration": "PT1M5S",
-            "uploadDate": "2026-03-27"
+            "uploadDate": "2026-03-27T00:00:00+00:00"
           }
         },
         {
@@ -59,7 +59,7 @@
             "url": "https://www.youtube.com/watch?v=hnDXSPKtzZA",
             "embedUrl": "https://www.youtube.com/embed/hnDXSPKtzZA",
             "duration": "PT3M39S",
-            "uploadDate": "2026-03-23"
+            "uploadDate": "2026-03-23T00:00:00+00:00"
           }
         },
         {
@@ -73,7 +73,18 @@
             "url": "https://www.youtube.com/watch?v=mSknkmYlbvE",
             "embedUrl": "https://www.youtube.com/embed/mSknkmYlbvE",
             "duration": "PT12S",
-            "uploadDate": "2026-03-09"
+            "uploadDate": "2026-03-09T00:00:00+00:00"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "VideoObject",
+            "name": "Como tener todas las capas en minecraft bedrock | Bedrock Cosmos",
+            "description": "#bedrockcosmos",
+            "url": "https://www.tiktok.com/@tigo72xd/video/7624328165221027080",
+            "embedUrl": "https://www.tiktok.com/embed/v2/7624328165221027080"
           }
         }
       ]
@@ -341,7 +352,11 @@
         margin: 0 auto 1.5rem;
       }
       @media (max-width: 600px) {
-        .footer-content { gap: 1.5rem; }
+        .footer-content {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem 2rem;
+        }
       }
       .footer-section h3 {
         font-size: 0.82rem;
@@ -370,12 +385,145 @@
         padding-top: 1.2rem;
       }
 
+      /* ── TikTok Section ── */
+      .tt-section {
+        margin-top: 3rem;
+        max-width: 1400px;
+      }
+      .tt-section-header {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 1.2rem;
+      }
+      .tt-section-header h2 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+      }
+      .tt-section-header h2 em {
+        font-style: normal;
+        color: var(--accent-light);
+        text-shadow: 0 0 30px var(--accent-glow);
+      }
+      .tt-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 240px));
+        gap: 1rem;
+      }
+      article.tt-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          transform 0.22s ease,
+          border-color 0.22s ease,
+          background 0.22s ease,
+          box-shadow 0.22s ease;
+        animation: vp-up 0.4s ease both;
+      }
+      article.tt-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--border-hover);
+        background: rgba(91, 33, 182, 0.08);
+        box-shadow: 0 10px 36px rgba(91, 33, 182, 0.22);
+      }
+      article.tt-card a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+      }
+      .tt-thumb {
+        position: relative;
+        aspect-ratio: 9 / 16;
+        overflow: hidden;
+        background: rgba(91, 33, 182, 0.08);
+      }
+      .tt-thumb iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+        pointer-events: none;
+      }
+      .tt-thumb-cover {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        transition: background 0.22s;
+        cursor: pointer;
+      }
+      article.tt-card:hover .tt-thumb-cover {
+        background: rgba(91, 33, 182, 0.08);
+      }
+      .tt-play-icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(0,0,0,0.65);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.22s, transform 0.22s;
+      }
+      article.tt-card:hover .tt-play-icon {
+        background: var(--accent);
+        transform: scale(1.1);
+      }
+      .tt-play-icon svg {
+        width: 18px;
+        height: 18px;
+        fill: #fff;
+        margin-left: 2px;
+      }
+      .tt-body {
+        padding: 0.75rem 0.9rem 0.85rem;
+        border-top: 1px solid var(--border);
+      }
+      .tt-title {
+        font-size: 0.83rem;
+        font-weight: 600;
+        color: #d0d0d0;
+        line-height: 1.4;
+        margin: 0 0 0.35rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        transition: color 0.2s;
+      }
+      article.tt-card:hover .tt-title { color: #fff; }
+      .tt-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
+      .tt-creator {
+        font-size: 0.75rem;
+        color: #888;
+      }
+      .tt-platform {
+        font-size: 0.72rem;
+        color: var(--accent-light);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
       /* ── Responsive ── */
       @media (max-width: 900px) {
         .list-panel { padding: 4.5rem 1.2rem 3rem; }
       }
       @media (max-width: 600px) {
         .nav-links { display: none; }
+        .navbar { justify-content: center; }
+        .discord-btn { display: none; }
         .list-header h1 { font-size: 1.8rem; }
         .vp-grid {
           grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -409,6 +557,14 @@
       </div>
 
       <div class="vp-grid" id="vp-grid" role="list"></div>
+
+      <!-- TikTok Section -->
+      <section class="tt-section" aria-label="TikTok Videos">
+        <div class="tt-section-header">
+          <h2>On <em>TikTok</em></h2>
+        </div>
+        <div class="tt-grid" id="tt-grid" role="list"></div>
+      </section>
     </main>
 
     <footer>
@@ -436,7 +592,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>Bedrock Cosmos © 2026 — All Rights Reserved — Not affiliated with Mojang Studios or Microsoft</p>
+        <p>Bedrock Cosmos © 2026 - All Rights Reserved - Not affiliated with Mojang Studios or Microsoft</p>
       </div>
     </footer>
 
@@ -472,6 +628,46 @@
             </div>
           </a>`;
         grid.appendChild(card);
+      });
+
+      // TikTok Videos
+      const TIKTOKS = [
+        {
+          id: "7624328165221027080",
+          user: "tigo72xd",
+          title: "Como tener todas las capas en minecraft bedrock | Bedrock Cosmos",
+          embedUrl: "https://www.tiktok.com/embed/v2/7624328165221027080",
+          url: "https://www.tiktok.com/@tigo72xd/video/7624328165221027080",
+        },
+      ];
+
+      const ttGrid = document.getElementById("tt-grid");
+      TIKTOKS.forEach((v, i) => {
+        const card = document.createElement("article");
+        card.className = "tt-card";
+        card.setAttribute("role", "listitem");
+        card.style.animationDelay = `${i * 0.055}s`;
+        card.innerHTML = `
+          <a href="${v.url}" target="_blank" rel="noopener" aria-label="Watch on TikTok">
+            <div class="tt-thumb">
+              <iframe src="${v.embedUrl}"
+                allowfullscreen scrolling="no" allow="encrypted-media"
+                title="${v.title}"></iframe>
+              <div class="tt-thumb-cover">
+                <div class="tt-play-icon">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="tt-body">
+              <h3 class="tt-title">${v.title}</h3>
+              <div class="tt-meta">
+                <p class="tt-creator">@${v.user}</p>
+                <span class="tt-platform">TikTok</span>
+              </div>
+            </div>
+          </a>`;
+        ttGrid.appendChild(card);
       });
 
       // Stars
