@@ -286,35 +286,35 @@
         border: none; border-top: 1px solid var(--border);
       }
 
-      /* Ad disable toggles */
-      .ad-grid {
+      /* Fad disable toggles */
+      .fad-grid {
         display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem;
       }
-      .ad-toggle-card {
+      .fad-toggle-card {
         background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
         padding: 0.85rem 1rem; cursor: pointer; transition: all 0.18s; position: relative;
         display: flex; align-items: center; gap: 0.75rem; user-select: none;
       }
-      .ad-toggle-card:hover {
+      .fad-toggle-card:hover {
         border-color: var(--border-hover); background: rgba(91, 33, 182, 0.08);
       }
-      .ad-toggle-card.ad-enabled {
+      .fad-toggle-card.fad-enabled {
         border-color: var(--sel-border); background: var(--sel);
         box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.2);
       }
-      .ad-toggle-label { font-size: 0.82rem; font-weight: 500; color: var(--text); line-height: 1.3; }
-      .ad-toggle-switch {
+      .fad-toggle-label { font-size: 0.82rem; font-weight: 500; color: var(--text); line-height: 1.3; }
+      .fad-toggle-switch {
         margin-left: auto; flex-shrink: 0;
         width: 32px; height: 18px; border-radius: 9px;
         background: var(--border); position: relative; transition: background 0.2s;
       }
-      .ad-toggle-card.ad-enabled .ad-toggle-switch { background: var(--accent-light); }
-      .ad-toggle-switch::after {
+      .fad-toggle-card.fad-enabled .fad-toggle-switch { background: var(--accent-light); }
+      .fad-toggle-switch::after {
         content: ''; position: absolute; top: 2px; left: 2px;
         width: 14px; height: 14px; border-radius: 50%; background: #fff;
         transition: transform 0.2s;
       }
-      .ad-toggle-card.ad-enabled .ad-toggle-switch::after { transform: translateX(14px); }
+      .fad-toggle-card.fad-enabled .fad-toggle-switch::after { transform: translateX(14px); }
 
       @media (max-width: 600px) {
         .navbar { padding: 0.75rem 1rem; gap: 1rem; justify-content: center; }
@@ -334,7 +334,6 @@
         display: grid;
         border-top: 1px solid var(--border);
         padding: 2.5rem 2rem;
-        padding-bottom: calc(2.5rem + 70px); /* clear fixed export bar */
         background: rgba(0, 0, 0, 0.3);
       }
       .footer-content {
@@ -448,36 +447,40 @@
         <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.85rem; font-style:italic;">Left-click to select a skin pack. Use the ⭐ button to also mark it as featured (3–11 max, ordered by selection).</p>
         <div class="sp-grid" id="skinpacksGrid"></div>
       </div>
-    </div>
 
-    <div class="divider" style="max-width:900px; margin:0 auto; padding:0 1.5rem;"><hr /></div>
 
-    <!-- Disable Ads section -->
-    <div class="section" id="disableAdsSection" style="max-width:900px; margin:0 auto; padding:0 1.5rem 180px;">
-      <div class="section-header">
-        <div class="section-title">
-          Disable Ads
-          <span class="section-count" id="disableAdsCount">0 disabled</span>
+      <div class="divider"><hr /></div>
+
+      <!-- Disable Ads section -->
+      <div class="section" id="disableFadsSection">
+        <div class="section-header">
+          <div class="section-title">
+            Disable Ads
+            <span class="section-count" id="disableFadsCount">0 disabled</span>
+          </div>
+        </div>
+        <div class="fad-grid" id="fadTogglesGrid">
+          <div class="fad-toggle-card" data-fad="featured_row" onclick="toggleAd('featured_row')">
+            <div class="fad-toggle-label">Disable Featured Row</div>
+            <div class="fad-toggle-switch"></div>
+          </div>
+          <div class="fad-toggle-card" data-fad="get_more_skins" onclick="toggleAd('get_more_skins')">
+            <div class="fad-toggle-label">Disable Get More Skins Button</div>
+            <div class="fad-toggle-switch"></div>
+          </div>
+          <div class="fad-toggle-card" data-fad="get_more_row" onclick="toggleAd('get_more_row')">
+            <div class="fad-toggle-label">Disable GET MORE Row</div>
+            <div class="fad-toggle-switch"></div>
+          </div>
+          <div class="fad-toggle-card" data-fad="marketplace_pass" onclick="toggleAd('marketplace_pass')">
+            <div class="fad-toggle-label">Disable Marketplace Pass</div>
+            <div class="fad-toggle-switch"></div>
+          </div>
         </div>
       </div>
-      <div class="ad-grid" id="adTogglesGrid">
-        <div class="ad-toggle-card" data-ad="featured_row" onclick="toggleAd('featured_row')">
-          <div class="ad-toggle-label">Disable Featured Row</div>
-          <div class="ad-toggle-switch"></div>
-        </div>
-        <div class="ad-toggle-card" data-ad="get_more_skins" onclick="toggleAd('get_more_skins')">
-          <div class="ad-toggle-label">Disable Get More Skins Button</div>
-          <div class="ad-toggle-switch"></div>
-        </div>
-        <div class="ad-toggle-card" data-ad="get_more_row" onclick="toggleAd('get_more_row')">
-          <div class="ad-toggle-label">Disable GET MORE Row</div>
-          <div class="ad-toggle-switch"></div>
-        </div>
-        <div class="ad-toggle-card" data-ad="marketplace_pass" onclick="toggleAd('marketplace_pass')">
-          <div class="ad-toggle-label">Disable Marketplace Pass</div>
-          <div class="ad-toggle-switch"></div>
-        </div>
-      </div>
+
+      <!-- Bottom padding for export bar -->
+      <div style="height: 80px;"></div>
     </div>
 
     <!-- Export bar -->
@@ -499,17 +502,12 @@
     let SKINPACKS_ORDER = [];
 
     async function loadData() {
-      let indexJson = {};
-      try {
-        const [capesRes, indexRes] = await Promise.all([
-          fetch('/capes/capes.json'),
-          fetch('/index.json'),
-        ]);
-        CAPES_DATA = await capesRes.json();
-        indexJson = await indexRes.json();
-      } catch (e) {
-        console.warn('loadData fetch failed:', e);
-      }
+      const [capesRes, indexRes] = await Promise.all([
+        fetch('/capes/capes.json'),
+        fetch('/index.json'),
+      ]);
+      CAPES_DATA = await capesRes.json();
+      const indexJson = await indexRes.json();
 
       // Collect skinpack entries from index.json
       const skinpackEntries = Object.entries(indexJson)
@@ -624,16 +622,12 @@
 
     // ─── URL SYNC ───────────────────────────────────────────────────────────────
     function syncURL() {
-      try {
-        const total = selectedCapes.size + selectedSkinpacks.size + featuredSkinpacks.length + disabledAds.size;
-        if (total === 0) {
-          history.replaceState(null, '', location.pathname);
-        } else {
-          const code = buildCode();
-          history.replaceState(null, '', `${location.pathname}?config=${encodeURIComponent(code)}`);
-        }
-      } catch (e) {
-        // history.replaceState can fail in some environments (e.g. GitHub Pages subdirs)
+      const total = selectedCapes.size + selectedSkinpacks.size + featuredSkinpacks.length + disabledAds.size;
+      if (total === 0) {
+        history.replaceState(null, '', '/config/');
+      } else {
+        const code = buildCode();
+        history.replaceState(null, '', `/config/?config=${encodeURIComponent(code)}`);
       }
     }
 
@@ -665,7 +659,7 @@
       } else {
         fcEl.style.display = 'none';
       }
-      document.getElementById('disableAdsCount').textContent = `${na} disabled`;
+      document.getElementById('disableFadsCount').textContent = `${na} disabled`;
 
       syncURL();
     }
@@ -742,7 +736,7 @@
       disabledAds.clear();
       document.querySelectorAll('.cape-card').forEach(c => c.classList.remove('selected'));
       document.querySelectorAll('.sp-card').forEach(c => c.classList.remove('selected'));
-      document.querySelectorAll('.ad-toggle-card').forEach(c => c.classList.remove('ad-enabled'));
+      document.querySelectorAll('.fad-toggle-card').forEach(c => c.classList.remove('fad-enabled'));
 
       const capeUUIDs = decodeSelection(parsed.capesHex, CAPES_ORDER);
       const spUUIDs = decodeSelection(parsed.spHex, SKINPACKS_ORDER);
@@ -775,8 +769,8 @@
         AD_KEYS.forEach((k, i) => {
           if (bits & (1 << i)) {
             disabledAds.add(k);
-            const card = document.querySelector(`[data-ad="${k}"]`);
-            if (card) card.classList.add('ad-enabled');
+            const card = document.querySelector(`[data-fad="${k}"]`);
+            if (card) card.classList.add('fad-enabled');
           }
         });
       }
@@ -847,13 +841,13 @@
     }
 
     function toggleAd(key) {
-      const card = document.querySelector(`[data-ad="${key}"]`);
+      const card = document.querySelector(`[data-fad="${key}"]`);
       if (disabledAds.has(key)) {
         disabledAds.delete(key);
-        card.classList.remove('ad-enabled');
+        card.classList.remove('fad-enabled');
       } else {
         disabledAds.add(key);
-        card.classList.add('ad-enabled');
+        card.classList.add('fad-enabled');
       }
       updateExportBar();
     }
@@ -885,7 +879,7 @@
             </svg>
           </div>
           <div class="sp-featured-badge" data-sp-badge="${sp.uuid}"></div>
-          <img class="sp-banner" src="${sp.thumbnail || ''}" alt="${sp.name}" loading="lazy" ${sp.thumbnail ? '' : 'style="display:none"'} onerror="this.style.opacity='0.2'" />
+          <img class="sp-banner" src="${sp.thumbnail}" alt="${sp.name}" loading="lazy" onerror="this.style.opacity='0.2'" />
           <div class="sp-footer">
             <div class="sp-name">${sp.name}</div>
             <button class="sp-featured-btn" data-sp-feat="${sp.uuid}" onclick="event.stopPropagation(); toggleFeaturedSkinpack('${sp.uuid}')" title="Toggle featured">⭐</button>
