@@ -448,40 +448,34 @@
         <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.85rem; font-style:italic;">Left-click to select a skin pack. Use the ⭐ button to also mark it as featured (3–11 max, ordered by selection).</p>
         <div class="sp-grid" id="skinpacksGrid"></div>
       </div>
+    </div>
 
-
-      <div class="divider"><hr /></div>
-
-      <!-- Disable Ads section -->
-      <div class="section" id="disableAdsSection">
-        <div class="section-header">
-          <div class="section-title">
-            Disable Ads
-            <span class="section-count" id="disableAdsCount">0 disabled</span>
-          </div>
-        </div>
-        <div class="ad-grid" id="adTogglesGrid">
-          <div class="ad-toggle-card" data-ad="featured_row" onclick="toggleAd('featured_row')">
-            <div class="ad-toggle-label">Disable Featured Row</div>
-            <div class="ad-toggle-switch"></div>
-          </div>
-          <div class="ad-toggle-card" data-ad="get_more_skins" onclick="toggleAd('get_more_skins')">
-            <div class="ad-toggle-label">Disable Get More Skins Button</div>
-            <div class="ad-toggle-switch"></div>
-          </div>
-          <div class="ad-toggle-card" data-ad="get_more_row" onclick="toggleAd('get_more_row')">
-            <div class="ad-toggle-label">Disable GET MORE Row</div>
-            <div class="ad-toggle-switch"></div>
-          </div>
-          <div class="ad-toggle-card" data-ad="marketplace_pass" onclick="toggleAd('marketplace_pass')">
-            <div class="ad-toggle-label">Disable Marketplace Pass</div>
-            <div class="ad-toggle-switch"></div>
-          </div>
+    <!-- Disable Ads section (outside page-wrap so footer never overlaps it) -->
+    <div class="section" id="disableAdsSection" style="max-width:900px; margin:0 auto; padding:0 1.5rem 2rem;">
+      <div class="section-header">
+        <div class="section-title">
+          Disable Ads
+          <span class="section-count" id="disableAdsCount">0 disabled</span>
         </div>
       </div>
-
-      <!-- Bottom padding for export bar -->
-      <div style="height: 80px;"></div>
+      <div class="ad-grid" id="adTogglesGrid">
+        <div class="ad-toggle-card" data-ad="featured_row" onclick="toggleAd('featured_row')">
+          <div class="ad-toggle-label">Disable Featured Row</div>
+          <div class="ad-toggle-switch"></div>
+        </div>
+        <div class="ad-toggle-card" data-ad="get_more_skins" onclick="toggleAd('get_more_skins')">
+          <div class="ad-toggle-label">Disable Get More Skins Button</div>
+          <div class="ad-toggle-switch"></div>
+        </div>
+        <div class="ad-toggle-card" data-ad="get_more_row" onclick="toggleAd('get_more_row')">
+          <div class="ad-toggle-label">Disable GET MORE Row</div>
+          <div class="ad-toggle-switch"></div>
+        </div>
+        <div class="ad-toggle-card" data-ad="marketplace_pass" onclick="toggleAd('marketplace_pass')">
+          <div class="ad-toggle-label">Disable Marketplace Pass</div>
+          <div class="ad-toggle-switch"></div>
+        </div>
+      </div>
     </div>
 
     <!-- Export bar -->
