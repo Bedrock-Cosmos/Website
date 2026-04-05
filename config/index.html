@@ -334,6 +334,7 @@
         display: grid;
         border-top: 1px solid var(--border);
         padding: 2.5rem 2rem;
+        padding-bottom: calc(2.5rem + 70px); /* clear fixed export bar */
         background: rgba(0, 0, 0, 0.3);
       }
       .footer-content {
@@ -502,12 +503,17 @@
     let SKINPACKS_ORDER = [];
 
     async function loadData() {
-      const [capesRes, indexRes] = await Promise.all([
-        fetch('/capes/capes.json'),
-        fetch('/index.json'),
-      ]);
-      CAPES_DATA = await capesRes.json();
-      const indexJson = await indexRes.json();
+      let indexJson = {};
+      try {
+        const [capesRes, indexRes] = await Promise.all([
+          fetch('/capes/capes.json'),
+          fetch('/index.json'),
+        ]);
+        CAPES_DATA = await capesRes.json();
+        indexJson = await indexRes.json();
+      } catch (e) {
+        console.warn('loadData fetch failed:', e);
+      }
 
       // Collect skinpack entries from index.json
       const skinpackEntries = Object.entries(indexJson)
@@ -622,12 +628,16 @@
 
     // ─── URL SYNC ───────────────────────────────────────────────────────────────
     function syncURL() {
-      const total = selectedCapes.size + selectedSkinpacks.size + featuredSkinpacks.length + disabledAds.size;
-      if (total === 0) {
-        history.replaceState(null, '', '/config/');
-      } else {
-        const code = buildCode();
-        history.replaceState(null, '', `/config/?config=${encodeURIComponent(code)}`);
+      try {
+        const total = selectedCapes.size + selectedSkinpacks.size + featuredSkinpacks.length + disabledAds.size;
+        if (total === 0) {
+          history.replaceState(null, '', location.pathname);
+        } else {
+          const code = buildCode();
+          history.replaceState(null, '', `${location.pathname}?config=${encodeURIComponent(code)}`);
+        }
+      } catch (e) {
+        // history.replaceState can fail in some environments (e.g. GitHub Pages subdirs)
       }
     }
 
@@ -879,7 +889,7 @@
             </svg>
           </div>
           <div class="sp-featured-badge" data-sp-badge="${sp.uuid}"></div>
-          <img class="sp-banner" src="${sp.thumbnail}" alt="${sp.name}" loading="lazy" onerror="this.style.opacity='0.2'" />
+          <img class="sp-banner" src="${sp.thumbnail || ''}" alt="${sp.name}" loading="lazy" ${sp.thumbnail ? '' : 'style="display:none"'} onerror="this.style.opacity='0.2'" />
           <div class="sp-footer">
             <div class="sp-name">${sp.name}</div>
             <button class="sp-featured-btn" data-sp-feat="${sp.uuid}" onclick="event.stopPropagation(); toggleFeaturedSkinpack('${sp.uuid}')" title="Toggle featured">⭐</button>
