@@ -8,13 +8,15 @@
       name="description"
       content="Bedrock Cosmos – Custom capes, Legacy Skin Packs, and more for Minecraft Bedrock Edition."
     />
-    <meta name="keywords" content="Minecraft, Bedrock, Marketplace, Launcher, Proxy, Custom Capes, Legacy Skin Packs, Custom Skins" />
+    <meta
+      name="keywords"
+      content="Minecraft, Bedrock, Marketplace, Launcher, Proxy, Custom Capes, Legacy Skin Packs, Custom Skins"
+    />
     <link rel="canonical" href="https://bedrock-cosmos.app/changelogs/" />
-    <!-- Open Graph -->
     <meta content="Bedrock Cosmos" property="og:site_name" />
     <meta content="en" property="og:locale" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Changelog | Bedrock Cosmos" />
+    <meta property="og:title" content="Changelogs | Bedrock Cosmos" />
     <meta
       property="og:description"
       content="Bedrock Cosmos – Custom capes, Legacy Skin Packs, and more for Minecraft Bedrock Edition."
@@ -23,10 +25,8 @@
     <meta property="og:image" content="https://bedrock-cosmos.app/icons/shootingstar.png" />
     <meta property="og:image:width" content="256" />
     <meta property="og:image:height" content="256" />
-
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Changelog | Bedrock Cosmos" />
+    <meta name="twitter:title" content="Changelogs | Bedrock Cosmos" />
     <meta
       name="twitter:description"
       content="Bedrock Cosmos – Custom capes, Legacy Skin Packs, and more for Minecraft Bedrock Edition."
@@ -34,387 +34,635 @@
     <meta name="twitter:image" content="https://bedrock-cosmos.app/icons/shootingstar.png" />
     <meta content="bedrock-cosmos.app" name="twitter:domain" />
     <link href="https://bedrock-cosmos.app/changelogs/" hreflang="x-default" rel="alternate" />
-
-    <meta name="theme-color" content="#ededed" />
+    <meta name="theme-color" content="#5b21b6" />
     <title>Changelogs | Bedrock Cosmos</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/marketplace.css" />
     <style>
-      .changelog-container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 8rem 2rem 4rem;
-        position: relative;
-        z-index: 10;
-      }
-
-      .changelog-header {
-        text-align: center;
-        margin-bottom: 4rem;
-      }
-
-      .changelog-header h1 {
-        font-size: 3rem;
-        font-weight: 800;
-        color: #fff;
-        margin-bottom: 0.5rem;
-      }
-
-      .changelog-header p {
-        color: #999;
-        font-size: 1.1rem;
-      }
-
-      .back-link {
-        display: inline-block;
-        margin-bottom: 2rem;
-        color: #fff;
-        text-decoration: none;
-        font-weight: 600;
-        transition: opacity 0.3s;
-      }
-
-      .back-link:hover {
-        opacity: 0.7;
-      }
-
-      .version-block {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 15px;
-        padding: 2.5rem;
-        margin-bottom: 2rem;
-        transition: all 0.3s;
-      }
-
-      .version-block:hover {
-        border-color: rgba(255, 255, 255, 0.3);
-        background: rgba(255, 255, 255, 0.05);
-      }
-
-      .version-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1.5rem;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      .version-number {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #fff;
-      }
-
-      .version-date {
-        color: #999;
-        font-size: 0.95rem;
-      }
-
-      .version-badge {
-        display: inline-block;
-        padding: 0.4rem 1rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        margin-left: 1rem;
-      }
-
-      .badge-latest {
-        background: rgba(255, 255, 255, 0.2);
-        color: #fff;
-      }
-
-      .change-section {
-        margin-bottom: 1.5rem;
-      }
-
-      .change-section:last-child {
-        margin-bottom: 0;
-      }
-
-      .change-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #fff;
-        margin-bottom: 0.8rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .change-icon {
-        width: 20px;
-        height: 20px;
-        filter: grayscale(100%) brightness(2);
-      }
-
-      .change-list {
-        list-style: none;
-        padding-left: 0;
-      }
-
-      .change-list li {
-        color: #aaa;
-        line-height: 1.8;
-        margin-bottom: 0.5rem;
-        padding-left: 1.5rem;
-        position: relative;
-      }
-
-      .change-list li:before {
-        content: "•";
-        position: absolute;
-        left: 0;
-        color: #666;
-      }
-
-      .pack-link {
-        color: #fff;
-        text-decoration: none;
-        font-weight: 600;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        transition: all 0.3s;
-      }
-
-      .pack-link:hover {
-        border-bottom-color: #fff;
-        opacity: 0.8;
-      }
-
-      @media (max-width: 768px) {
-        .changelog-header h1 {
-          font-size: 2rem;
+      /* Changelog-specific mobile fixes */
+      @media (max-width: 600px) {
+        /* Keep the Bedrock Cosmos title visible — changelog has no search bar */
+        .mc-topbar-title {
+          display: flex !important;
         }
-        .version-block {
-          padding: 1.5rem;
+        /* Give the back button a right border to visually separate it */
+        .mc-topbar-back {
+          flex-shrink: 0;
         }
-        .version-number {
-          font-size: 1.5rem;
-        }
-        .version-header {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        .version-badge {
-          margin-left: 0;
+        /* Hide the entire right side of the topbar on mobile */
+        .mc-topbar-right {
+          display: none !important;
         }
       }
     </style>
   </head>
   <body>
-    <div class="stars-container" id="stars"></div>
-
-    <nav class="navbar">
-      <div class="logo">
-        <img src="../icons/shootingstar.png" alt="Bedrock Cosmos" class="logo-icon" />
-        Bedrock Cosmos
+    <!-- TOP BAR -->
+    <header class="mc-topbar">
+      <a href="../" class="mc-topbar-back">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Home
+      </a>
+      <span class="mc-topbar-title" style="align-items: center; justify-content: center; gap: 8px">
+        <img
+          src="https://bedrock-cosmos.app/icons/shootingstar.png"
+          alt=""
+          style="width: 24px; height: 24px; object-fit: contain"
+        />
+        <span
+          style="
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            font-family: &quot;Noto Sans&quot;, &quot;Segoe UI&quot;, sans-serif;
+          "
+          >Bedrock Cosmos</span
+        >
+      </span>
+      <div class="mc-topbar-right">
+        <a href="/config" class="mc-library-btn"> My Library </a>
       </div>
-      <ul class="nav-links">
-        <li><a href="../#home">Home</a></li>
-        <li><a href="/skinpacks">Skin Packs</a></li>
-        <li><a href="/capes">Capes</a></li>
-        <li><a href="/videos">Videos</a></li>
-      </ul>
-      <a href="https://discord.com/invite/HRG2NapegP" class="discord-btn">Join Discord</a>
-    </nav>
+    </header>
 
-    <div class="changelog-container">
-      <a href="../" class="back-link">← Back to Home</a>
+    <!-- SIDEBAR -->
+    <aside class="mc-sidebar">
+      <a href="/skinpacks" class="mc-sidebar-icon" title="Skin Packs">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      </a>
+      <a href="/capes" class="mc-sidebar-icon" title="Capes">
+        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="22" height="22">
+          <path
+            fill-rule="evenodd"
+            d="m194.4 16h411.1c20.7 0 37.4 19.1 37.4 42.6v681.8c0 23.5-16.7 42.6-37.4 42.6h-411.1c-20.7 0-37.4-19.1-37.4-42.6v-681.8c0-23.5 16.7-42.6 37.4-42.6zm169.2 338.3c-1.3 3.9-4.9 6.6-9 6.6h-88.1c-9.2 0-13 11.7-5.6 17.2l71.3 51.7c3.3 2.4 4.7 6.7 3.4 10.6l-27.2 83.8c-2.8 8.7 7.2 16 14.6 10.6l71.3-51.8c3.3-2.4 7.8-2.4 11.1 0l71.3 51.8c7.4 5.4 17.4-1.9 14.6-10.6l-27.2-83.8c-1.3-3.9 0.1-8.2 3.4-10.6l71.3-51.7c7.4-5.5 3.6-17.2-5.6-17.2h-88.1c-4.1 0-7.7-2.7-9-6.6l-27.2-83.7c-2.9-8.8-15.2-8.8-18.1 0z"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="33.3"
+          />
+        </svg>
+      </a>
+      <a href="#" class="mc-sidebar-icon active" title="Changelogs">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+        </svg>
+      </a>
+      <a href="/videos" class="mc-sidebar-icon" title="Videos">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polygon points="23 7 16 12 23 17 23 7" />
+          <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+        </svg>
+      </a>
+      <div style="width: 32px; height: 1px; background: #000; margin: 4px auto; flex-shrink: 0"></div>
+      <a href="/terms-of-service" class="mc-sidebar-icon" title="Terms of Service">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="9" y1="13" x2="15" y2="13" />
+          <line x1="9" y1="17" x2="13" y2="17" />
+        </svg>
+      </a>
+      <a href="/privacy-policy" class="mc-sidebar-icon" title="Privacy Policy">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+      </a>
+    </aside>
 
-      <div class="changelog-header">
-        <h1>Changelog</h1>
-        <p>Stay up to date with the latest features, improvements, and fixes</p>
+    <!-- MAIN -->
+    <main class="mc-main">
+      <div class="stars-container" id="stars"></div>
+      <div class="cl-content">
+        <div class="cl-header">
+          <h1>Changelogs</h1>
+          <p>Stay up to date with the latest features, improvements, and fixes</p>
+        </div>
+
+        <!-- ── Version 1.0.2 ── -->
+        <div class="version-block latest">
+          <div class="version-header" onclick="toggleBlock(this)">
+            <span class="version-number">Version 1.0.2</span>
+            <span class="version-badge">Latest</span>
+            <span class="version-date">April 1, 2026</span>
+            <span class="version-chevron"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" /></svg
+            ></span>
+          </div>
+          <div class="version-body">
+            <div class="change-section">
+              <div class="change-title new">
+                <svg class="change-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.5245 4.46353C11.6741 4.00287 12.3259 4.00287 12.4755 4.46353L13.9084 8.87336C13.9753 9.07937 14.1673 9.21885 14.3839 9.21885H19.0207C19.505 9.21885 19.7064 9.83866 19.3146 10.1234L15.5633 12.8488C15.3881 12.9761 15.3148 13.2018 15.3817 13.4078L16.8145 17.8176C16.9642 18.2783 16.437 18.6613 16.0451 18.3766L12.2939 15.6512C12.1186 15.5239 11.8814 15.5239 11.7061 15.6512L7.95488 18.3766C7.56303 18.6613 7.03578 18.2783 7.18546 17.8176L8.6183 13.4078C8.68524 13.2018 8.61191 12.9761 8.43667 12.8488L4.68544 10.1234C4.29358 9.83866 4.49497 9.21885 4.97933 9.21885H9.6161C9.83272 9.21885 10.0247 9.07937 10.0916 8.87336L11.5245 4.46353Z"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                New Features
+              </div>
+              <ul class="change-list">
+                <li>
+                  Added
+                  <span class="skin-name"
+                    >Tiny Takeover
+                    <div class="img-popup">
+                      <img src="../imgs/tiny-takeover-cape.png" alt="Tiny Takeover Cape for Minecraft Bedrock" /></div
+                  ></span>
+                  items to the Character Creator menu.
+                </li>
+                <li>
+                  Added a 1,000,000 Minecoin gift to all Bedrock Cosmos users at the next login. (April Fools Joke)
+                </li>
+              </ul>
+            </div>
+            <div class="change-section">
+              <div class="change-title improve">
+                <svg class="change-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.5245 4.46353C11.6741 4.00287 12.3259 4.00287 12.4755 4.46353L13.9084 8.87336C13.9753 9.07937 14.1673 9.21885 14.3839 9.21885H19.0207C19.505 9.21885 19.7064 9.83866 19.3146 10.1234L15.5633 12.8488C15.3881 12.9761 15.3148 13.2018 15.3817 13.4078L16.8145 17.8176C16.9642 18.2783 16.437 18.6613 16.0451 18.3766L12.2939 15.6512C12.1186 15.5239 11.8814 15.5239 11.7061 15.6512L7.95488 18.3766C7.56303 18.6613 7.03578 18.2783 7.18546 17.8176L8.6183 13.4078C8.68524 13.2018 8.61191 12.9761 8.43667 12.8488L4.68544 10.1234C4.29358 9.83866 4.49497 9.21885 4.97933 9.21885H9.6161C9.83272 9.21885 10.0247 9.07937 10.0916 8.87336L11.5245 4.46353Z"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                Improvements
+              </div>
+              <ul class="change-list">
+                <li>
+                  Added a detailed Skin List to some
+                  <a href="https://bedrock-cosmos.app/id/?pack=1fc32dd0-b399-4255-a4c7-e6e262a40ab6" class="pack-link"
+                    >Skin Packs</a
+                  >
+                  on the website.
+                </li>
+                <li>Added minimum Minecraft version required to the version label in the launcher.</li>
+                <li>Added Bengali Translations to the launcher (by @itzmehector_55171)</li>
+                <li>Added Vietnamese Translations to the launcher (by @new_vietnam_9000)</li>
+              </ul>
+            </div>
+            <div class="change-section">
+              <div class="change-title fix">
+                <svg class="change-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.5245 4.46353C11.6741 4.00287 12.3259 4.00287 12.4755 4.46353L13.9084 8.87336C13.9753 9.07937 14.1673 9.21885 14.3839 9.21885H19.0207C19.505 9.21885 19.7064 9.83866 19.3146 10.1234L15.5633 12.8488C15.3881 12.9761 15.3148 13.2018 15.3817 13.4078L16.8145 17.8176C16.9642 18.2783 16.437 18.6613 16.0451 18.3766L12.2939 15.6512C12.1186 15.5239 11.8814 15.5239 11.7061 15.6512L7.95488 18.3766C7.56303 18.6613 7.03578 18.2783 7.18546 17.8176L8.6183 13.4078C8.68524 13.2018 8.61191 12.9761 8.43667 12.8488L4.68544 10.1234C4.29358 9.83866 4.49497 9.21885 4.97933 9.21885H9.6161C9.83272 9.21885 10.0247 9.07937 10.0916 8.87336L11.5245 4.46353Z"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                Fixes
+              </div>
+              <ul class="change-list">
+                <li>Fixed incorrect Discord invites within the launcher.</li>
+                <li>
+                  Fixed capes not being able to be opened in-game from the
+                  <a href="https://bedrock-cosmos.app/capes/" class="pack-link">capes</a> page.
+                </li>
+                <li>Fixed Minecraft inbox not opening while Bedrock Cosmos was running.</li>
+                <li>Fixed a small error that could prevent Bedrock Cosmos' responses from properly downloading.</li>
+                <li>
+                  Fixed
+                  <a href="https://bedrock-cosmos.app/id/?pack=b89ef5de-78ad-4a48-b8a5-f12065286e7d" class="pack-link"
+                    >Legacy Skin Pack</a
+                  >
+                  skins not appearing in-game.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Version 1.0.1 ── -->
+        <div class="version-block collapsed">
+          <div class="version-header" onclick="toggleBlock(this)">
+            <span class="version-number">Version 1.0.1</span>
+            <span class="version-date">March 25, 2026</span>
+            <span class="version-chevron"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" /></svg
+            ></span>
+          </div>
+          <div class="version-body">
+            <div class="change-section">
+              <div class="change-title new">
+                <svg class="change-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.5245 4.46353C11.6741 4.00287 12.3259 4.00287 12.4755 4.46353L13.9084 8.87336C13.9753 9.07937 14.1673 9.21885 14.3839 9.21885H19.0207C19.505 9.21885 19.7064 9.83866 19.3146 10.1234L15.5633 12.8488C15.3881 12.9761 15.3148 13.2018 15.3817 13.4078L16.8145 17.8176C16.9642 18.2783 16.437 18.6613 16.0451 18.3766L12.2939 15.6512C12.1186 15.5239 11.8814 15.5239 11.7061 15.6512L7.95488 18.3766C7.56303 18.6613 7.03578 18.2783 7.18546 17.8176L8.6183 13.4078C8.68524 13.2018 8.61191 12.9761 8.43667 12.8488L4.68544 10.1234C4.29358 9.83866 4.49497 9.21885 4.97933 9.21885H9.6161C9.83272 9.21885 10.0247 9.07937 10.0916 8.87336L11.5245 4.46353Z"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                New Features
+              </div>
+              <ul class="change-list">
+                <li>
+                  Added
+                  <a href="https://minecraft.wiki/w/Character_Creator#Minecraft_Earth" class="pack-link"
+                    >Minecraft Earth/Dungeons Items</a
+                  >
+                  to Character Creator in
+                  <span class="skin-name"
+                    >Hidden ⭐
+                    <div class="img-popup">
+                      <img
+                        src="../imgs/character-creator-hidden.png"
+                        alt="Hidden Character Creator Items on Minecraft Bedrock"
+                      /></div
+                  ></span>
+                </li>
+              </ul>
+            </div>
+            <div class="change-section">
+              <div class="change-title improve">
+                <svg class="change-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.5245 4.46353C11.6741 4.00287 12.3259 4.00287 12.4755 4.46353L13.9084 8.87336C13.9753 9.07937 14.1673 9.21885 14.3839 9.21885H19.0207C19.505 9.21885 19.7064 9.83866 19.3146 10.1234L15.5633 12.8488C15.3881 12.9761 15.3148 13.2018 15.3817 13.4078L16.8145 17.8176C16.9642 18.2783 16.437 18.6613 16.0451 18.3766L12.2939 15.6512C12.1186 15.5239 11.8814 15.5239 11.7061 15.6512L7.95488 18.3766C7.56303 18.6613 7.03578 18.2783 7.18546 17.8176L8.6183 13.4078C8.68524 13.2018 8.61191 12.9761 8.43667 12.8488L4.68544 10.1234C4.29358 9.83866 4.49497 9.21885 4.97933 9.21885H9.6161C9.83272 9.21885 10.0247 9.07937 10.0916 8.87336L11.5245 4.46353Z"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                Improvements
+              </div>
+              <ul class="change-list">
+                <li>Updated to work on Minecraft 26.10</li>
+              </ul>
+            </div>
+            <div class="change-section">
+              <div class="change-title fix">
+                <svg class="change-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.5245 4.46353C11.6741 4.00287 12.3259 4.00287 12.4755 4.46353L13.9084 8.87336C13.9753 9.07937 14.1673 9.21885 14.3839 9.21885H19.0207C19.505 9.21885 19.7064 9.83866 19.3146 10.1234L15.5633 12.8488C15.3881 12.9761 15.3148 13.2018 15.3817 13.4078L16.8145 17.8176C16.9642 18.2783 16.437 18.6613 16.0451 18.3766L12.2939 15.6512C12.1186 15.5239 11.8814 15.5239 11.7061 15.6512L7.95488 18.3766C7.56303 18.6613 7.03578 18.2783 7.18546 17.8176L8.6183 13.4078C8.68524 13.2018 8.61191 12.9761 8.43667 12.8488L4.68544 10.1234C4.29358 9.83866 4.49497 9.21885 4.97933 9.21885H9.6161C9.83272 9.21885 10.0247 9.07937 10.0916 8.87336L11.5245 4.46353Z"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                Fixes
+              </div>
+              <ul class="change-list">
+                <li>Fixed some Skin Pack Pages missing Skin Previews.</li>
+                <li>
+                  Fixed
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=4d7590d6-8f7f-4f53-989a-2df76b6b015b"
+                    class="pack-link"
+                    >Little Big Planet</a
+                  >
+                  to be v1.0.73 allowing it to be downloaded again.
+                </li>
+                <li>
+                  Fixed
+                  <a href="https://bedrock-cosmos.app/id/?pack=1fc32dd0-b399-4255-a4c7-e6e262a40ab6" class="pack-link"
+                    >Mario Skin Pack</a
+                  >
+                  having Stationary Arms instead of Legs.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Version 1.0.0 ── -->
+        <div class="version-block collapsed">
+          <div class="version-header" onclick="toggleBlock(this)">
+            <span class="version-number">Version 1.0.0</span>
+            <span class="version-date">March 21, 2026</span>
+            <span class="version-chevron"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" /></svg
+            ></span>
+          </div>
+          <div class="version-body">
+            <div class="change-section">
+              <div class="change-title new">
+                <svg class="change-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.5245 4.46353C11.6741 4.00287 12.3259 4.00287 12.4755 4.46353L13.9084 8.87336C13.9753 9.07937 14.1673 9.21885 14.3839 9.21885H19.0207C19.505 9.21885 19.7064 9.83866 19.3146 10.1234L15.5633 12.8488C15.3881 12.9761 15.3148 13.2018 15.3817 13.4078L16.8145 17.8176C16.9642 18.2783 16.437 18.6613 16.0451 18.3766L12.2939 15.6512C12.1186 15.5239 11.8814 15.5239 11.7061 15.6512L7.95488 18.3766C7.56303 18.6613 7.03578 18.2783 7.18546 17.8176L8.6183 13.4078C8.68524 13.2018 8.61191 12.9761 8.43667 12.8488L4.68544 10.1234C4.29358 9.83866 4.49497 9.21885 4.97933 9.21885H9.6161C9.83272 9.21885 10.0247 9.07937 10.0916 8.87336L11.5245 4.46353Z"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                New Features
+              </div>
+              <ul class="change-list">
+                <li>Custom cape system with 180+ designs</li>
+              </ul>
+            </div>
+            <div class="change-section">
+              <div class="change-title improve">
+                <svg class="change-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.5245 4.46353C11.6741 4.00287 12.3259 4.00287 12.4755 4.46353L13.9084 8.87336C13.9753 9.07937 14.1673 9.21885 14.3839 9.21885H19.0207C19.505 9.21885 19.7064 9.83866 19.3146 10.1234L15.5633 12.8488C15.3881 12.9761 15.3148 13.2018 15.3817 13.4078L16.8145 17.8176C16.9642 18.2783 16.437 18.6613 16.0451 18.3766L12.2939 15.6512C12.1186 15.5239 11.8814 15.5239 11.7061 15.6512L7.95488 18.3766C7.56303 18.6613 7.03578 18.2783 7.18546 17.8176L8.6183 13.4078C8.68524 13.2018 8.61191 12.9761 8.43667 12.8488L4.68544 10.1234C4.29358 9.83866 4.49497 9.21885 4.97933 9.21885H9.6161C9.83272 9.21885 10.0247 9.07937 10.0916 8.87336L11.5245 4.46353Z"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                Improvements
+              </div>
+              <ul class="change-list">
+                <li>
+                  Added
+                  <span class="skin-name"
+                    >Rana (3D)
+                    <div class="skin-popup"><img src="../imgs/Rana3D.png" alt="Rana (3D)" /></div
+                  ></span>
+                  to
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=61c7a786-d7ad-49e0-a710-817121cd9795"
+                    class="pack-link"
+                    >Actions &amp; Stuff Skin Pack</a
+                  >
+                </li>
+                <li>
+                  Readded
+                  <span class="skin-name"
+                    >Party Herobrine
+                    <div class="skin-popup"><img src="../imgs/PartyHerobrine.png" alt="Party Herobrine" /></div
+                  ></span>
+                  to
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=8e78a44d-0c1f-4ce2-826b-8bbc555012de"
+                    class="pack-link"
+                    >1st Birthday Skin Pack</a
+                  >
+                </li>
+                <li>
+                  Readded
+                  <span class="skin-name"
+                    >Herobrine
+                    <div class="skin-popup"><img src="../imgs/Herobrine.png" alt="Herobrine" /></div
+                  ></span>
+                  to
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=a681c130-1ac9-456f-a13a-1f985365bb77"
+                    class="pack-link"
+                    >Skin Pack 1</a
+                  >
+                  &amp;
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=d1e7ecae-b422-40a2-8037-cf24571f901c"
+                    class="pack-link"
+                    >Skin Pack 1 (Classic)</a
+                  >
+                </li>
+                <li>
+                  Readded
+                  <span class="skin-name"
+                    >Super Meat Boy
+                    <div class="skin-popup"><img src="../imgs/SuperMeatBoy.png" alt="Super Meat Boy" /></div
+                  ></span>
+                  to
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=40fbf08d-390d-480c-9213-afb3886915eb"
+                    class="pack-link"
+                    >Skin Pack 2</a
+                  >
+                  &amp;
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=586448fd-d6ce-4bdf-9f1b-8e3f65b6bb95"
+                    class="pack-link"
+                    >Skin Pack 2 (Classic)</a
+                  >
+                </li>
+                <li>
+                  Readded
+                  <span class="skin-name"
+                    >Zombie Herobrine
+                    <div class="skin-popup"><img src="../imgs/ZombieHerobrine.png" alt="Zombie Herobrine" /></div
+                  ></span>
+                  to
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=297ef7fb-debf-40a5-aea7-4e7acf141c59"
+                    class="pack-link"
+                    >Skin Pack 3 (Classic)</a
+                  >
+                </li>
+                <li>
+                  Readded all Capes in
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=32c1ef67-3cb2-4094-bd0d-92eb55b5ad75"
+                    class="pack-link"
+                    >Greek Mythology Mash-up</a
+                  >
+                  which were previously removed.
+                </li>
+              </ul>
+            </div>
+            <div class="change-section">
+              <div class="change-title fix">
+                <svg class="change-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.5245 4.46353C11.6741 4.00287 12.3259 4.00287 12.4755 4.46353L13.9084 8.87336C13.9753 9.07937 14.1673 9.21885 14.3839 9.21885H19.0207C19.505 9.21885 19.7064 9.83866 19.3146 10.1234L15.5633 12.8488C15.3881 12.9761 15.3148 13.2018 15.3817 13.4078L16.8145 17.8176C16.9642 18.2783 16.437 18.6613 16.0451 18.3766L12.2939 15.6512C12.1186 15.5239 11.8814 15.5239 11.7061 15.6512L7.95488 18.3766C7.56303 18.6613 7.03578 18.2783 7.18546 17.8176L8.6183 13.4078C8.68524 13.2018 8.61191 12.9761 8.43667 12.8488L4.68544 10.1234C4.29358 9.83866 4.49497 9.21885 4.97933 9.21885H9.6161C9.83272 9.21885 10.0247 9.07937 10.0916 8.87336L11.5245 4.46353Z"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                Fixes
+              </div>
+              <ul class="change-list">
+                <li>
+                  Fixed 2 Capes in
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=770196c2-718f-43ef-94d6-8e53a7b5b0af"
+                    class="pack-link"
+                    >2nd Birthday Skin Pack - 2015</a
+                  >
+                </li>
+                <li>
+                  Fixed
+                  <span class="skin-name"
+                    >Dragon Slayer
+                    <div class="skin-popup"><img src="../imgs/DragonSlayer.png" alt="Dragon Slayer" /></div></span
+                  >'s Arms in
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=38fdf771-febb-4b6f-a162-c42850817d95"
+                    class="pack-link"
+                    >LEGO Minecraft Dragon Slayer</a
+                  >
+                  being Slim instead of Normal.
+                </li>
+                <li>
+                  Fixed 2 Capes in
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=40fbf08d-390d-480c-9213-afb3886915eb"
+                    class="pack-link"
+                    >Skin Pack 2</a
+                  >
+                </li>
+                <li>
+                  Fixed Animations in
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=297ef7fb-debf-40a5-aea7-4e7acf141c59"
+                    class="pack-link"
+                    >Skin Pack 3 (Classic)</a
+                  >
+                  to use zombie arms on
+                  <span class="skin-name"
+                    >Zombie Herobrine
+                    <div class="skin-popup"><img src="../imgs/ZombieHerobrine.png" alt="Zombie Herobrine" /></div
+                  ></span>
+                  &amp;
+                  <span class="skin-name"
+                    >Zombie Pigman
+                    <div class="skin-popup"><img src="../imgs/ZombiePigman.png" alt="Zombie Pigman" /></div></span
+                  >.
+                </li>
+                <li>
+                  Fixed
+                  <span class="skin-name"
+                    >Jak
+                    <div class="skin-popup"><img src="../imgs/Jak.png" alt="Jak" /></div></span
+                  >'s Cape in
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=36b8bc1a-10a1-4405-adc1-c93086dcb317"
+                    class="pack-link"
+                    >Skin Pack 3</a
+                  >
+                  to no longer be static.
+                </li>
+                <li>
+                  Fixed Animations in
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=42df0f5d-7433-4253-91cf-766e83298afd"
+                    class="pack-link"
+                    >Halloween Mash-up</a
+                  >
+                </li>
+                <li>
+                  Fixed all Capes in
+                  <a
+                    href="https://marketplace.minecraft.net/en-us/pdp?id=4d7590d6-8f7f-4f53-989a-2df76b6b015b"
+                    class="pack-link"
+                    >LittleBigPlanet™ Mash-up</a
+                  >
+                  to no longer be static.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="version-block">
-        <div class="version-header">
-          <span class="version-number">Version 1.0.2</span>
-          <span class="version-date">April 1, 2026</span>
-        </div>
-        
-        <div class="change-section">
-          <div class="change-title">
-            <img src="../icons/star.png" alt="Star" class="change-icon" />
-            New Features
+      <footer style="z-index: 10; position: relative">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Socials</h3>
+            <a href="https://www.youtube.com/watch?v=rKkmPG4bi4Y" target="_blank">YouTube</a>
+            <a href="https://discord.com/invite/HRG2NapegP" target="_blank">Discord</a>
           </div>
-          <ul class="change-list">
-            <li>Added <span class="skin-name">Tiny Takeover<div class="img-popup"><img src="../imgs/tiny-takeover-cape.png" alt="Tiny Takeover Cape for Minecraft Bedrock"></div></span> items to the Character Creator menu.</li>
-            <li>Added a 1,000,000 Minecoin gift to all Bedrock Cosmos users at the next login. (April Fools Joke)</li>
-          </ul>
-        </div>
-
-        <div class="change-section">
-          <div class="change-title">
-            <img src="../icons/star.png" alt="Star" class="change-icon" />
-            Improvements
+          <div class="footer-section">
+            <h3>Resources</h3>
+            <a href="https://github.com/Bedrock-Cosmos/Launcher/releases/">Download</a>
+            <a href="https://github.com/orgs/Bedrock-Cosmos">GitHub</a>
           </div>
-          <ul class="change-list">
-            <li>Added a detailed Skin List to some <a href="https://bedrock-cosmos.app/id/?pack=1fc32dd0-b399-4255-a4c7-e6e262a40ab6" class="pack-link">Skin Packs</a> on the website.</li>
-            <li>Added minimum Minecraft version required to the version label in the launcher.</li>
-            <li>Added Bengali Translations to the launcher (by @itzmehector_55171)</li>
-            <li>Added Vietnamese Translations to the launcher (by @new_vietnam_9000)</li>
-          </ul>
-        </div>
-
-        <div class="change-section">
-          <div class="change-title">
-            <img src="../icons/star.png" alt="Star" class="change-icon" />
-            Fixes
+          <div class="footer-section">
+            <h3>Legal</h3>
+            <a href="/terms-of-service/">Terms of Service</a>
+            <a href="/privacy-policy/">Privacy Policy</a>
           </div>
-          <ul class="change-list">
-            <li>Fixed incorrect Discord invites within the launcher.</li>
-            <li>Fixed capes not being able to be opened in-game from the <a href="https://bedrock-cosmos.app/capes/" class="pack-link">capes</a> page.</li>
-            <li>Fixed Minecraft inbox not opening while Bedrock Cosmos was running.</li>
-            <li>Fixed a small error that could prevent Bedrock Cosmos' responses from properly downloading.</li>
-            <li>Fixed <a href="https://bedrock-cosmos.app/id/?pack=b89ef5de-78ad-4a48-b8a5-f12065286e7d" class="pack-link">Legacy Skin Pack</a> skins not appearing in-game.</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="version-block">
-        <div class="version-header">
-          <span class="version-number">Version 1.0.1</span>
-          <span class="version-date">March 25, 2026</span>
-        </div>
-        
-        <div class="change-section">
-          <div class="change-title">
-            <img src="../icons/star.png" alt="Star" class="change-icon" />
-            New Features
+          <div class="footer-section">
+            <h3>Pages</h3>
+            <a href="/skinpacks/">Skin Packs</a>
+            <a href="/capes/">Capes</a>
+            <a href="/videos">Videos</a>
           </div>
-          <ul class="change-list">
-            <li>Added <a href="https://minecraft.wiki/w/Character_Creator#Minecraft_Earth" class="pack-link">Minecraft Earth/Dungeons Items</a> to Character Creator in <span class="skin-name">Hidden ⭐<div class="img-popup"><img src="../imgs/character-creator-hidden.png" alt="Hidden Character Creator Items on Minecraft Bedrock"></div></span></li>
-          </ul>
         </div>
-
-        <div class="change-section">
-          <div class="change-title">
-            <img src="../icons/star.png" alt="Star" class="change-icon" />
-            Improvements
-          </div>
-          <ul class="change-list">
-            <li>Updated to work on Minecraft 26.10</li>
-          </ul>
+        <div class="footer-bottom">
+          <p>Bedrock Cosmos © 2026 - All Rights Reserved - Not affiliated with Mojang Studios or Microsoft</p>
         </div>
-
-        <div class="change-section">
-          <div class="change-title">
-            <img src="../icons/star.png" alt="Star" class="change-icon" />
-            Fixes
-          </div>
-          <ul class="change-list">
-            <li>Fixed some Skin Pack Pages missing Skin Previews.</a></li>
-            <li>Fixed <a href="https://marketplace.minecraft.net/en-us/pdp?id=4d7590d6-8f7f-4f53-989a-2df76b6b015b" class="pack-link">Little Big Planet</a> to be v1.0.73 allowing it to be downloaded again.</li>
-            <li>Fixed <a href="https://bedrock-cosmos.app/id/?pack=1fc32dd0-b399-4255-a4c7-e6e262a40ab6" class="pack-link">Mario Skin Pack</a> having Stationary Arms instead of Legs.</a></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="version-block">
-        <div class="version-header">
-          <span class="version-number">Version 1.0.0</span>
-          <span class="version-date">March 21, 2026</span>
-        </div>
-        
-        <div class="change-section">
-          <div class="change-title">
-            <img src="../icons/star.png" alt="Star" class="change-icon" />
-            New Features
-          </div>
-          <ul class="change-list">
-            <li>Custom cape system with 180+ designs</li>
-          </ul>
-        </div>
-
-        <div class="change-section">
-          <div class="change-title">
-            <img src="../icons/star.png" alt="Star" class="change-icon" />
-            Improvements
-          </div>
-          <ul class="change-list">
-            <li>Added <span class="skin-name">Rana (3D)<div class="skin-popup"><img src="../imgs/Rana3D.png" alt="Rana (3D)"></div></span> to <a href="https://marketplace.minecraft.net/en-us/pdp?id=61c7a786-d7ad-49e0-a710-817121cd9795" class="pack-link">Actions & Stuff Skin Pack</a></li>
-            <li>Readded <span class="skin-name">Party Herobrine<div class="skin-popup"><img src="../imgs/PartyHerobrine.png" alt="Party Herobrine"></div></span> to <a href="https://marketplace.minecraft.net/en-us/pdp?id=8e78a44d-0c1f-4ce2-826b-8bbc555012de" class="pack-link">1st Birthday Skin Pack</a></li>
-            <li>Readded <span class="skin-name">Herobrine<div class="skin-popup"><img src="../imgs/Herobrine.png" alt="Party Herobrine"></div></span> to <a href="https://marketplace.minecraft.net/en-us/pdp?id=a681c130-1ac9-456f-a13a-1f985365bb77" class="pack-link">Skin Pack 1</a> & <a href="https://marketplace.minecraft.net/en-us/pdp?id=d1e7ecae-b422-40a2-8037-cf24571f901c" class="pack-link">Skin Pack 1 (Classic)</a></li>
-            <li>Readded <span class="skin-name">Super Meat Boy<div class="skin-popup"><img src="../imgs/SuperMeatBoy.png" alt="Super Meat Boy"></div></span> to <a href="https://marketplace.minecraft.net/en-us/pdp?id=40fbf08d-390d-480c-9213-afb3886915eb" class="pack-link">Skin Pack 2</a> & <a href="https://marketplace.minecraft.net/en-us/pdp?id=586448fd-d6ce-4bdf-9f1b-8e3f65b6bb95" class="pack-link">Skin Pack 2 (Classic)</a></li>
-            <li>Readded <span class="skin-name">Zombie Herobrine<div class="skin-popup"><img src="../imgs/ZombieHerobrine.png" alt="Zombie Herobrine"></div></span> to <a href="https://marketplace.minecraft.net/en-us/pdp?id=297ef7fb-debf-40a5-aea7-4e7acf141c59" class="pack-link">Skin Pack 3 (Classic)</a></li>
-            <li>Readded all Capes in <a href="https://marketplace.minecraft.net/en-us/pdp?id=32c1ef67-3cb2-4094-bd0d-92eb55b5ad75" class="pack-link">Greek Mythology Mash-up</a> which were previously removed.</li>
-          </ul>
-        </div>
-
-        <div class="change-section">
-          <div class="change-title">
-            <img src="../icons/star.png" alt="Star" class="change-icon" />
-            Fixes
-          </div>
-          <ul class="change-list"><li>Fixed 2 Capes in <a href="https://marketplace.minecraft.net/en-us/pdp?id=770196c2-718f-43ef-94d6-8e53a7b5b0af" class="pack-link">2nd Birthday Skin Pack - 2015</a></li>
-            <li>Fixed <span class="skin-name">Dragon Slayer<div class="skin-popup"><img src="../imgs/DragonSlayer.png" alt="Dragon Slayer"></div></span>'s Arms in <a href="https://marketplace.minecraft.net/en-us/pdp?id=38fdf771-febb-4b6f-a162-c42850817d95" class="pack-link">LEGO Minecraft Dragon Slayer</a> being Slim instead of Normal.</li>
-            <li>Fixed 2 Capes in <a href="https://marketplace.minecraft.net/en-us/pdp?id=40fbf08d-390d-480c-9213-afb3886915eb" class="pack-link">Skin Pack 2</a></li>
-            <li>Fixed Animations in <a href="https://marketplace.minecraft.net/en-us/pdp?id=297ef7fb-debf-40a5-aea7-4e7acf141c59" class="pack-link">Skin Pack 3 (Classic)</a> to use zombie arms on <span class="skin-name">Zombie Herobrine<div class="skin-popup"><img src="../imgs/ZombieHerobrine.png" alt="Zombie Herobrine"></div></span> & <span class="skin-name">Zombie Pigman<div class="skin-popup"><img src="../imgs/ZombiePigman.png" alt="Zombie Pigman"></div></span>.</li>
-            <li>Fixed <span class="skin-name">Jak<div class="skin-popup"><img src="../imgs/Jak.png" alt="Jak"></div></span>'s Cape in <a href="https://marketplace.minecraft.net/en-us/pdp?id=36b8bc1a-10a1-4405-adc1-c93086dcb317" class="pack-link">Skin Pack 3</a> to no longer be static.</li>
-            <li>Fixed Animations in <a href="https://marketplace.minecraft.net/en-us/pdp?id=42df0f5d-7433-4253-91cf-766e83298afd" class="pack-link">Halloween Mash-up</a></li>
-            <li>Fixed all Capes in <a href="https://marketplace.minecraft.net/en-us/pdp?id=4d7590d6-8f7f-4f53-989a-2df76b6b015b" class="pack-link">LittleBigPlanet™ Mash-up</a> to no longer be static.</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Socials</h3>
-          <a href="https://www.youtube.com/watch?v=rKkmPG4bi4Y" target="_blank">YouTube</a>
-          <a href="https://discord.com/invite/HRG2NapegP" id="discord-btn-footer" target="_blank">Discord</a>
-        </div>
-        <div class="footer-section">
-          <h3>Resources</h3>
-          <a href="https://github.com/Bedrock-Cosmos/Launcher/releases/">Download</a>
-          <a href="https://github.com/orgs/Bedrock-Cosmos">GitHub</a>
-        </div>
-        <div class="footer-section">
-          <h3>Legal</h3>
-          <a href="/terms-of-service">Terms of Service</a>
-          <a href="/privacy-policy">Privacy Policy</a>
-        </div>
-        <div class="footer-section">
-          <h3>Pages</h3>
-          <a href="/changelogs">Changelogs</a>
-          <a href="/skinpacks">Skin Packs</a>
-          <a href="/capes">Capes</a>
-          <a href="/videos">Videos</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>Bedrock Cosmos © 2026 - All Rights Reserved - Not affiliated with Mojang Studios or Microsoft</p>
-      </div>
-    </footer>
+      </footer>
+    </main>
 
     <script>
-      // Create twinkling stars
-      const starsContainer = document.getElementById("stars");
-      for (let i = 0; i < 200; i++) {
-        const star = document.createElement("div");
-        star.className = "star";
-        star.style.width = Math.random() * 3 + "px";
-        star.style.height = star.style.width;
-        star.style.left = Math.random() * 100 + "%";
-        star.style.top = Math.random() * 100 + "%";
-        star.style.animationDelay = Math.random() * 3 + "s";
-        starsContainer.appendChild(star);
+      function toggleBlock(header) {
+        header.closest(".version-block").classList.toggle("collapsed");
       }
 
-      // Create shooting stars
-      setInterval(() => {
-        const shootingStar = document.createElement("div");
-        shootingStar.className = "shooting-star";
-        shootingStar.style.left = Math.random() * 100 + "%";
-        shootingStar.style.top = Math.random() * 50 + "%";
-        starsContainer.appendChild(shootingStar);
-        setTimeout(() => shootingStar.remove(), 3000);
-      }, 2000);
+      // ── Stars ──
+      const sc = document.getElementById("stars");
+      for (let i = 0; i < 180; i++) {
+        const s = document.createElement("div"),
+          sz = Math.random() * 2.5 + "px";
+        s.className = "star";
+        s.style.cssText = `width:${sz};height:${sz};left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation-delay:${Math.random() * 3}s`;
+        sc.appendChild(s);
+      }
     </script>
   </body>
 </html>

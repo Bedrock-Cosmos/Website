@@ -4,858 +4,1173 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Customize your Bedrock Cosmos experience by selecting what Capes, Skin Packs, and ADs you want to see." />
+    <meta
+      name="description"
+      content="Customize your Bedrock Cosmos experience by selecting what Capes, Skin Packs, and ADs you want to see."
+    />
     <meta name="keywords" content="Custom Capes, Minecraft, Bedrock, Skin Packs, Marketplace Pass" />
     <link rel="canonical" href="https://bedrock-cosmos.app/config/" />
     <meta content="Bedrock Cosmos" property="og:site_name" />
     <meta content="en" property="og:locale" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Customize | Bedrock Cosmos" />
-    <meta property="og:description" content="Customize your Bedrock Cosmos experience by selecting what Capes, Skin Packs, and ADs you want to see." />
+    <meta
+      property="og:description"
+      content="Customize your Bedrock Cosmos experience by selecting what Capes, Skin Packs, and ADs you want to see."
+    />
     <meta property="og:url" content="https://bedrock-cosmos.app/config/" />
     <meta property="og:image" content="https://bedrock-cosmos.app/imgs/img_4.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Customize | Bedrock Cosmos" />
-    <meta name="twitter:description" content="Customize your Bedrock Cosmos experience by selecting what Capes, Skin Packs, and ADs you want to see." />
-    <meta name="twitter:image" content="https://bedrock-cosmos.app/imgs/img_4.png" />
-    <meta name="theme-color" content="#0a0a0f" />
-    <title>Customize | Bedrock Cosmos</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=VT323&family=Outfit:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
+    <meta
+      name="twitter:description"
+      content="Customize your Bedrock Cosmos experience by selecting what Capes, Skin Packs, and ADs you want to see."
     />
+    <meta name="twitter:image" content="https://bedrock-cosmos.app/imgs/img_4.png" />
+    <meta name="theme-color" content="#5b21b6" />
+    <title>Customize | Bedrock Cosmos</title>
+    <link rel="stylesheet" href="../css/marketplace.css" />
     <style>
+      /* ── Config page accent ── */
       :root {
-        --bg: #0a0a0f;
-        --surface: rgba(91, 33, 182, 0.05);
-        --border: rgba(91, 33, 182, 0.18);
-        --border-hover: rgba(91, 33, 182, 0.5);
-        --text: #e8e8e8;
-        --muted: #6b5f80;
-        --accent: #5b21b6;
-        --accent-light: #8b5cf6;
-        --accent-glow: rgba(91, 33, 182, 0.3);
-        --sel: rgba(91, 33, 182, 0.15);
-        --sel-border: rgba(139, 92, 246, 0.7);
-        --green: #22c55e;
-        --green-bg: rgba(34, 197, 94, 0.1);
-        --green-border: rgba(34, 197, 94, 0.3);
+        --mc-accent: #5b21b6;
+        --cfg-accent: #5b21b6;
+        --cfg-accent-light: #8b5cf6;
+        --cfg-accent-glow: rgba(91, 33, 182, 0.3);
+        --cfg-sel: rgba(91, 33, 182, 0.15);
+        --cfg-sel-border: rgba(139, 92, 246, 0.7);
+        --cfg-green: #22c55e;
+        --cfg-green-bg: rgba(34, 197, 94, 0.1);
+        --cfg-green-border: rgba(34, 197, 94, 0.3);
       }
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+      html,
       body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: "Outfit", sans-serif;
-        min-height: 100vh;
-        overflow-x: hidden;
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .mc-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
       }
 
-      /* Stars */
-      .stars-container {
-        position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
-      }
-      .star {
-        position: absolute; border-radius: 50%; background: #fff; opacity: 0;
-        animation: twinkle 3s infinite;
-      }
-      @keyframes twinkle {
-        0%, 100% { opacity: 0; }
-        50% { opacity: 0.7; }
+      /* ── Config content wrapper ── */
+      .cfg-content {
+        flex: 1;
+        padding: 2rem 2rem 120px;
+        max-width: 960px;
+        width: 100%;
+        margin: 0 auto;
       }
 
-      /* Navbar */
-      .navbar {
-        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-        display: flex; align-items: center; gap: 2rem; padding: 1rem 2rem;
-        background: rgba(10, 10, 15, 0.85); backdrop-filter: blur(14px);
-        border-bottom: 1px solid var(--border);
+      /* ── Page header ── */
+      .cfg-header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--mc-border);
       }
-      .logo {
-        display: flex; align-items: center; gap: 0.6rem;
-        font-weight: 700; font-size: 1.05rem; color: var(--text); text-decoration: none;
+      .cfg-header h1 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--mc-text);
+        letter-spacing: 0.04em;
+        margin-bottom: 4px;
       }
-      .logo-icon { width: 28px; height: 28px; }
-      .nav-links { display: flex; gap: 1.6rem; list-style: none; margin: 0 auto; }
-      .nav-links a { color: #888; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-      .nav-links a:hover { color: #fff; }
-      .discord-btn {
-        background: #5b21b6; color: #fff; border: none; border-radius: 8px;
-        padding: 0.5rem 1.1rem; font-size: 0.88rem; font-weight: 600;
-        text-decoration: none; cursor: pointer; transition: background 0.2s; white-space: nowrap;
-      }
-      .discord-btn:hover { background: #46198e; }
-
-      /* Main layout */
-      .page-wrap {
-        padding-top: 60px; min-height: 100vh; position: relative; z-index: 10;
+      .cfg-header p {
+        font-size: 0.82rem;
+        color: var(--mc-muted);
       }
 
-      /* Import banner */
-      .import-banner {
-        margin: 2rem auto; max-width: 900px; padding: 0 1.5rem;
-      }
+      /* ── Import bar ── */
       .import-bar {
-        display: flex; gap: 0.75rem; align-items: center;
-        background: var(--surface); border: 1px solid var(--border);
-        border-radius: 12px; padding: 0.75rem 1rem;
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+        background: var(--mc-panel);
+        border: 1px solid var(--mc-border);
+        border-radius: 3px;
+        padding: 0.6rem 0.85rem;
+        margin-bottom: 0.75rem;
       }
       .import-bar input {
-        flex: 1; background: transparent; border: none; outline: none;
-        color: var(--text); font-family: "VT323", monospace; font-size: 1.1rem;
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: var(--mc-text);
+        font-family: "Noto Sans", "Segoe UI", sans-serif;
+        font-size: 0.88rem;
         letter-spacing: 0.03em;
       }
-      .import-bar input::placeholder { color: var(--muted); }
+      .import-bar input::placeholder {
+        color: var(--mc-muted);
+      }
       .import-bar button {
-        background: var(--accent); color: #fff; border: none; border-radius: 8px;
-        padding: 0.4rem 1rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;
-        font-family: "Outfit", sans-serif; transition: background 0.2s; white-space: nowrap;
+        background: var(--cfg-accent);
+        color: #fff;
+        border: none;
+        border-radius: 2px;
+        padding: 0.38rem 0.9rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+        transition: background 0.15s;
+        white-space: nowrap;
       }
-      .import-bar button:hover { background: #46198e; }
+      .import-bar button:hover {
+        background: #46198e;
+      }
 
-      /* Status strip */
+      /* ── Status strip ── */
       .status-strip {
-        max-width: 900px; margin: 0 auto 0.5rem; padding: 0 1.5rem;
         display: none;
+        margin-bottom: 0.75rem;
       }
-      .status-strip.visible { display: block; }
+      .status-strip.visible {
+        display: block;
+      }
       .status-msg {
-        padding: 0.6rem 1rem; border-radius: 8px; font-size: 0.88rem; font-weight: 500;
+        padding: 0.55rem 0.9rem;
+        border-radius: 2px;
+        font-size: 0.82rem;
+        font-weight: 600;
       }
       .status-msg.success {
-        background: var(--green-bg); border: 1px solid var(--green-border); color: var(--green);
+        background: var(--cfg-green-bg);
+        border: 1px solid var(--cfg-green-border);
+        color: var(--cfg-green);
       }
       .status-msg.error {
-        background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #f87171;
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #f87171;
       }
 
-      /* Section */
-      .section {
-        max-width: 900px; margin: 0 auto; padding: 0 1.5rem 2rem;
+      /* ── Sections ── */
+      .cfg-section {
+        margin-bottom: 2rem;
       }
-      .section-header {
-        display: flex; align-items: center; justify-content: space-between;
-        margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+      .cfg-section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid var(--mc-border);
       }
-      .section-title {
-        font-size: 1rem; font-weight: 600; color: var(--accent-light);
-        display: flex; align-items: center; gap: 0.5rem;
+      .cfg-section-title {
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--mc-muted);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
       }
-      .section-count {
-        font-size: 0.8rem; color: var(--muted); font-weight: 400;
+      .cfg-section-count {
+        font-size: 0.72rem;
+        color: var(--mc-muted);
+        font-weight: 400;
+        text-transform: none;
+        letter-spacing: 0;
       }
       .select-all-btn {
-        background: transparent; border: 1px solid var(--border); color: var(--muted);
-        border-radius: 6px; padding: 0.25rem 0.7rem; font-size: 0.78rem; cursor: pointer;
-        font-family: "Outfit", sans-serif; transition: all 0.2s;
+        background: transparent;
+        border: 1px solid var(--mc-border);
+        color: var(--mc-muted);
+        border-radius: 2px;
+        padding: 0.22rem 0.65rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+        transition: all 0.15s;
       }
-      .select-all-btn:hover { border-color: var(--accent-light); color: var(--accent-light); }
+      .select-all-btn:hover {
+        border-color: var(--cfg-accent-light);
+        color: var(--cfg-accent-light);
+      }
 
-      /* Grid */
+      .cfg-divider {
+        border: none;
+        border-top: 1px solid var(--mc-border);
+        margin: 1.5rem 0;
+      }
+
+      /* ── Capes grid ── */
       .capes-grid {
-        display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 0.75rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 4px;
       }
       .cape-card {
-        background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-        padding: 0.65rem; cursor: pointer; transition: all 0.18s; position: relative;
-        display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+        background: var(--mc-panel);
+        border: 2px solid #000;
+        border-radius: 2px;
+        padding: 0.55rem;
+        cursor: pointer;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
         user-select: none;
       }
       .cape-card:hover {
-        border-color: var(--border-hover);
-        background: rgba(91, 33, 182, 0.08);
-        transform: translateY(-1px);
+        border-color: var(--cfg-accent);
+        background: var(--mc-panel2);
       }
       .cape-card.selected {
-        border-color: var(--sel-border);
-        background: var(--sel);
-        box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.2), 0 4px 16px rgba(91, 33, 182, 0.2);
+        border-color: var(--cfg-sel-border);
+        background: var(--cfg-sel);
       }
       .cape-card .check {
-        position: absolute; top: 6px; right: 6px;
-        width: 16px; height: 16px; border-radius: 50%;
-        background: var(--accent-light); display: none; align-items: center; justify-content: center;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: var(--cfg-accent-light);
+        display: none;
+        align-items: center;
+        justify-content: center;
       }
-      .cape-card.selected .check { display: flex; }
-      .check svg { width: 10px; height: 10px; }
-      .cape-img { width: 72px; height: 72px; object-fit: contain; image-rendering: pixelated; }
+      .cape-card.selected .check {
+        display: flex;
+      }
+      .check svg {
+        width: 9px;
+        height: 9px;
+      }
+      .cape-img {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+        image-rendering: pixelated;
+      }
       .cape-name {
-        font-size: 0.7rem; color: var(--text); text-align: center;
-        line-height: 1.2; word-break: break-word; max-width: 100%;
+        font-size: 0.67rem;
+        color: var(--mc-text);
+        text-align: center;
+        line-height: 1.2;
+        word-break: break-word;
+        max-width: 100%;
       }
       .cape-cat {
-        font-size: 0.62rem; color: var(--muted); text-align: center;
+        font-size: 0.6rem;
+        color: var(--mc-muted);
+        text-align: center;
       }
 
-      /* Skinpack grid */
+      /* ── Skin pack grid ── */
       .sp-grid {
-        display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: 4px;
       }
       .sp-card {
-        background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-        cursor: pointer; transition: all 0.18s; position: relative;
-        display: flex; flex-direction: column; user-select: none; overflow: hidden;
+        background: var(--mc-panel);
+        border: 2px solid #000;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: border-color 0.15s;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        user-select: none;
+        overflow: hidden;
       }
       .sp-card:hover {
-        border-color: var(--border-hover);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 16px rgba(91, 33, 182, 0.15);
+        border-color: var(--cfg-accent);
       }
       .sp-card.selected {
-        border-color: var(--sel-border);
-        box-shadow: 0 0 0 1px rgba(139,92,246,0.2), 0 4px 16px rgba(91,33,182,0.2);
+        border-color: var(--cfg-sel-border);
       }
       .sp-card .check {
-        position: absolute; top: 6px; right: 6px; z-index: 2;
-        width: 16px; height: 16px; border-radius: 50%;
-        background: var(--accent-light); display: none; align-items: center; justify-content: center;
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        z-index: 2;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: var(--cfg-accent-light);
+        display: none;
+        align-items: center;
+        justify-content: center;
       }
-      .sp-card.selected .check { display: flex; }
+      .sp-card.selected .check {
+        display: flex;
+      }
       .sp-banner {
-        width: 100%; aspect-ratio: 16 / 7; object-fit: cover; display: block;
+        width: 100%;
+        aspect-ratio: 8 / 4.5;
+        object-fit: cover;
+        display: block;
+        transition: filter 0.15s;
+      }
+      .sp-card:hover .sp-banner {
+        filter: brightness(1.1);
       }
       .sp-footer {
-        padding: 0.4rem 0.65rem 0.5rem; display: flex; align-items: center; gap: 0.4rem;
+        padding: 5px 7px 6px;
+        background: var(--mc-panel2);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
       }
-      .sp-name { font-size: 0.78rem; color: var(--text); line-height: 1.3; font-weight: 500; flex: 1; min-width: 0; }
-      /* Featured star button on skin pack card */
+      .sp-name {
+        font-size: 0.75rem;
+        color: var(--mc-text);
+        line-height: 1.3;
+        font-weight: 600;
+        flex: 1;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
       .sp-featured-btn {
-        flex-shrink: 0; background: transparent; border: 1px solid var(--border);
-        border-radius: 6px; width: 26px; height: 26px; display: flex; align-items: center;
-        justify-content: center; cursor: pointer; font-size: 0.8rem; transition: all 0.15s;
-        position: relative; z-index: 3; color: var(--muted);
+        flex-shrink: 0;
+        background: transparent;
+        border: 1px solid var(--mc-border);
+        border-radius: 2px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 0.78rem;
+        transition: all 0.15s;
+        position: relative;
+        z-index: 3;
+        color: var(--mc-muted);
       }
-      .sp-featured-btn:hover { border-color: #f0c060; color: #f0c060; background: rgba(240,192,96,0.1); }
-      .sp-featured-btn.active { border-color: #f0c060; background: rgba(240,192,96,0.15); color: #f0c060; }
-      /* Featured order badge (top-left) */
+      .sp-featured-btn:hover {
+        border-color: #f0c060;
+        color: #f0c060;
+        background: rgba(240, 192, 96, 0.1);
+      }
+      .sp-featured-btn.active {
+        border-color: #f0c060;
+        background: rgba(240, 192, 96, 0.15);
+        color: #f0c060;
+      }
       .sp-featured-badge {
-        position: absolute; top: 6px; left: 6px; z-index: 2;
-        min-width: 20px; height: 20px; border-radius: 10px; padding: 0 5px;
-        background: #f0c060; display: none; align-items: center; justify-content: center;
-        font-size: 0.68rem; font-weight: 700; color: #1a1000; line-height: 1;
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        z-index: 2;
+        min-width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        padding: 0 5px;
+        background: #f0c060;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: #1a1000;
+        line-height: 1;
       }
-      .sp-card.featured .sp-featured-badge { display: flex; }
-
-      /* Export bar */
-      .export-bar {
-        position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-        background: rgba(10, 10, 15, 0.95); backdrop-filter: blur(16px);
-        border-top: 1px solid var(--border);
-        display: flex; align-items: center; gap: 1rem;
-        padding: 0.85rem 2rem;
-        transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .export-bar.visible { transform: translateY(0); }
-      .export-summary { flex: 1; font-size: 0.88rem; color: var(--muted); }
-      .export-summary strong { color: var(--accent-light); }
-      .export-code {
-        font-family: "VT323", monospace; font-size: 1rem; color: var(--muted);
-        background: rgba(91, 33, 182, 0.08); border: 1px solid var(--border);
-        border-radius: 6px; padding: 0.35rem 0.75rem; max-width: 280px;
-        overflow: hidden; text-overflow: ellipsis; white-space: nowrap; letter-spacing: 0.03em;
-      }
-      .copy-btn {
-        background: transparent; border: 1px solid var(--border); color: var(--muted);
-        border-radius: 8px; padding: 0.45rem 0.8rem; font-size: 0.82rem; cursor: pointer;
-        font-family: "Outfit", sans-serif; transition: all 0.2s; white-space: nowrap;
-      }
-      .copy-btn:hover { border-color: var(--accent-light); color: var(--accent-light); }
-      .launch-btn {
-        background: var(--accent); color: #fff; border: none; border-radius: 8px;
-        padding: 0.5rem 1.2rem; font-size: 0.88rem; font-weight: 600; cursor: pointer;
-        font-family: "Outfit", sans-serif; transition: background 0.2s; white-space: nowrap;
-        text-decoration: none; display: inline-block;
-      }
-      .launch-btn:hover { background: #46198e; }
-
-      /* Page header */
-      .page-header {
-        max-width: 900px; margin: 2rem auto 1.5rem; padding: 0 1.5rem;
-      }
-      .page-header h1 {
-        font-size: 1.6rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem;
-      }
-      .page-header p {
-        color: var(--muted); font-size: 0.88rem;
+      .sp-card.featured .sp-featured-badge {
+        display: flex;
       }
 
-      .divider {
-        max-width: 900px; margin: 1rem auto 1.5rem; padding: 0 1.5rem;
-      }
-      .divider hr {
-        border: none; border-top: 1px solid var(--border);
-      }
-
-      /* Fad disable toggles */
+      /* ── Disable Ads toggles ── */
       .fad-grid {
-        display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 4px;
       }
       .fad-toggle-card {
-        background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-        padding: 0.85rem 1rem; cursor: pointer; transition: all 0.18s; position: relative;
-        display: flex; align-items: center; gap: 0.75rem; user-select: none;
+        background: var(--mc-panel);
+        border: 2px solid #000;
+        border-radius: 2px;
+        padding: 0.75rem 0.9rem;
+        cursor: pointer;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        user-select: none;
       }
       .fad-toggle-card:hover {
-        border-color: var(--border-hover); background: rgba(91, 33, 182, 0.08);
+        border-color: var(--cfg-accent);
+        background: var(--mc-panel2);
       }
       .fad-toggle-card.fad-enabled {
-        border-color: var(--sel-border); background: var(--sel);
-        box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.2);
+        border-color: var(--cfg-sel-border);
+        background: var(--cfg-sel);
       }
-      .fad-toggle-label { font-size: 0.82rem; font-weight: 500; color: var(--text); line-height: 1.3; }
+      .fad-toggle-label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--mc-text);
+        line-height: 1.3;
+      }
       .fad-toggle-switch {
-        margin-left: auto; flex-shrink: 0;
-        width: 32px; height: 18px; border-radius: 9px;
-        background: var(--border); position: relative; transition: background 0.2s;
+        margin-left: auto;
+        flex-shrink: 0;
+        width: 30px;
+        height: 16px;
+        border-radius: 8px;
+        background: var(--mc-border);
+        position: relative;
+        transition: background 0.2s;
       }
-      .fad-toggle-card.fad-enabled .fad-toggle-switch { background: var(--accent-light); }
+      .fad-toggle-card.fad-enabled .fad-toggle-switch {
+        background: var(--cfg-accent-light);
+      }
       .fad-toggle-switch::after {
-        content: ''; position: absolute; top: 2px; left: 2px;
-        width: 14px; height: 14px; border-radius: 50%; background: #fff;
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #fff;
         transition: transform 0.2s;
       }
-      .fad-toggle-card.fad-enabled .fad-toggle-switch::after { transform: translateX(14px); }
+      .fad-toggle-card.fad-enabled .fad-toggle-switch::after {
+        transform: translateX(14px);
+      }
 
-      @media (max-width: 600px) {
-        .navbar { padding: 0.75rem 1rem; gap: 1rem; justify-content: center; }
-        .nav-links { display: none; }
-        .discord-btn { display: none; }
-        .import-banner, .section, .page-header, .divider { padding-left: 1rem; padding-right: 1rem; }
-        .export-bar { flex-wrap: wrap; padding: 0.75rem 1rem; gap: 0.5rem; }
-        .capes-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
-        .launch-btn { display: none; }
+      /* ── Export bar ── */
+      .export-bar {
+        position: fixed;
+        bottom: 0;
+        left: var(--mc-sidebar-w);
+        right: 0;
+        z-index: 200;
+        background: #111114;
+        border-top: 2px solid #000;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem 1.5rem;
+        transform: translateY(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .export-bar.visible {
+        transform: translateY(0);
+      }
+      .export-summary {
+        flex: 1;
+        font-size: 0.82rem;
+        color: var(--mc-muted);
+      }
+      .export-summary strong {
+        color: var(--cfg-accent-light);
+      }
+      .export-code {
+        font-family: "Noto Sans", monospace;
+        font-size: 0.82rem;
+        color: var(--mc-muted);
+        background: var(--mc-panel);
+        border: 1px solid var(--mc-border);
+        border-radius: 2px;
+        padding: 0.3rem 0.65rem;
+        max-width: 240px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        letter-spacing: 0.03em;
+      }
+      .copy-btn {
+        background: transparent;
+        border: 1px solid var(--mc-border);
+        color: var(--mc-muted);
+        border-radius: 2px;
+        padding: 0.4rem 0.75rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+      .copy-btn:hover {
+        border-color: var(--cfg-accent-light);
+        color: var(--cfg-accent-light);
+      }
+      .launch-btn {
+        background: var(--cfg-accent);
+        color: #fff;
+        border: none;
+        border-radius: 2px;
+        padding: 0.45rem 1.1rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+        transition: background 0.15s;
+        white-space: nowrap;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .launch-btn:hover {
+        background: #46198e;
+      }
+
+      /* ── Helper note ── */
+      .cfg-note {
+        font-size: 0.75rem;
+        color: var(--mc-muted);
+        font-style: italic;
+        margin-bottom: 0.75rem;
       }
 
       /* ── Footer ── */
       footer {
         position: relative;
         z-index: 10;
-        align-items: center;
-        display: grid;
-        border-top: 1px solid var(--border);
-        padding: 2.5rem 2rem;
-        background: rgba(0, 0, 0, 0.3);
       }
-      .footer-content {
-        display: flex;
-        gap: 8rem;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        margin: 0 auto 1.5rem;
-      }
+
+      /* ── Mobile ── */
       @media (max-width: 600px) {
-        .footer-content {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 1.5rem 2rem;
+        .mc-topbar-title {
+          display: flex !important;
         }
-      }
-      .footer-section h3 {
-        font-size: 0.82rem;
-        font-weight: 700;
-        color: #666;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-bottom: 0.7rem;
-      }
-      .footer-section a {
-        display: block;
-        color: #777;
-        text-decoration: none;
-        font-size: 0.88rem;
-        margin-bottom: 0.35rem;
-        transition: color 0.2s;
-      }
-      .footer-section a:hover { color: #ccc; }
-      .footer-bottom {
-        text-align: center;
-        color: #444;
-        font-size: 0.78rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        border-top: 1px solid var(--border);
-        padding-top: 1.2rem;
+        .mc-topbar-right {
+          display: none !important;
+        }
+        .cfg-content {
+          padding: 1.25rem 1rem 120px;
+        }
+        .capes-grid {
+          grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+        }
+        .export-bar {
+          left: 0;
+          flex-wrap: wrap;
+          padding: 0.65rem 1rem;
+          gap: 0.5rem;
+        }
+        .launch-btn {
+          display: none;
+        }
       }
     </style>
   </head>
   <body>
-
-    <!-- Stars -->
-    <div class="stars-container" id="stars"></div>
-
-    <!-- Navbar -->
-    <nav class="navbar">
-      <a class="logo" href="/">
-        <img src="../icons/shootingstar.png" alt="Bedrock Cosmos" class="logo-icon" />
-        Bedrock Cosmos
+    <!-- TOP BAR -->
+    <header class="mc-topbar">
+      <a href="/" class="mc-topbar-back">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Home
       </a>
-      <ul class="nav-links">
-        <li><a href="/#home">Home</a></li>
-        <li><a href="/changelogs">Changelogs</a></li>
-        <li><a href="/skinpacks">Skin Packs</a></li>
-        <li><a href="/capes">Capes</a></li>
-        <li><a href="/videos">Videos</a></li>
-      </ul>
-      <a href="https://discord.com/invite/HRG2NapegP" class="discord-btn">Join Discord</a>
-    </nav>
-
-    <div class="page-wrap">
-
-      <!-- Page header -->
-      <div class="page-header">
-        <h1>Config Builder</h1>
-        <p>Select and customize Skin Packs &amp; Capes you want to appear when using Bedrock Cosmos, then click Open in Launcher to apply.</p>
+      <span class="mc-topbar-title" style="align-items: center; justify-content: center; gap: 8px">
+        <img
+          src="https://bedrock-cosmos.app/icons/shootingstar.png"
+          alt=""
+          style="width: 24px; height: 24px; object-fit: contain"
+        />
+        <span style="font-size: 1rem; font-weight: 800; letter-spacing: 0.05em">Bedrock Cosmos</span>
+      </span>
+      <div class="mc-topbar-right">
+        <a href="/config" class="mc-library-btn" style="color: var(--mc-accent); border-color: var(--mc-accent)">
+          My Library
+        </a>
       </div>
+    </header>
 
-      <!-- Import bar -->
-      <div class="import-banner">
+    <!-- SIDEBAR -->
+    <aside class="mc-sidebar">
+      <a href="/skinpacks" class="mc-sidebar-icon" title="Skin Packs">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      </a>
+      <a href="/capes" class="mc-sidebar-icon" title="Capes">
+        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="22" height="22">
+          <path
+            fill-rule="evenodd"
+            d="m194.4 16h411.1c20.7 0 37.4 19.1 37.4 42.6v681.8c0 23.5-16.7 42.6-37.4 42.6h-411.1c-20.7 0-37.4-19.1-37.4-42.6v-681.8c0-23.5 16.7-42.6 37.4-42.6zm169.2 338.3c-1.3 3.9-4.9 6.6-9 6.6h-88.1c-9.2 0-13 11.7-5.6 17.2l71.3 51.7c3.3 2.4 4.7 6.7 3.4 10.6l-27.2 83.8c-2.8 8.7 7.2 16 14.6 10.6l71.3-51.8c3.3-2.4 7.8-2.4 11.1 0l71.3 51.8c7.4 5.4 17.4-1.9 14.6-10.6l-27.2-83.8c-1.3-3.9 0.1-8.2 3.4-10.6l71.3-51.7c7.4-5.5 3.6-17.2-5.6-17.2h-88.1c-4.1 0-7.7-2.7-9-6.6l-27.2-83.7c-2.9-8.8-15.2-8.8-18.1 0z"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="33.3"
+          />
+        </svg>
+      </a>
+      <a href="/changelogs" class="mc-sidebar-icon" title="Changelogs">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+        </svg>
+      </a>
+      <a href="/videos" class="mc-sidebar-icon" title="Videos">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polygon points="23 7 16 12 23 17 23 7" />
+          <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+        </svg>
+      </a>
+      <div style="width: 32px; height: 1px; background: #000; margin: 4px auto; flex-shrink: 0"></div>
+      <a href="/terms-of-service" class="mc-sidebar-icon" title="Terms of Service">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="9" y1="13" x2="15" y2="13" />
+          <line x1="9" y1="17" x2="13" y2="17" />
+        </svg>
+      </a>
+      <a href="/privacy-policy" class="mc-sidebar-icon" title="Privacy Policy">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+      </a>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="mc-main">
+      <div class="stars-container" id="stars"></div>
+
+      <div class="cfg-content">
+        <!-- Page header -->
+        <div class="cfg-header">
+          <h1>Config Builder</h1>
+          <p>
+            Select and customize Skin Packs &amp; Capes you want when using Bedrock Cosmos, then click Open in Launcher
+            to apply.
+          </p>
+        </div>
+
+        <!-- Import bar -->
         <div class="import-bar">
           <input type="text" id="codeInput" placeholder="1:01.01.1.1" spellcheck="false" autocomplete="off" />
           <button onclick="importCode()">Load Config</button>
         </div>
-      </div>
 
-      <!-- Status -->
-      <div class="status-strip" id="statusStrip">
-        <div class="status-msg" id="statusMsg"></div>
-      </div>
-
-      <!-- Capes section -->
-      <div class="section" id="capesSection">
-        <div class="section-header">
-          <div class="section-title">
-            Capes
-            <span class="section-count" id="capesCount">0 selected</span>
-          </div>
-          <button class="select-all-btn" onclick="toggleAllCapes()">Select All</button>
+        <!-- Status -->
+        <div class="status-strip" id="statusStrip">
+          <div class="status-msg" id="statusMsg"></div>
         </div>
-        <div class="capes-grid" id="capesGrid"></div>
-      </div>
 
-      <div class="divider"><hr /></div>
-
-      <!-- Skinpacks section -->
-      <div class="section" id="skinpacksSection">
-        <div class="section-header">
-          <div class="section-title">
-            Skin Packs
-            <span class="section-count" id="skinpacksCount">0 selected</span>
-            <span class="section-count" id="featuredSkinpacksCount" style="color: #f0c060; display:none;"></span>
+        <!-- Capes section -->
+        <div class="cfg-section" id="capesSection">
+          <div class="cfg-section-header">
+            <div class="cfg-section-title">
+              Capes
+              <span class="cfg-section-count" id="capesCount">0 selected</span>
+            </div>
+            <button class="select-all-btn" onclick="toggleAllCapes()">Select All</button>
           </div>
-          <button class="select-all-btn" onclick="toggleAllSkinpacks()">Select All</button>
+          <div class="capes-grid" id="capesGrid"></div>
         </div>
-        <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.85rem; font-style:italic;">Left-click to select a skin pack. Use the ⭐ button to also mark it as featured (3–11 max, ordered by selection).</p>
-        <div class="sp-grid" id="skinpacksGrid"></div>
-      </div>
 
+        <hr class="cfg-divider" />
 
-      <div class="divider"><hr /></div>
+        <!-- Skinpacks section -->
+        <div class="cfg-section" id="skinpacksSection">
+          <div class="cfg-section-header">
+            <div class="cfg-section-title">
+              Skin Packs
+              <span class="cfg-section-count" id="skinpacksCount">0 selected</span>
+              <span class="cfg-section-count" id="featuredSkinpacksCount" style="color: #f0c060; display: none"></span>
+            </div>
+            <button class="select-all-btn" onclick="toggleAllSkinpacks()">Select All</button>
+          </div>
+          <p class="cfg-note">
+            Left-click to select a skin pack. Use the ⭐ button to mark it as featured (3–11 max, ordered by selection).
+          </p>
+          <div class="sp-grid" id="skinpacksGrid"></div>
+        </div>
 
-      <!-- Disable Ads section -->
-      <div class="section" id="disableFadsSection">
-        <div class="section-header">
-          <div class="section-title">
-            Disable Ads
-            <span class="section-count" id="disableFadsCount">0 disabled</span>
+        <hr class="cfg-divider" />
+
+        <!-- Disable Ads section -->
+        <div class="cfg-section" id="disableFadsSection">
+          <div class="cfg-section-header">
+            <div class="cfg-section-title">
+              Disable Ads
+              <span class="cfg-section-count" id="disableFadsCount">0 disabled</span>
+            </div>
+          </div>
+          <div class="fad-grid" id="fadTogglesGrid">
+            <div class="fad-toggle-card" data-fad="featured_row" onclick="toggleAd('featured_row')">
+              <div class="fad-toggle-label">Disable Featured Row</div>
+              <div class="fad-toggle-switch"></div>
+            </div>
+            <div class="fad-toggle-card" data-fad="get_more_skins" onclick="toggleAd('get_more_skins')">
+              <div class="fad-toggle-label">Disable Get More Skins Button</div>
+              <div class="fad-toggle-switch"></div>
+            </div>
+            <div class="fad-toggle-card" data-fad="get_more_row" onclick="toggleAd('get_more_row')">
+              <div class="fad-toggle-label">Disable GET MORE Row</div>
+              <div class="fad-toggle-switch"></div>
+            </div>
+            <div class="fad-toggle-card" data-fad="marketplace_pass" onclick="toggleAd('marketplace_pass')">
+              <div class="fad-toggle-label">Disable Marketplace Pass</div>
+              <div class="fad-toggle-switch"></div>
+            </div>
           </div>
         </div>
-        <div class="fad-grid" id="fadTogglesGrid">
-          <div class="fad-toggle-card" data-fad="featured_row" onclick="toggleAd('featured_row')">
-            <div class="fad-toggle-label">Disable Featured Row</div>
-            <div class="fad-toggle-switch"></div>
+      </div>
+      <!-- /.cfg-content -->
+
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Socials</h3>
+            <a href="https://www.youtube.com/watch?v=rKkmPG4bi4Y" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://discord.com/invite/HRG2NapegP" target="_blank" rel="noopener">Discord</a>
           </div>
-          <div class="fad-toggle-card" data-fad="get_more_skins" onclick="toggleAd('get_more_skins')">
-            <div class="fad-toggle-label">Disable Get More Skins Button</div>
-            <div class="fad-toggle-switch"></div>
+          <div class="footer-section">
+            <h3>Resources</h3>
+            <a href="https://github.com/Bedrock-Cosmos/Launcher/releases/">Download</a>
+            <a href="https://github.com/orgs/Bedrock-Cosmos">GitHub</a>
           </div>
-          <div class="fad-toggle-card" data-fad="get_more_row" onclick="toggleAd('get_more_row')">
-            <div class="fad-toggle-label">Disable GET MORE Row</div>
-            <div class="fad-toggle-switch"></div>
+          <div class="footer-section">
+            <h3>Legal</h3>
+            <a href="/terms-of-service">Terms of Service</a>
+            <a href="/privacy-policy">Privacy Policy</a>
           </div>
-          <div class="fad-toggle-card" data-fad="marketplace_pass" onclick="toggleAd('marketplace_pass')">
-            <div class="fad-toggle-label">Disable Marketplace Pass</div>
-            <div class="fad-toggle-switch"></div>
+          <div class="footer-section">
+            <h3>Pages</h3>
+            <a href="/changelogs">Changelogs</a>
+            <a href="/skinpacks">Skin Packs</a>
+            <a href="/capes">Capes</a>
+            <a href="/videos">Videos</a>
           </div>
         </div>
-      </div>
+        <div class="footer-bottom">
+          <p>Bedrock Cosmos &copy; 2026 - All Rights Reserved - Not affiliated with Mojang Studios or Microsoft</p>
+        </div>
+      </footer>
+    </main>
 
-      <!-- Bottom padding for export bar -->
-      <div style="height: 80px;"></div>
-    </div>
-
-    <!-- Export bar -->
+    <!-- Export bar (fixed, above footer) -->
     <div class="export-bar" id="exportBar">
       <div class="export-summary">
-        <strong id="exportSummaryText">0 capes, 0 skin packs</strong> selected
+        <strong id="exportSummaryText">0 selected</strong>
       </div>
       <button class="copy-btn" onclick="copyCode()">Copy Code</button>
-      <a class="launch-btn" id="launchBtn" href="#" onclick="launchInApp(event)">
-        Open in Launcher
-      </a>
+      <a class="launch-btn" id="launchBtn" href="#" onclick="launchInApp(event)">Open in Launcher</a>
     </div>
 
     <script>
-    // ─── DATA (loaded async from repo JSON files) ─────────────────────────────────
-    let CAPES_DATA = [];
-    let SKINPACKS_DATA = [];
-    let CAPES_ORDER = [];
-    let SKINPACKS_ORDER = [];
+      // ─── DATA ──────────────────────────────────────────────────────────────────
+      let CAPES_DATA = [];
+      let SKINPACKS_DATA = [];
+      let CAPES_ORDER = [];
+      let SKINPACKS_ORDER = [];
 
-    async function loadData() {
-      const [capesRes, indexRes] = await Promise.all([
-        fetch('/capes/capes.json'),
-        fetch('/index.json'),
-      ]);
-      CAPES_DATA = await capesRes.json();
-      const indexJson = await indexRes.json();
+      async function loadData() {
+        const [capesRes, skinsRes] = await Promise.all([fetch("/capes/capes.json"), fetch("/skinpacks/skins.json")]);
+        CAPES_DATA = await capesRes.json();
+        const skinsJson = await skinsRes.json();
 
-      // Collect skinpack entries from index.json
-      const skinpackEntries = Object.entries(indexJson)
-        .filter(([, v]) => v.category === 'skinpacks');
+        const packIndex = skinsJson.packIndex;
+        const packsBases = skinsJson.packsBases;
 
-      // Fetch each ItemDetail JSON to get the real thumbnail URL from the repo.
-      // index.json gives us the file path e.g. "1stBirthdaySkinPack/ItemDetail_1stBirthdaySkinPack.json"
-      const BASE = 'https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks';
-      const itemDetails = await Promise.all(
-        skinpackEntries.map(([, v]) =>
-          fetch(`${BASE}/${v.file}`).then(r => r.json()).catch(() => null)
-        )
-      );
+        // Fetch ItemDetail for each pack to get the real thumbnail
+        const entries = Object.entries(packIndex);
+        const itemDetails = await Promise.all(
+          entries.map(([, v]) =>
+            fetch(`${packsBases[v.category]}${v.file}`)
+              .then((r) => r.json())
+              .catch(() => null),
+          ),
+        );
 
-      SKINPACKS_DATA = skinpackEntries.map(([uuid, v], i) => {
-        const detail = itemDetails[i];
-        // Drill into result.layout[0].rows[1].components[0].item
-        const item = detail?.result?.layout?.[0]?.rows?.[1]?.components?.[0]?.item;
-        const thumbnail = item?.thumbnail?.url ?? null;
-        const name = item?.title ?? v.file.split('/')[0].replace(/([A-Z])/g, ' $1').trim();
-        return { uuid, name, thumbnail };
-      });
+        // Build a uuid → thumbnail map from ItemDetail results
+        const thumbMap = {};
+        entries.forEach(([uuid, v], i) => {
+          const detail = itemDetails[i];
+          const item = detail?.result?.layout?.[0]?.rows?.[1]?.components?.[0]?.item;
+          thumbMap[uuid] = item?.thumbnail?.url ?? null;
+        });
 
-      CAPES_ORDER = CAPES_DATA.map(c => c.uuid);
-      SKINPACKS_ORDER = SKINPACKS_DATA.map(s => s.uuid);
+        // Use packs array for ordering/names, inject thumbnails from ItemDetail
+        SKINPACKS_DATA = skinsJson.packs.map((p) => ({
+          uuid: p.uuid,
+          name: p.name,
+          thumbnail: thumbMap[p.uuid] ?? p.banner,
+        }));
 
-      renderCapes();
-      renderSkinpacks();
+        CAPES_ORDER = CAPES_DATA.map((c) => c.uuid);
+        SKINPACKS_ORDER = SKINPACKS_DATA.map((s) => s.uuid);
 
-      // Auto-load config from URL query param once data is ready
-      const params = new URLSearchParams(window.location.search);
-      const configParam = params.get('config');
-      if (configParam) {
-        document.getElementById('codeInput').value = configParam;
-        importCode();
-      }
-    }
+        renderCapes();
+        renderSkinpacks();
 
-        // ─── STATE ──────────────────────────────────────────────────────────────────
-    const selectedCapes = new Set();
-    const selectedSkinpacks = new Set();
-    // Featured skin packs: ordered array (position = display order)
-    const featuredSkinpacks = [];
-    // Disabled ads: set of ad keys
-    const disabledAds = new Set();
-    const FEATURED_MIN = 3;
-    const FEATURED_MAX = 11;
-
-    // ─── ENCODING / DECODING ────────────────────────────────────────────────────
-    function encodeSelection(selectedUUIDs, ITEM_LIST) {
-      if (selectedUUIDs.size === 0) return '';
-      const bytes = new Uint8Array(Math.ceil(ITEM_LIST.length / 8));
-      selectedUUIDs.forEach(uuid => {
-        const index = ITEM_LIST.indexOf(uuid);
-        if (index === -1) return;
-        bytes[Math.floor(index / 8)] |= (1 << (index % 8));
-      });
-      // trim trailing zero bytes
-      let end = bytes.length;
-      while (end > 0 && bytes[end - 1] === 0) end--;
-      if (end === 0) return '';
-      const trimmed = bytes.slice(0, end);
-      return Array.from(trimmed).map(b => b.toString(16).padStart(2, '0')).join('');
-    }
-
-    function decodeSelection(hex, ITEM_LIST) {
-      if (!hex) return [];
-      const expectedLength = Math.ceil(ITEM_LIST.length / 8);
-      const rawBytes = new Uint8Array(hex.length / 2);
-      for (let i = 0; i < rawBytes.length; i++) {
-        rawBytes[i] = parseInt(hex.substr(i * 2, 2), 16);
-      }
-      const bytes = new Uint8Array(expectedLength);
-      bytes.set(rawBytes);
-      const selected = [];
-      bytes.forEach((byte, byteIndex) => {
-        for (let bit = 0; bit < 8; bit++) {
-          if (byte & (1 << bit)) {
-            const index = byteIndex * 8 + bit;
-            if (ITEM_LIST[index]) selected.push(ITEM_LIST[index]);
-          }
+        const params = new URLSearchParams(window.location.search);
+        const configParam = params.get("config");
+        if (configParam) {
+          document.getElementById("codeInput").value = configParam;
+          importCode();
         }
-      });
-      return selected;
-    }
-
-    function buildCode() {
-      const capesHex = encodeSelection(selectedCapes, CAPES_ORDER);
-      const spHex = encodeSelection(selectedSkinpacks, SKINPACKS_ORDER);
-      // Featured skin packs: comma-separated short indices (1-based) in order
-      const fspPart = featuredSkinpacks.length > 0
-        ? featuredSkinpacks.map(uuid => SKINPACKS_ORDER.indexOf(uuid) + 1).join(',')
-        : '';
-      // Ads: bitmask of 4 flags
-      const AD_KEYS = ['featured_row','get_more_skins','get_more_row','marketplace_pass'];
-      let adBits = 0;
-      AD_KEYS.forEach((k, i) => { if (disabledAds.has(k)) adBits |= (1 << i); });
-      const adPart = adBits > 0 ? adBits.toString(16) : '';
-      return `1:${capesHex}.${spHex}.${fspPart}.${adPart}`;
-    }
-
-    function parseCode(code) {
-      const trimmed = code.trim();
-      // New format: 1:capes.sp.fsp.ads  — fsp and ads segments are optional
-      const match4 = trimmed.match(/^1:([0-9a-fA-F]*)\.([0-9a-fA-F]*)\.([0-9,]*)\.([0-9a-fA-F]*)$/);
-      if (match4) return { capesHex: match4[1], spHex: match4[2], fspRaw: match4[3], adRaw: match4[4] };
-      // Legacy format: 1:capes.sp
-      const match2 = trimmed.match(/^1:([0-9a-fA-F]*)\.([0-9a-fA-F]*)$/);
-      if (match2) return { capesHex: match2[1], spHex: match2[2], fspRaw: '', adRaw: '' };
-      return null;
-    }
-
-    // ─── URL SYNC ───────────────────────────────────────────────────────────────
-    function syncURL() {
-      const total = selectedCapes.size + selectedSkinpacks.size + featuredSkinpacks.length + disabledAds.size;
-      if (total === 0) {
-        history.replaceState(null, '', '/config/');
-      } else {
-        const code = buildCode();
-        history.replaceState(null, '', `/config/?config=${encodeURIComponent(code)}`);
-      }
-    }
-
-    // ─── UI UPDATES ─────────────────────────────────────────────────────────────
-    function updateExportBar() {
-      const nc = selectedCapes.size;
-      const ns = selectedSkinpacks.size;
-      const nf = featuredSkinpacks.length;
-      const na = disabledAds.size;
-      const total = nc + ns + nf + na;
-      const bar = document.getElementById('exportBar');
-      const code = buildCode();
-
-      bar.classList.toggle('visible', total > 0);
-      let parts = [];
-      if (nc) parts.push(`${nc} Cape${nc !== 1 ? 's' : ''}`);
-      if (ns) parts.push(`${ns} Skin Pack${ns !== 1 ? 's' : ''}`);
-      if (nf) parts.push(`${nf} Featured`);
-      if (na) parts.push(`${na} Ad${na !== 1 ? 's' : ''} disabled`);
-      document.getElementById('exportSummaryText').textContent = parts.join(', ') || '0 selected';
-      document.getElementById('launchBtn').href = `bedrockcosmos://setup?config=${encodeURIComponent(code)}`;
-
-      document.getElementById('capesCount').textContent = `${nc} selected`;
-      document.getElementById('skinpacksCount').textContent = `${ns} selected`;
-      const fcEl = document.getElementById('featuredSkinpacksCount');
-      if (nf > 0) {
-        fcEl.style.display = '';
-        fcEl.textContent = `· ⭐ ${nf} featured${nf < FEATURED_MIN ? ' (min ' + FEATURED_MIN + ')' : nf === FEATURED_MAX ? ' (max)' : ''}`;
-      } else {
-        fcEl.style.display = 'none';
-      }
-      document.getElementById('disableFadsCount').textContent = `${na} disabled`;
-
-      syncURL();
-    }
-
-    function toggleCape(uuid) {
-      const card = document.querySelector(`[data-uuid="${uuid}"]`);
-      if (selectedCapes.has(uuid)) {
-        selectedCapes.delete(uuid);
-        card.classList.remove('selected');
-      } else {
-        selectedCapes.add(uuid);
-        card.classList.add('selected');
-      }
-      updateExportBar();
-    }
-
-    function toggleSkinpack(uuid) {
-      const card = document.querySelector(`[data-sp-uuid="${uuid}"]`);
-      if (selectedSkinpacks.has(uuid)) {
-        selectedSkinpacks.delete(uuid);
-        card.classList.remove('selected');
-      } else {
-        selectedSkinpacks.add(uuid);
-        card.classList.add('selected');
-      }
-      updateExportBar();
-    }
-
-    function toggleAllCapes() {
-      const allSelected = selectedCapes.size === CAPES_DATA.length;
-      if (allSelected) {
-        selectedCapes.clear();
-        document.querySelectorAll('.cape-card').forEach(c => c.classList.remove('selected'));
-      } else {
-        CAPES_DATA.forEach(c => selectedCapes.add(c.uuid));
-        document.querySelectorAll('.cape-card').forEach(c => c.classList.add('selected'));
-      }
-      updateExportBar();
-    }
-
-    function toggleAllSkinpacks() {
-      const allSelected = selectedSkinpacks.size === SKINPACKS_DATA.length;
-      if (allSelected) {
-        selectedSkinpacks.clear();
-        document.querySelectorAll('.sp-card').forEach(c => c.classList.remove('selected'));
-      } else {
-        SKINPACKS_DATA.forEach(s => selectedSkinpacks.add(s.uuid));
-        document.querySelectorAll('.sp-card').forEach(c => c.classList.add('selected'));
-      }
-      updateExportBar();
-    }
-
-    function showStatus(msg, type) {
-      const strip = document.getElementById('statusStrip');
-      const el = document.getElementById('statusMsg');
-      el.textContent = msg;
-      el.className = `status-msg ${type}`;
-      strip.classList.add('visible');
-      setTimeout(() => strip.classList.remove('visible'), 4000);
-    }
-
-    function importCode() {
-      const raw = document.getElementById('codeInput').value.trim();
-      // Accept with or without the prefix if someone pastes just the hex part
-      const parsed = parseCode(raw) || parseCode(`1:${raw}`);
-      if (!parsed) {
-        showStatus('Invalid config code. Expected format: 1:01.01.1.1', 'error');
-        return;
       }
 
-      selectedCapes.clear();
-      selectedSkinpacks.clear();
-      featuredSkinpacks.length = 0;
-      disabledAds.clear();
-      document.querySelectorAll('.cape-card').forEach(c => c.classList.remove('selected'));
-      document.querySelectorAll('.sp-card').forEach(c => c.classList.remove('selected'));
-      document.querySelectorAll('.fad-toggle-card').forEach(c => c.classList.remove('fad-enabled'));
+      // ─── STATE ─────────────────────────────────────────────────────────────────
+      const selectedCapes = new Set();
+      const selectedSkinpacks = new Set();
+      const featuredSkinpacks = [];
+      const disabledAds = new Set();
+      const FEATURED_MIN = 3;
+      const FEATURED_MAX = 11;
 
-      const capeUUIDs = decodeSelection(parsed.capesHex, CAPES_ORDER);
-      const spUUIDs = decodeSelection(parsed.spHex, SKINPACKS_ORDER);
-
-      capeUUIDs.forEach(uuid => {
-        selectedCapes.add(uuid);
-        const card = document.querySelector(`[data-uuid="${uuid}"]`);
-        if (card) card.classList.add('selected');
-      });
-
-      spUUIDs.forEach(uuid => {
-        selectedSkinpacks.add(uuid);
-        const card = document.querySelector(`[data-sp-uuid="${uuid}"]`);
-        if (card) card.classList.add('selected');
-      });
-
-      // Restore featured skin packs
-      if (parsed.fspRaw) {
-        parsed.fspRaw.split(',').forEach(idxStr => {
-          const i = parseInt(idxStr, 10) - 1;
-          if (!isNaN(i) && SKINPACKS_ORDER[i]) featuredSkinpacks.push(SKINPACKS_ORDER[i]);
+      // ─── ENCODING / DECODING ───────────────────────────────────────────────────
+      function encodeSelection(selectedUUIDs, ITEM_LIST) {
+        if (selectedUUIDs.size === 0) return "";
+        const bytes = new Uint8Array(Math.ceil(ITEM_LIST.length / 8));
+        selectedUUIDs.forEach((uuid) => {
+          const index = ITEM_LIST.indexOf(uuid);
+          if (index === -1) return;
+          bytes[Math.floor(index / 8)] |= 1 << (index % 8);
         });
+        let end = bytes.length;
+        while (end > 0 && bytes[end - 1] === 0) end--;
+        if (end === 0) return "";
+        const trimmed = bytes.slice(0, end);
+        return Array.from(trimmed)
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
       }
-      updateFeaturedBadges();
 
-      // Restore disabled ads
-      if (parsed.adRaw) {
-        const AD_KEYS = ['featured_row','get_more_skins','get_more_row','marketplace_pass'];
-        const bits = parseInt(parsed.adRaw, 16) || 0;
-        AD_KEYS.forEach((k, i) => {
-          if (bits & (1 << i)) {
-            disabledAds.add(k);
-            const card = document.querySelector(`[data-fad="${k}"]`);
-            if (card) card.classList.add('fad-enabled');
+      function decodeSelection(hex, ITEM_LIST) {
+        if (!hex) return [];
+        const expectedLength = Math.ceil(ITEM_LIST.length / 8);
+        const rawBytes = new Uint8Array(hex.length / 2);
+        for (let i = 0; i < rawBytes.length; i++) {
+          rawBytes[i] = parseInt(hex.substr(i * 2, 2), 16);
+        }
+        const bytes = new Uint8Array(expectedLength);
+        bytes.set(rawBytes);
+        const selected = [];
+        bytes.forEach((byte, byteIndex) => {
+          for (let bit = 0; bit < 8; bit++) {
+            if (byte & (1 << bit)) {
+              const index = byteIndex * 8 + bit;
+              if (ITEM_LIST[index]) selected.push(ITEM_LIST[index]);
+            }
           }
         });
+        return selected;
       }
 
-      updateExportBar();
-      const nf = featuredSkinpacks.length;
-      const na = disabledAds.size;
-      showStatus(`✓ Loaded: ${capeUUIDs.length} Cape${capeUUIDs.length !== 1 ? 's' : ''}, ${spUUIDs.length} Skin Pack${spUUIDs.length !== 1 ? 's' : ''}${nf ? ', ' + nf + ' Featured' : ''}${na ? ', ' + na + ' Ads disabled' : ''}.`, 'success');
-
-      // Scroll to content
-      document.getElementById('capesSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function copyCode() {
-      const code = buildCode();
-      navigator.clipboard.writeText(code).then(() => {
-        const btn = document.querySelector('.copy-btn');
-        const orig = btn.textContent;
-        btn.textContent = 'Copied!';
-        setTimeout(() => btn.textContent = orig, 1800);
-      });
-    }
-
-    function launchInApp(e) {
-      if (selectedCapes.size + selectedSkinpacks.size + featuredSkinpacks.length + disabledAds.size === 0) {
-        e.preventDefault();
-        showStatus('Select at least one cape or skin pack first.', 'error');
+      function buildCode() {
+        const capesHex = encodeSelection(selectedCapes, CAPES_ORDER);
+        const spHex = encodeSelection(selectedSkinpacks, SKINPACKS_ORDER);
+        const fspPart =
+          featuredSkinpacks.length > 0
+            ? featuredSkinpacks.map((uuid) => SKINPACKS_ORDER.indexOf(uuid) + 1).join(",")
+            : "";
+        const AD_KEYS = ["featured_row", "get_more_skins", "get_more_row", "marketplace_pass"];
+        let adBits = 0;
+        AD_KEYS.forEach((k, i) => {
+          if (disabledAds.has(k)) adBits |= 1 << i;
+        });
+        const adPart = adBits > 0 ? adBits.toString(16) : "";
+        return `1:${capesHex}.${spHex}.${fspPart}.${adPart}`;
       }
-      // else let the href handle it — bedrockcosmos:// protocol
-    }
 
-    function toggleFeaturedSkinpack(uuid) {
-      const idx = featuredSkinpacks.indexOf(uuid);
-      if (idx !== -1) {
-        // Deselect
-        featuredSkinpacks.splice(idx, 1);
-        updateFeaturedBadges();
-      } else {
-        if (featuredSkinpacks.length >= FEATURED_MAX) {
-          showStatus(`Maximum of ${FEATURED_MAX} featured skin packs reached.`, 'error');
+      function parseCode(code) {
+        const trimmed = code.trim();
+        const match4 = trimmed.match(/^1:([0-9a-fA-F]*)\.([0-9a-fA-F]*)\.([0-9,]*)\.([0-9a-fA-F]*)$/);
+        if (match4) return { capesHex: match4[1], spHex: match4[2], fspRaw: match4[3], adRaw: match4[4] };
+        const match2 = trimmed.match(/^1:([0-9a-fA-F]*)\.([0-9a-fA-F]*)$/);
+        if (match2) return { capesHex: match2[1], spHex: match2[2], fspRaw: "", adRaw: "" };
+        return null;
+      }
+
+      // ─── URL SYNC ──────────────────────────────────────────────────────────────
+      function syncURL() {
+        const total = selectedCapes.size + selectedSkinpacks.size + featuredSkinpacks.length + disabledAds.size;
+        if (total === 0) {
+          history.replaceState(null, "", "/config/");
+        } else {
+          history.replaceState(null, "", `/config/?config=${encodeURIComponent(buildCode())}`);
+        }
+      }
+
+      // ─── UI UPDATES ────────────────────────────────────────────────────────────
+      function updateExportBar() {
+        const nc = selectedCapes.size;
+        const ns = selectedSkinpacks.size;
+        const nf = featuredSkinpacks.length;
+        const na = disabledAds.size;
+        const total = nc + ns + nf + na;
+        const bar = document.getElementById("exportBar");
+
+        bar.classList.toggle("visible", total > 0);
+        let parts = [];
+        if (nc) parts.push(`${nc} Cape${nc !== 1 ? "s" : ""}`);
+        if (ns) parts.push(`${ns} Skin Pack${ns !== 1 ? "s" : ""}`);
+        if (nf) parts.push(`${nf} Featured`);
+        if (na) parts.push(`${na} Ad${na !== 1 ? "s" : ""} disabled`);
+        document.getElementById("exportSummaryText").textContent = parts.join(", ") || "0 selected";
+        document.getElementById("launchBtn").href = `bedrockcosmos://setup?config=${encodeURIComponent(buildCode())}`;
+
+        document.getElementById("capesCount").textContent = `${nc} selected`;
+        document.getElementById("skinpacksCount").textContent = `${ns} selected`;
+        const fcEl = document.getElementById("featuredSkinpacksCount");
+        if (nf > 0) {
+          fcEl.style.display = "";
+          fcEl.textContent = `· ⭐ ${nf} featured${nf < FEATURED_MIN ? " (min " + FEATURED_MIN + ")" : nf === FEATURED_MAX ? " (max)" : ""}`;
+        } else {
+          fcEl.style.display = "none";
+        }
+        document.getElementById("disableFadsCount").textContent = `${na} disabled`;
+        syncURL();
+      }
+
+      function toggleCape(uuid) {
+        const card = document.querySelector(`[data-uuid="${uuid}"]`);
+        if (selectedCapes.has(uuid)) {
+          selectedCapes.delete(uuid);
+          card.classList.remove("selected");
+        } else {
+          selectedCapes.add(uuid);
+          card.classList.add("selected");
+        }
+        updateExportBar();
+      }
+
+      function toggleSkinpack(uuid) {
+        const card = document.querySelector(`[data-sp-uuid="${uuid}"]`);
+        if (selectedSkinpacks.has(uuid)) {
+          selectedSkinpacks.delete(uuid);
+          card.classList.remove("selected");
+        } else {
+          selectedSkinpacks.add(uuid);
+          card.classList.add("selected");
+        }
+        updateExportBar();
+      }
+
+      function toggleAllCapes() {
+        const allSelected = selectedCapes.size === CAPES_DATA.length;
+        if (allSelected) {
+          selectedCapes.clear();
+          document.querySelectorAll(".cape-card").forEach((c) => c.classList.remove("selected"));
+        } else {
+          CAPES_DATA.forEach((c) => selectedCapes.add(c.uuid));
+          document.querySelectorAll(".cape-card").forEach((c) => c.classList.add("selected"));
+        }
+        updateExportBar();
+      }
+
+      function toggleAllSkinpacks() {
+        const allSelected = selectedSkinpacks.size === SKINPACKS_DATA.length;
+        if (allSelected) {
+          selectedSkinpacks.clear();
+          document.querySelectorAll(".sp-card").forEach((c) => c.classList.remove("selected"));
+        } else {
+          SKINPACKS_DATA.forEach((s) => selectedSkinpacks.add(s.uuid));
+          document.querySelectorAll(".sp-card").forEach((c) => c.classList.add("selected"));
+        }
+        updateExportBar();
+      }
+
+      function showStatus(msg, type) {
+        const strip = document.getElementById("statusStrip");
+        const el = document.getElementById("statusMsg");
+        el.textContent = msg;
+        el.className = `status-msg ${type}`;
+        strip.classList.add("visible");
+        setTimeout(() => strip.classList.remove("visible"), 4000);
+      }
+
+      function importCode() {
+        const raw = document.getElementById("codeInput").value.trim();
+        const parsed = parseCode(raw) || parseCode(`1:${raw}`);
+        if (!parsed) {
+          showStatus("Invalid config code. Expected format: 1:01.01.1.1", "error");
           return;
         }
-        featuredSkinpacks.push(uuid);
-        updateFeaturedBadges();
-      }
-      updateExportBar();
-    }
 
-    function updateFeaturedBadges() {
-      const atMax = featuredSkinpacks.length >= FEATURED_MAX;
-      SKINPACKS_DATA.forEach(sp => {
-        const uuid = sp.uuid;
-        const card = document.querySelector(`[data-sp-uuid="${uuid}"]`);
-        const badge = document.querySelector(`[data-sp-badge="${uuid}"]`);
-        const btn = document.querySelector(`[data-sp-feat="${uuid}"]`);
-        if (!card) return;
-        const pos = featuredSkinpacks.indexOf(uuid);
-        if (pos !== -1) {
-          card.classList.add('featured');
-          if (badge) badge.textContent = pos + 1;
-          if (btn) btn.classList.add('active');
-        } else {
-          card.classList.remove('featured');
-          if (badge) badge.textContent = '';
-          if (btn) btn.classList.remove('active');
+        selectedCapes.clear();
+        selectedSkinpacks.clear();
+        featuredSkinpacks.length = 0;
+        disabledAds.clear();
+        document.querySelectorAll(".cape-card").forEach((c) => c.classList.remove("selected"));
+        document.querySelectorAll(".sp-card").forEach((c) => c.classList.remove("selected"));
+        document.querySelectorAll(".fad-toggle-card").forEach((c) => c.classList.remove("fad-enabled"));
+
+        const capeUUIDs = decodeSelection(parsed.capesHex, CAPES_ORDER);
+        const spUUIDs = decodeSelection(parsed.spHex, SKINPACKS_ORDER);
+
+        capeUUIDs.forEach((uuid) => {
+          selectedCapes.add(uuid);
+          const card = document.querySelector(`[data-uuid="${uuid}"]`);
+          if (card) card.classList.add("selected");
+        });
+
+        spUUIDs.forEach((uuid) => {
+          selectedSkinpacks.add(uuid);
+          const card = document.querySelector(`[data-sp-uuid="${uuid}"]`);
+          if (card) card.classList.add("selected");
+        });
+
+        if (parsed.fspRaw) {
+          parsed.fspRaw.split(",").forEach((idxStr) => {
+            const i = parseInt(idxStr, 10) - 1;
+            if (!isNaN(i) && SKINPACKS_ORDER[i]) featuredSkinpacks.push(SKINPACKS_ORDER[i]);
+          });
         }
-      });
-    }
+        updateFeaturedBadges();
 
-    function toggleAd(key) {
-      const card = document.querySelector(`[data-fad="${key}"]`);
-      if (disabledAds.has(key)) {
-        disabledAds.delete(key);
-        card.classList.remove('fad-enabled');
-      } else {
-        disabledAds.add(key);
-        card.classList.add('fad-enabled');
+        if (parsed.adRaw) {
+          const AD_KEYS = ["featured_row", "get_more_skins", "get_more_row", "marketplace_pass"];
+          const bits = parseInt(parsed.adRaw, 16) || 0;
+          AD_KEYS.forEach((k, i) => {
+            if (bits & (1 << i)) {
+              disabledAds.add(k);
+              const card = document.querySelector(`[data-fad="${k}"]`);
+              if (card) card.classList.add("fad-enabled");
+            }
+          });
+        }
+
+        updateExportBar();
+        const nf = featuredSkinpacks.length;
+        const na = disabledAds.size;
+        showStatus(
+          `✓ Loaded: ${capeUUIDs.length} Cape${capeUUIDs.length !== 1 ? "s" : ""}, ${spUUIDs.length} Skin Pack${spUUIDs.length !== 1 ? "s" : ""}${nf ? ", " + nf + " Featured" : ""}${na ? ", " + na + " Ads disabled" : ""}.`,
+          "success",
+        );
+        document.getElementById("capesSection").scrollIntoView({ behavior: "smooth", block: "start" });
       }
-      updateExportBar();
-    }
 
-    // ─── RENDER ─────────────────────────────────────────────────────────────────
-    function renderCapes() {
-      const grid = document.getElementById('capesGrid');
-      grid.innerHTML = CAPES_DATA.map(cape => `
+      function copyCode() {
+        const code = buildCode();
+        navigator.clipboard.writeText(code).then(() => {
+          const btn = document.querySelector(".copy-btn");
+          const orig = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(() => (btn.textContent = orig), 1800);
+        });
+      }
+
+      function launchInApp(e) {
+        if (selectedCapes.size + selectedSkinpacks.size + featuredSkinpacks.length + disabledAds.size === 0) {
+          e.preventDefault();
+          showStatus("Select at least one cape or skin pack first.", "error");
+        }
+      }
+
+      function toggleFeaturedSkinpack(uuid) {
+        const idx = featuredSkinpacks.indexOf(uuid);
+        if (idx !== -1) {
+          featuredSkinpacks.splice(idx, 1);
+          updateFeaturedBadges();
+        } else {
+          if (featuredSkinpacks.length >= FEATURED_MAX) {
+            showStatus(`Maximum of ${FEATURED_MAX} featured skin packs reached.`, "error");
+            return;
+          }
+          featuredSkinpacks.push(uuid);
+          updateFeaturedBadges();
+        }
+        updateExportBar();
+      }
+
+      function updateFeaturedBadges() {
+        SKINPACKS_DATA.forEach((sp) => {
+          const uuid = sp.uuid;
+          const card = document.querySelector(`[data-sp-uuid="${uuid}"]`);
+          const badge = document.querySelector(`[data-sp-badge="${uuid}"]`);
+          const btn = document.querySelector(`[data-sp-feat="${uuid}"]`);
+          if (!card) return;
+          const pos = featuredSkinpacks.indexOf(uuid);
+          if (pos !== -1) {
+            card.classList.add("featured");
+            if (badge) badge.textContent = pos + 1;
+            if (btn) btn.classList.add("active");
+          } else {
+            card.classList.remove("featured");
+            if (badge) badge.textContent = "";
+            if (btn) btn.classList.remove("active");
+          }
+        });
+      }
+
+      function toggleAd(key) {
+        const card = document.querySelector(`[data-fad="${key}"]`);
+        if (disabledAds.has(key)) {
+          disabledAds.delete(key);
+          card.classList.remove("fad-enabled");
+        } else {
+          disabledAds.add(key);
+          card.classList.add("fad-enabled");
+        }
+        updateExportBar();
+      }
+
+      // ─── RENDER ────────────────────────────────────────────────────────────────
+      function renderCapes() {
+        const grid = document.getElementById("capesGrid");
+        grid.innerHTML = CAPES_DATA.map(
+          (cape) => `
         <div class="cape-card" data-uuid="${cape.uuid}" onclick="toggleCape('${cape.uuid}')" title="${cape.name}">
           <div class="check">
             <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -866,12 +1181,14 @@
           <div class="cape-name">${cape.name}</div>
           <div class="cape-cat">${cape.category}</div>
         </div>
-      `).join('');
-    }
+      `,
+        ).join("");
+      }
 
-    function renderSkinpacks() {
-      const grid = document.getElementById('skinpacksGrid');
-      grid.innerHTML = SKINPACKS_DATA.map(sp => `
+      function renderSkinpacks() {
+        const grid = document.getElementById("skinpacksGrid");
+        grid.innerHTML = SKINPACKS_DATA.map(
+          (sp) => `
         <div class="sp-card" data-sp-uuid="${sp.uuid}" onclick="toggleSkinpack('${sp.uuid}')" title="${sp.name}">
           <div class="check">
             <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -885,60 +1202,22 @@
             <button class="sp-featured-btn" data-sp-feat="${sp.uuid}" onclick="event.stopPropagation(); toggleFeaturedSkinpack('${sp.uuid}')" title="Toggle featured">⭐</button>
           </div>
         </div>
-      `).join('');
-    }
-
-    function renderStars() {
-      const container = document.getElementById('stars');
-      for (let i = 0; i < 60; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        const size = Math.random() * 2.5 + 0.5;
-        star.style.cssText = `
-          width:${size}px; height:${size}px;
-          left:${Math.random()*100}%;
-          top:${Math.random()*100}%;
-          animation-delay:${Math.random()*3}s;
-          animation-duration:${2+Math.random()*3}s;
-        `;
-        container.appendChild(star);
+      `,
+        ).join("");
       }
-    }
 
-    // ─── INIT ───────────────────────────────────────────────────────────────────
-    renderStars();
-    loadData();
+      // ─── STARS ─────────────────────────────────────────────────────────────────
+      const sc = document.getElementById("stars");
+      for (let i = 0; i < 180; i++) {
+        const s = document.createElement("div"),
+          sz = Math.random() * 2.5 + "px";
+        s.className = "star";
+        s.style.cssText = `width:${sz};height:${sz};left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation-delay:${Math.random() * 3}s`;
+        sc.appendChild(s);
+      }
+
+      // ─── INIT ──────────────────────────────────────────────────────────────────
+      loadData();
     </script>
-
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Socials</h3>
-          <a href="https://www.youtube.com/watch?v=rKkmPG4bi4Y" target="_blank" rel="noopener">YouTube</a>
-          <a href="https://discord.com/invite/HRG2NapegP" target="_blank" rel="noopener">Discord</a>
-        </div>
-        <div class="footer-section">
-          <h3>Resources</h3>
-          <a href="https://github.com/Bedrock-Cosmos/Launcher/releases/">Download</a>
-          <a href="https://github.com/orgs/Bedrock-Cosmos">GitHub</a>
-        </div>
-        <div class="footer-section">
-          <h3>Legal</h3>
-          <a href="/terms-of-service">Terms of Service</a>
-          <a href="/privacy-policy">Privacy Policy</a>
-        </div>
-        <div class="footer-section">
-          <h3>Pages</h3>
-          <a href="/changelogs">Changelogs</a>
-          <a href="/skinpacks">Skin Packs</a>
-          <a href="/capes">Capes</a>
-          <a href="/videos">Videos</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>Bedrock Cosmos &copy; 2026 - All Rights Reserved - Not affiliated with Mojang Studios or Microsoft</p>
-      </div>
-    </footer>
-
   </body>
 </html>

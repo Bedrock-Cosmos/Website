@@ -34,9 +34,9 @@
     <meta name="twitter:creator" content="" />
     <meta content="bedrock-cosmos.app" name="twitter:domain" />
     <link href="https://bedrock-cosmos.app/" hreflang="x-default" rel="alternate" />
-    <meta name="theme-color" content="#ededed" />
+    <meta name="theme-color" content="#5b21b6" />
     <title>Loading&#8230; | Bedrock Cosmos</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/marketplace.css" />
     <style>
       .skin-grid-title {
         font-size: 1.25rem;
@@ -49,30 +49,24 @@
 
       .skin-grid {
         display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        gap: 1rem;
-        margin-top: 2rem;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1px;
+        margin-top: 0.5rem;
+        border: 1px solid var(--mc-border);
       }
 
       .skin-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 11px;
+        background: var(--mc-panel);
+        border: none;
+        border-radius: 0;
         overflow: hidden;
         cursor: default;
         position: relative;
-        transition:
-          transform 0.22s ease,
-          border-color 0.22s ease,
-          background 0.22s ease,
-          box-shadow 0.22s ease;
+        transition: background 0.15s ease;
       }
 
       .skin-card:hover {
-        transform: translateY(-3px);
-        border-color: rgba(255, 255, 255, 0.22);
-        background: rgba(255, 255, 255, 0.055);
-        box-shadow: 0 10px 36px rgba(0, 0, 0, 0.5);
+        background: var(--mc-panel2);
       }
 
       .skin-img-wrap {
@@ -91,24 +85,28 @@
         object-fit: contain;
         image-rendering: pixelated;
         padding: 8px;
-        transition: transform 0.22s ease;
+        transition: opacity 0.22s ease;
       }
 
       .skin-card:hover .skin-img-wrap img {
-        transform: scale(1.08);
+      }
+
+      .btn-open-minecraft:hover {
+        transform: none;
       }
 
       .skin-card-name {
         display: block;
         width: 100%;
-        font-size: 0.79rem;
+        font-size: 0.82rem;
         font-weight: 600;
-        color: #d0d0d0;
-        padding: 0.4rem 0.6rem 0.5rem;
+        color: var(--mc-muted);
+        padding: 0.45rem 0.6rem 0.55rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         text-align: center;
+        border-top: 1px solid var(--mc-border);
       }
       @media (max-width: 768px) {
         #skin-grid-section {
@@ -120,17 +118,18 @@
       .skin-stat-tooltip {
         position: absolute;
         z-index: 9999;
-        background: rgba(15, 15, 20, 0.96);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 10px;
+        background: var(--mc-panel2);
+        border: 1px solid var(--mc-border);
+        border-radius: 0;
         padding: 0.55rem 0.75rem 0.6rem;
         min-width: 170px;
         pointer-events: none;
         opacity: 0;
         transform: translateY(4px);
-        transition: opacity 0.15s ease, transform 0.15s ease;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+        transition:
+          opacity 0.15s ease,
+          transform 0.15s ease;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
       }
       .skin-stat-tooltip.visible {
         opacity: 1;
@@ -153,7 +152,7 @@
         padding: 0.2rem 0;
       }
       .stat-row + .stat-row {
-        border-top: 1px solid rgba(255,255,255,0.06);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
       }
       .stat-label {
         font-size: 0.75rem;
@@ -164,10 +163,14 @@
         font-size: 0.85rem;
         font-weight: 700;
       }
-      .stat-yes { color: #4ade80; }
-      .stat-no  { color: #f87171; }
+      .stat-yes {
+        color: #4ade80;
+      }
+      .stat-no {
+        color: #f87171;
+      }
       .skin-card.has-stats::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 6px;
         right: 6px;
@@ -177,15 +180,229 @@
       }
       .skin-card.stats-all-true::after {
         background: rgba(74, 222, 128, 0.85);
-        box-shadow: 0 0 5px rgba(74, 222, 128, 0.6);
       }
       .skin-card.stats-mixed::after {
         background: rgba(250, 204, 21, 0.85);
-        box-shadow: 0 0 5px rgba(250, 204, 21, 0.6);
       }
       .skin-card.stats-all-false::after {
         background: rgba(248, 113, 113, 0.85);
-        box-shadow: 0 0 5px rgba(248, 113, 113, 0.6);
+      }
+
+      /* ── Accent colour override → purple ──────────────────────────────────── */
+      :root {
+        --mc-accent: #5b21b6;
+      }
+
+      /* ── Footer z-index so stars don't bleed through ───────────────────────── */
+      footer {
+        position: relative;
+        z-index: 10;
+      }
+
+      /* ── Pack Card Redesign ────────────────────────────────────────────────── */
+      .pack-page {
+        padding: 2.5rem 2.5rem 4rem;
+        align-items: stretch;
+        max-width: 1100px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .pack-card {
+        background: var(--mc-panel);
+        border: 2px solid var(--mc-border);
+        border-radius: 0;
+        overflow: hidden;
+        transition: border-color 0.15s;
+        width: 100%;
+      }
+
+      .pack-card:hover {
+        border-color: var(--mc-accent);
+        background: var(--mc-panel);
+      }
+
+      .pack-hero {
+        display: grid;
+        grid-template-columns: minmax(260px, 40%) 1fr;
+        min-height: unset;
+        align-items: stretch;
+      }
+
+      .pack-thumbnail-wrap {
+        background: #0a0a0a;
+        border-right: 2px solid var(--mc-border);
+        min-height: 380px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pack-thumbnail-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        transition: none;
+        filter: none;
+      }
+
+      .pack-card:hover .pack-thumbnail-wrap img {
+        transform: none;
+      }
+
+      .pack-info {
+        padding: 2rem 2.2rem;
+        gap: 1.2rem;
+      }
+
+      .pack-type-badge {
+        background: var(--mc-panel2);
+        border: 1px solid var(--mc-border);
+        border-radius: 0;
+        color: var(--mc-muted);
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+      }
+
+      .pack-name {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--mc-text);
+        line-height: 1.15;
+        text-shadow: none;
+      }
+
+      .pack-description {
+        color: var(--mc-muted);
+        font-size: 0.92rem;
+        line-height: 1.65;
+        border-left: 2px solid var(--mc-border);
+        padding-left: 0.9rem;
+      }
+
+      .pack-divider {
+        background: var(--mc-border);
+      }
+
+      .pack-meta {
+        gap: 0;
+      }
+
+      .meta-row {
+        padding: 0.55rem 0;
+        border-bottom: 1px solid var(--mc-border);
+        gap: 1rem;
+      }
+
+      .meta-label {
+        color: var(--mc-muted);
+        min-width: 80px;
+      }
+
+      .meta-value {
+        color: var(--mc-text);
+      }
+
+      .meta-value a {
+        color: var(--mc-accent);
+        border-bottom: none;
+        transition: opacity 0.15s;
+      }
+
+      .meta-value a:hover {
+        opacity: 0.75;
+        border-bottom: none;
+      }
+
+      .pack-actions {
+        justify-content: flex-start;
+      }
+
+      .btn-open-minecraft {
+        background: var(--mc-accent);
+        color: #fff;
+        border: none;
+        border-radius: 0;
+        font-size: 0.88rem;
+        padding: 0.75rem 1.75rem;
+        transition: background 0.15s;
+      }
+
+      .btn-open-minecraft:hover {
+        transform: none;
+        box-shadow: none;
+        background: #4c1d95;
+      }
+
+      .pack-card {
+        box-shadow: none !important;
+      }
+      .pack-name {
+        text-shadow: none !important;
+      }
+
+      .skin-grid-title {
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--mc-muted);
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+      }
+
+      /* ── Mobile: show topbar title, fix footer ─────────────────────────────── */
+      @media (max-width: 600px) {
+        .mc-topbar-title {
+          display: flex !important;
+        }
+        .mc-topbar-right {
+          display: none;
+        }
+      }
+
+      /* ── Footer flush to bottom ─────────────────────────────────────────────── */
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .mc-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .pack-page {
+        flex: 1;
+      }
+
+      @media (max-width: 860px) {
+        .pack-hero {
+          grid-template-columns: 1fr;
+        }
+        .pack-thumbnail-wrap {
+          min-height: 220px;
+          border-right: none;
+          border-bottom: 2px solid var(--mc-border);
+        }
+        .pack-page {
+          padding: 1.5rem 1rem 3rem;
+        }
+        .skin-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .pack-actions {
+          justify-content: center;
+        }
+      }
+      @media (max-width: 500px) {
+        .skin-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
       }
     </style>
   </head>
@@ -195,99 +412,214 @@
       <p class="redirect-text" id="redirect-text">Loading…</p>
     </div>
 
-    <div class="stars-container" id="stars"></div>
-
-    <nav class="navbar">
-      <div class="logo">
-        <img src="../icons/shootingstar.png" alt="Bedrock Cosmos" class="logo-icon" />
-        Bedrock Cosmos
+    <!-- TOP BAR -->
+    <header class="mc-topbar">
+      <a href="/skinpacks/" class="mc-topbar-back">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Skin Packs
+      </a>
+      <span class="mc-topbar-title" style="align-items: center; justify-content: center; gap: 8px">
+        <img
+          src="https://bedrock-cosmos.app/icons/shootingstar.png"
+          alt=""
+          style="width: 24px; height: 24px; object-fit: contain"
+        />
+        <span style="font-size: 1rem; font-weight: 800; letter-spacing: 0.05em">Bedrock Cosmos</span>
+      </span>
+      <div class="mc-topbar-right">
+        <a href="/config" class="mc-library-btn"> My Library </a>
       </div>
-      <a href="https://discord.com/invite/HRG2NapegP" class="discord-btn">Join Discord</a>
-    </nav>
+    </header>
 
-    <div class="pack-page">
-      <a href="/skinpacks/" class="back-link" id="back-link">← Back to Skin Packs</a>
+    <!-- SIDEBAR -->
+    <aside class="mc-sidebar">
+      <a href="/skinpacks/" class="mc-sidebar-icon" title="Skin Packs">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      </a>
+      <a href="/capes" class="mc-sidebar-icon" title="Capes">
+        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="22" height="22">
+          <path
+            fill-rule="evenodd"
+            d="m194.4 16h411.1c20.7 0 37.4 19.1 37.4 42.6v681.8c0 23.5-16.7 42.6-37.4 42.6h-411.1c-20.7 0-37.4-19.1-37.4-42.6v-681.8c0-23.5 16.7-42.6 37.4-42.6zm169.2 338.3c-1.3 3.9-4.9 6.6-9 6.6h-88.1c-9.2 0-13 11.7-5.6 17.2l71.3 51.7c3.3 2.4 4.7 6.7 3.4 10.6l-27.2 83.8c-2.8 8.7 7.2 16 14.6 10.6l71.3-51.8c3.3-2.4 7.8-2.4 11.1 0l71.3 51.8c7.4 5.4 17.4-1.9 14.6-10.6l-27.2-83.8c-1.3-3.9 0.1-8.2 3.4-10.6l71.3-51.7c7.4-5.5 3.6-17.2-5.6-17.2h-88.1c-4.1 0-7.7-2.7-9-6.6l-27.2-83.7c-2.9-8.8-15.2-8.8-18.1 0z"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="33.3"
+          />
+        </svg>
+      </a>
+      <a href="/changelogs" class="mc-sidebar-icon" title="Changelogs">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+        </svg>
+      </a>
+      <a href="/videos" class="mc-sidebar-icon" title="Videos">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polygon points="23 7 16 12 23 17 23 7" />
+          <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+        </svg>
+      </a>
+      <div style="width: 32px; height: 1px; background: #000; margin: 4px auto; flex-shrink: 0"></div>
+      <a href="/terms-of-service" class="mc-sidebar-icon" title="Terms of Service">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="9" y1="13" x2="15" y2="13" />
+          <line x1="9" y1="17" x2="13" y2="17" />
+        </svg>
+      </a>
+      <a href="/privacy-policy" class="mc-sidebar-icon" title="Privacy Policy">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+      </a>
+    </aside>
 
-      <div class="pack-card" id="pack-card" style="display: none">
-        <div class="pack-hero">
-          <div class="pack-thumbnail-wrap">
-            <img id="pack-thumbnail" src="" alt="thumbnail" loading="eager" />
-          </div>
-
-          <div class="pack-info">
-            <span class="pack-type-badge" id="pack-type-badge"></span>
-
-            <h1 class="pack-name" id="pack-name"></h1>
-
-            <p class="pack-description" id="pack-description"></p>
-
-            <div class="pack-meta" id="pack-meta">
-              <!-- Rows injected by JS -->
+    <!-- MAIN -->
+    <main class="mc-main">
+      <div class="stars-container" id="stars"></div>
+      <div class="pack-page">
+        <div class="pack-card" id="pack-card" style="display: none">
+          <div class="pack-hero">
+            <div class="pack-thumbnail-wrap">
+              <img id="pack-thumbnail" src="" alt="thumbnail" loading="eager" />
             </div>
 
-            <div class="pack-divider"></div>
+            <div class="pack-info">
+              <span class="pack-type-badge" id="pack-type-badge"></span>
 
-            <div class="pack-actions">
-              <a id="btn-open-minecraft" href="#" class="btn-open-minecraft">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  <polyline points="15 3 21 3 21 9" />
-                  <line x1="10" y1="14" x2="21" y2="3" />
-                </svg>
-                View This Item
-              </a>
+              <h1 class="pack-name" id="pack-name"></h1>
+
+              <p class="pack-description" id="pack-description"></p>
+
+              <div class="pack-meta" id="pack-meta">
+                <!-- Rows injected by JS -->
+              </div>
+
+              <div class="pack-actions">
+                <a id="btn-open-minecraft" href="#" class="btn-open-minecraft">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  View This Item
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Skin Grid -->
-      <div id="skin-grid-section" style="display: none">
-        <h2 class="skin-grid-title">Skins in this Pack</h2>
-        <div class="skin-grid" id="skin-grid"></div>
-      </div>
+        <!-- Skin Grid -->
+        <div id="skin-grid-section" style="display: none">
+          <h2 class="skin-grid-title">Skins in this Pack</h2>
+          <div class="skin-grid" id="skin-grid"></div>
+        </div>
 
-      <p id="pack-error" style="display: none; color: #999; margin-top: 2rem">
-        Failed to load pack data. Please try again later.
-      </p>
-    </div>
+        <p
+          id="pack-error"
+          style="
+            display: none;
+            color: var(--mc-muted);
+            margin-top: 2rem;
+            text-align: center;
+            width: 100%;
+            font-size: 1rem;
+          "
+        >
+          Oops... That isn't supposed to happen!
+        </p>
+      </div>
+      <!-- /.pack-page -->
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Socials</h3>
-          <a href="https://www.youtube.com/watch?v=rKkmPG4bi4Y" target="_blank">YouTube</a>
-          <a href="https://discord.com/invite/HRG2NapegP" id="discord-btn-footer" target="_blank">Discord</a>
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Socials</h3>
+            <a href="https://www.youtube.com/watch?v=rKkmPG4bi4Y" target="_blank">YouTube</a>
+            <a href="https://discord.com/invite/HRG2NapegP" id="discord-btn-footer" target="_blank">Discord</a>
+          </div>
+          <div class="footer-section">
+            <h3>Resources</h3>
+            <a href="https://github.com/Bedrock-Cosmos/Launcher/releases/">Download</a>
+            <a href="https://github.com/orgs/Bedrock-Cosmos">GitHub</a>
+          </div>
+          <div class="footer-section">
+            <h3>Legal</h3>
+            <a href="/terms-of-service">Terms of Service</a>
+            <a href="/privacy-policy">Privacy Policy</a>
+          </div>
+          <div class="footer-section">
+            <h3>Pages</h3>
+            <a href="/changelogs">Changelogs</a>
+            <a href="/skinpacks">Skin Packs</a>
+            <a href="/capes">Capes</a>
+            <a href="/videos">Videos</a>
+          </div>
         </div>
-        <div class="footer-section">
-          <h3>Resources</h3>
-          <a href="https://github.com/Bedrock-Cosmos/Launcher/releases/">Download</a>
-          <a href="https://github.com/orgs/Bedrock-Cosmos">GitHub</a>
+        <div class="footer-bottom">
+          <p>Bedrock Cosmos © 2026 - All Rights Reserved - Not affiliated with Mojang Studios or Microsoft</p>
         </div>
-        <div class="footer-section">
-          <h3>Legal</h3>
-          <a href="/terms-of-service">Terms of Service</a>
-          <a href="/privacy-policy">Privacy Policy</a>
-        </div>
-        <div class="footer-section">
-          <h3>Pages</h3>
-          <a href="/changelogs">Changelogs</a>
-          <a href="/skinpacks">Skin Packs</a>
-          <a href="/capes">Capes</a>
-          <a href="/videos">Videos</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>Bedrock Cosmos © 2026 - All Rights Reserved - Not affiliated with Mojang Studios or Microsoft</p>
-      </div>
-    </footer>
+      </footer>
+    </main>
+    <!-- /.mc-main -->
 
     <script>
       // ── Config ──────────────────────────────────────────────────────────────
@@ -329,8 +661,7 @@
           // ── Base URL per category ────────────────────────────────────────────
           const PACKS_BASES = {
             skinpacks: "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks/",
-            creators:
-              "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/refs/heads/main/SkinPacks/Creators/",
+            creators: "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/refs/heads/main/SkinPacks/Creators/",
           };
           const packBase = PACKS_BASES[category] ?? PACKS_BASES.skinpacks;
 
@@ -532,17 +863,21 @@
                 card.classList.add("has-stats");
                 const vals = Object.values(skin.stats);
                 const trueCount = vals.filter(Boolean).length;
-                if (trueCount === vals.length)      card.classList.add("stats-all-true");
-                else if (trueCount === 0)           card.classList.add("stats-all-false");
-                else                                card.classList.add("stats-mixed");
+                if (trueCount === vals.length) card.classList.add("stats-all-true");
+                else if (trueCount === 0) card.classList.add("stats-all-false");
+                else card.classList.add("stats-mixed");
                 card.addEventListener("mouseenter", (e) => {
                   const s = skin.stats;
                   const rows = [];
                   if ("isTrusted" in s) {
-                    rows.push(`<div class="stat-row"><span class="stat-label">Is Trusted?</span><span class="stat-val ${s.isTrusted ? 'stat-yes' : 'stat-no'}">${s.isTrusted ? '✔' : '✖'}</span></div>`);
+                    rows.push(
+                      `<div class="stat-row"><span class="stat-label">Is Trusted?</span><span class="stat-val ${s.isTrusted ? "stat-yes" : "stat-no"}">${s.isTrusted ? "✔" : "✖"}</span></div>`,
+                    );
                   }
                   if ("worksOnHive" in s) {
-                    rows.push(`<div class="stat-row"><span class="stat-label">Works on Hive?</span><span class="stat-val ${s.worksOnHive ? 'stat-yes' : 'stat-no'}">${s.worksOnHive ? '✔' : '✖'}</span></div>`);
+                    rows.push(
+                      `<div class="stat-row"><span class="stat-label">Works on Hive?</span><span class="stat-val ${s.worksOnHive ? "stat-yes" : "stat-no"}">${s.worksOnHive ? "✔" : "✖"}</span></div>`,
+                    );
                   }
                   tooltip.innerHTML = rows.join("");
                   tooltip.classList.add("visible");
@@ -566,9 +901,9 @@
             const ttH = tooltip.offsetHeight || 80;
             const margin = 10;
 
-            // Prefer above the card, centered
+            // Prefer overlapping top of card, centered
             let left = rect.left + rect.width / 2 - ttW / 2 + window.scrollX;
-            let top = rect.top - ttH - margin + window.scrollY;
+            let top = rect.top - ttH + window.scrollY;
 
             // Clamp horizontally
             left = Math.max(margin, Math.min(left, window.innerWidth - ttW - margin + window.scrollX));
@@ -587,7 +922,7 @@
           dismissOverlay();
         } catch (err) {
           console.error("Failed to load pack:", err);
-          showError("Failed to load pack data. Please try again later.");
+          showError("Oops... That isn't supposed to happen!");
         }
       }
 
