@@ -624,7 +624,7 @@
     <script>
       // ── Config ──────────────────────────────────────────────────────────────
       // Master index: maps UUID → JSON filename (all files in the same folder)
-      const INDEX_URL = "https://bedrock-cosmos.app/index.json";
+      const INDEX_URL = "https://bedrock-cosmos.app/skinpacks/skins.json";
       const PACKS_BASE = "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks/";
 
       const PACK_TYPE_LABELS = {
@@ -651,19 +651,21 @@
           if (!indexRes.ok) throw new Error(`Index fetch failed: HTTP ${indexRes.status}`);
           const index = await indexRes.json();
 
-          const entry = index[uuid];
+          // New skins.json format: lookup is under packIndex, base URLs under packsBases
+          const packIndex = index.packIndex ?? index;
+          const packsBases = index.packsBases ?? {
+            skinpacks: "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks/",
+            creators: "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/refs/heads/main/SkinPacks/Creators/",
+          };
+
+          const entry = packIndex[uuid];
           if (!entry) throw new Error(`Unknown pack ID: ${uuid}`);
 
           // Support both old flat-string format and new { file, category } object
           const filename = entry?.file ?? entry;
           const category = entry?.category ?? "skinpacks";
 
-          // ── Base URL per category ────────────────────────────────────────────
-          const PACKS_BASES = {
-            skinpacks: "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks/",
-            creators: "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/refs/heads/main/SkinPacks/Creators/",
-          };
-          const packBase = PACKS_BASES[category] ?? PACKS_BASES.skinpacks;
+          const packBase = packsBases[category] ?? packsBases.skinpacks;
 
           // 3. Fetch the actual pack JSON
           const packRes = await fetch(packBase + filename);
