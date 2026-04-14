@@ -1019,6 +1019,8 @@ footer {
 }
 .cape-card {
   background: var(--capes-surface);
+  border: 1px solid var(--capes-border);
+  /* border-radius: 4px; */
   overflow: hidden;
   cursor: pointer;
   position: relative;
