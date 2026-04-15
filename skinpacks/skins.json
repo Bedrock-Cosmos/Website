@@ -409,7 +409,12 @@
     "aa8a18de-f2b0-40be-bc70-c4cd9dd6ae62": { "file": "BionicBen/ItemDetail_BionicBenSkinPack.json", "category": "creators" },
     "0ce8d2eb-d178-4ae9-8060-00fd9714c93b": { "file": "BionicBen/ItemDetail_ProjectStarSkinPack.json", "category": "creators" },
     "17c404b3-3979-49a3-93cb-3f53e2e33eb6": { "file": "YEH/ItemDetail_REPOSEMIBOTS.json", "category": "creators" },
-    "86e6a53f-6ae6-4109-935a-72f877194c02": { "file": "YEH/ItemDetail_REPOSEMIBOTS5D.json", "category": "creators" }
+    "86e6a53f-6ae6-4109-935a-72f877194c02": { "file": "YEH/ItemDetail_REPOSEMIBOTS5D.json", "category": "creators" },
+    "b96ad5fb-f58c-4a92-bbbc-44bb9244e732": { "file": "ZeroMISTER_JA/ItemDetail_BlackHole.json", "category": "creators" },
+    "dedd7dce-a317-4786-930f-9c2357d25d82": { "file": "ZeroMISTER_JA/ItemDetail_DetectiveConanSkinPack.json", "category": "creators" },
+    "ae90416f-1942-4c2b-a675-8d947fc53cf1": { "file": "ZeroMISTER_JA/ItemDetail_Doraemon.json", "category": "creators" },
+    "7197503c-817f-4c5d-b570-67b2758d707b": { "file": "ZeroMISTER_JA/ItemDetail_HotelTransylvaniaSkinPack.json", "category": "creators" },
+    "f6303374-6ab5-4079-baa0-6200189aa6a2": { "file": "ZeroMISTER_JA/ItemDetail_NeonGenesisEvangelion.json", "category": "creators" }
   },
   "packsBases": {
     "skinpacks": "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/refs/heads/main/SkinPacks/",
