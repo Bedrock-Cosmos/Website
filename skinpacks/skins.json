@@ -299,13 +299,46 @@
       "uuid": "86e6a53f-6ae6-4109-935a-72f877194c02",
       "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
       "category": "Creator"
+    },
+    {
+      "name": "Black Hole",
+      "uuid": "b96ad5fb-f58c-4a92-bbbc-44bb9244e732",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
+      "name": "Detective Conan Skin Pack",
+      "uuid": "dedd7dce-a317-4786-930f-9c2357d25d82",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
+      "name": "Doraemon",
+      "uuid": "ae90416f-1942-4c2b-a675-8d947fc53cf1",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
+      "name": "Hotel Transylvania Skin Pack",
+      "uuid": "7197503c-817f-4c5d-b570-67b2758d707b",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
+      "name": "Neon Genesis Evangelion",
+      "uuid": "f6303374-6ab5-4079-baa0-6200189aa6a2",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
     }
   ],
-  "newlyAdded": [
+  "newlyAdded": [ 
+    { "name": "Black Hole", "creator": "ZeroMISTER JA" },
+    { "name": "Detective Conan Skin Pack", "creator": "ZeroMISTER JA" },
+    { "name": "Doraemon", "creator": "ZeroMISTER JA" },
+    { "name": "Hotel Transylvania Skin Pack", "creator": "ZeroMISTER JA" },
+    { "name": "Neon Genesis Evangelion", "creator": "ZeroMISTER JA" },
     { "name": "R.E.P.O SEMIBOTS", "creator": "YEH" },
-    { "name": "R.E.P.O SEMIBOTS 5D", "creator": "YEH" },
-    { "name": "6th Birthday Skin Pack", "creator": "BionicBen" },
-    { "name": "BionicBen Skin Pack", "creator": "BionicBen" }
+    { "name": "R.E.P.O SEMIBOTS 5D", "creator": "YEH" }
   ],
   "featured": [
     {
