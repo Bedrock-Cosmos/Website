@@ -4,18 +4,15 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="title" content="" />
     <meta name="description" content="" />
+    <meta name="author" content="" />
     <meta
       name="keywords"
       content="Minecraft, Bedrock, Marketplace, Launcher, Proxy, Custom Capes, Legacy Skin Packs, Custom Skins"
     />
     <link rel="canonical" href="" />
-    <script>
-      (function () {
-        var link = document.querySelector("link[rel='canonical']");
-        if (link) link.href = window.location.href;
-      })();
-    </script>
     <!-- Open Graph -->
     <meta content="Bedrock Cosmos" property="og:site_name" />
     <meta content="en" property="og:locale" />
@@ -24,10 +21,11 @@
     <meta property="og:description" content="" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
-    <meta property="og:image:width" content="420" />
-    <meta property="og:image:height" content="95" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@BedrockCosmos" />
     <meta name="twitter:title" content="" />
     <meta name="twitter:description" content="" />
     <meta name="twitter:image" content="" />
@@ -625,7 +623,6 @@
 
     <script>
       // ── Config ──────────────────────────────────────────────────────────────
-      // Master index: maps UUID → JSON filename (all files in the same folder)
       const INDEX_URL = "https://bedrock-cosmos.app/skinpacks/skins.json";
       const PACKS_BASE = "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks/";
 
@@ -639,7 +636,6 @@
       // ────────────────────────────────────────────────────────────────────────
 
       async function loadPack() {
-        // 1. Get the UUID from ?pack=<uuid>
         const uuid = new URLSearchParams(window.location.search).get("pack");
 
         if (!uuid) {
@@ -648,12 +644,10 @@
         }
 
         try {
-          // 2. Fetch master index and look up the filename for this UUID
           const indexRes = await fetch(INDEX_URL);
           if (!indexRes.ok) throw new Error(`Index fetch failed: HTTP ${indexRes.status}`);
           const index = await indexRes.json();
 
-          // New skins.json format: lookup is under packIndex, base URLs under packsBases
           const packIndex = index.packIndex ?? index;
           const packsBases = index.packsBases ?? {
             skinpacks: "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks/",
@@ -663,19 +657,14 @@
           const entry = packIndex[uuid];
           if (!entry) throw new Error(`Unknown pack ID: ${uuid}`);
 
-          // Support both old flat-string format and new { file, category } object
           const filename = entry?.file ?? entry;
           const category = entry?.category ?? "skinpacks";
-
           const packBase = packsBases[category] ?? packsBases.skinpacks;
 
-          // 3. Fetch the actual pack JSON
           const packRes = await fetch(packBase + filename);
           if (!packRes.ok) throw new Error(`Pack fetch failed: HTTP ${packRes.status}`);
           const json = await packRes.json();
 
-          // 4. Parse the JSON
-          // Support both old flat format (result.rows) and new layout-wrapped format (result.layout[].rows)
           const layout = json?.result?.layout;
           const rows = Array.isArray(layout)
             ? (layout.find((s) => s.sectionName === "rows")?.rows ?? [])
@@ -683,15 +672,11 @@
           const summaryRow = rows.find((r) => r.controlId === "ItemSummary");
           const item = summaryRow?.components?.find((c) => c.type === "itemSummaryComp")?.item;
 
-          // Description can live in two places depending on the JSON format:
-          // 1. A top-level ItemDescription row (EMC-style)
-          // 2. Nested inside a navigationTabComp tab (SkinPack-style)
           const descRow = rows.find((r) => r.controlId === "ItemDescription");
           const descComp = descRow?.components?.find((c) => c.type === "itemDescriptionComp");
           let description = descComp?.description ?? "";
 
           if (!description) {
-            // Tab-nested format: ItemSummary > navigationTabComp > tabs[0] > all rows > all components
             const summaryComponents = summaryRow?.components ?? [];
             const tabComp = summaryComponents.find((c) => c.type === "navigationTabComp");
             const tabRows = tabComp?.tabs?.[0]?.rows ?? [];
@@ -709,34 +694,43 @@
 
           const { id, title, creatorName, thumbnail, statistics, packType } = item;
 
-          // Parse rating from RatingRow
           const ratingRow = rows.find((r) => r.controlId === "RatingRow");
-          const ratingData = ratingRow?.components?.find((c) => c.type === "ratingComp")?.rating ?? null;
+          const ratingData =
+            ratingRow?.components?.find((c) => c.type === "ratingComp")?.rating
+            ?? (item.rating?.totalCount > 0 ? item.rating : null);
 
-          // 5. Populate the page
-          const pageTitle = `${title} | Minecraft Bedrock Skin Pack`;
-          document.title = pageTitle;
-
-          // Update Standard SEO
-          setMeta("description", description, "name"); // Updates the meta name="description"
-          setCanonical(window.location.href);
-
-          // Update Open Graph (Facebook/Discord)
-          setMeta("og:title", title);
-          setMeta("og:description", description);
-          setMeta("og:image", thumbnail?.url ?? "");
-          setMeta("og:url", window.location.href);
-
-          // Update Twitter
-          setMeta("twitter:title", title, "name");
-          setMeta("twitter:description", description, "name");
-          setMeta("twitter:image", thumbnail?.url ?? "");
-
-          // ── JSON-LD Structured Data ──────────────────────────────────────────
-          const rating = ratingData ?? (item.rating?.totalCount > 0 ? item.rating : null);
           const youtubeUrl = entry?.youtubeUrl ?? null;
           const listPrice = item.price?.listPrice ?? -1;
 
+          // ── Page title & meta ────────────────────────────────────────────────
+          const pageTitle = `${title} for Minecraft Bedrock | Bedrock Cosmos`;
+          const metaDescription = description.length > 20
+            ? description.slice(0, 155).trimEnd() + (description.length > 155 ? "…" : "")
+            : description;
+
+          document.title = pageTitle;
+
+          // Canonical — set directly, no JS override needed (worker handles it server-side)
+          setCanonical(window.location.href);
+
+          // Standard meta
+          setMeta("title", pageTitle, "name");
+          setMeta("description", metaDescription, "name");
+          setMeta("author", creatorName ?? "Bedrock Cosmos", "name");
+
+          // Open Graph
+          setMeta("og:title", pageTitle);
+          setMeta("og:description", metaDescription);
+          setMeta("og:image", thumbnail?.url ?? "");
+          setMeta("og:url", window.location.href);
+
+          // Twitter
+          setMeta("twitter:title", pageTitle, "name");
+          setMeta("twitter:description", metaDescription, "name");
+          setMeta("twitter:image", thumbnail?.url ?? "", "name");
+          setMeta("twitter:creator", creatorName ?? "", "name");
+
+          // ── JSON-LD Structured Data ──────────────────────────────────────────
           const jsonLd = {
             "@context": "https://schema.org",
             "@type": "Product",
@@ -744,28 +738,16 @@
             description: description,
             image: thumbnail?.url ?? "",
             url: window.location.href,
-            releaseDate: item.startDate ? item.startDate.split("T")[0] : undefined,
             brand: {
               "@type": "Brand",
               name: creatorName ?? "Unknown",
               ...(youtubeUrl ? { url: youtubeUrl } : {}),
             },
-            ...(rating
-              ? {
-                  aggregateRating: {
-                    "@type": "AggregateRating",
-                    ratingValue: rating.average.toFixed(1),
-                    reviewCount: rating.totalCount,
-                    bestRating: "5",
-                    worstRating: "1",
-                  },
-                }
-              : {}),
             offers: {
               "@type": "Offer",
               url: window.location.href,
               availability: "https://schema.org/InStock",
-              price: listPrice > 0 ? listPrice : "0",
+              price: listPrice > 0 ? String(listPrice) : "0",
               priceCurrency: "Minecoin",
             },
             additionalProperty: Object.entries(statistics ?? {})
@@ -776,13 +758,35 @@
                 value: v,
               })),
           };
-          let ldScript = document.querySelector('script[type="application/ld+json"]');
-          if (!ldScript) {
-            ldScript = document.createElement("script");
-            ldScript.type = "application/ld+json";
-            document.head.appendChild(ldScript);
+
+          if (item.startDate) {
+            jsonLd.releaseDate = item.startDate.split("T")[0];
           }
-          ldScript.textContent = JSON.stringify(jsonLd, null, 2);
+
+          if (ratingData) {
+            jsonLd.aggregateRating = {
+              "@type": "AggregateRating",
+              ratingValue: ratingData.average.toFixed(1),
+              reviewCount: ratingData.totalCount,
+              bestRating: "5",
+              worstRating: "1",
+            };
+          }
+
+          // Breadcrumb structured data
+          const breadcrumbLd = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Bedrock Cosmos", item: "https://bedrock-cosmos.app/" },
+              { "@type": "ListItem", position: 2, name: "Skin Packs", item: "https://bedrock-cosmos.app/skinpacks/" },
+              { "@type": "ListItem", position: 3, name: title, item: window.location.href },
+            ],
+          };
+
+          // Inject / update JSON-LD scripts
+          injectJsonLd("ld-product", jsonLd);
+          injectJsonLd("ld-breadcrumb", breadcrumbLd);
           // ────────────────────────────────────────────────────────────────────
 
           document.getElementById("pack-thumbnail").src = thumbnail?.url ?? "";
@@ -797,12 +801,10 @@
           function addMeta(label, value) {
             metaEl.insertAdjacentHTML(
               "beforeend",
-              `
-              <div class="meta-row">
+              `<div class="meta-row">
                 <span class="meta-label">${label}</span>
                 <span class="meta-value">${value}</span>
-              </div>
-            `,
+              </div>`,
             );
           }
 
@@ -828,7 +830,7 @@
           document.getElementById("pack-card").style.display = "";
           document.getElementById("pack-error").style.display = "none";
 
-          // 6. Build skin grid from index.json entry.skins
+          // ── Skin Grid ────────────────────────────────────────────────────────
           const skins = Array.isArray(entry.skins) ? entry.skins : [];
 
           if (skins.length > 0) {
@@ -836,7 +838,6 @@
             const gridEl = document.getElementById("skin-grid");
             gridEl.innerHTML = "";
 
-            // Shared floating tooltip element
             let tooltip = document.getElementById("skin-stat-tooltip");
             if (!tooltip) {
               tooltip = document.createElement("div");
@@ -853,7 +854,7 @@
               imgWrap.className = "skin-img-wrap";
               const img = document.createElement("img");
               img.src = skin.image;
-              img.alt = `${skin.name} from Minecraft Bedrock for PC`;
+              img.alt = `${skin.name} skin from ${title} - Minecraft Bedrock`;
               img.loading = "lazy";
               imgWrap.appendChild(img);
               const label = document.createElement("span");
@@ -862,7 +863,6 @@
               card.appendChild(imgWrap);
               card.appendChild(label);
 
-              // Attach tooltip only if skin has stats
               if (skin.stats && typeof skin.stats === "object" && Object.keys(skin.stats).length > 0) {
                 card.classList.add("has-stats");
                 const vals = Object.values(skin.stats);
@@ -905,14 +905,11 @@
             const ttH = tooltip.offsetHeight || 80;
             const margin = 10;
 
-            // Prefer overlapping top of card, centered
             let left = rect.left + rect.width / 2 - ttW / 2 + window.scrollX;
             let top = rect.top - ttH + window.scrollY;
 
-            // Clamp horizontally
             left = Math.max(margin, Math.min(left, window.innerWidth - ttW - margin + window.scrollX));
 
-            // If off top, show below
             if (top < window.scrollY + margin) {
               top = rect.bottom + margin + window.scrollY;
             }
@@ -921,7 +918,7 @@
             tooltip.style.top = top + "px";
           }
 
-          // 7. Redirect into Minecraft
+          // ── Redirect into Minecraft ──────────────────────────────────────────
           window.location = minecraftUrl;
           dismissOverlay();
         } catch (err) {
@@ -949,8 +946,8 @@
         }, 1800);
       }
 
+      // Sets a <meta> tag by property or name attribute
       function setMeta(property, content, attr = "property") {
-        // Handles both <meta property="..."> and <meta name="...">
         let el = document.querySelector(`meta[${attr}="${property}"]`);
         if (!el) {
           el = document.createElement("meta");
@@ -960,6 +957,7 @@
         el.setAttribute("content", content);
       }
 
+      // Sets the canonical link
       function setCanonical(url) {
         let link = document.querySelector("link[rel='canonical']");
         if (!link) {
@@ -968,6 +966,18 @@
           document.head.appendChild(link);
         }
         link.setAttribute("href", url);
+      }
+
+      // Injects or updates a JSON-LD <script> block by a stable id
+      function injectJsonLd(id, data) {
+        let el = document.getElementById(id);
+        if (!el) {
+          el = document.createElement("script");
+          el.type = "application/ld+json";
+          el.id = id;
+          document.head.appendChild(el);
+        }
+        el.textContent = JSON.stringify(data, null, 2);
       }
 
       loadPack();
