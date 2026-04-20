@@ -2267,9 +2267,10 @@ article.tt-card:hover .tt-play-icon { background: var(--mc-accent); transform: s
 }
 
 /* ── Height / flex shell ── */
-html, body { height: 100%; }
-body { display: flex; flex-direction: column; }
-.mc-main { flex: 1; display: flex; flex-direction: column; }
+.article-page html,
+.article-page body { height: 100%; }
+.article-page body { display: flex; flex-direction: column; }
+.article-page .mc-main { flex: 1; display: flex; flex-direction: column; }
 
 /* ── Page wrapper ── */
 .article-wrap {
