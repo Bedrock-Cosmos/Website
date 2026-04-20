@@ -73,6 +73,18 @@
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
+    <url>
+        <loc>https://bedrock-cosmos.app/articles/how-to-unlock-diamond-skullcap/</loc>
+        <lastmod>2026-04-19T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://bedrock-cosmos.app/articles/how-to-unlock-ender-dragon-wings/</loc>
+        <lastmod>2026-04-19T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
 
     <!-- ══ Skin Pack pages ══ -->
     <url>

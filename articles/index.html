@@ -114,11 +114,37 @@
         "name": "Bedrock Cosmos Articles & Guides",
         "description": "Guides, tutorials, and news about Bedrock Cosmos — the custom launcher for Minecraft Bedrock Edition.",
         "url": "https://bedrock-cosmos.app/articles/",
-        "numberOfItems": 2,
+        "numberOfItems": 3,
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
+            "item": {
+              "@type": "Article",
+              "headline": "How to Get the Ender Dragon Wings in Minecraft Bedrock",
+              "description": "A new rare back item is coming to the Minecraft Bedrock Character Creator, bundled with LEGO Minecraft set #21595 The Ender Dragon. Here is everything you need to know, plus how to try it on early using Bedrock Cosmos.",
+              "url": "https://bedrock-cosmos.app/articles/how-to-unlock-ender-dragon-wings/",
+              "datePublished": "2026-04-19T00:00:00+00:00",
+              "dateModified": "2026-04-19T00:00:00+00:00",
+              "image": {
+                "@type": "ImageObject",
+                "url": "https://bedrock-cosmos.app/articles/how-to-unlock-ender-dragon-wings/ender-dragon-wings.png",
+                "width": 1200,
+                "height": 630
+              },
+              "author": { "@type": "Organization", "name": "Bedrock Cosmos", "url": "https://bedrock-cosmos.app" },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Bedrock Cosmos",
+                "url": "https://bedrock-cosmos.app",
+                "logo": { "@type": "ImageObject", "url": "https://bedrock-cosmos.app/icons/shootingstar.png" }
+              },
+              "keywords": "Ender Dragon Wings, Minecraft Bedrock, character creator, LEGO Minecraft 21595, The Ender Dragon, redeem code, back item, Bedrock Cosmos"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
             "item": {
               "@type": "Article",
               "headline": "How to Get the Tiny Takeover Cape in Minecraft",
@@ -144,7 +170,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 2,
+            "position": 3,
             "item": {
               "@type": "Article",
               "headline": "How to Get Cape Physics in Minecraft Bedrock 26.10+",
@@ -239,7 +265,7 @@
             "name": "Does Bedrock Cosmos work on all platforms?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Bedrock Cosmos is designed for Minecraft Bedrock Edition. Check the official documentation or Discord for the most up-to-date platform compatibility information."
+              "text": "Bedrock Cosmos is for Minecraft Bedrock Edition on PC only. Mobile support does exist but is not offifical."
             }
           }
         ]
@@ -712,7 +738,7 @@
             <a href="/changelogs/">Changelogs</a>
             <a href="/skinpacks/">Skin Packs</a>
             <a href="/capes/">Capes</a>
-            <a href="/articles/">Articles</a>
+            <a href="/videos/">Videos</a>
           </div>
         </div>
         <div class="footer-bottom">
@@ -723,29 +749,65 @@
 
     <script>
       // ══ ARTICLES DATA ══
+      // ⚠️ ORDER MATTERS — newest article goes FIRST (top of this array = top of the grid).
+      // When adding a new article, insert it at the very beginning of this array,
+      // and also add it as position 1 in the ItemList schema above (shifting others down).
+      // Remember to increment "numberOfItems" in the ItemList schema too.
       const ARTICLES = [
+        {
+          slug: "how-to-unlock-ender-dragon-wings",
+          title: "How to Get the Ender Dragon Wings in Minecraft Bedrock",
+          description:
+            "A new rare back item is coming to the Minecraft Bedrock Character Creator, bundled with LEGO Minecraft set #21595 The Ender Dragon. Here is everything you need to know, plus how to try it on early using Bedrock Cosmos.",
+          category: "news",
+          date: "Apr 19, 2026",
+          isoDate: "2026-04-19T00:00:00+00:00",
+          readtime: "3 min",
+          tag: "#character-creator",
+          keywords:
+            "Ender Dragon Wings, Minecraft Bedrock, character creator, LEGO Minecraft 21595, The Ender Dragon, redeem code, back item, Bedrock Cosmos",
+          thumb: "https://bedrock-cosmos.app/articles/how-to-unlock-ender-dragon-wings/ender-dragon-wings.png",
+        },
+        {
+          slug: "how-to-unlock-diamond-skullcap",
+          title: "How to Get the Diamond Skullcap in Minecraft Bedrock",
+          description:
+            "A new uncommon headwear item is coming to the Minecraft Bedrock Character Creator, bundled with LEGO Minecraft set #21594 The Skeleton. Here is everything you need to know, plus how to try it on early using Bedrock Cosmos.",
+          category: "news",
+          date: "Apr 19, 2026",
+          isoDate: "2026-04-19T00:00:00+00:00",
+          readtime: "3 min",
+          tag: "#character-creator",
+          keywords:
+            "Diamond Skullcap, Minecraft Bedrock, character creator, LEGO Minecraft 21594, The Skeleton, redeem code, headwear, Bedrock Cosmos",
+          thumb: "https://bedrock-cosmos.app/articles/how-to-unlock-diamond-skullcap/diamond-skullcap.png",
+        },
         {
           slug: "how-to-get-tiny-takeover-cape",
           title: "How to Get the Tiny Takeover Cape in Minecraft",
-          description: "Learn how to get the Tiny Takeover cape in Minecraft Bedrock Edition and Java Edition. Bedrock players can equip it instantly through Bedrock Cosmos. Java players unlock it by hosting a world with a friend using Essential Mod.",
+          description:
+            "Learn how to get the Tiny Takeover cape in Minecraft Bedrock Edition and Java Edition. Bedrock players can equip it instantly through Bedrock Cosmos. Java players unlock it by hosting a world with a friend using Essential Mod.",
           category: "guide",
           date: "Apr 19, 2026",
           isoDate: "2026-04-19T00:00:00+00:00",
           readtime: "4 min",
           tag: "#capes",
-          keywords: "Tiny Takeover cape, Minecraft Bedrock, Minecraft Java, Bedrock Cosmos, Essential Mod, cape unlock, cosmetics",
+          keywords:
+            "Tiny Takeover cape, Minecraft Bedrock, Minecraft Java, Bedrock Cosmos, Essential Mod, cape unlock, cosmetics",
           thumb: "https://bedrock-cosmos.app/articles/how-to-get-tiny-takeover-cape/tiny-takeover-cape.png",
         },
         {
           slug: "how-to-get-cape-physics",
           title: "How to Get Cape Physics in Minecraft Bedrock 26.10+",
-          description: "Learn how to install and use the Cape Physics resource pack in Minecraft Bedrock Edition 26.10+. Get dynamic, flowing cape animations with shoulder pieces, server support, and full realm compatibility.",
+          description:
+            "Learn how to install and use the Cape Physics resource pack in Minecraft Bedrock Edition 26.10+. Get dynamic, flowing cape animations with shoulder pieces, server support, and full realm compatibility.",
           category: "guide",
-          date: "Apr 10, 2026",
-          isoDate: "2026-04-10T00:00:00+00:00",
+          date: "Apr 19, 2026",
+          isoDate: "2026-04-19T00:00:00+00:00",
           readtime: "7 min",
           tag: "#cape-physics",
-          keywords: "cape physics, Minecraft Bedrock, dynamic cape animation, Bedrock Cosmos, shoulder pieces, resource pack, Bedrock Edition 26.10",
+          keywords:
+            "cape physics, Minecraft Bedrock, dynamic cape animation, Bedrock Cosmos, shoulder pieces, resource pack, Bedrock Edition 26.10",
           thumb: "https://bedrock-cosmos.app/thumbnails/cape-physics-addon.png",
         },
       ];
