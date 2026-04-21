@@ -1,0 +1,38 @@
+# Bedrock Cosmos
+
+> A free, open-source custom proxy for Minecraft Bedrock Edition on Windows that adds custom capes, skin packs, hidden Marketplace highlights, and restored content.
+
+Bedrock Cosmos is not affiliated with Mojang Studios or Microsoft. It is a community-built tool that operates as a lightweight client-side proxy — it does not modify game files or provide gameplay advantages.
+
+## Key Features
+- Custom capes library not available in vanilla Minecraft Bedrock Edition
+- Custom skin packs beyond what's in the base game
+- Marketplace Highlights: reveals hidden or region-locked Marketplace packs
+- Restored Content: fixes official packs that have missing capes, animations, or skins due to updates
+- Fully open source (MIT) — code available on GitHub
+- Lightweight background process, negligible performance impact
+
+## Platform Support
+- Windows 10 and Windows 11
+- Minecraft Bedrock Edition 1.21.120 and above
+- Not compatible with Preview Edition or Education Edition
+- Android support is unofficial/community only; official support is planned
+
+## Pricing
+Free to download and use. No subscription, no account required.
+
+## Pages
+- Home: https://bedrock-cosmos.app/
+- Download: https://github.com/Bedrock-Cosmos/Launcher/releases/latest
+- Capes: https://bedrock-cosmos.app/capes/
+- Skin Packs: https://bedrock-cosmos.app/skinpacks/
+- Changelogs: https://bedrock-cosmos.app/changelogs/
+- Videos: https://bedrock-cosmos.app/videos/
+- Articles & Guides: https://bedrock-cosmos.app/articles/
+- Terms of Service: https://bedrock-cosmos.app/terms-of-service/
+- Privacy Policy: https://bedrock-cosmos.app/privacy-policy/
+
+## Community
+- Discord: https://discord.com/invite/HRG2NapegP
+- GitHub: https://github.com/orgs/Bedrock-Cosmos/repositories/
+- YouTube: https://www.youtube.com/watch?v=rKkmPG4bi4Y

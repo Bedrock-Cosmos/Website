@@ -13,30 +13,42 @@
       content="Minecraft, Bedrock, Marketplace, Launcher, Proxy, Custom Capes, Legacy Skin Packs, Custom Skins"
     />
     <link rel="canonical" href="https://bedrock-cosmos.app/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Bedrock Cosmos" />
     <meta content="Bedrock Cosmos" property="og:site_name" />
     <meta content="en" property="og:locale" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Home | Bedrock Cosmos" />
     <meta
       property="og:description"
-      content="Bedrock Cosmos is a custom proxy for Minecraft Bedrock Edition that adds custom capes, reveals hidden marketplace packs, restores missing content (capes, animations, and skins) within official packs, and adds a variety of other custom skin packs."
+      content="Bedrock Cosmos is a free, open-source proxy for Minecraft Bedrock Edition that adds custom capes, reveals hidden marketplace packs, restores missing content, and adds custom skin packs."
     />
     <meta property="og:url" content="https://bedrock-cosmos.app/" />
     <meta property="og:image" content="https://bedrock-cosmos.app/imgs/home.png" />
     <meta property="og:image:width" content="1920" />
     <meta property="og:image:height" content="1080" />
+    <meta
+      property="og:image:alt"
+      content="Bedrock Cosmos – custom capes and skin packs for Minecraft Bedrock Edition"
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Home | Bedrock Cosmos" />
     <meta
       name="twitter:description"
-      content="Bedrock Cosmos is a custom proxy for Minecraft Bedrock Edition that adds custom capes, reveals hidden marketplace packs, restores missing content (capes, animations, and skins) within official packs, and adds a variety of other custom skin packs."
+      content="Bedrock Cosmos is a free, open-source proxy for Minecraft Bedrock Edition that adds custom capes, reveals hidden marketplace packs, restores missing content, and adds custom skin packs."
     />
     <meta name="twitter:image" content="https://bedrock-cosmos.app/imgs/home.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Bedrock Cosmos – custom capes and skin packs for Minecraft Bedrock Edition"
+    />
     <meta content="bedrock-cosmos.app" name="twitter:domain" />
     <link href="https://bedrock-cosmos.app/" hreflang="x-default" rel="alternate" />
     <meta name="theme-color" content="#5b21b6" />
     <title>Home | Bedrock Cosmos</title>
     <link rel="stylesheet" href="css/marketplace.css" />
+    <link rel="preload" href="css/marketplace.css" as="style" />
+    <link rel="preload" href="./icons/shootingstar.png" as="image" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -48,8 +60,22 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Bedrock Cosmos",
-        "operatingSystem": "Windows",
+        "description": "A free, open-source custom proxy for Minecraft Bedrock Edition that adds custom capes, reveals hidden marketplace packs, restores missing content (capes, animations, and skins) within official packs, and adds a variety of other custom skin packs.",
+        "url": "https://bedrock-cosmos.app/",
+        "downloadUrl": "https://github.com/Bedrock-Cosmos/Launcher/releases/latest",
+        "softwareVersion": "1.0.1",
+        "operatingSystem": "Windows 10, Windows 11",
         "applicationCategory": "GameApplication",
+        "screenshot": "https://bedrock-cosmos.app/imgs/home.png",
+        "featureList": "Custom Capes, Custom Skin Packs, Marketplace Highlights, Restored Content, Open Source, Lightweight",
+        "keywords": "Minecraft Bedrock custom capes, Minecraft Bedrock skin packs, Bedrock Edition proxy, Minecraft cosmetics",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "author": {
+          "@type": "Organization",
+          "name": "Bedrock Cosmos",
+          "url": "https://bedrock-cosmos.app/"
+        },
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.9",
@@ -58,8 +84,124 @@
         "offers": {
           "@type": "Offer",
           "price": "0.00",
-          "priceCurrency": "USD"
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
         }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Bedrock Cosmos",
+        "url": "https://bedrock-cosmos.app/",
+        "description": "Custom capes, skin packs, and restored content for Minecraft Bedrock Edition.",
+        "inLanguage": "en",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://bedrock-cosmos.app/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Bedrock Cosmos",
+        "url": "https://bedrock-cosmos.app/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bedrock-cosmos.app/icons/shootingstar.png",
+          "width": 512,
+          "height": 512
+        },
+        "description": "Creators of the Bedrock Cosmos launcher — a free, open-source proxy for Minecraft Bedrock Edition.",
+        "sameAs": [
+          "https://github.com/Bedrock-Cosmos",
+          "https://discord.com/invite/HRG2NapegP",
+          "https://www.youtube.com/watch?v=rKkmPG4bi4Y"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "url": "https://discord.com/invite/HRG2NapegP"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Bedrock Cosmos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bedrock Cosmos is a free, open-source custom proxy for Minecraft Bedrock Edition on Windows. It adds a large library of custom capes and skin packs not available in the base game, reveals hidden or region-locked Marketplace content, and restores missing features — like capes, animations, and skins — that were removed or broken in official pack updates. It runs as a lightweight background process and requires no special technical knowledge to install."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Bedrock Cosmos safe to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — Bedrock Cosmos is completely open source and publicly available on GitHub. Anyone can read the full source code, inspect every network request it makes, and even build it from scratch themselves. It does not modify game files, inject code into the game process, or transmit any personal data. The proxy only intercepts cosmetic-related traffic to apply capes and skin packs client-side."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which platforms does Bedrock Cosmos support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bedrock Cosmos currently supports Windows 10 and Windows 11 with Minecraft Bedrock Edition version 26.3 or higher. Preview Edition and Education Edition are not supported. Unofficial community builds for Android exist, but official mobile support is not yet available. We are actively working on expanding platform support in future releases."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will Bedrock Cosmos get me banned?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Bedrock Cosmos operates entirely as a client-side cosmetic proxy and does not provide any gameplay advantages, aimbots, speed hacks, or anything that would violate Minecraft's terms of service. It only affects how capes and skins are displayed on your client. It does not interact with anti-cheat systems and has no history of causing bans among its user base."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I upload my own custom capes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "At this time, only the capes built into the Bedrock Cosmos launcher are available for use. We are working on a future update that will let you upload and use your own custom cape designs. In the meantime, if you're a creator interested in having your capes featured in the app for all users to enjoy, you can apply through our Discord server."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Bedrock Cosmos affect game performance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No — Bedrock Cosmos is designed from the ground up to be lightweight. It runs as a small background proxy process and uses negligible CPU and memory. It does not inject into the game process or modify any game files, so your FPS, loading times, and overall gameplay experience remain completely unaffected."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I get support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The best place to get support is our Discord server, where both the development team and a helpful community of users are active. You can report bugs, ask setup questions, request features, and get troubleshooting help. For known issues and release notes, check the Changelogs page. You can also browse our GitHub repository to open issues directly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When will Bedrock Cosmos be coming to Android?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Official Android support is planned for a future release, though we don't have a firm timeline yet. Our current focus is on improving stability and adding new features to the Windows version first. Unofficial community builds for Android do exist, but these are not supported by the Bedrock Cosmos team. Follow our Discord or GitHub for announcements when Android support becomes available."
+            }
+          }
+        ]
       }
     </script>
     <style>
@@ -583,7 +725,7 @@
 
       <section class="home-hero">
         <div class="home-hero-bg"></div>
-        <img src="./icons/shootingstar.png" alt="" class="home-hero-icon-large" />
+        <img src="./icons/shootingstar.png" alt="Bedrock Cosmos app icon" class="home-hero-icon-large" />
         <img src="./icons/shootingstar.png" alt="" aria-hidden="true" class="home-hero-icon-float" />
         <div class="home-hero-overlay">
           <h1>Bedrock Cosmos</h1>
@@ -604,7 +746,7 @@
             >
             <div class="home-hero-stats">
               <span class="home-hero-stat"><strong id="downloadCount">&#x2014;</strong> downloads</span>
-              <span class="home-hero-stat"><strong>425</strong> members</span>
+              <span class="home-hero-stat"><strong>431</strong> members</span>
             </div>
           </div>
         </div>
@@ -638,7 +780,12 @@
           <div class="info-sections-grid">
             <div class="info-section">
               <div class="info-section-img image-carousel" data-images='["./imgs/img_1.png"]'>
-                <img src="./imgs/img_1.png" alt="Minecraft Bedrock Custom Capes" class="carousel-img active" />
+                <img
+                  src="./imgs/img_1.png"
+                  alt="Minecraft Bedrock Custom Capes"
+                  class="carousel-img active"
+                  loading="lazy"
+                />
               </div>
               <div class="info-section-text">
                 <h2>Custom Capes</h2>
@@ -654,7 +801,12 @@
             </div>
             <div class="info-section">
               <div class="info-section-img image-carousel" data-images='["./imgs/img_2.png"]'>
-                <img src="./imgs/img_2.png" alt="Minecraft Bedrock Marketplace" class="carousel-img active" />
+                <img
+                  src="./imgs/img_2.png"
+                  alt="Minecraft Bedrock Marketplace"
+                  class="carousel-img active"
+                  loading="lazy"
+                />
               </div>
               <div class="info-section-text">
                 <h2>Marketplace Highlights</h2>
@@ -669,7 +821,12 @@
                 class="info-section-img image-carousel"
                 data-images='["./imgs/fixedcape.png", "./imgs/fixedanimations.png"]'
               >
-                <img src="./imgs/fixedcape.png" alt="Minecraft Bedrock Restored Content" class="carousel-img active" />
+                <img
+                  src="./imgs/fixedcape.png"
+                  alt="Minecraft Bedrock Restored Content"
+                  class="carousel-img active"
+                  loading="lazy"
+                />
               </div>
               <div class="info-section-text">
                 <h2>Restored Content</h2>
@@ -703,9 +860,11 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                Bedrock Cosmos is a custom proxy for Minecraft Bedrock Edition that adds custom capes, reveals hidden
-                marketplace packs, restores missing content (capes, animations, and skins) within official packs, and
-                adds a variety of other custom skin packs.
+                Bedrock Cosmos is a free, open-source custom proxy for Minecraft Bedrock Edition on Windows. It adds a
+                large library of custom capes and skin packs not available in the base game, reveals hidden or
+                region-locked Marketplace content, and restores missing features — like capes, animations, and skins —
+                that were removed or broken in official pack updates. It runs as a lightweight background process and
+                requires no special technical knowledge to install.
               </div>
             </div>
             <div class="faq-item-new">
@@ -723,8 +882,10 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                Yes! Bedrock Cosmos is completely open source and available on GitHub. You can review the code and build
-                it yourself to see exactly how our launcher and proxy service function.
+                Yes — Bedrock Cosmos is completely open source and publicly available on GitHub. Anyone can read the
+                full source code, inspect every network request it makes, and even build it from scratch themselves. It
+                does not modify game files, inject code into the game process, or transmit any personal data. The proxy
+                only intercepts cosmetic-related traffic to apply capes and skin packs client-side.
               </div>
             </div>
             <div class="faq-item-new">
@@ -742,9 +903,10 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                Currently, Bedrock Cosmos is only available for Windows. It works with any Minecraft Bedrock Edition
-                client (versions 1.21.120 and above) installed on Windows systems, not including Preview or Education
-                Editions.
+                Bedrock Cosmos currently supports Windows 10 and Windows 11 with Minecraft Bedrock Edition version
+                26.3 or higher. Preview Edition and Education Edition are not supported. Unofficial community builds
+                for Android exist, but official mobile support is not yet available. We are actively working on
+                expanding platform support in future releases.
               </div>
             </div>
             <div class="faq-item-new">
@@ -762,8 +924,10 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                No. Bedrock Cosmos operates as a client-side proxy for cosmetic features only and does not provide any
-                unfair advantages.
+                No. Bedrock Cosmos operates entirely as a client-side cosmetic proxy and does not provide any gameplay
+                advantages, aimbots, speed hacks, or anything that would violate Minecraft's terms of service. It only
+                affects how capes and skins are displayed on your client. It does not interact with anti-cheat systems
+                and has no history of causing bans among its user base.
               </div>
             </div>
             <div class="faq-item-new">
@@ -782,9 +946,9 @@
               </div>
               <div class="faq-answer-new">
                 At this time, only the capes built into the Bedrock Cosmos launcher are available for use. We are
-                working to create an update in the future that will allow you to use your own custom capes. In the
-                meantime, you can apply to become a creator in our Discord server to have your capes featured in the
-                app!
+                working on a future update that will let you upload and use your own custom cape designs. In the
+                meantime, if you're a creator interested in having your capes featured in the app for all users to
+                enjoy, you can apply through our Discord server.
               </div>
             </div>
             <div class="faq-item-new">
@@ -802,8 +966,9 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                No! Bedrock Cosmos is designed to be lightweight and runs in the background using minimal system
-                resources. You won't notice any performance impact while playing.
+                No — Bedrock Cosmos is designed from the ground up to be lightweight. It runs as a small background
+                proxy process and uses negligible CPU and memory. It does not inject into the game process or modify any
+                game files, so your FPS, loading times, and overall gameplay experience remain completely unaffected.
               </div>
             </div>
             <div class="faq-item-new">
@@ -821,8 +986,31 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                Join our Discord server where our community and support team are ready to help! You can ask questions,
-                report issues, and connect with other Bedrock Cosmos users.
+                The best place to get support is our Discord server, where both the development team and a helpful
+                community of users are active. You can report bugs, ask setup questions, request features, and get
+                troubleshooting help. For known issues and release notes, check the Changelogs page. You can also browse
+                our GitHub repository to open issues directly.
+              </div>
+            </div>
+            <div class="faq-item-new">
+              <div class="faq-question-new">
+                When will Bedrock Cosmos be coming to Android?<span class="faq-chevron"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="6 9 12 15 18 9" /></svg
+                ></span>
+              </div>
+              <div class="faq-answer-new">
+                Official Android support is planned for a future release, though we don't have a firm timeline yet. Our
+                current focus is on improving stability and adding new features to the Windows version first. Unofficial
+                community builds for Android do exist, but these are not supported by the Bedrock Cosmos team. Follow
+                our Discord or GitHub for announcements when Android support becomes available.
               </div>
             </div>
           </div>
