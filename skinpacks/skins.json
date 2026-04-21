@@ -412,7 +412,10 @@
       "file": "DoctorWho/ItemDetail_DoctorWhoV2.json",
       "category": "skinpacks"
     },
-    "0c77040a-abb6-4938-963d-5a8e9872c85c": { "file": "EarthSkins/ItemDetail_EarthSkin.json", "category": "skinpacks" },
+    "0c77040a-abb6-4938-963d-5a8e9872c85c": {
+      "file": "EarthSkins/ItemDetail_EarthSkin.json",
+      "category": "skinpacks"
+    },
     "67318eb0-f570-428d-b667-31dcff56e272": {
       "file": "FestiveMashUp/ItemDetail_Festive.json",
       "category": "skinpacks"
@@ -477,20 +480,38 @@
       "file": "CharitySkinPacks/ItemDetail_PawsandClawsCosplayPack.json",
       "category": "skinpacks"
     },
-    "a681c130-1ac9-456f-a13a-1f985365bb77": { "file": "SkinPack/ItemDetail_SkinPack1.json", "category": "skinpacks" },
+    "a681c130-1ac9-456f-a13a-1f985365bb77": {
+      "file": "SkinPack/ItemDetail_SkinPack1.json",
+      "category": "skinpacks"
+    },
     "d1e7ecae-b422-40a2-8037-cf24571f901c": {
       "file": "SkinPack/ItemDetail_SkinPack1Classic.json",
       "category": "skinpacks"
     },
-    "40fbf08d-390d-480c-9213-afb3886915eb": { "file": "SkinPack/ItemDetail_SkinPack2.json", "category": "skinpacks" },
-    "36b8bc1a-10a1-4405-adc1-c93086dcb317": { "file": "SkinPack/ItemDetail_SkinPack3.json", "category": "skinpacks" },
+    "40fbf08d-390d-480c-9213-afb3886915eb": {
+      "file": "SkinPack/ItemDetail_SkinPack2.json",
+      "category": "skinpacks"
+    },
+    "36b8bc1a-10a1-4405-adc1-c93086dcb317": {
+      "file": "SkinPack/ItemDetail_SkinPack3.json",
+      "category": "skinpacks"
+    },
     "297ef7fb-debf-40a5-aea7-4e7acf141c59": {
       "file": "SkinPack/ItemDetail_SkinPack3Classic.json",
       "category": "skinpacks"
     },
-    "93f3fa18-7b4e-4523-ac1d-a5d022b7480d": { "file": "SkinPack/ItemDetail_SkinPack4.json", "category": "skinpacks" },
-    "c0d8be40-e4a4-4304-b4ca-9c86b53cf417": { "file": "SkinPack/ItemDetail_SkinPack5.json", "category": "skinpacks" },
-    "1576dda6-814e-4ca2-9476-aa134105e5a8": { "file": "SkinPack/ItemDetail_SkinPack6.json", "category": "skinpacks" },
+    "93f3fa18-7b4e-4523-ac1d-a5d022b7480d": {
+      "file": "SkinPack/ItemDetail_SkinPack4.json",
+      "category": "skinpacks"
+    },
+    "c0d8be40-e4a4-4304-b4ca-9c86b53cf417": {
+      "file": "SkinPack/ItemDetail_SkinPack5.json",
+      "category": "skinpacks"
+    },
+    "1576dda6-814e-4ca2-9476-aa134105e5a8": {
+      "file": "SkinPack/ItemDetail_SkinPack6.json",
+      "category": "skinpacks"
+    },
     "f60ed293-2f4c-46e5-92b3-922a95df2dd6": {
       "file": "StrangerThingsSkinPack/ItemDetail_StrangerThingsSkinPack.json",
       "category": "skinpacks"
@@ -503,10 +524,22 @@
       "file": "TheSimpsonsSkinPack/ItemDetail_TheSimpsonsSkinPack.json",
       "category": "skinpacks"
     },
-    "22688cde-3822-4bd8-9638-625713ba4dfd": { "file": "Exports/ItemDetail_EMC1.json", "category": "creators" },
-    "a045e0ba-b58e-44d5-b463-e8968f28ae99": { "file": "Exports/ItemDetail_EMC2.json", "category": "creators" },
-    "2d43de6c-6846-4cdc-a43b-55f8627b7b01": { "file": "Exports/ItemDetail_EMC3.json", "category": "creators" },
-    "d1c19132-0b7d-453d-b39b-5b06a5fb30f9": { "file": "Exports/ItemDetail_EMC4.json", "category": "creators" },
+    "22688cde-3822-4bd8-9638-625713ba4dfd": {
+      "file": "Exports/ItemDetail_EMC1.json",
+      "category": "creators"
+    },
+    "a045e0ba-b58e-44d5-b463-e8968f28ae99": {
+      "file": "Exports/ItemDetail_EMC2.json",
+      "category": "creators"
+    },
+    "2d43de6c-6846-4cdc-a43b-55f8627b7b01": {
+      "file": "Exports/ItemDetail_EMC3.json",
+      "category": "creators"
+    },
+    "d1c19132-0b7d-453d-b39b-5b06a5fb30f9": {
+      "file": "Exports/ItemDetail_EMC4.json",
+      "category": "creators"
+    },
     "1dafe8e5-aacc-4518-98ed-f6ce66bfba80": {
       "file": "BionicBen/ItemDetail_6thBirthdaySkinPack.json",
       "category": "creators"
@@ -519,8 +552,14 @@
       "file": "BionicBen/ItemDetail_ProjectStarSkinPack.json",
       "category": "creators"
     },
-    "17c404b3-3979-49a3-93cb-3f53e2e33eb6": { "file": "YEH/ItemDetail_REPOSEMIBOTS.json", "category": "creators" },
-    "86e6a53f-6ae6-4109-935a-72f877194c02": { "file": "YEH/ItemDetail_REPOSEMIBOTS5D.json", "category": "creators" },
+    "17c404b3-3979-49a3-93cb-3f53e2e33eb6": {
+      "file": "YEH/ItemDetail_REPOSEMIBOTS.json",
+      "category": "creators"
+    },
+    "86e6a53f-6ae6-4109-935a-72f877194c02": {
+      "file": "YEH/ItemDetail_REPOSEMIBOTS5D.json",
+      "category": "creators"
+    },
     "b96ad5fb-f58c-4a92-bbbc-44bb9244e732": {
       "file": "ZeroMISTER_JA/ItemDetail_BlackHole.json",
       "category": "creators"
