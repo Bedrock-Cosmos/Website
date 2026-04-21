@@ -47,6 +47,20 @@
             "position": 1,
             "item": {
               "@type": "VideoObject",
+              "name": "How to Get the Crafter Cape In Minecraft Bedrock Edition!",
+              "description": "A short guide showing how to get the Crafter Cape in Minecraft Bedrock Edition using Bedrock Cosmos.",
+              "thumbnailUrl": "https://i.ytimg.com/vi/VNCLHRmx6Dk/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/VNCLHRmx6Dk",
+              "embedUrl": "https://www.youtube.com/embed/VNCLHRmx6Dk",
+              "duration": "PT60S",
+              "uploadDate": "2026-04-21T00:00:00+00:00"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "VideoObject",
               "name": "How To Get Custom Capes In Minecraft Bedrock Edition 26.13 (PC ONLY)",
               "description": "#bedrockcosmos",
               "thumbnailUrl": "https://i.ytimg.com/vi/JhghtvjvhqE/mqdefault.jpg",
@@ -58,7 +72,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 2,
+            "position": 3,
             "item": {
               "@type": "VideoObject",
               "name": "LA CAPA DE MINECRAFT QUE NUNCA EXISTIO!!!",
@@ -72,7 +86,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 3,
+            "position": 4,
             "item": {
               "@type": "VideoObject",
               "name": "Unlock ALL Capes in Minecraft Bedrock FAST! (Bedrock Cosmos v26.4 Update)",
@@ -86,7 +100,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 4,
+            "position": 5,
             "item": {
               "@type": "VideoObject",
               "name": "How to GET ALL CAPES in Minecraft Bedrock (EASY and FREE) 🍷😎",
@@ -100,7 +114,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 5,
+            "position": 6,
             "item": {
               "@type": "VideoObject",
               "name": "My cape on Bionic's Project | Bedrock Cosmos Sneak Peek",
@@ -114,7 +128,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 6,
+            "position": 7,
             "item": {
               "@type": "VideoObject",
               "name": "Como tener todas las capas en minecraft bedrock | Bedrock Cosmos",
@@ -580,6 +594,12 @@
         <div class="vid-section-label">YouTube</div>
         <div class="vp-grid" id="vp-grid" role="list"></div>
 
+        <!-- YouTube Shorts section -->
+        <section class="tt-section" aria-label="YouTube Shorts">
+          <div class="vid-section-label">YouTube <em>Shorts</em></div>
+          <div class="tt-grid" id="yt-shorts-grid" role="list"></div>
+        </section>
+
         <!-- TikTok section -->
         <section class="tt-section" aria-label="TikTok Videos">
           <div class="vid-section-label">TikTok</div>
@@ -677,6 +697,48 @@
             </div>
           </a>`;
         grid.appendChild(card);
+      });
+
+      const YT_SHORTS = [
+        {
+          id: "VNCLHRmx6Dk",
+          title: "How to Get the Crafter Cape In Minecraft Bedrock Edition!",
+          channel: "BionicBen1218",
+          duration: "Short",
+          url: "https://www.youtube.com/shorts/VNCLHRmx6Dk",
+          embedUrl: "https://www.youtube.com/embed/VNCLHRmx6Dk",
+        },
+      ];
+
+      const shortsGrid = document.getElementById("yt-shorts-grid");
+      YT_SHORTS.forEach((v, i) => {
+        const card = document.createElement("article");
+        card.className = "tt-card";
+        card.setAttribute("role", "listitem");
+        card.style.animationDelay = `${i * 0.055}s`;
+        card.innerHTML = `
+          <a href="${v.url}" target="_blank" rel="noopener" aria-label="Watch ${v.title} on YouTube">
+            <div class="tt-thumb">
+              <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg"
+                   alt="${v.title} — Bedrock Cosmos"
+                   loading="lazy" width="480" height="270"
+                   style="width:100%;height:100%;object-fit:cover;display:block;"
+                   onerror="this.style.opacity='.05'" />
+              <div class="tt-thumb-cover">
+                <div class="tt-play-icon">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="tt-body">
+              <h3 class="tt-title">${v.title}</h3>
+              <div class="tt-meta">
+                <p class="tt-creator">${v.channel}</p>
+                <span class="tt-platform">#bedrockcosmos</span>
+              </div>
+            </div>
+          </a>`;
+        shortsGrid.appendChild(card);
       });
 
       const TIKTOKS = [
