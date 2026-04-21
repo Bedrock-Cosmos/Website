@@ -150,23 +150,84 @@ body {
   z-index: 100;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding-top: 8px;
   gap: 4px;
+  overflow: hidden;
+  transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Expand on hover — desktop only */
+@media (min-width: 769px) {
+  .mc-sidebar:hover {
+    width: 180px;
+  }
+  .mc-sidebar:hover .mc-sidebar-label {
+    opacity: 1;
+    max-width: 120px;
+    transform: translateX(0);
+  }
+}
+
 .mc-sidebar-icon {
-  width: 44px; height: 44px;
-  display: flex; align-items: center; justify-content: center;
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 0 0 16px;
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.15s;
   color: var(--mc-muted);
   border: 2px solid transparent;
   text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .mc-sidebar-icon:hover { background: var(--mc-hover); color: var(--mc-text); }
-.mc-sidebar-icon.active { background: var(--mc-panel); color: var(--mc-text); border-color: var(--mc-border); }
-.mc-sidebar-icon svg { width: 22px; height: 22px; }
+.mc-sidebar-icon.active {
+  background: var(--mc-panel);
+  color: var(--mc-text);
+  border-color: var(--mc-border);
+}
+.mc-sidebar-icon svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* Label text that appears on sidebar expand */
+.mc-sidebar-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: inherit;
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  transform: translateX(-6px);
+  transition:
+    opacity 0.18s ease 0.06s,
+    max-width 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.18s ease 0.06s;
+  pointer-events: none;
+}
+
+/* Active label is slightly brighter */
+.mc-sidebar-icon.active .mc-sidebar-label {
+  color: var(--mc-text);
+}
+
+/* Divider that stretches as sidebar expands */
+.mc-sidebar-divider {
+  height: 1px;
+  background: #000;
+  margin: 4px 19px;
+  flex-shrink: 0;
+  align-self: stretch;
+  transition: margin 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 /* ── MAIN CONTENT ── */
 .mc-main {
