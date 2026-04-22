@@ -357,12 +357,47 @@
       }
 
       /* ── Mobile: show topbar title, fix footer ─────────────────────────────── */
+      .mc-mobile-menu-btn {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        color: var(--mc-text);
+        cursor: pointer;
+        padding: 0 14px;
+        height: 100%;
+        flex-shrink: 0;
+        border-right: 1px solid var(--mc-border);
+        transition: background 0.15s;
+        z-index: 201;
+      }
+      .mc-mobile-menu-btn:hover {
+        background: var(--mc-hover);
+      }
+
       @media (max-width: 600px) {
         .mc-topbar-title {
           display: flex !important;
         }
         .mc-topbar-right {
           display: none;
+        }
+        .mc-mobile-menu-btn {
+          display: flex;
+        }
+        .mc-topbar {
+          padding-left: 0;
+        }
+        .mc-sidebar-overlay {
+          display: none;
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.55);
+          z-index: 290;
+        }
+        .mc-sidebar-overlay.active {
+          display: block;
         }
       }
 
@@ -416,6 +451,11 @@
     ></script>
   </head>
   <body>
+    <div
+      id="mc-sidebar-overlay"
+      class="mc-sidebar-overlay"
+      onclick="toggleMobileSidebar()"
+    ></div>
     <div id="redirect-overlay">
       <div class="redirect-spinner"></div>
       <p class="redirect-text" id="redirect-text">Loading…</p>
@@ -423,6 +463,28 @@
 
     <!-- TOP BAR -->
     <header class="mc-topbar">
+      <button
+        id="mc-mobile-menu-btn"
+        class="mc-mobile-menu-btn"
+        aria-label="Open navigation menu"
+        onclick="toggleMobileSidebar()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 5h16" />
+          <path d="M4 12h16" />
+          <path d="M4 19h16" />
+        </svg>
+      </button>
       <a href="/skinpacks/" class="mc-topbar-back">
         <svg
           viewBox="0 0 24 24"
@@ -1122,17 +1184,6 @@
       loadPack();
 
       // ── Stars ───────────────────────────────────────────────────────────────
-      const starsContainer = document.getElementById("stars");
-      for (let i = 0; i < 200; i++) {
-        const star = document.createElement("div");
-        star.className = "star";
-        star.style.width = Math.random() * 3 + "px";
-        star.style.height = star.style.width;
-        star.style.left = Math.random() * 100 + "%";
-        star.style.top = Math.random() * 100 + "%";
-        star.style.animationDelay = Math.random() * 3 + "s";
-        starsContainer.appendChild(star);
-      }
 
       setInterval(() => {
         const s = document.createElement("div");
@@ -1142,6 +1193,20 @@
         starsContainer.appendChild(s);
         setTimeout(() => s.remove(), 3000);
       }, 2000);
+    </script>
+    <script>
+      function toggleMobileSidebar() {
+        const sidebar = document.querySelector(".mc-sidebar");
+        const overlay = document.getElementById("mc-sidebar-overlay");
+        const btn = document.getElementById("mc-mobile-menu-btn");
+        const isOpen = sidebar.classList.toggle("mobile-open");
+        overlay.classList.toggle("active", isOpen);
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        btn.setAttribute(
+          "aria-label",
+          isOpen ? "Close navigation menu" : "Open navigation menu",
+        );
+      }
     </script>
   </body>
 </html>

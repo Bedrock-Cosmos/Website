@@ -79,6 +79,11 @@ body {
   width: 18px;
   height: 18px;
 }
+@media (max-width: 600px) {
+  .mc-topbar-back {
+    display: none;
+  }
+}
 .mc-topbar-logo {
   display: flex;
   align-items: center;
@@ -211,6 +216,25 @@ body {
     width: 156px;
   }
   .mc-sidebar:hover .mc-sidebar-label {
+    opacity: 1;
+    max-width: 120px;
+    transform: translateX(0);
+  }
+}
+
+/* ── Mobile sidebar: hidden off-screen, slides in on toggle ── */
+@media (max-width: 600px) {
+  .mc-sidebar {
+    width: 180px !important;
+    overflow: hidden;
+    transform: translateX(-100%);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 310;
+  }
+  .mc-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  .mc-sidebar.mobile-open .mc-sidebar-label {
     opacity: 1;
     max-width: 120px;
     transform: translateX(0);
@@ -3609,5 +3633,25 @@ footer {
   .art-img-then-text .art-side-img {
     width: 100%;
     max-width: 100%;
+  }
+}
+
+/* ── Mobile hamburger sidebar — must come LAST to override display:none ── */
+@media (max-width: 600px) {
+  .mc-sidebar {
+    display: flex !important;
+    width: 180px !important;
+    overflow: hidden;
+    transform: translateX(-100%);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 310;
+  }
+  .mc-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  .mc-sidebar.mobile-open .mc-sidebar-label {
+    opacity: 1;
+    max-width: 120px;
+    transform: translateX(0);
   }
 }

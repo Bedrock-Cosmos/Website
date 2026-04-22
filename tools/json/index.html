@@ -1,0 +1,1682 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Generate JSON files for Bedrock Cosmos skin pack creators."
+    />
+    <meta name="theme-color" content="#5b21b6" />
+    <title>JSON | Bedrock Cosmos</title>
+    <link rel="stylesheet" href="../../css/marketplace.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <style>
+      :root {
+        --cfg-accent: #5b21b6;
+        --cfg-accent-light: #8b5cf6;
+        --cfg-accent-glow: rgba(91, 33, 182, 0.3);
+        --cfg-sel: rgba(91, 33, 182, 0.15);
+        --cfg-sel-border: rgba(139, 92, 246, 0.7);
+        --cfg-green: #22c55e;
+        --cfg-green-bg: rgba(34, 197, 94, 0.1);
+        --cfg-green-border: rgba(34, 197, 94, 0.3);
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .mc-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      footer {
+        position: relative;
+        z-index: 10;
+      }
+
+      .emc-content {
+        flex: 1;
+        padding: 2rem 2rem 3rem;
+        max-width: 820px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .emc-header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--mc-border);
+      }
+      .emc-header h1 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--mc-text);
+        letter-spacing: 0.04em;
+        margin-bottom: 4px;
+      }
+      .emc-header p {
+        font-size: 0.82rem;
+        color: var(--mc-muted);
+      }
+
+      /* Step nav */
+      .step-nav {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        margin-bottom: 1.75rem;
+        border: 1px solid var(--mc-border);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .step-item {
+        flex: 1;
+        padding: 9px 12px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--mc-muted);
+        background: var(--mc-panel);
+        border-right: 1px solid var(--mc-border);
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .step-item:last-child {
+        border-right: none;
+      }
+      .step-item.active {
+        background: var(--cfg-sel);
+        color: var(--cfg-accent-light);
+      }
+      .step-item.done {
+        color: var(--cfg-green);
+        background: rgba(34, 197, 94, 0.07);
+      }
+
+      /* Pages */
+      .emc-page {
+        display: none;
+      }
+      .emc-page.active {
+        display: block;
+      }
+
+      /* Section title */
+      .emc-section-title {
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--mc-muted);
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid var(--mc-border);
+      }
+
+      /* Mode cards */
+      .mode-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 1.5rem;
+      }
+      .mode-card {
+        background: var(--mc-panel);
+        border: 2px solid #000;
+        border-radius: 2px;
+        padding: 1rem 1.2rem;
+        cursor: pointer;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+        text-align: left;
+        width: 100%;
+        font-family: inherit;
+        color: var(--mc-text);
+      }
+      .mode-card:hover {
+        border-color: var(--cfg-accent);
+        background: var(--mc-panel2);
+      }
+      .mode-card.selected {
+        border-color: var(--cfg-sel-border);
+        background: var(--cfg-sel);
+      }
+      .mode-card-title {
+        font-size: 0.88rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        margin-bottom: 6px;
+        display: block;
+        color: var(--mc-text);
+      }
+      .mode-card.selected .mode-card-title {
+        color: var(--cfg-accent-light);
+      }
+      .mode-card-desc {
+        font-size: 0.76rem;
+        color: var(--mc-muted);
+        line-height: 1.65;
+      }
+
+      /* Form panel */
+      .form-panel {
+        background: var(--mc-panel);
+        border: 2px solid #000;
+        border-radius: 2px;
+        padding: 1.1rem 1.2rem;
+        margin-bottom: 1rem;
+      }
+      .field-block {
+        margin-bottom: 0.9rem;
+      }
+      .field-block:last-child {
+        margin-bottom: 0;
+      }
+      .field-label {
+        display: block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--mc-muted);
+        margin-bottom: 5px;
+      }
+      .field-row {
+        display: flex;
+        gap: 6px;
+      }
+      .field-row input {
+        flex: 1;
+        background: var(--mc-panel2);
+        border: 1px solid var(--mc-border);
+        border-radius: 2px;
+        color: var(--mc-text);
+        font-family: inherit;
+        font-size: 0.82rem;
+        padding: 7px 10px;
+        outline: none;
+        transition: border-color 0.15s;
+        min-width: 0;
+      }
+      .field-row input:focus {
+        border-color: var(--cfg-accent-light);
+      }
+      .field-row input.error {
+        border-color: #f87171 !important;
+      }
+      .field-row select {
+        flex: 1;
+        background: var(--mc-panel2);
+        border: 1px solid var(--mc-border);
+        border-radius: 2px;
+        color: var(--mc-text);
+        font-family: inherit;
+        font-size: 0.82rem;
+        padding: 7px 10px;
+        outline: none;
+        transition: border-color 0.15s;
+        min-width: 0;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        padding-right: 28px;
+      }
+      .field-row select:focus {
+        border-color: var(--cfg-accent-light);
+      }
+      .field-row select.error {
+        border-color: #f87171 !important;
+      }
+      .field-row select option {
+        background: var(--mc-panel2);
+        color: var(--mc-text);
+      }
+
+      /* Buttons */
+      .btn-uuid {
+        flex-shrink: 0;
+        background: var(--mc-panel2);
+        border: 1px solid var(--mc-border);
+        border-radius: 2px;
+        color: var(--cfg-accent-light);
+        font-family: inherit;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        padding: 7px 11px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+      }
+      .btn-uuid:hover {
+        border-color: var(--cfg-accent-light);
+        background: var(--mc-hover);
+      }
+
+      .btn-primary {
+        background: var(--cfg-accent);
+        color: #fff;
+        border: none;
+        border-radius: 2px;
+        padding: 0.48rem 1.2rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: background 0.15s;
+        white-space: nowrap;
+      }
+      .btn-primary:hover {
+        background: #46198e;
+      }
+      .btn-primary:disabled {
+        background: var(--mc-border);
+        color: var(--mc-muted);
+        cursor: not-allowed;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--mc-muted);
+        border: 1px solid var(--mc-border);
+        border-radius: 2px;
+        padding: 0.44rem 1rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+      .btn-secondary:hover {
+        border-color: var(--cfg-accent-light);
+        color: var(--cfg-accent-light);
+      }
+
+      .btn-add {
+        background: rgba(34, 197, 94, 0.08);
+        border: 1px solid rgba(34, 197, 94, 0.22);
+        color: var(--cfg-green);
+        border-radius: 2px;
+        padding: 0.42rem 1rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .btn-add:hover {
+        background: rgba(34, 197, 94, 0.14);
+        border-color: var(--cfg-green);
+      }
+
+      .btn-danger {
+        background: transparent;
+        border: 1px solid var(--mc-border);
+        color: var(--mc-muted);
+        border-radius: 2px;
+        padding: 0.38rem 0.85rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .btn-danger:hover {
+        border-color: #f87171;
+        color: #f87171;
+      }
+
+      /* Nav row */
+      .nav-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--mc-border);
+      }
+
+      /* Pack list */
+      .pack-list {
+        background: var(--mc-panel);
+        border: 2px solid #000;
+        border-radius: 2px;
+        margin-bottom: 0.6rem;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      .pack-list-empty {
+        padding: 14px 14px;
+        font-size: 0.75rem;
+        color: var(--mc-muted);
+        font-style: italic;
+      }
+      .pack-list-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 9px 12px;
+        border-bottom: 1px solid var(--mc-border);
+        font-size: 0.78rem;
+        cursor: pointer;
+        transition: background 0.12s;
+      }
+      .pack-list-item:last-child {
+        border-bottom: none;
+      }
+      .pack-list-item:hover {
+        background: var(--mc-hover);
+      }
+      .pack-list-item.selected {
+        background: var(--cfg-sel);
+      }
+      .pack-item-name {
+        font-weight: 700;
+        color: var(--mc-text);
+        flex: 1;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .pack-item-meta {
+        font-size: 0.68rem;
+        color: var(--mc-muted);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .pack-item-rm {
+        background: none;
+        border: none;
+        color: var(--mc-muted);
+        font-size: 0.8rem;
+        cursor: pointer;
+        padding: 2px 5px;
+        border-radius: 2px;
+        transition:
+          color 0.12s,
+          background 0.12s;
+        flex-shrink: 0;
+      }
+      .pack-item-rm:hover {
+        color: #f87171;
+        background: rgba(248, 113, 113, 0.1);
+      }
+
+      /* Log */
+      .log-output {
+        background: #0a0a0d;
+        border: 1px solid var(--mc-border);
+        border-radius: 2px;
+        padding: 12px 14px;
+        font-family: "Consolas", "Courier New", monospace;
+        font-size: 0.75rem;
+        line-height: 1.9;
+        min-height: 180px;
+        max-height: 340px;
+        overflow-y: auto;
+        margin-bottom: 1rem;
+        white-space: pre-wrap;
+      }
+      .log-info {
+        color: #74a8ff;
+      }
+      .log-sep {
+        color: #222228;
+      }
+      .log-ok {
+        color: #22c55e;
+      }
+      .log-done {
+        color: var(--mc-text);
+      }
+
+      /* Download bar */
+      .download-bar {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.7rem 1rem;
+        background: var(--mc-panel);
+        border: 1px solid var(--mc-border);
+        border-radius: 2px;
+      }
+      .download-summary {
+        flex: 1;
+        font-size: 0.82rem;
+        color: var(--mc-muted);
+      }
+      .download-summary strong {
+        color: var(--cfg-accent-light);
+      }
+      .btn-download {
+        background: var(--cfg-accent);
+        color: #fff;
+        border: none;
+        border-radius: 2px;
+        padding: 0.45rem 1.1rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+        transition: background 0.15s;
+        white-space: nowrap;
+      }
+      .btn-download:hover {
+        background: #46198e;
+      }
+      .btn-download:disabled {
+        background: var(--mc-border);
+        color: var(--mc-muted);
+        cursor: not-allowed;
+      }
+    </style>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7684217018329117"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div
+      id="mc-sidebar-overlay"
+      class="mc-sidebar-overlay"
+      onclick="toggleMobileSidebar()"
+    ></div>
+    <!-- TOP BAR -->
+    <header class="mc-topbar">
+      <button
+        id="mc-mobile-menu-btn"
+        class="mc-mobile-menu-btn"
+        aria-label="Open navigation menu"
+        onclick="toggleMobileSidebar()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 5h16" />
+          <path d="M4 12h16" />
+          <path d="M4 19h16" />
+        </svg>
+      </button>
+      <a href="/tools/" class="mc-topbar-back">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Tools
+      </a>
+      <span
+        class="mc-topbar-title"
+        style="align-items: center; justify-content: center; gap: 8px"
+      >
+        <img
+          src="https://bedrock-cosmos.app/icons/shootingstar.png"
+          alt=""
+          style="width: 24px; height: 24px; object-fit: contain"
+        />
+        <span style="font-size: 1rem; font-weight: 800; letter-spacing: 0.05em"
+          >Bedrock Cosmos</span
+        >
+      </span>
+      <div class="mc-topbar-right">
+        <a href="/config/" class="mc-library-btn">My Library</a>
+      </div>
+    </header>
+
+    <div id="mc-sidebar-placeholder"></div>
+
+    <!-- MAIN -->
+    <main class="mc-main">
+      <div class="stars-container" id="stars"></div>
+
+      <div class="emc-content">
+        <div class="emc-header">
+          <h1>Page Creator</h1>
+          <p>
+            Generates Binary, ItemDetail, Search, and creator marketplace JSON
+            files.
+          </p>
+        </div>
+
+        <div class="step-nav" id="stepNav">
+          <div class="step-item active" data-step="0">01 · Mode</div>
+          <div class="step-item" data-step="1">02 · Creator</div>
+          <div class="step-item" data-step="2">03 · Skin Packs</div>
+          <div class="step-item" data-step="3">04 · Generate</div>
+        </div>
+
+        <!-- PAGE 0: MODE -->
+        <div class="emc-page active" id="page-0">
+          <div class="emc-section-title">What are you building?</div>
+          <div class="mode-grid">
+            <button
+              class="mode-card"
+              id="mode-new-creator"
+              onclick="pickMode('new_creator')"
+            >
+              <span class="mode-card-title">⬡ &nbsp;New Creator</span>
+              <span class="mode-card-desc"
+                >Start from scratch — set up a creator profile, then add skin
+                packs.<br />Outputs: <code>{creator}.json</code> ·
+                <code>{creator}_marketplace.json</code> + Binary / ItemDetail /
+                Search per pack.</span
+              >
+            </button>
+            <button
+              class="mode-card"
+              id="mode-pack-only"
+              onclick="pickMode('skin_pack_only')"
+            >
+              <span class="mode-card-title">◈ &nbsp;Skin Packs Only</span>
+              <span class="mode-card-desc"
+                >Add packs to an existing creator — no creator files
+                generated.<br />Outputs: <code>Binary_{Pack}.json</code> ·
+                <code>ItemDetail_{Pack}.json</code> ·
+                <code>Search_{Pack}.json</code> per pack.</span
+              >
+            </button>
+          </div>
+          <div class="nav-row">
+            <span></span>
+            <button
+              class="btn-primary"
+              id="mode-next-btn"
+              disabled
+              onclick="modeNext()"
+            >
+              Continue →
+            </button>
+          </div>
+        </div>
+
+        <!-- PAGE 1: CREATOR -->
+        <div class="emc-page" id="page-1">
+          <div class="emc-section-title">Creator Info</div>
+          <div class="form-panel">
+            <div class="field-block">
+              <label class="field-label" for="c-name">Creator Name</label>
+              <div class="field-row">
+                <select id="c-name" autocomplete="off">
+                  <option value="">— Loading creators… —</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-block">
+              <label class="field-label" for="c-desc"
+                >Creator Description</label
+              >
+              <div class="field-row">
+                <input
+                  type="text"
+                  id="c-desc"
+                  placeholder="Short bio shown in marketplace"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="nav-row">
+            <button class="btn-secondary" onclick="gotoPage(0)">← Back</button>
+            <button class="btn-primary" onclick="saveCreator()">
+              Continue →
+            </button>
+          </div>
+        </div>
+
+        <!-- PAGE 2: SKIN PACKS -->
+        <div class="emc-page" id="page-2">
+          <div class="emc-section-title">Skin Packs</div>
+          <div class="form-panel">
+            <div class="field-block">
+              <label class="field-label" for="sp-uuid1"
+                >UUID-1 · Offer UUID</label
+              >
+              <div class="field-row">
+                <input
+                  type="text"
+                  id="sp-uuid1"
+                  placeholder="Click ⟳ to generate"
+                  autocomplete="off"
+                />
+                <button class="btn-uuid" onclick="genUUID('sp-uuid1')">
+                  ⟳ Gen
+                </button>
+              </div>
+            </div>
+            <div class="field-block">
+              <label class="field-label" for="sp-uuid2"
+                >UUID-2 · Skin Pack UUID</label
+              >
+              <div class="field-row">
+                <input
+                  type="text"
+                  id="sp-uuid2"
+                  placeholder="Click ⟳ to generate"
+                  autocomplete="off"
+                />
+                <button class="btn-uuid" onclick="genUUID('sp-uuid2')">
+                  ⟳ Gen
+                </button>
+              </div>
+            </div>
+            <div class="field-block">
+              <label class="field-label" for="sp-name">Skin Pack Name</label>
+              <div class="field-row">
+                <input
+                  type="text"
+                  id="sp-name"
+                  placeholder="Display name with spaces"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+            <div class="field-block">
+              <label class="field-label" for="sp-creator">Creator Name</label>
+              <div class="field-row">
+                <select id="sp-creator" autocomplete="off">
+                  <option value="">— Select creator —</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-block">
+              <label class="field-label" for="sp-desc">Description</label>
+              <div class="field-row">
+                <input
+                  type="text"
+                  id="sp-desc"
+                  placeholder="Pack description text"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+            <div class="field-block">
+              <label class="field-label" for="sp-skins">Number of Skins</label>
+              <div class="field-row">
+                <input
+                  type="number"
+                  id="sp-skins"
+                  placeholder="Integer"
+                  min="1"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+            <div class="field-block">
+              <label class="field-label" for="sp-thumb">Thumbnail URL</label>
+              <div class="field-row">
+                <input
+                  type="text"
+                  id="sp-thumb"
+                  placeholder="https://..."
+                  value="https://bedrock-cosmos.app/thumbnails/"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+            <div style="margin-top: 1rem">
+              <button class="btn-add" onclick="addPack()">
+                ＋ &nbsp;Add Pack to List
+              </button>
+            </div>
+          </div>
+
+          <div class="emc-section-title" style="margin-top: 1.5rem">
+            Added Packs
+          </div>
+          <div class="pack-list" id="pack-list">
+            <div class="pack-list-empty" id="pack-list-empty">
+              No packs added yet.
+            </div>
+          </div>
+          <button class="btn-danger" onclick="removeSelected()">
+            ✕ &nbsp;Remove Selected
+          </button>
+
+          <div class="nav-row">
+            <button
+              class="btn-secondary"
+              id="packs-back-btn"
+              onclick="packsBack()"
+            >
+              ← Back
+            </button>
+            <button class="btn-primary" onclick="doGenerate()">
+              Generate →
+            </button>
+          </div>
+        </div>
+
+        <!-- PAGE 3: GENERATE -->
+        <div class="emc-page" id="page-3">
+          <div class="emc-section-title">Output Log</div>
+          <div class="log-output" id="log-output"></div>
+          <div class="download-bar">
+            <div class="download-summary">
+              <strong id="dl-summary">—</strong>
+            </div>
+            <button
+              class="btn-download"
+              id="dl-btn"
+              disabled
+              onclick="downloadZip()"
+            >
+              ⬇ &nbsp;Download ZIP
+            </button>
+          </div>
+          <div class="nav-row">
+            <button class="btn-secondary" onclick="restart()">
+              ← Start Over
+            </button>
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <!-- /.emc-content -->
+
+      <div id="mc-footer-placeholder"></div>
+    </main>
+
+    <script>
+      let appMode = null;
+      let creatorInfo = {};
+      let skinPacks = [];
+      let selectedIdx = -1;
+      let builtZip = null;
+      let creatorsList = [];
+
+      // Load creators from creators.json on page load
+      async function loadCreators() {
+        try {
+          const res = await fetch("creators.json");
+          creatorsList = await res.json();
+        } catch (e) {
+          // Fallback if fetch fails (e.g. opened as local file)
+          creatorsList = [
+            "BionicBen",
+            "Exports",
+            "YEH",
+            "Stars",
+            "ZeroMISTER JA",
+          ];
+        }
+        const populateSelect = (id, placeholder) => {
+          const sel = document.getElementById(id);
+          sel.innerHTML = `<option value="">${placeholder}</option>`;
+          creatorsList.forEach((name) => {
+            const opt = document.createElement("option");
+            opt.value = name;
+            opt.textContent = name;
+            sel.appendChild(opt);
+          });
+        };
+        populateSelect("c-name", "— Select a creator —");
+        populateSelect("sp-creator", "— Select creator —");
+      }
+      loadCreators();
+
+      function gotoPage(idx) {
+        document
+          .querySelectorAll(".emc-page")
+          .forEach((p, i) => p.classList.toggle("active", i === idx));
+        document.querySelectorAll(".step-item").forEach((s, i) => {
+          s.classList.remove("active", "done");
+          if (i < idx) s.classList.add("done");
+          if (i === idx) s.classList.add("active");
+        });
+      }
+
+      // PAGE 0
+      function pickMode(key) {
+        appMode = key;
+        document
+          .getElementById("mode-new-creator")
+          .classList.toggle("selected", key === "new_creator");
+        document
+          .getElementById("mode-pack-only")
+          .classList.toggle("selected", key === "skin_pack_only");
+        document.getElementById("mode-next-btn").disabled = false;
+      }
+      function modeNext() {
+        if (!appMode) return;
+        gotoPage(appMode === "new_creator" ? 1 : 2);
+      }
+
+      // PAGE 1
+      function saveCreator() {
+        const name = document.getElementById("c-name").value.trim();
+        if (!name) {
+          flash("c-name");
+          return;
+        }
+        creatorInfo = {
+          name,
+          description: document.getElementById("c-desc").value.trim(),
+        };
+        const sel = document.getElementById("sp-creator");
+        sel.value = name;
+        sel.disabled = true;
+        gotoPage(2);
+      }
+
+      // PAGE 2
+      function genUUID(id) {
+        document.getElementById(id).value = (
+          [1e7] +
+          -1e3 +
+          -4e3 +
+          -8e3 +
+          -1e11
+        ).replace(/[018]/g, (c) =>
+          (
+            c ^
+            (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+          ).toString(16),
+        );
+      }
+
+      function addPack() {
+        const get = (id) => document.getElementById(id).value.trim();
+        const vals = {
+          "sp-uuid1": get("sp-uuid1"),
+          "sp-uuid2": get("sp-uuid2"),
+          "sp-name": get("sp-name"),
+          "sp-creator": get("sp-creator"),
+          "sp-desc": get("sp-desc"),
+          "sp-skins": get("sp-skins"),
+          "sp-thumb": get("sp-thumb"),
+        };
+        let ok = true;
+        for (const [id, v] of Object.entries(vals))
+          if (!v) {
+            flash(id);
+            ok = false;
+          }
+        const ns = parseInt(vals["sp-skins"], 10);
+        if (isNaN(ns)) {
+          flash("sp-skins");
+          ok = false;
+        }
+        if (!ok) return;
+        skinPacks.push({
+          uuid1: vals["sp-uuid1"],
+          uuid2: vals["sp-uuid2"],
+          pack_name: vals["sp-name"],
+          creator: vals["sp-creator"],
+          description: vals["sp-desc"],
+          num_skins: ns,
+          thumbnail: vals["sp-thumb"],
+        });
+        renderPackList();
+        ["sp-uuid1", "sp-uuid2", "sp-name", "sp-desc", "sp-skins"].forEach(
+          (id) => {
+            document.getElementById(id).value = "";
+          },
+        );
+        document.getElementById("sp-thumb").value =
+          "https://bedrock-cosmos.app/thumbnails/";
+        if (appMode !== "new_creator") {
+          const sel = document.getElementById("sp-creator");
+          sel.value = "";
+          sel.disabled = false;
+        }
+      }
+
+      function flash(id) {
+        const el = document.getElementById(id);
+        el.classList.add("error");
+        setTimeout(() => el.classList.remove("error"), 1500);
+      }
+
+      function renderPackList() {
+        const list = document.getElementById("pack-list");
+        list.querySelectorAll(".pack-list-item").forEach((e) => e.remove());
+        document.getElementById("pack-list-empty").style.display =
+          skinPacks.length ? "none" : "";
+        skinPacks.forEach((p, i) => {
+          const row = document.createElement("div");
+          row.className =
+            "pack-list-item" + (selectedIdx === i ? " selected" : "");
+          row.innerHTML = `<span class="pack-item-name">${esc(p.pack_name)}</span><span class="pack-item-meta">${p.num_skins} skins · ${p.uuid1.slice(0, 13)}…</span><button class="pack-item-rm" onclick="removePack(event,${i})">✕</button>`;
+          row.addEventListener("click", () => {
+            selectedIdx = i;
+            renderPackList();
+          });
+          list.appendChild(row);
+        });
+      }
+      function removeSelected() {
+        if (selectedIdx >= 0) removePack(null, selectedIdx);
+      }
+      function removePack(e, idx) {
+        if (e) e.stopPropagation();
+        skinPacks.splice(idx, 1);
+        selectedIdx = -1;
+        renderPackList();
+      }
+      function packsBack() {
+        gotoPage(appMode === "new_creator" ? 1 : 0);
+      }
+      function esc(s) {
+        return s
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      // JSON BUILDERS
+      function sd(font = "default", tc = null) {
+        return {
+          highlightColor: [],
+          alignment: "Left",
+          textColor: tc || [],
+          font,
+          showBackground: false,
+          showOutline: false,
+          indent: 0.0,
+          buttonWidth: 0.0,
+          color: [],
+          offerControlIdType: "None",
+          outlineColor: [],
+        };
+      }
+
+      function makeBinary(u1, u2, name, creator) {
+        const ns = name.replace(/ /g, "");
+        return {
+          code: 200,
+          status: "OK",
+          data: {
+            Item: {
+              Id: u1,
+              Contents: [
+                {
+                  Id: u2,
+                  Url: `https://cdn.bedrock-cosmos.app/uss/${u2.slice(0, 5)}/${ns}.zip`,
+                  MaxClientVersion: "65535.65535.65535",
+                  MinClientVersion: "1.2.0",
+                  Tags: [],
+                  Type: "skinbinary",
+                },
+              ],
+              DisplayProperties: {
+                creatorName: creator,
+                purchasable: false,
+                packIdentity: [
+                  { type: "skinpack", uuid: u2, version: "1.0.0" },
+                ],
+              },
+            },
+          },
+        };
+      }
+
+      function makeItemDetail(
+        u1,
+        u2,
+        name,
+        creator,
+        description,
+        numSkins,
+        thumbnail,
+        ts,
+      ) {
+        const ns = name.replace(/ /g, "");
+        return {
+          result: {
+            id: u1,
+            pageId: `ItemDetail_${u1}`,
+            addToRecentlyViewed: true,
+            pageName: `ItemDetail For '${name}'`,
+            layout: [
+              {
+                sectionName: "rows",
+                rows: [
+                  {
+                    controlId: "Layout",
+                    components: [
+                      {
+                        linksToInfo: {
+                          linksTo: "MultiItemPage_CoinScreen",
+                          linkType: "pageId",
+                          displayType: "store_layout.store_data_driven_screen",
+                          screenTitle: {
+                            value: "store.editorial.minecoins",
+                            style: sd("MinecraftTen"),
+                            replacements: [],
+                          },
+                          navigateInPlace: false,
+                        },
+                        isVisible: true,
+                        type: "topBarMinecoinComp",
+                        $type: "TopBarMinecoinComponent",
+                      },
+                      {
+                        linksToInfo: {
+                          linksTo: "Search_SearchHome",
+                          linkType: "pageId",
+                          displayType: "store_layout.store_data_driven_screen",
+                          screenTitle: {
+                            value: "store.search.title",
+                            style: sd("MinecraftTen"),
+                            replacements: [],
+                          },
+                          navigateInPlace: false,
+                        },
+                        isVisible: true,
+                        type: "topBarSearchComp",
+                        $type: "TopBarSearchComponent",
+                      },
+                      {
+                        linksToInfo: {
+                          linksTo: "MultiItemPage_Inventory",
+                          linkType: "pageId",
+                          displayType: "store_layout.store_data_driven_screen",
+                          screenTitle: {
+                            value: "editorialtool.localization.mycontent",
+                            style: sd("MinecraftTen"),
+                            replacements: [],
+                          },
+                          navigateInPlace: false,
+                        },
+                        isVisible: true,
+                        topBarIcon: {
+                          type: "SidebarNavIcon",
+                          localPath:
+                            "textures/ui/sidebar_icons/my_content_large",
+                        },
+                        inventoryTitle: {
+                          value: "store.myLibrary",
+                          style: sd("SmoothWithEmoticons"),
+                          replacements: [],
+                        },
+                        type: "topBarInventoryComp",
+                        $type: "TopBarInventoryComponent",
+                      },
+                    ],
+                  },
+                  {
+                    controlId: "ItemSummary",
+                    components: [
+                      {
+                        item: {
+                          id: u1,
+                          contentType: "MarketplaceDurableCatalog_V1.2",
+                          title: name,
+                          creatorName: creator,
+                          thumbnail: {
+                            tag: "Thumbnail",
+                            type: "Thumbnail",
+                            url: thumbnail,
+                            urlWithResolution: `${thumbnail}?width=800&height=450`,
+                          },
+                          price: {
+                            listPrice: -1,
+                            realmsInfo: { inRealmsPlus: false },
+                            currencyId: "ecd19d3c-7635-402c-a185-eb11cb6c6946",
+                            virtualCurrencyType: "Minecoin",
+                          },
+                          rating: { average: 0.0, totalCount: 0 },
+                          linksTo: `MultiItemPage_${creator}_Marketplace`,
+                          linksToInfo: {
+                            linksTo: `MultiItemPage_${creator}_Marketplace`,
+                            linkType: "pageId",
+                            displayType:
+                              "store_layout.store_data_driven_screen",
+                            screenTitle: { value: creator, replacements: [] },
+                            navigateInPlace: false,
+                          },
+                          statistics: {
+                            skins: numSkins,
+                            worlds: 0,
+                            textures: 0,
+                            behaviors: 0,
+                            addOns: 0,
+                          },
+                          flags: [],
+                          ownership: "Purchased",
+                          packType: "SkinPack",
+                          packIdentity: [
+                            { type: "skinpack", uuid: u2, version: "1.0.0" },
+                          ],
+                          contents: [],
+                          wishlisted: false,
+                          platformRestricted: false,
+                          iconOverlay: [],
+                          descriptionLineByLine: [],
+                          startDate: ts,
+                          subscription: [],
+                          thumbnailPreviewOnly: false,
+                          namedLinksToInfoMap: {},
+                        },
+                        type: "itemSummaryComp",
+                        $type: "ItemSummaryComponent",
+                      },
+                    ],
+                  },
+                  {
+                    controlId: "ItemDescription",
+                    components: [
+                      {
+                        headerText: "store.mashup.description",
+                        text: {
+                          value: "store.mashup.description",
+                          style: sd("default", [1.0, 1.0, 1.0]),
+                          replacements: [],
+                        },
+                        type: "headerComp",
+                        $type: "HeaderComponent",
+                      },
+                      {
+                        description,
+                        type: "itemDescriptionComp",
+                        $type: "ItemDescriptionComponent",
+                      },
+                    ],
+                    telemetryId: "store.mashup.description",
+                  },
+                  {
+                    controlId: "SkinPreview",
+                    components: [
+                      {
+                        binary: {
+                          url: `https://cdn.bedrock-cosmos.app/uss/${u2.slice(0, 5)}/${ns}.zip`,
+                        },
+                        packIdentity: {
+                          type: "skinpack",
+                          uuid: u2,
+                          version: "1.0.0",
+                        },
+                        type: "skinViewerComp",
+                        $type: "SkinViewerComponent",
+                      },
+                      {
+                        headerText: `${name}: %s`,
+                        text: {
+                          value: `${name}: %s`,
+                          style: sd("default", [1.0, 1.0, 1.0]),
+                          replacements: [],
+                        },
+                        type: "headerComp",
+                        $type: "HeaderComponent",
+                      },
+                    ],
+                  },
+                ],
+              },
+              { sectionName: "navigation", rows: [] },
+            ],
+            pageRefresh: false,
+            sidebarLayoutType: "Marketplace",
+          },
+        };
+      }
+
+      function makeSearch(u1, u2, name, creator, description, ts) {
+        return {
+          code: 200,
+          status: "OK",
+          data: {
+            Count: 1,
+            Items: [
+              {
+                Id: u1,
+                Type: "bundle",
+                Title: { NEUTRAL: name, neutral: name },
+                Description: { NEUTRAL: description, neutral: description },
+                ContentType: "MarketplaceDurableCatalog_V1.2",
+                Tags: [u1, u2, "skinpack", "has_skinpack", "3P"],
+                CreationDate: ts,
+                LastModifiedDate: ts,
+                DisplayProperties: {
+                  creatorName: creator,
+                  offerId: u1,
+                  purchasable: false,
+                  packIdentity: [
+                    { type: "skinpack", uuid: u2, version: "1.0.0" },
+                  ],
+                },
+              },
+            ],
+            ConfigurationName: "DEFAULT",
+          },
+        };
+      }
+
+      function makeCreatorJson(creator, ts) {
+        const u = ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
+          (
+            c ^
+            (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+          ).toString(16),
+        );
+        return {
+          id: u,
+          contentType: "MarketplaceDurableCatalog_V1.2",
+          title: "",
+          creatorName: creator,
+          thumbnail: {
+            tag: "Thumbnail",
+            type: "Thumbnail",
+            url: `https://bedrock-cosmos.app/thumbnails/${creator}.jpg`,
+            urlWithResolution: `https://bedrock-cosmos.app/thumbnails/${creator}.jpg`,
+          },
+          price: {
+            listPrice: -1,
+            realmsInfo: { inRealmsPlus: false },
+            currencyId: "ecd19d3c-7635-402c-a185-eb11cb6c6946",
+            virtualCurrencyType: "Minecoin",
+          },
+          linksTo: `MultiItemPage_${creator}_Marketplace`,
+          linksToInfo: {
+            linksTo: `MultiItemPage_${creator}_Marketplace`,
+            linkType: "pageId",
+            displayType: "store_layout.store_data_driven_screen",
+            navigateInPlace: false,
+          },
+          creatorPage: "CreatorPage_master_player_account!CreatorHub",
+          statistics: {
+            skins: 0,
+            worlds: 0,
+            textures: 0,
+            behaviors: 0,
+            addOns: 0,
+          },
+          flags: [],
+          ownership: "NotOwned",
+          packType: "None",
+          packIdentity: [],
+          minPerformanceTier: "LowTier",
+          tags: [],
+          images: [
+            {
+              tag: "Thumbnail",
+              type: "Thumbnail",
+              url: `https://bedrock-cosmos.app/thumbnails/${creator}.jpg`,
+              urlWithResolution: `https://bedrock-cosmos.app/thumbnails/${creator}.jpg`,
+            },
+          ],
+          contents: [],
+          platformRestricted: false,
+          iconOverlay: [],
+          descriptionLineByLine: [],
+          startDate: ts,
+          subscription: [],
+          thumbnailPreviewOnly: false,
+          namedLinksToInfoMap: {},
+        };
+      }
+
+      function makeMarketplace(creator, creatorDesc, packs, ts) {
+        function st(font, tc = null) {
+          return {
+            highlightColor: [],
+            alignment: "Left",
+            textColor: tc || [],
+            font,
+            showBackground: false,
+            showOutline: false,
+            indent: 0.0,
+            buttonWidth: 0.0,
+            color: [],
+            offerControlIdType: "None",
+          };
+        }
+        const items = packs.map((p) => {
+          const safe = p.pack_name.replace(/ /g, "");
+          return {
+            id: p.uuid1,
+            contentType: "MarketplaceDurableCatalog_V1.2",
+            title: p.pack_name,
+            creatorName: creator,
+            thumbnail: {
+              tag: "Thumbnail",
+              type: "Thumbnail",
+              url: `https://bedrock-cosmos.app/thumbnails/${creator}${safe}_thumbnail.jpg`,
+              urlWithResolution: `https://bedrock-cosmos.app/thumbnails/${creator}${safe}_thumbnail.jpg?width=800&height=450`,
+            },
+            price: {
+              listPrice: 0,
+              realmsInfo: { inRealmsPlus: false },
+              currencyId: "ecd19d3c-7635-402c-a185-eb11cb6c6946",
+              virtualCurrencyType: "Minecoin",
+            },
+            linksTo: `ItemDetail_${p.uuid1}`,
+            linksToInfo: {
+              linksTo: `ItemDetail_${p.uuid1}`,
+              linkType: "pageId",
+              displayType: "store_layout.store_data_driven_screen",
+              screenTitle: { value: p.pack_name, replacements: [] },
+              navigateInPlace: false,
+            },
+            statistics: {
+              skins: p.num_skins,
+              worlds: 0,
+              textures: 0,
+              behaviors: 0,
+              addOns: 0,
+            },
+            flags: [],
+            ownership: "NotOwned",
+            packType: "SkinPack",
+            packIdentity: [
+              { type: "skinpack", uuid: p.uuid2, version: "1.0.0" },
+            ],
+            contents: [],
+            platformRestricted: false,
+            iconOverlay: [],
+            descriptionLineByLine: [],
+            startDate: ts,
+            subscription: [],
+            thumbnailPreviewOnly: false,
+            namedLinksToInfoMap: {},
+          };
+        });
+        return {
+          result: {
+            pageId: `${creator}_Marketplace`,
+            addToRecentlyViewed: false,
+            pageRefresh: false,
+            sidebarLayoutType: "Marketplace",
+            layout: [
+              {
+                sectionName: "rows",
+                rows: [
+                  {
+                    controlId: "Layout",
+                    components: [
+                      {
+                        linksToInfo: {
+                          linksTo: "MultiItemPage_CoinScreen",
+                          linkType: "pageId",
+                          displayType: "store_layout.store_data_driven_screen",
+                          screenTitle: {
+                            value: "store.editorial.minecoins",
+                            style: {
+                              highlightColor: [],
+                              alignment: "Left",
+                              textColor: [],
+                              font: "MinecraftTen",
+                              showBackground: false,
+                              showOutline: false,
+                              indent: 0.0,
+                              buttonWidth: 0.0,
+                              color: [],
+                              offerControlIdType: "None",
+                              outlineColor: [],
+                            },
+                            replacements: [],
+                          },
+                          navigateInPlace: false,
+                        },
+                        isVisible: true,
+                        type: "topBarMinecoinComp",
+                        $type: "TopBarMinecoinComponent",
+                      },
+                    ],
+                  },
+                  {
+                    controlId: "TextRow",
+                    components: [
+                      {
+                        text: {
+                          value: ` ${creator}'s Marketplace Packs`,
+                          style: st("MinecraftTen", [1.0, 1.0, 1.0]),
+                          replacements: [],
+                        },
+                        type: "headerComp",
+                        $type: "HeaderComponent",
+                      },
+                      {
+                        text: {
+                          value: ` ${creatorDesc}\r\n `,
+                          style: st("SmoothWithEmoticons"),
+                          replacements: [],
+                        },
+                        type: "textComponent",
+                        $type: "TextComponent",
+                      },
+                    ],
+                  },
+                  {
+                    controlId: "GridList",
+                    components: [
+                      {
+                        items,
+                        totalItems: items.length,
+                        type: "pagedItemListComp",
+                        $type: "PagedItemListComponent",
+                      },
+                    ],
+                  },
+                ],
+              },
+              { sectionName: "navigation", rows: [] },
+            ],
+          },
+        };
+      }
+
+      // GENERATE
+      async function doGenerate() {
+        if (!skinPacks.length) return;
+        gotoPage(3);
+        const log = document.getElementById("log-output");
+        log.innerHTML = "";
+        builtZip = null;
+        document.getElementById("dl-btn").disabled = true;
+        document.getElementById("dl-summary").textContent = "—";
+        const ts = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
+        const zip = new JSZip();
+
+        function line(text, cls = "log-ok") {
+          const s = document.createElement("span");
+          s.className = cls;
+          s.textContent = text + "\n";
+          log.appendChild(s);
+          log.scrollTop = log.scrollHeight;
+        }
+        function addFile(name, data) {
+          zip.file(name, JSON.stringify(data, null, 2));
+          line("  ✓  " + name);
+        }
+
+        line("Timestamp : " + ts, "log-info");
+        line("─".repeat(50), "log-sep");
+
+        if (appMode === "new_creator") {
+          addFile(
+            `${creatorInfo.name}.json`,
+            makeCreatorJson(creatorInfo.name, ts),
+          );
+          addFile(
+            `${creatorInfo.name}_marketplace.json`,
+            makeMarketplace(
+              creatorInfo.name,
+              creatorInfo.description || "",
+              skinPacks,
+              ts,
+            ),
+          );
+          line("─".repeat(50), "log-sep");
+        }
+        for (const p of skinPacks) {
+          const safe = p.pack_name.replace(/ /g, "");
+          addFile(
+            `Binary_${safe}.json`,
+            makeBinary(p.uuid1, p.uuid2, p.pack_name, p.creator),
+          );
+          addFile(
+            `ItemDetail_${safe}.json`,
+            makeItemDetail(
+              p.uuid1,
+              p.uuid2,
+              p.pack_name,
+              p.creator,
+              p.description,
+              p.num_skins,
+              p.thumbnail,
+              ts,
+            ),
+          );
+          addFile(
+            `Search_${safe}.json`,
+            makeSearch(
+              p.uuid1,
+              p.uuid2,
+              p.pack_name,
+              p.creator,
+              p.description,
+              ts,
+            ),
+          );
+          line("─".repeat(50), "log-sep");
+        }
+        // Build urls.json
+        const urlsEntries = [];
+        for (const p of skinPacks) {
+          const safe = p.pack_name.replace(/ /g, "");
+          const creatorFolder = p.creator.replace(/ /g, "_");
+          const itemDetailFile = `SkinPacks\\Creators\\${creatorFolder}\\ItemDetail_${safe}.json`;
+          const binaryFile = `SkinPacks\\Creators\\${creatorFolder}\\Binary_${safe}.json`;
+          const searchFile = `SkinPacks\\Creators\\${creatorFolder}\\Search_${safe}.json`;
+          // MainResponses entries
+          urlsEntries.push({
+            url: `https://store.mktpl.minecraft-services.net/api/v2.0/layout/pages/productId/${p.uuid1}`,
+            response: itemDetailFile,
+          });
+          urlsEntries.push({
+            url: `https://store.mktpl.minecraft-services.net/api/v2.0/layout/pages/ItemDetail_${p.uuid1}`,
+            response: itemDetailFile,
+          });
+          // PlayfabGetPublishItemResponses entry
+          urlsEntries.push({
+            uuid: p.uuid1,
+            response: binaryFile,
+          });
+          // PlayfabSearchResponses entry
+          urlsEntries.push({
+            uuid: p.uuid2,
+            response: searchFile,
+          });
+        }
+        addFile("urls.json", urlsEntries);
+
+        const extra = appMode === "new_creator" ? 2 : 0;
+        const total = skinPacks.length * 3 + extra + 1;
+        builtZip = zip;
+        document.getElementById("dl-btn").disabled = false;
+        document.getElementById("dl-summary").innerHTML =
+          `<strong>${total} files</strong> ready`;
+      }
+
+      async function downloadZip() {
+        if (!builtZip) return;
+        const btn = document.getElementById("dl-btn");
+        btn.disabled = true;
+        btn.textContent = "Building…";
+        try {
+          const blob = await builtZip.generateAsync({
+            type: "blob",
+            compression: "DEFLATE",
+            compressionOptions: { level: 6 },
+          });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download =
+            (appMode === "new_creator"
+              ? creatorInfo.name || "jsons"
+              : "skinpacks") + "_jsons.zip";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        } catch (e) {
+          console.error(e);
+        }
+        btn.disabled = false;
+        btn.innerHTML = "⬇ &nbsp;Download ZIP";
+      }
+
+      function restart() {
+        appMode = null;
+        creatorInfo = {};
+        skinPacks = [];
+        selectedIdx = -1;
+        builtZip = null;
+        document
+          .getElementById("mode-new-creator")
+          .classList.remove("selected");
+        document.getElementById("mode-pack-only").classList.remove("selected");
+        document.getElementById("mode-next-btn").disabled = true;
+        [
+          "c-desc",
+          "sp-uuid1",
+          "sp-uuid2",
+          "sp-name",
+          "sp-desc",
+          "sp-skins",
+        ].forEach((id) => {
+          const el = document.getElementById(id);
+          el.value = "";
+        });
+        document.getElementById("sp-thumb").value =
+          "https://bedrock-cosmos.app/thumbnails/";
+        const cSel = document.getElementById("c-name");
+        cSel.value = "";
+        const spSel = document.getElementById("sp-creator");
+        spSel.value = "";
+        spSel.disabled = false;
+        renderPackList();
+        document.getElementById("log-output").innerHTML = "";
+        document.getElementById("dl-btn").disabled = true;
+        document.getElementById("dl-summary").textContent = "—";
+        gotoPage(0);
+      }
+
+      // STARS
+    </script>
+    <script src="../../js/shared.js"></script>
+    <script>
+      initSharedComponents({ activePath: "/tools/" });
+    </script>
+  </body>
+</html>

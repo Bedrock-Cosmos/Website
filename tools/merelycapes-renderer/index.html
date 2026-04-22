@@ -1,0 +1,2011 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Render a Minecraft Bedrock cape as a transparent PNG icon — WebGL port of MerelyCapes."
+    />
+    <meta name="theme-color" content="#5b21b6" />
+    <title>Cape Renderer | Bedrock Cosmos</title>
+    <link rel="stylesheet" href="../../css/marketplace.css" />
+    <style>
+      :root {
+        --cfg-accent: #5b21b6;
+        --cfg-accent-light: #8b5cf6;
+        --cfg-accent-glow: rgba(91, 33, 182, 0.3);
+        --cfg-sel: rgba(91, 33, 182, 0.15);
+        --cfg-sel-border: rgba(139, 92, 246, 0.7);
+        --cfg-green: #22c55e;
+        --cfg-green-bg: rgba(34, 197, 94, 0.1);
+        --cfg-green-border: rgba(34, 197, 94, 0.3);
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .mc-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      footer {
+        position: relative;
+        z-index: 10;
+      }
+
+      .tool-content {
+        flex: 1;
+        padding: 2rem 2rem 3rem;
+        max-width: 860px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .tool-header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--mc-border);
+      }
+      .tool-header h1 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--mc-text);
+        letter-spacing: 0.04em;
+        margin-bottom: 4px;
+      }
+      .tool-header p {
+        font-size: 0.82rem;
+        color: var(--mc-muted);
+      }
+
+      /* Section title */
+      .tool-section-title {
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--mc-muted);
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid var(--mc-border);
+      }
+
+      /* Renderer layout */
+      .renderer-layout {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+
+      /* Preview panel */
+      .renderer-preview {
+        background: var(--mc-panel);
+        border: 2px solid #000;
+        border-radius: 2px;
+        padding: 1.1rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        flex-shrink: 0;
+      }
+
+      .canvas-wrap {
+        position: relative;
+        width: 256px;
+        height: 256px;
+        background: repeating-conic-gradient(#1e1e24 0% 25%, #17171c 0% 50%) 0
+          0 / 16px 16px;
+        border: 1px solid var(--mc-border);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      #glCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        image-rendering: pixelated;
+      }
+      #outputCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Controls panel */
+      .renderer-controls {
+        flex: 1;
+        min-width: 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .form-panel {
+        background: var(--mc-panel);
+        border: 2px solid #000;
+        border-radius: 2px;
+        padding: 1.1rem 1.2rem;
+        margin-bottom: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+      }
+
+      .field-block {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .field-label {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--mc-muted);
+      }
+
+      /* Drop zone */
+      .drop-zone {
+        border: 1px dashed var(--mc-border);
+        border-radius: 2px;
+        padding: 14px 12px;
+        text-align: center;
+        cursor: pointer;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+        font-size: 0.78rem;
+        color: var(--mc-muted);
+        position: relative;
+        overflow: hidden;
+        background: var(--mc-panel2);
+      }
+      .drop-zone:hover,
+      .drop-zone.drag-over {
+        border-color: var(--cfg-accent-light);
+        background: var(--cfg-sel);
+        color: var(--mc-text);
+      }
+      .drop-zone input[type="file"] {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+      }
+      .drop-fname {
+        font-size: 0.68rem;
+        color: var(--cfg-accent-light);
+        margin-top: 3px;
+        font-weight: 700;
+      }
+
+      .thumb-row {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 6px;
+      }
+      .thumb-preview {
+        background: repeating-conic-gradient(#1e1e24 0% 25%, #17171c 0% 50%) 0
+          0 / 8px 8px;
+        border: 1px solid var(--mc-border);
+        border-radius: 2px;
+        image-rendering: pixelated;
+        flex-shrink: 0;
+        z-index: 10;
+      }
+      .thumb-meta {
+        font-size: 0.7rem;
+        color: var(--mc-muted);
+        line-height: 1.6;
+      }
+
+      /* Size buttons */
+      .sizes {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .size-btn {
+        padding: 5px 14px;
+        border-radius: 2px;
+        border: 1px solid var(--mc-border);
+        background: var(--mc-panel2);
+        color: var(--mc-muted);
+        font-family: inherit;
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .size-btn.active,
+      .size-btn:hover {
+        border-color: var(--cfg-accent-light);
+        color: var(--cfg-accent-light);
+        background: var(--cfg-sel);
+      }
+
+      /* Divider */
+      .form-divider {
+        height: 1px;
+        background: var(--mc-border);
+      }
+
+      /* Buttons */
+      .btn-primary {
+        background: var(--cfg-accent);
+        color: #fff;
+        border: none;
+        border-radius: 2px;
+        padding: 0.52rem 1.2rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: background 0.15s;
+        white-space: nowrap;
+        width: 100%;
+      }
+      .btn-primary:hover {
+        background: #46198e;
+      }
+      .btn-primary:disabled {
+        background: var(--mc-border);
+        color: var(--mc-muted);
+        cursor: not-allowed;
+      }
+
+      .btn-download {
+        background: var(--cfg-green-bg);
+        border: 1px solid var(--cfg-green-border);
+        color: var(--cfg-green);
+        border-radius: 2px;
+        padding: 0.45rem 1.1rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: all 0.15s;
+        white-space: nowrap;
+        width: 100%;
+      }
+      .btn-download:hover {
+        background: rgba(34, 197, 94, 0.18);
+        border-color: var(--cfg-green);
+      }
+      .btn-download:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      /* Warning */
+      .webgl-warn {
+        font-size: 0.7rem;
+        color: #f59e0b;
+        padding: 7px 10px;
+        background: rgba(245, 158, 11, 0.07);
+        border-radius: 2px;
+        border: 1px solid rgba(245, 158, 11, 0.22);
+        display: none;
+      }
+      .webgl-warn.show {
+        display: block;
+      }
+
+      /* spinner */
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .spinner {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border: 2px solid currentColor;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        vertical-align: middle;
+        margin-right: 4px;
+      }
+    </style>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7684217018329117"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div
+      id="mc-sidebar-overlay"
+      class="mc-sidebar-overlay"
+      onclick="toggleMobileSidebar()"
+    ></div>
+    <!-- TOP BAR -->
+    <header class="mc-topbar">
+      <button
+        id="mc-mobile-menu-btn"
+        class="mc-mobile-menu-btn"
+        aria-label="Open navigation menu"
+        onclick="toggleMobileSidebar()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 5h16" />
+          <path d="M4 12h16" />
+          <path d="M4 19h16" />
+        </svg>
+      </button>
+      <a href="/tools/" class="mc-topbar-back">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Tools
+      </a>
+      <span
+        class="mc-topbar-title"
+        style="align-items: center; justify-content: center; gap: 8px"
+      >
+        <img
+          src="https://bedrock-cosmos.app/icons/shootingstar.png"
+          alt=""
+          style="width: 24px; height: 24px; object-fit: contain"
+        />
+        <span style="font-size: 1rem; font-weight: 800; letter-spacing: 0.05em"
+          >Bedrock Cosmos</span
+        >
+      </span>
+      <div class="mc-topbar-right">
+        <a href="/config/" class="mc-library-btn">My Library</a>
+      </div>
+    </header>
+
+    <div id="mc-sidebar-placeholder"></div>
+
+    <!-- MAIN -->
+    <main class="mc-main">
+      <div class="stars-container" id="stars"></div>
+
+      <div class="tool-content">
+        <div class="tool-header">
+          <h1>Cape Icon Renderer</h1>
+          <p>
+            WebGL port of
+            <a
+              href="https://github.com/MerelyMiserable/MerelyCapes"
+              target="_blank"
+              rel="noopener"
+              style="
+                color: var(--cfg-accent-light);
+                text-decoration: none;
+                font-weight: 700;
+              "
+              onmouseover="this.style.textDecoration = 'underline'"
+              onmouseout="this.style.textDecoration = 'none'"
+              >MerelyCapes</a
+            >
+            Cape Renderer that outputs custom Cape Icons. Licensed under the
+            <a
+              href="https://github.com/MerelyMiserable/MerelyCapes/blob/main/LICENSE"
+              target="_blank"
+              rel="noopener"
+              style="
+                color: var(--cfg-accent-light);
+                text-decoration: none;
+                font-weight: 700;
+              "
+              onmouseover="this.style.textDecoration = 'underline'"
+              onmouseout="this.style.textDecoration = 'none'"
+              >MIT License</a
+            >.
+          </p>
+        </div>
+
+        <div class="tool-section-title">Renderer</div>
+
+        <div class="renderer-layout">
+          <!-- Preview -->
+          <div class="renderer-preview">
+            <div
+              class="tool-section-title"
+              style="
+                align-self: flex-start;
+                margin: 0;
+                border: none;
+                padding: 0;
+              "
+            >
+              Preview
+            </div>
+            <div class="canvas-wrap">
+              <canvas id="glCanvas"></canvas>
+              <canvas id="outputCanvas" width="256" height="256"></canvas>
+            </div>
+            <!-- <div class="sizes">
+              <button class="size-btn active" data-s="256">256 px</button>
+              <button class="size-btn" data-s="512">512 px</button>
+            </div> -->
+            <button class="btn-download" id="dlBtn" disabled>
+              Download PNG
+            </button>
+          </div>
+
+          <!-- Controls -->
+          <div class="renderer-controls">
+            <div class="form-panel">
+              <div class="field-block">
+                <span class="field-label">Cape Texture (64×32 PNG)</span>
+                <div class="drop-zone" id="capeDrop">
+                  <span>Drop cape PNG here or click to browse</span>
+                  <span
+                    class="drop-fname"
+                    id="capeName"
+                    style="display: none"
+                  ></span>
+                  <input
+                    type="file"
+                    id="capeFile"
+                    accept="image/png,image/jpeg,image/webp"
+                  />
+                </div>
+                <div class="thumb-row">
+                  <canvas
+                    class="thumb-preview"
+                    id="capeThumb"
+                    width="64"
+                    height="32"
+                    style="width: 64px; height: 32px"
+                  ></canvas>
+                  <span class="thumb-meta" id="capeMeta"
+                    >no texture loaded</span
+                  >
+                </div>
+                <div
+                  id="hdCapeWarn"
+                  style="
+                    display: none;
+                    font-size: 0.72rem;
+                    color: #f59e0b;
+                    padding: 7px 10px;
+                    background: rgba(245, 158, 11, 0.07);
+                    border-radius: 2px;
+                    border: 1px solid rgba(245, 158, 11, 0.22);
+                    line-height: 1.5;
+                  "
+                >
+                  ⚠ HD Capes are not supported by default, continue with
+                  caution.
+                </div>
+              </div>
+
+              <div class="form-divider"></div>
+
+              <div class="field-block">
+                <span class="field-label"
+                  >Player Skin (64×64 PNG) — optional</span
+                >
+                <div class="drop-zone" id="skinDrop">
+                  <span>Drop skin PNG here or click to browse</span>
+                  <span
+                    class="drop-fname"
+                    id="skinName"
+                    style="display: none"
+                  ></span>
+                  <input
+                    type="file"
+                    id="skinFile"
+                    accept="image/png,image/jpeg,image/webp"
+                  />
+                </div>
+                <div class="thumb-row">
+                  <canvas
+                    class="thumb-preview"
+                    id="skinThumb"
+                    width="64"
+                    height="64"
+                    style="width: 64px; height: 64px"
+                  ></canvas>
+                  <span class="thumb-meta" id="skinMeta"
+                    >loading default skin…</span
+                  >
+                </div>
+              </div>
+
+              <div class="webgl-warn" id="webglWarn">
+                ⚠ WebGL2 not available — trying WebGL1
+              </div>
+
+              <div class="form-divider"></div>
+
+              <button class="btn-primary" id="renderBtn">
+                <span id="renderLabel">Render</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="mc-footer-placeholder"></div>
+    </main>
+
+    <script>
+      /*
+       * Cape Renderer — WebGL port of MerelyCapes
+       * Original source: https://github.com/MerelyMiserable/MerelyCapes
+       *
+       * MIT License
+       *
+       * Copyright (c) 2025 MerelyMiserable
+       *
+       * Permission is hereby granted, free of charge, to any person obtaining a copy
+       * of this software and associated documentation files (the "Software"), to deal
+       * in the Software without restriction, including without limitation the rights
+       * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+       * copies of the Software, and to permit persons to whom the Software is
+       * furnished to do so, subject to the following conditions:
+       *
+       * The above copyright notice and this permission notice shall be included in all
+       * copies or substantial portions of the Software.
+       *
+       * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+       * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+       * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+       * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+       * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+       * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+       * SOFTWARE.
+       */
+
+      // ─── Stars ───────────────────────────────────────────────────────────────
+
+      // ─── State ───────────────────────────────────────────────────────────────
+      let capeImg = null;
+      let outputSize = 256;
+      let lastResult = null;
+
+      // ─── Default skin (hardcoded) ─────────────────────────────────────────────
+      const DEFAULT_SKIN_B64 =
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACFElEQVR4nOyaTW7CMBCFH1Vgm1ynoqIsSsUSqbcoqHAO1AX0RtCiXifZAhKVI0VKUuOf2KZJZ74FJLZjOS+eGSeeCBq22+0FDiyXyx5aTGTSKE1TaXmSJEb1bcZIgP8MCwDisAAgjpEAOm/eBW9/jZ5rnNcRRWqN5/P5n64T8tG5xvkurxPYB4A4LACIwwKIH9c43+V1wq8YPH4cV9YFs5dZpX71tlLG7c3H5jJ6GGH/ta+Uy8pk6Ppfv68r4xsMBlbX15GawPF4rHRexHGbJ3kt9qvqTPvPsiz/j+MYTcdXwD5AVlifVk2UVV3j6hOKJ++jv17d5m2p+wiBjQ8Q7wrD+yEO34dKeVF2Pp9hQ/3dY/G6UPqEvHXd5m3PZTZo4gPK7bM0M26vOy/6ipMYOsj7gDsEYvo8lR5fY/I0kR6HJp8Bdadne15G2HphIuUbF2UyPyBs/XQ65cflGxdlom73uUNInE2gfMMqYZq2Dw2vA2RhjBKVT2KmYcZl6dk22ARAHOn3ANtzmzApq+/3+8r2tuMxWQEWtHrv/hawCYA4LACIwwKAOCwAiMMCgDgsAIjDAoA4LAA845pf4Hv/X0eQGeCaX+Bz/18HmwAC4Jpf4HP/X4ezPYXIL1Bhu/+v7Q8e8J1f4HP/Xwf7ABDHiwA+8wtuDc8AEMdZgK7nF3iZAV3OL2ATAHG8COCaXxBy/1/HDwAAAP//EjVZrwAAAAZJREFUAwBay+VM00v3GwAAAABJRU5ErkJggg==";
+
+      let skinImg = null;
+
+      // Load the default skin image on startup
+      (function loadDefaultSkin() {
+        const img = new Image();
+        img.onload = () => {
+          skinImg = img;
+          // Update thumb preview
+          const thumb = document.getElementById("skinThumb");
+          const tctx = thumb.getContext("2d");
+          tctx.clearRect(0, 0, thumb.width, thumb.height);
+          tctx.drawImage(img, 0, 0, thumb.width, thumb.height);
+          document.getElementById("skinMeta").textContent =
+            `${img.width}×${img.height} px (default)`;
+          document.getElementById("skinName").textContent = "default_skin.png";
+          document.getElementById("skinName").style.display = "block";
+        };
+        img.src = DEFAULT_SKIN_B64;
+      })();
+
+      // ─── DOM refs ────────────────────────────────────────────────────────────
+      const renderBtn = document.getElementById("renderBtn");
+      const renderLabel = document.getElementById("renderLabel");
+      const statusEl = document.getElementById("status");
+      const dlBtn = document.getElementById("dlBtn");
+      const outputCanvas = document.getElementById("outputCanvas");
+      const outCtx = outputCanvas.getContext("2d");
+
+      // ─── Size selector ───────────────────────────────────────────────────────
+      document.querySelectorAll(".size-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".size-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          outputSize = +btn.dataset.s;
+        });
+      });
+
+      // ─── File drop/pick helpers ──────────────────────────────────────────────
+      function setupDrop(dropId, inputId, nameId, thumbId, metaId, onLoad) {
+        const drop = document.getElementById(dropId);
+        const input = document.getElementById(inputId);
+        const fname = document.getElementById(nameId);
+        const thumb = document.getElementById(thumbId);
+        const meta = document.getElementById(metaId);
+
+        const handleFile = (file) => {
+          if (!file) return;
+          const url = URL.createObjectURL(file);
+          const img = new Image();
+          img.onload = () => {
+            fname.textContent = file.name;
+            fname.style.display = "block";
+            meta.textContent = `${img.width}×${img.height} px`;
+            const tctx = thumb.getContext("2d");
+            tctx.clearRect(0, 0, thumb.width, thumb.height);
+            tctx.drawImage(img, 0, 0, thumb.width, thumb.height);
+            onLoad(img);
+            URL.revokeObjectURL(url);
+          };
+          img.src = url;
+        };
+
+        input.addEventListener("change", () => handleFile(input.files[0]));
+        drop.addEventListener("dragover", (e) => {
+          e.preventDefault();
+          drop.classList.add("drag-over");
+        });
+        drop.addEventListener("dragleave", () =>
+          drop.classList.remove("drag-over"),
+        );
+        drop.addEventListener("drop", (e) => {
+          e.preventDefault();
+          drop.classList.remove("drag-over");
+          handleFile(e.dataTransfer.files[0]);
+        });
+      }
+
+      setupDrop(
+        "capeDrop",
+        "capeFile",
+        "capeName",
+        "capeThumb",
+        "capeMeta",
+        (img) => {
+          capeImg = img;
+          const hdWarn = document.getElementById("hdCapeWarn");
+          hdWarn.style.display =
+            img.width > 64 || img.height > 32 ? "block" : "none";
+        },
+      );
+      setupDrop(
+        "skinDrop",
+        "skinFile",
+        "skinName",
+        "skinThumb",
+        "skinMeta",
+        (img) => {
+          skinImg = img;
+        },
+      );
+
+      // ─── WebGL setup ─────────────────────────────────────────────────────────
+      function createGL(canvas, w, h) {
+        canvas.width = w;
+        canvas.height = h;
+        let gl = canvas.getContext("webgl2", {
+          alpha: true,
+          preserveDrawingBuffer: true,
+        });
+        if (!gl) {
+          document.getElementById("webglWarn").classList.add("show");
+          gl = canvas.getContext("webgl", {
+            alpha: true,
+            preserveDrawingBuffer: true,
+          });
+        }
+        if (!gl) throw new Error("WebGL not supported in this browser.");
+        return gl;
+      }
+
+      const VERT_SRC = `
+attribute vec3 aPos;
+attribute vec2 aUV;
+attribute float aShade;
+uniform mat4 uMVP;
+varying vec2 vUV;
+varying float vShade;
+void main() {
+  gl_Position = uMVP * vec4(aPos, 1.0);
+  vUV = aUV;
+  vShade = aShade;
+}`;
+
+      const FRAG_SRC = `
+precision mediump float;
+varying vec2 vUV;
+varying float vShade;
+uniform sampler2D uTex;
+void main() {
+  vec4 col = texture2D(uTex, vUV);
+  col.rgb *= vShade;
+  gl_FragColor = col;
+}`;
+
+      function compileShader(gl, src, type) {
+        const sh = gl.createShader(type);
+        gl.shaderSource(sh, src);
+        gl.compileShader(sh);
+        if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS))
+          throw new Error(gl.getShaderInfoLog(sh));
+        return sh;
+      }
+
+      function buildProgram(gl) {
+        const prog = gl.createProgram();
+        gl.attachShader(prog, compileShader(gl, VERT_SRC, gl.VERTEX_SHADER));
+        gl.attachShader(prog, compileShader(gl, FRAG_SRC, gl.FRAGMENT_SHADER));
+        gl.linkProgram(prog);
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS))
+          throw new Error(gl.getProgramInfoLog(prog));
+        return prog;
+      }
+
+      function mat4Identity() {
+        return new Float32Array([
+          1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+        ]);
+      }
+      function mat4Mul(a, b) {
+        const r = new Float32Array(16);
+        for (let i = 0; i < 4; i++)
+          for (let j = 0; j < 4; j++) {
+            let s = 0;
+            for (let k = 0; k < 4; k++) s += a[i + k * 4] * b[k + j * 4];
+            r[i + j * 4] = s;
+          }
+        return r;
+      }
+      function mat4Perspective(fovDeg, aspect, near, far) {
+        const f = 1 / Math.tan((fovDeg * Math.PI) / 360);
+        const m = new Float32Array(16);
+        m[0] = f / aspect;
+        m[5] = f;
+        m[10] = (far + near) / (near - far);
+        m[11] = -1;
+        m[14] = (2 * far * near) / (near - far);
+        return m;
+      }
+      function mat4RotX(deg) {
+        const r = (deg * Math.PI) / 180,
+          c = Math.cos(r),
+          s = Math.sin(r);
+        const m = mat4Identity();
+        m[5] = c;
+        m[6] = s;
+        m[9] = -s;
+        m[10] = c;
+        return m;
+      }
+      function mat4RotY(deg) {
+        const r = (deg * Math.PI) / 180,
+          c = Math.cos(r),
+          s = Math.sin(r);
+        const m = mat4Identity();
+        m[0] = c;
+        m[2] = -s;
+        m[8] = s;
+        m[10] = c;
+        return m;
+      }
+      function mat4Translate(x, y, z) {
+        const m = mat4Identity();
+        m[12] = x;
+        m[13] = y;
+        m[14] = z;
+        return m;
+      }
+
+      const Pu = (px) => px / 64,
+        Pv = (py) => py / 64;
+      const Cu = (px) => px / 64,
+        Cv = (py) => py / 64;
+
+      function quad(
+        shade,
+        u1,
+        v1,
+        u2,
+        v2,
+        x0,
+        y0,
+        z0,
+        x1,
+        y1,
+        z1,
+        x2,
+        y2,
+        z2,
+        x3,
+        y3,
+        z3,
+      ) {
+        return [
+          x0,
+          y0,
+          z0,
+          u1,
+          v1,
+          shade,
+          x1,
+          y1,
+          z1,
+          u2,
+          v1,
+          shade,
+          x2,
+          y2,
+          z2,
+          u2,
+          v2,
+          shade,
+          x3,
+          y3,
+          z3,
+          u1,
+          v2,
+          shade,
+        ];
+      }
+      const quadFlipped = quad;
+
+      function buildPlayerGeom() {
+        const verts = [];
+        const TOP = 1.0,
+          BOT = 0.85,
+          NS = 0.97,
+          EW = 0.88;
+        verts.push(
+          ...quad(
+            NS,
+            Pu(8),
+            Pv(8),
+            Pu(16),
+            Pv(16),
+            -5,
+            32,
+            -4,
+            3,
+            32,
+            -4,
+            3,
+            24,
+            -4,
+            -5,
+            24,
+            -4,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Pu(0),
+            Pv(8),
+            Pu(8),
+            Pv(16),
+            -5,
+            32,
+            4,
+            -5,
+            32,
+            -4,
+            -5,
+            24,
+            -4,
+            -5,
+            24,
+            4,
+          ),
+        );
+        verts.push(
+          ...quad(
+            NS,
+            Pu(24),
+            Pv(8),
+            Pu(32),
+            Pv(16),
+            3,
+            32,
+            4,
+            -5,
+            32,
+            4,
+            -5,
+            24,
+            4,
+            3,
+            24,
+            4,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Pu(16),
+            Pv(8),
+            Pu(24),
+            Pv(16),
+            3,
+            32,
+            -4,
+            3,
+            32,
+            4,
+            3,
+            24,
+            4,
+            3,
+            24,
+            -4,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            TOP,
+            Pu(16),
+            Pv(8),
+            Pu(8),
+            Pv(0),
+            -5,
+            32,
+            -4,
+            3,
+            32,
+            -4,
+            3,
+            32,
+            4,
+            -5,
+            32,
+            4,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            BOT,
+            Pu(24),
+            Pv(0),
+            Pu(16),
+            Pv(8),
+            -5,
+            24,
+            4,
+            3,
+            24,
+            4,
+            3,
+            24,
+            -4,
+            -5,
+            24,
+            -4,
+          ),
+        );
+        verts.push(
+          ...quad(
+            NS,
+            Pu(20),
+            Pv(20),
+            Pu(28),
+            Pv(32),
+            -5,
+            24,
+            -2,
+            3,
+            24,
+            -2,
+            3,
+            12,
+            -2,
+            -5,
+            12,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Pu(16),
+            Pv(20),
+            Pu(20),
+            Pv(32),
+            -5,
+            24,
+            2,
+            -5,
+            24,
+            -2,
+            -5,
+            12,
+            -2,
+            -5,
+            12,
+            2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            NS,
+            Pu(32),
+            Pv(20),
+            Pu(40),
+            Pv(32),
+            3,
+            24,
+            2,
+            -5,
+            24,
+            2,
+            -5,
+            12,
+            2,
+            3,
+            12,
+            2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Pu(28),
+            Pv(20),
+            Pu(32),
+            Pv(32),
+            3,
+            24,
+            -2,
+            3,
+            24,
+            2,
+            3,
+            12,
+            2,
+            3,
+            12,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            TOP,
+            Pu(28),
+            Pv(20),
+            Pu(20),
+            Pv(16),
+            -5,
+            24,
+            -2,
+            3,
+            24,
+            -2,
+            3,
+            24,
+            2,
+            -5,
+            24,
+            2,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            BOT,
+            Pu(36),
+            Pv(16),
+            Pu(28),
+            Pv(20),
+            -5,
+            12,
+            2,
+            3,
+            12,
+            2,
+            3,
+            12,
+            -2,
+            -5,
+            12,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            NS,
+            Pu(44),
+            Pv(20),
+            Pu(48),
+            Pv(32),
+            3,
+            24,
+            -2,
+            7,
+            24,
+            -2,
+            7,
+            12,
+            -2,
+            3,
+            12,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Pu(40),
+            Pv(20),
+            Pu(44),
+            Pv(32),
+            3,
+            24,
+            2,
+            3,
+            24,
+            -2,
+            3,
+            12,
+            -2,
+            3,
+            12,
+            2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            NS,
+            Pu(52),
+            Pv(20),
+            Pu(56),
+            Pv(32),
+            7,
+            24,
+            2,
+            3,
+            24,
+            2,
+            3,
+            12,
+            2,
+            7,
+            12,
+            2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Pu(48),
+            Pv(20),
+            Pu(52),
+            Pv(32),
+            7,
+            24,
+            -2,
+            7,
+            24,
+            2,
+            7,
+            12,
+            2,
+            7,
+            12,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            TOP,
+            Pu(48),
+            Pv(20),
+            Pu(44),
+            Pv(16),
+            3,
+            24,
+            -2,
+            7,
+            24,
+            -2,
+            7,
+            24,
+            2,
+            3,
+            24,
+            2,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            BOT,
+            Pu(52),
+            Pv(16),
+            Pu(48),
+            Pv(20),
+            3,
+            12,
+            2,
+            7,
+            12,
+            2,
+            7,
+            12,
+            -2,
+            3,
+            12,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            NS,
+            Pu(36),
+            Pv(52),
+            Pu(40),
+            Pv(64),
+            -9,
+            24,
+            -2,
+            -5,
+            24,
+            -2,
+            -5,
+            12,
+            -2,
+            -9,
+            12,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Pu(32),
+            Pv(52),
+            Pu(36),
+            Pv(64),
+            -9,
+            24,
+            2,
+            -9,
+            24,
+            -2,
+            -9,
+            12,
+            -2,
+            -9,
+            12,
+            2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            NS,
+            Pu(44),
+            Pv(52),
+            Pu(48),
+            Pv(64),
+            -5,
+            24,
+            2,
+            -9,
+            24,
+            2,
+            -9,
+            12,
+            2,
+            -5,
+            12,
+            2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Pu(40),
+            Pv(52),
+            Pu(44),
+            Pv(64),
+            -5,
+            24,
+            -2,
+            -5,
+            24,
+            2,
+            -5,
+            12,
+            2,
+            -5,
+            12,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            TOP,
+            Pu(40),
+            Pv(52),
+            Pu(36),
+            Pv(48),
+            -9,
+            24,
+            -2,
+            -5,
+            24,
+            -2,
+            -5,
+            24,
+            2,
+            -9,
+            24,
+            2,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            BOT,
+            Pu(44),
+            Pv(48),
+            Pu(40),
+            Pv(52),
+            -9,
+            12,
+            2,
+            -5,
+            12,
+            2,
+            -5,
+            12,
+            -2,
+            -9,
+            12,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            NS,
+            Pu(4),
+            Pv(20),
+            Pu(8),
+            Pv(32),
+            -1.1,
+            12,
+            -2,
+            2.9,
+            12,
+            -2,
+            2.9,
+            0,
+            -2,
+            -1.1,
+            0,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Pu(0),
+            Pv(20),
+            Pu(4),
+            Pv(32),
+            -1.1,
+            12,
+            2,
+            -1.1,
+            12,
+            -2,
+            -1.1,
+            0,
+            -2,
+            -1.1,
+            0,
+            2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            NS,
+            Pu(12),
+            Pv(20),
+            Pu(16),
+            Pv(32),
+            2.9,
+            12,
+            2,
+            -1.1,
+            12,
+            2,
+            -1.1,
+            0,
+            2,
+            2.9,
+            0,
+            2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Pu(8),
+            Pv(20),
+            Pu(12),
+            Pv(32),
+            2.9,
+            12,
+            -2,
+            2.9,
+            12,
+            2,
+            2.9,
+            0,
+            2,
+            2.9,
+            0,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            TOP,
+            Pu(8),
+            Pv(20),
+            Pu(4),
+            Pv(16),
+            -1.1,
+            12,
+            -2,
+            2.9,
+            12,
+            -2,
+            2.9,
+            12,
+            2,
+            -1.1,
+            12,
+            2,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            BOT,
+            Pu(12),
+            Pv(16),
+            Pu(8),
+            Pv(20),
+            -1.1,
+            0,
+            2,
+            2.9,
+            0,
+            2,
+            2.9,
+            0,
+            -2,
+            -1.1,
+            0,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            NS,
+            Pu(20),
+            Pv(52),
+            Pu(24),
+            Pv(64),
+            -4.9,
+            12,
+            -2,
+            -0.9,
+            12,
+            -2,
+            -0.9,
+            0,
+            -2,
+            -4.9,
+            0,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Pu(16),
+            Pv(52),
+            Pu(20),
+            Pv(64),
+            -4.9,
+            12,
+            2,
+            -4.9,
+            12,
+            -2,
+            -4.9,
+            0,
+            -2,
+            -4.9,
+            0,
+            2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            NS,
+            Pu(28),
+            Pv(52),
+            Pu(32),
+            Pv(64),
+            -0.9,
+            12,
+            2,
+            -4.9,
+            12,
+            2,
+            -4.9,
+            0,
+            2,
+            -0.9,
+            0,
+            2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Pu(24),
+            Pv(52),
+            Pu(28),
+            Pv(64),
+            -0.9,
+            12,
+            -2,
+            -0.9,
+            12,
+            2,
+            -0.9,
+            0,
+            2,
+            -0.9,
+            0,
+            -2,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            TOP,
+            Pu(24),
+            Pv(52),
+            Pu(20),
+            Pv(48),
+            -4.9,
+            12,
+            -2,
+            -0.9,
+            12,
+            -2,
+            -0.9,
+            12,
+            2,
+            -4.9,
+            12,
+            2,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            BOT,
+            Pu(28),
+            Pv(48),
+            Pu(24),
+            Pv(52),
+            -4.9,
+            0,
+            2,
+            -0.9,
+            0,
+            2,
+            -0.9,
+            0,
+            -2,
+            -4.9,
+            0,
+            -2,
+          ),
+        );
+        const nQuads = verts.length / 24;
+        const indices = [];
+        for (let i = 0; i < nQuads; i++) {
+          const b = i * 4;
+          indices.push(b, b + 1, b + 2, b, b + 2, b + 3);
+        }
+        return {
+          verts: new Float32Array(verts),
+          indices: new Uint16Array(indices),
+        };
+      }
+
+      function buildCapeGeom() {
+        const x1 = -6,
+          x2 = 4,
+          y1 = 7.825,
+          y2 = 23.825,
+          z1 = 2,
+          z2 = 3;
+        const TOP = 1.0,
+          BOT = 0.85,
+          NS = 0.97,
+          EW = 0.88;
+        const verts = [];
+        verts.push(
+          ...quad(
+            NS,
+            Cu(12),
+            Cv(2),
+            Cu(22),
+            Cv(34),
+            x1,
+            y2,
+            z1,
+            x2,
+            y2,
+            z1,
+            x2,
+            y1,
+            z1,
+            x1,
+            y1,
+            z1,
+          ),
+        );
+        verts.push(
+          ...quad(
+            NS,
+            Cu(11),
+            Cv(2),
+            Cu(1),
+            Cv(34),
+            x2,
+            y2,
+            z2,
+            x1,
+            y2,
+            z2,
+            x1,
+            y1,
+            z2,
+            x2,
+            y1,
+            z2,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Cu(11),
+            Cv(2),
+            Cu(12),
+            Cv(34),
+            x2,
+            y2,
+            z1,
+            x2,
+            y2,
+            z2,
+            x2,
+            y1,
+            z2,
+            x2,
+            y1,
+            z1,
+          ),
+        );
+        verts.push(
+          ...quad(
+            EW,
+            Cu(0),
+            Cv(2),
+            Cu(1),
+            Cv(34),
+            x1,
+            y2,
+            z2,
+            x1,
+            y2,
+            z1,
+            x1,
+            y1,
+            z1,
+            x1,
+            y1,
+            z2,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            TOP,
+            Cu(11),
+            Cv(2),
+            Cu(1),
+            Cv(0),
+            x1,
+            y2,
+            z2,
+            x2,
+            y2,
+            z2,
+            x2,
+            y2,
+            z1,
+            x1,
+            y2,
+            z1,
+          ),
+        );
+        verts.push(
+          ...quadFlipped(
+            BOT,
+            Cu(21),
+            Cv(0),
+            Cu(11),
+            Cv(2),
+            x1,
+            y1,
+            z1,
+            x2,
+            y1,
+            z1,
+            x2,
+            y1,
+            z2,
+            x1,
+            y1,
+            z2,
+          ),
+        );
+        const nQuads = verts.length / 24;
+        const indices = [];
+        for (let i = 0; i < nQuads; i++) {
+          const b = i * 4;
+          indices.push(b, b + 1, b + 2, b, b + 2, b + 3);
+        }
+        return {
+          verts: new Float32Array(verts),
+          indices: new Uint16Array(indices),
+        };
+      }
+
+      function createFallbackSkin() {
+        const c = document.createElement("canvas");
+        c.width = 64;
+        c.height = 64;
+        const g = c.getContext("2d");
+        g.clearRect(0, 0, 64, 64);
+        g.fillStyle = "#c6854279";
+        g.fillRect(8, 8, 8, 8);
+        g.fillStyle = "#4664a0";
+        g.fillRect(20, 20, 8, 12);
+        g.fillStyle = "#c68542";
+        g.fillRect(44, 20, 4, 12);
+        g.fillRect(36, 52, 4, 12);
+        g.fillStyle = "#3c5082";
+        g.fillRect(4, 20, 4, 12);
+        g.fillRect(20, 52, 4, 12);
+        return c;
+      }
+
+      function uploadTexture(gl, src) {
+        const tex = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, tex);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        gl.texImage2D(
+          gl.TEXTURE_2D,
+          0,
+          gl.RGBA,
+          gl.RGBA,
+          gl.UNSIGNED_BYTE,
+          src,
+        );
+        return tex;
+      }
+
+      function makeBuffers(gl, geom) {
+        const vb = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, vb);
+        gl.bufferData(gl.ARRAY_BUFFER, geom.verts, gl.STATIC_DRAW);
+        const ib = gl.createBuffer();
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ib);
+        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, geom.indices, gl.STATIC_DRAW);
+        return { vb, ib, count: geom.indices.length };
+      }
+
+      function drawMesh(gl, prog, buf, mvp) {
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf.vb);
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buf.ib);
+        const aPos = gl.getAttribLocation(prog, "aPos"),
+          aUV = gl.getAttribLocation(prog, "aUV"),
+          aShade = gl.getAttribLocation(prog, "aShade");
+        const uMVP = gl.getUniformLocation(prog, "uMVP"),
+          uTex = gl.getUniformLocation(prog, "uTex");
+        gl.enableVertexAttribArray(aPos);
+        gl.vertexAttribPointer(aPos, 3, gl.FLOAT, false, 24, 0);
+        gl.enableVertexAttribArray(aUV);
+        gl.vertexAttribPointer(aUV, 2, gl.FLOAT, false, 24, 12);
+        gl.enableVertexAttribArray(aShade);
+        gl.vertexAttribPointer(aShade, 1, gl.FLOAT, false, 24, 20);
+        gl.uniformMatrix4fv(uMVP, false, mvp);
+        gl.uniform1i(uTex, 0);
+        gl.drawElements(gl.TRIANGLES, buf.count, gl.UNSIGNED_SHORT, 0);
+      }
+
+      function extractAlpha(onWhite, onBlack, w, h) {
+        const out = new Uint8ClampedArray(w * h * 4);
+        for (let i = 0; i < w * h; i++) {
+          const s = i * 4;
+          const wr = onWhite[s],
+            wg = onWhite[s + 1],
+            wb = onWhite[s + 2];
+          const br = onBlack[s],
+            bg = onBlack[s + 1],
+            bb = onBlack[s + 2];
+          let a = 255 - Math.round((wr - br + (wg - bg) + (wb - bb)) / 3);
+          a = Math.max(0, Math.min(255, a));
+          let R, G, B;
+          if (a === 0) {
+            R = G = B = 0;
+          } else {
+            const af = a / 255;
+            R = Math.max(0, Math.min(255, Math.round(br / af)));
+            G = Math.max(0, Math.min(255, Math.round(bg / af)));
+            B = Math.max(0, Math.min(255, Math.round(bb / af)));
+          }
+          out[s] = R;
+          out[s + 1] = G;
+          out[s + 2] = B;
+          out[s + 3] = a;
+        }
+        return new ImageData(out, w, h);
+      }
+
+      async function doRender() {
+        renderBtn.disabled = true;
+        renderLabel.innerHTML = '<span class="spinner"></span>Rendering…';
+        await new Promise((r) => setTimeout(r, 30));
+        try {
+          const SS = 4,
+            w = outputSize,
+            h = outputSize,
+            rw = w * SS,
+            rh = h * SS;
+          const offscreen = document.createElement("canvas");
+          const gl = createGL(offscreen, rw, rh);
+          const prog = buildProgram(gl);
+          gl.useProgram(prog);
+          const skinSrc = skinImg || createFallbackSkin();
+          const skinTex = uploadTexture(gl, skinSrc);
+          const capeTex = capeImg ? uploadTexture(gl, capeImg) : null;
+          const playerBuf = makeBuffers(gl, buildPlayerGeom());
+          const capeBuf = makeBuffers(gl, buildCapeGeom());
+          const proj = mat4Perspective(40, w / h, 0.1, 500);
+          const mv = mat4Mul(
+            mat4Mul(mat4RotX(17.75), mat4RotY(37)),
+            mat4Translate(17.575, -26.975, -20.45),
+          );
+          const mvp = mat4Mul(proj, mv);
+          const capeMVP = mat4Mul(
+            mvp,
+            mat4Mul(
+              mat4Mul(mat4Translate(0, 23.825, 2), mat4RotX(-12.0)),
+              mat4Translate(0, -23.825, -2),
+            ),
+          );
+          gl.enable(gl.DEPTH_TEST);
+          gl.enable(gl.BLEND);
+          gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+          gl.viewport(0, 0, rw, rh);
+          function drawScene() {
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D, skinTex);
+            drawMesh(gl, prog, playerBuf, mvp);
+            if (capeTex) {
+              gl.bindTexture(gl.TEXTURE_2D, capeTex);
+              drawMesh(gl, prog, capeBuf, capeMVP);
+            }
+          }
+          await new Promise((r) => setTimeout(r, 10));
+          gl.clearColor(1, 1, 1, 1);
+          gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+          drawScene();
+          const onWhite = new Uint8Array(rw * rh * 4);
+          gl.readPixels(0, 0, rw, rh, gl.RGBA, gl.UNSIGNED_BYTE, onWhite);
+          await new Promise((r) => setTimeout(r, 10));
+          gl.clearColor(0, 0, 0, 1);
+          gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+          drawScene();
+          const onBlack = new Uint8Array(rw * rh * 4);
+          gl.readPixels(0, 0, rw, rh, gl.RGBA, gl.UNSIGNED_BYTE, onBlack);
+          function flipY(arr, width, height) {
+            const rb = width * 4,
+              f = new Uint8Array(arr.length);
+            for (let y = 0; y < height; y++) {
+              const s = (height - 1 - y) * rb,
+                d = y * rb;
+              f.set(arr.subarray(s, s + rb), d);
+            }
+            return f;
+          }
+          await new Promise((r) => setTimeout(r, 10));
+          const large = extractAlpha(
+            flipY(onWhite, rw, rh),
+            flipY(onBlack, rw, rh),
+            rw,
+            rh,
+          );
+          const tmpCanvas = document.createElement("canvas");
+          tmpCanvas.width = rw;
+          tmpCanvas.height = rh;
+          tmpCanvas.getContext("2d").putImageData(large, 0, 0);
+          outputCanvas.width = w;
+          outputCanvas.height = h;
+          outCtx.clearRect(0, 0, w, h);
+          outCtx.imageSmoothingEnabled = true;
+          outCtx.imageSmoothingQuality = "high";
+          outCtx.drawImage(tmpCanvas, 0, 0, w, h);
+          lastResult = outCtx.getImageData(0, 0, w, h);
+          dlBtn.disabled = false;
+        } catch (e) {
+          console.error(e);
+        } finally {
+          renderBtn.disabled = false;
+          renderLabel.textContent = "Render";
+        }
+      }
+
+      dlBtn.addEventListener("click", () => {
+        if (!lastResult) return;
+        const tmp = document.createElement("canvas");
+        tmp.width = outputCanvas.width;
+        tmp.height = outputCanvas.height;
+        tmp.getContext("2d").putImageData(lastResult, 0, 0);
+        const a = document.createElement("a");
+        a.href = tmp.toDataURL("image/png");
+        a.download = `cape_thumb_${outputCanvas.width}x${outputCanvas.height}.png`;
+        a.click();
+      });
+
+      renderBtn.addEventListener("click", doRender);
+    </script>
+    <script src="../../js/shared.js"></script>
+    <script>
+      initSharedComponents({ activePath: "/tools/" });
+    </script>
+  </body>
+</html>
