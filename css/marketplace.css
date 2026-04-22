@@ -208,7 +208,7 @@ body {
 /* Expand on hover — desktop only */
 @media (min-width: 769px) {
   .mc-sidebar:hover {
-    width: 180px;
+    width: 156px;
   }
   .mc-sidebar:hover .mc-sidebar-label {
     opacity: 1;
