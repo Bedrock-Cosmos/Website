@@ -1238,10 +1238,16 @@
 
       loadPack();
 
-    </script>
-    <script src="../js/shared.js"></script>
-    <script>
-      initSharedComponents({ activePath: "/skinpacks/", starCount: 180 });
+      // ── Stars ───────────────────────────────────────────────────────────────
+
+      setInterval(() => {
+        const s = document.createElement("div");
+        s.className = "shooting-star";
+        s.style.left = Math.random() * 100 + "%";
+        s.style.top = Math.random() * 50 + "%";
+        starsContainer.appendChild(s);
+        setTimeout(() => s.remove(), 3000);
+      }, 2000);
     </script>
     <script>
       function toggleMobileSidebar() {
