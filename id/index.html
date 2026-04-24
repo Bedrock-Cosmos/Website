@@ -180,10 +180,7 @@
         background: rgba(248, 113, 113, 0.85);
       }
 
-      /* ── Accent colour override → purple ──────────────────────────────────── */
-      :root {
-        --mc-accent: #5b21b6;
-      }
+      /* ── Accent colour: inherits blue from marketplace.css ───────────────── */
 
       /* ── Footer z-index so stars don't bleed through ───────────────────────── */
       footer {
@@ -191,10 +188,13 @@
         z-index: 10;
       }
 
-      /* ── Pack Card — Minecraft Marketplace Layout ─────────────────────────── */
+      /* ══════════════════════════════════════════════════════════════════════
+         Pack Card — Redesigned Hero (Desktop-first)
+         ══════════════════════════════════════════════════════════════════════ */
+
       .pack-page {
         padding: 2.5rem 2.5rem 4rem;
-        max-width: 1100px;
+        max-width: 1200px;
         margin: 0 auto;
         width: 100%;
       }
@@ -206,154 +206,181 @@
         width: 100%;
       }
 
+      /* ── Hero: cinematic split layout ────────────────────────────────────── */
       .pack-hero {
         display: grid;
-        grid-template-columns: minmax(260px, 55%) 1fr;
-        gap: 2rem;
-        align-items: center;
-      }
-
-      /* ── Thumbnail: dark bg + thick dark border frame like MC marketplace ── */
-      .pack-thumbnail-wrap {
-        background: transparent;
+        grid-template-columns: minmax(0, 58%) 1fr;
+        gap: 0;
+        align-items: stretch;
+        border: 1px solid var(--mc-border);
+        border-radius: 4px;
+        overflow: hidden;
+        background: var(--mc-panel);
         position: relative;
       }
 
+      /* No glow pseudo-element needed */
+      .pack-hero::before {
+        display: none;
+      }
+
+      /* ── Thumbnail side ──────────────────────────────────────────────────── */
+      .pack-thumbnail-wrap {
+        background: #111114;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+      }
+
       .pack-thumbnail-frame {
-        border: 3px solid #1a1a1a;
-        outline: 2px solid #3a3a3a;
-        box-shadow: 0 0 0 5px #1a1a1a, 4px 4px 0 5px #0a0a0a;
         overflow: hidden;
         display: block;
         line-height: 0;
-        background: #0a0a0a;
+        background: #111114;
+        height: 100%;
       }
 
       .pack-thumbnail-frame img {
         width: 100%;
-        height: auto;
+        height: 100%;
+        min-height: 320px;
         aspect-ratio: 16/9;
         object-fit: cover;
         display: block;
       }
 
-      /* ── Right info panel ─────────────────────────────────────────────────── */
+      .pack-thumbnail-wrap:hover .pack-thumbnail-frame img {
+      }
+
+      /* ── Info panel ──────────────────────────────────────────────────────── */
       .pack-info {
-        padding: 2rem 2.2rem;
-        gap: 1.2rem;
+        padding: 2.5rem 2.4rem 2.5rem 2.6rem;
+        gap: 0;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
       }
 
-      .pack-type-badge {
-        background: var(--mc-panel2);
-        border: 1px solid var(--mc-border);
-        border-radius: 0;
-        color: var(--mc-muted);
-        font-size: 0.7rem;
-        letter-spacing: 0.1em;
-        padding: 0.25rem 0.6rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        align-self: flex-start;
-      }
 
+      /* ── Pack title ──────────────────────────────────────────────────────── */
       .pack-name {
-        font-size: 2rem;
-        font-weight: 800;
+        font-size: 2.05rem;
+        font-weight: 900;
         color: var(--mc-text);
-        line-height: 1.15;
-        text-shadow: none !important;
-        margin: 0;
+        line-height: 1.1;
+        text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+        margin: 0 0 1rem 0;
+        letter-spacing: -0.01em;
       }
 
+      /* ── Description ─────────────────────────────────────────────────────── */
       .pack-description {
         color: var(--mc-muted);
-        font-size: 0.92rem;
-        line-height: 1.65;
+        font-size: 0.875rem;
+        line-height: 1.72;
         border-left: 2px solid var(--mc-border);
-        padding-left: 0.9rem;
-        margin: 0;
+        padding-left: 0.85rem;
+        margin: 0 0 1.5rem 0;
       }
 
+      /* ── Meta table ──────────────────────────────────────────────────────── */
       .pack-meta {
         display: flex;
         flex-direction: column;
         gap: 0;
+        margin-bottom: 1.8rem;
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 3px;
+        overflow: hidden;
       }
 
       .meta-row {
         display: flex;
         align-items: center;
-        padding: 0.55rem 0;
-        border-bottom: 1px solid var(--mc-border);
-        gap: 1rem;
+        padding: 0.52rem 0.85rem;
+        gap: 0.75rem;
+        background: rgba(255,255,255,0.025);
+        transition: background 0.15s;
+      }
+
+      .meta-row:not(:last-child) {
+        border-bottom: 1px solid rgba(255,255,255,0.055);
+      }
+
+      .meta-row:hover {
+        background: rgba(139,92,246,0.07);
       }
 
       .meta-label {
         color: var(--mc-muted);
-        min-width: 80px;
-        font-size: 0.75rem;
+        min-width: 78px;
+        font-size: 0.68rem;
         font-weight: 700;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
+        flex-shrink: 0;
+      }
+
+      /* Thin separator between label and value */
+      .meta-row::after {
+        display: none;
       }
 
       .meta-value {
         color: var(--mc-text);
-        font-size: 0.88rem;
+        font-size: 0.84rem;
+        font-weight: 600;
       }
 
       .meta-value a {
-        color: var(--mc-accent);
+        color: #a78bfa;
         border-bottom: none;
-        transition: opacity 0.15s;
+        transition: color 0.15s;
         text-decoration: none;
       }
 
       .meta-value a:hover {
-        opacity: 0.75;
+        color: #c4b5fd;
       }
 
+      /* ── CTA Button ──────────────────────────────────────────────────────── */
       .pack-actions {
-        margin-top: 0.5rem;
+        margin-top: 0;
       }
 
       .btn-open-minecraft {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        background: var(--mc-accent);
+        gap: 0.6rem;
+        background: #5b21b6;
         color: #fff;
-        border: none;
-        border-radius: 0;
-        font-size: 0.88rem;
-        font-weight: 700;
-        padding: 0.75rem 1.75rem;
+        border: 1px solid rgba(139,92,246,0.35);
+        border-radius: 3px;
+        font-size: 0.85rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        padding: 0.82rem 2rem;
         text-decoration: none;
-        transition: background 0.15s;
         cursor: pointer;
       }
 
       .btn-open-minecraft svg {
-        width: 16px;
-        height: 16px;
+        width: 15px;
+        height: 15px;
         flex-shrink: 0;
+        opacity: 0.9;
       }
 
-      .btn-open-minecraft:hover {
-        transform: none;
-        box-shadow: none;
-        background: #4c1d95;
-      }
-
+      /* ── Skin grid title ─────────────────────────────────────────────────── */
       .skin-grid-title {
-        font-size: 0.78rem;
+        font-size: 0.7rem;
         font-weight: 800;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: var(--mc-muted);
-        margin-top: 2rem;
+        color: rgba(160,155,195,0.6);
+        margin-top: 2.5rem;
         margin-bottom: 0.75rem;
       }
 
@@ -423,13 +450,19 @@
       @media (max-width: 860px) {
         .pack-hero {
           grid-template-columns: 1fr;
-          gap: 1rem;
+          gap: 0;
+          border-radius: 3px;
         }
-        .pack-thumbnail-frame {
-          max-height: 280px;
+        .pack-thumbnail-wrap::after {
+          display: none;
+        }
+        .pack-thumbnail-frame img {
+          min-height: unset;
+          aspect-ratio: 16/9;
+          height: auto;
         }
         .pack-info {
-          padding: 1.5rem 1.25rem;
+          padding: 1.6rem 1.4rem;
         }
         .pack-page {
           padding: 1.5rem 1rem 3rem;
@@ -438,7 +471,10 @@
           grid-template-columns: repeat(4, 1fr);
         }
         .pack-name {
-          font-size: 1.4rem;
+          font-size: 1.45rem;
+        }
+        .pack-hero::before {
+          background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(91,33,182,0.14) 0%, transparent 70%);
         }
       }
       @media (max-width: 500px) {
@@ -703,8 +739,6 @@
 
             <!-- Right: info panel -->
             <div class="pack-info">
-              <span class="pack-type-badge" id="pack-type-badge"></span>
-
               <h1 class="pack-name" id="pack-name"></h1>
 
               <p class="pack-description" id="pack-description"></p>
@@ -812,8 +846,6 @@
       const INDEX_URL = "https://bedrock-cosmos.app/skinpacks/skins.json";
       // Catalog: maps UUID → skins array (split out from index.json)
       const CATALOG_URL = "https://bedrock-cosmos.app/id/catalog_list.json";
-      // Slug index: maps slug → UUID
-      const SLUG_INDEX_URL = "https://bedrock-cosmos.app/skinpacks/slug-index.json";
       const PACK_TYPE_LABELS = {
         SkinPack: "Skin Pack",
         WorldTemplate: "World",
@@ -823,39 +855,9 @@
       };
       // ────────────────────────────────────────────────────────────────────────
 
-      /**
-       * Resolve the pack UUID from whichever source is available:
-       *  1. data-uuid on #skin-grid  (injected by the Cloudflare Worker — fastest, no extra fetch)
-       *  2. ?pack=<uuid>             (legacy query-string URLs)
-       *  3. /skinpacks/<slug>        (pretty URLs — requires slug-index.json lookup)
-       */
-      async function resolveUuid() {
-        // 1. Worker already did the work — grab it from the DOM
-        const injected = document.getElementById("skin-grid")?.dataset?.uuid;
-        if (injected) return injected;
-
-        // 2. Legacy query param
-        const fromQs = new URLSearchParams(window.location.search).get("pack");
-        if (fromQs) return fromQs;
-
-        // 3. Slug path: /skinpacks/<slug>
-        const slugMatch = window.location.pathname.match(/\/skinpacks\/([a-z0-9][a-z0-9-]+[a-z0-9])$/);
-        if (slugMatch) {
-          const slug = slugMatch[1];
-          const res = await fetch(SLUG_INDEX_URL);
-          if (!res.ok) throw new Error("Slug index fetch failed");
-          const slugIndex = await res.json();
-          const uuid = slugIndex[slug];
-          if (!uuid) throw new Error(`Unknown slug: ${slug}`);
-          return uuid;
-        }
-
-        return null;
-      }
-
       async function loadPack() {
-        // 1. Resolve UUID
-        const uuid = await resolveUuid();
+        // 1. Get the UUID from ?pack=<uuid>
+        const uuid = new URLSearchParams(window.location.search).get("pack");
 
         if (!uuid) {
           showError("No pack ID specified.");
@@ -957,20 +959,15 @@
           const pageTitle = `${title} | Minecraft Bedrock Skin Pack`;
           document.title = pageTitle;
 
-          // Canonical URL — prefer slug path, fall back to current href
-          const slugPath = entry?.slug
-            ? `https://bedrock-cosmos.app/skinpacks/${entry.slug}`
-            : window.location.href;
-
           // Update Standard SEO
-          setMeta("description", description, "name"); // Updates the meta name="description"
-          setCanonical(slugPath);
+          setMeta("description", description, "name");
+          setCanonical(window.location.href);
 
           // Update Open Graph (Facebook/Discord)
           setMeta("og:title", title);
           setMeta("og:description", description);
           setMeta("og:image", thumbnail?.url ?? "");
-          setMeta("og:url", slugPath);
+          setMeta("og:url", window.location.href);
 
           // Update Twitter
           setMeta("twitter:title", title, "name");
@@ -989,7 +986,7 @@
             name: title,
             description: description,
             image: thumbnail?.url ?? "",
-            url: slugPath,
+            url: window.location.href,
             releaseDate: item.startDate
               ? item.startDate.split("T")[0]
               : undefined,
@@ -1011,7 +1008,7 @@
               : {}),
             offers: {
               "@type": "Offer",
-              url: slugPath,
+              url: window.location.href,
               availability: "https://schema.org/InStock",
               price: listPrice > 0 ? listPrice : "0",
               priceCurrency: "USD",
@@ -1037,8 +1034,6 @@
 
           document.getElementById("pack-thumbnail").src = thumbnail?.url ?? "";
           document.getElementById("pack-thumbnail").alt = title;
-          document.getElementById("pack-type-badge").textContent =
-            PACK_TYPE_LABELS[packType] ?? packType ?? "Pack";
           document.getElementById("pack-name").textContent = title;
           document.getElementById("pack-description").textContent = description;
 
@@ -1238,16 +1233,10 @@
 
       loadPack();
 
-      // ── Stars ───────────────────────────────────────────────────────────────
-
-      setInterval(() => {
-        const s = document.createElement("div");
-        s.className = "shooting-star";
-        s.style.left = Math.random() * 100 + "%";
-        s.style.top = Math.random() * 50 + "%";
-        starsContainer.appendChild(s);
-        setTimeout(() => s.remove(), 3000);
-      }, 2000);
+    </script>
+    <script src="../js/shared.js"></script>
+    <script>
+      initSharedComponents({ activePath: "/skinpacks/", starCount: 180 });
     </script>
     <script>
       function toggleMobileSidebar() {

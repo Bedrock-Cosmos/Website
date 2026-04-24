@@ -1850,7 +1850,6 @@ footer {
 
 .btn-open-minecraft:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
 }
 
 .btn-open-minecraft svg {
