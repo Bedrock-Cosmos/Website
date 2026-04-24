@@ -1131,7 +1131,7 @@ footer {
   width: 100%;
   max-width: 210px;
   aspect-ratio: 3/4;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   border: 1px solid var(--capes-border);
   background: radial-gradient(
     ellipse at 50% 70%,
@@ -1318,7 +1318,7 @@ footer {
   width: 100%;
   background: var(--capes-surface);
   border: 1px solid var(--capes-border);
-  border-radius: 9px;
+  /* border-radius: 9px; */
   padding: 0.65rem 1rem 0.65rem 2.5rem;
   color: var(--mc-text);
   font-size: 0.9rem;
@@ -1335,7 +1335,7 @@ footer {
 .filter-select {
   background: var(--capes-surface);
   border: 1px solid var(--capes-border);
-  border-radius: 9px;
+  /* border-radius: 9px; */
   padding: 0.65rem 2.2rem 0.65rem 1rem;
   color: #bbb;
   font-family: "Outfit", sans-serif;
@@ -1397,7 +1397,7 @@ footer {
   object-fit: contain;
   image-rendering: pixelated;
   padding: 8px;
-  transition: transform 0.22s ease;
+  /* transition: transform 0.22s ease; */
 }
 .cape-card:hover .cape-img-wrap img {
   transform: scale(1.08);
