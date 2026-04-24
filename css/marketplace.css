@@ -1722,10 +1722,6 @@ footer {
   transition: all 0.3s;
 }
 
-.pack-card:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.05);
-}
 
 .pack-hero {
   display: flex;
@@ -1744,12 +1740,7 @@ footer {
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  transition: transform 0.5s ease;
   filter: brightness(1.1);
-}
-
-.pack-card:hover .pack-thumbnail-wrap img {
-  transform: scale(1.04);
 }
 
 .pack-info {
@@ -1872,11 +1863,6 @@ footer {
   .pack-hero {
     flex-direction: column;
     min-height: unset;
-  }
-  .pack-thumbnail-wrap {
-    flex: unset;
-    width: 100%;
-    height: 240px;
   }
   .pack-info {
     padding: 1.5rem;
@@ -2009,10 +1995,9 @@ footer {
 /* Skin grid */
 .skin-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 1px;
   margin-top: 0.5rem;
-  border: 1px solid var(--mc-border);
 }
 .skin-card {
   background: var(--mc-panel);
@@ -2022,6 +2007,7 @@ footer {
   cursor: default;
   position: relative;
   transition: background 0.15s ease;
+  border: 1px solid var(--mc-border);
 }
 .skin-card:hover {
   background: var(--mc-panel2);

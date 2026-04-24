@@ -5,39 +5,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
-    <meta
-      name="keywords"
-      content="Minecraft, Bedrock, Marketplace, Launcher, Proxy, Custom Capes, Legacy Skin Packs, Custom Skins"
-    />
+    <meta name="keywords" content="" />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="" />
-    <script>
-      (function () {
-        var link = document.querySelector("link[rel='canonical']");
-        if (link) link.href = window.location.href;
-      })();
-    </script>
     <!-- Open Graph -->
     <meta content="Bedrock Cosmos" property="og:site_name" />
     <meta content="en" property="og:locale" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="product" />
     <meta property="og:title" content="" />
     <meta property="og:description" content="" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
-    <meta property="og:image:width" content="420" />
-    <meta property="og:image:height" content="95" />
+    <meta property="og:image:width" content="" />
+    <meta property="og:image:height" content="" />
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@BedrockCosmos" />
     <meta name="twitter:title" content="" />
     <meta name="twitter:description" content="" />
     <meta name="twitter:image" content="" />
     <meta name="twitter:creator" content="" />
     <meta content="bedrock-cosmos.app" name="twitter:domain" />
-    <link
-      href="https://bedrock-cosmos.app/"
-      hreflang="x-default"
-      rel="alternate"
-    />
+    <link href="https://bedrock-cosmos.app/" hreflang="x-default" rel="alternate" />
     <meta name="theme-color" content="#5b21b6" />
     <title>Loading&#8230; | Bedrock Cosmos</title>
     <link rel="stylesheet" href="../css/marketplace.css" />
@@ -53,20 +42,19 @@
 
       .skin-grid {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 1px;
+        grid-template-columns: repeat(7, 1fr);
         margin-top: 0.5rem;
-        border: 1px solid var(--mc-border);
       }
 
       .skin-card {
         background: var(--mc-panel);
-        border: none;
+        border: 1px solid var(--mc-border);
         border-radius: 0;
         overflow: hidden;
         cursor: default;
         position: relative;
         transition: background 0.15s ease;
+        margin: 0 -1px -1px 0;
       }
 
       .skin-card:hover {
@@ -203,61 +191,58 @@
         z-index: 10;
       }
 
-      /* ── Pack Card Redesign ────────────────────────────────────────────────── */
+      /* ── Pack Card — Minecraft Marketplace Layout ─────────────────────────── */
       .pack-page {
         padding: 2.5rem 2.5rem 4rem;
-        align-items: stretch;
         max-width: 1100px;
         margin: 0 auto;
         width: 100%;
       }
 
       .pack-card {
-        background: var(--mc-panel);
-        border: 2px solid var(--mc-border);
-        border-radius: 0;
-        overflow: hidden;
-        transition: border-color 0.15s;
+        background: transparent;
+        border: none;
+        box-shadow: none !important;
         width: 100%;
-      }
-
-      .pack-card:hover {
-        border-color: var(--mc-accent);
-        background: var(--mc-panel);
       }
 
       .pack-hero {
         display: grid;
-        grid-template-columns: minmax(260px, 40%) 1fr;
-        min-height: unset;
-        align-items: stretch;
+        grid-template-columns: minmax(260px, 55%) 1fr;
+        gap: 2rem;
+        align-items: center;
       }
 
+      /* ── Thumbnail: dark bg + thick dark border frame like MC marketplace ── */
       .pack-thumbnail-wrap {
-        background: #0a0a0a;
-        border-right: 2px solid var(--mc-border);
-        min-height: 380px;
+        background: transparent;
         position: relative;
+      }
+
+      .pack-thumbnail-frame {
+        border: 3px solid #1a1a1a;
+        outline: 2px solid #3a3a3a;
+        box-shadow: 0 0 0 5px #1a1a1a, 4px 4px 0 5px #0a0a0a;
         overflow: hidden;
-      }
-
-      .pack-thumbnail-wrap img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
         display: block;
-        transition: none;
-        filter: none;
+        line-height: 0;
+        background: #0a0a0a;
       }
 
-      .pack-card:hover .pack-thumbnail-wrap img {
-        transform: none;
+      .pack-thumbnail-frame img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        display: block;
       }
 
+      /* ── Right info panel ─────────────────────────────────────────────────── */
       .pack-info {
         padding: 2rem 2.2rem;
         gap: 1.2rem;
+        display: flex;
+        flex-direction: column;
       }
 
       .pack-type-badge {
@@ -267,6 +252,10 @@
         color: var(--mc-muted);
         font-size: 0.7rem;
         letter-spacing: 0.1em;
+        padding: 0.25rem 0.6rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        align-self: flex-start;
       }
 
       .pack-name {
@@ -274,7 +263,8 @@
         font-weight: 800;
         color: var(--mc-text);
         line-height: 1.15;
-        text-shadow: none;
+        text-shadow: none !important;
+        margin: 0;
       }
 
       .pack-description {
@@ -283,17 +273,18 @@
         line-height: 1.65;
         border-left: 2px solid var(--mc-border);
         padding-left: 0.9rem;
-      }
-
-      .pack-divider {
-        background: var(--mc-border);
+        margin: 0;
       }
 
       .pack-meta {
+        display: flex;
+        flex-direction: column;
         gap: 0;
       }
 
       .meta-row {
+        display: flex;
+        align-items: center;
         padding: 0.55rem 0;
         border-bottom: 1px solid var(--mc-border);
         gap: 1rem;
@@ -302,48 +293,58 @@
       .meta-label {
         color: var(--mc-muted);
         min-width: 80px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       .meta-value {
         color: var(--mc-text);
+        font-size: 0.88rem;
       }
 
       .meta-value a {
         color: var(--mc-accent);
         border-bottom: none;
         transition: opacity 0.15s;
+        text-decoration: none;
       }
 
       .meta-value a:hover {
         opacity: 0.75;
-        border-bottom: none;
       }
 
       .pack-actions {
-        justify-content: flex-start;
+        margin-top: 0.5rem;
       }
 
       .btn-open-minecraft {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
         background: var(--mc-accent);
         color: #fff;
         border: none;
         border-radius: 0;
         font-size: 0.88rem;
+        font-weight: 700;
         padding: 0.75rem 1.75rem;
+        text-decoration: none;
         transition: background 0.15s;
+        cursor: pointer;
+      }
+
+      .btn-open-minecraft svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
       }
 
       .btn-open-minecraft:hover {
         transform: none;
         box-shadow: none;
         background: #4c1d95;
-      }
-
-      .pack-card {
-        box-shadow: none !important;
-      }
-      .pack-name {
-        text-shadow: none !important;
       }
 
       .skin-grid-title {
@@ -422,11 +423,13 @@
       @media (max-width: 860px) {
         .pack-hero {
           grid-template-columns: 1fr;
+          gap: 1rem;
         }
-        .pack-thumbnail-wrap {
-          min-height: 220px;
-          border-right: none;
-          border-bottom: 2px solid var(--mc-border);
+        .pack-thumbnail-frame {
+          max-height: 280px;
+        }
+        .pack-info {
+          padding: 1.5rem 1.25rem;
         }
         .pack-page {
           padding: 1.5rem 1rem 3rem;
@@ -434,8 +437,8 @@
         .skin-grid {
           grid-template-columns: repeat(4, 1fr);
         }
-        .pack-actions {
-          justify-content: center;
+        .pack-name {
+          font-size: 1.4rem;
         }
       }
       @media (max-width: 500px) {
@@ -691,10 +694,14 @@
       <div class="pack-page">
         <div class="pack-card" id="pack-card" style="display: none">
           <div class="pack-hero">
+            <!-- Left: framed thumbnail -->
             <div class="pack-thumbnail-wrap">
-              <img id="pack-thumbnail" src="" alt="thumbnail" loading="eager" />
+              <div class="pack-thumbnail-frame">
+                <img id="pack-thumbnail" src="" alt="thumbnail" loading="eager" />
+              </div>
             </div>
 
+            <!-- Right: info panel -->
             <div class="pack-info">
               <span class="pack-type-badge" id="pack-type-badge"></span>
 
@@ -801,11 +808,12 @@
 
     <script>
       // ── Config ──────────────────────────────────────────────────────────────
-      // Master index: maps UUID → JSON filename (all files in the same folder)
+      // Master index: maps UUID → pack metadata
       const INDEX_URL = "https://bedrock-cosmos.app/skinpacks/skins.json";
-      const PACKS_BASE =
-        "https://raw.githubusercontent.com/Bedrock-Cosmos/Responses/main/SkinPacks/";
-
+      // Catalog: maps UUID → skins array (split out from index.json)
+      const CATALOG_URL = "https://bedrock-cosmos.app/id/catalog_list.json";
+      // Slug index: maps slug → UUID
+      const SLUG_INDEX_URL = "https://bedrock-cosmos.app/skinpacks/slug-index.json";
       const PACK_TYPE_LABELS = {
         SkinPack: "Skin Pack",
         WorldTemplate: "World",
@@ -815,9 +823,39 @@
       };
       // ────────────────────────────────────────────────────────────────────────
 
+      /**
+       * Resolve the pack UUID from whichever source is available:
+       *  1. data-uuid on #skin-grid  (injected by the Cloudflare Worker — fastest, no extra fetch)
+       *  2. ?pack=<uuid>             (legacy query-string URLs)
+       *  3. /skinpacks/<slug>        (pretty URLs — requires slug-index.json lookup)
+       */
+      async function resolveUuid() {
+        // 1. Worker already did the work — grab it from the DOM
+        const injected = document.getElementById("skin-grid")?.dataset?.uuid;
+        if (injected) return injected;
+
+        // 2. Legacy query param
+        const fromQs = new URLSearchParams(window.location.search).get("pack");
+        if (fromQs) return fromQs;
+
+        // 3. Slug path: /skinpacks/<slug>
+        const slugMatch = window.location.pathname.match(/\/skinpacks\/([a-z0-9][a-z0-9-]+[a-z0-9])$/);
+        if (slugMatch) {
+          const slug = slugMatch[1];
+          const res = await fetch(SLUG_INDEX_URL);
+          if (!res.ok) throw new Error("Slug index fetch failed");
+          const slugIndex = await res.json();
+          const uuid = slugIndex[slug];
+          if (!uuid) throw new Error(`Unknown slug: ${slug}`);
+          return uuid;
+        }
+
+        return null;
+      }
+
       async function loadPack() {
-        // 1. Get the UUID from ?pack=<uuid>
-        const uuid = new URLSearchParams(window.location.search).get("pack");
+        // 1. Resolve UUID
+        const uuid = await resolveUuid();
 
         if (!uuid) {
           showError("No pack ID specified.");
@@ -825,13 +863,20 @@
         }
 
         try {
-          // 2. Fetch master index and look up the filename for this UUID
-          const indexRes = await fetch(INDEX_URL);
+          // 2. Fetch skins.json (pack metadata) and catalog_list (skin arrays) in parallel
+          const [indexRes, catalogRes] = await Promise.all([
+            fetch(INDEX_URL),
+            fetch(CATALOG_URL),
+          ]);
           if (!indexRes.ok)
             throw new Error(`Index fetch failed: HTTP ${indexRes.status}`);
-          const index = await indexRes.json();
+          if (!catalogRes.ok)
+            throw new Error(`Catalog fetch failed: HTTP ${catalogRes.status}`);
 
-          // New skins.json format: lookup is under packIndex, base URLs under packsBases
+          const index = await indexRes.json();
+          const catalog = await catalogRes.json();
+
+          // skins.json format: pack lookup is under packIndex, base URLs under packsBases
           const packIndex = index.packIndex ?? index;
           const packsBases = index.packsBases ?? {
             skinpacks:
@@ -842,6 +887,11 @@
 
           const entry = packIndex[uuid];
           if (!entry) throw new Error(`Unknown pack ID: ${uuid}`);
+
+          // Merge skins from catalog_list into the entry (catalog is { uuid: skins[] })
+          if (!entry.skins && catalog[uuid]) {
+            entry.skins = catalog[uuid];
+          }
 
           // Support both old flat-string format and new { file, category } object
           const filename = entry?.file ?? entry;
@@ -907,15 +957,20 @@
           const pageTitle = `${title} | Minecraft Bedrock Skin Pack`;
           document.title = pageTitle;
 
+          // Canonical URL — prefer slug path, fall back to current href
+          const slugPath = entry?.slug
+            ? `https://bedrock-cosmos.app/skinpacks/${entry.slug}`
+            : window.location.href;
+
           // Update Standard SEO
           setMeta("description", description, "name"); // Updates the meta name="description"
-          setCanonical(window.location.href);
+          setCanonical(slugPath);
 
           // Update Open Graph (Facebook/Discord)
           setMeta("og:title", title);
           setMeta("og:description", description);
           setMeta("og:image", thumbnail?.url ?? "");
-          setMeta("og:url", window.location.href);
+          setMeta("og:url", slugPath);
 
           // Update Twitter
           setMeta("twitter:title", title, "name");
@@ -934,7 +989,7 @@
             name: title,
             description: description,
             image: thumbnail?.url ?? "",
-            url: window.location.href,
+            url: slugPath,
             releaseDate: item.startDate
               ? item.startDate.split("T")[0]
               : undefined,
@@ -956,10 +1011,10 @@
               : {}),
             offers: {
               "@type": "Offer",
-              url: window.location.href,
+              url: slugPath,
               availability: "https://schema.org/InStock",
               price: listPrice > 0 ? listPrice : "0",
-              priceCurrency: "Minecoin",
+              priceCurrency: "USD",
             },
             additionalProperty: Object.entries(statistics ?? {})
               .filter(([, v]) => v > 0)
@@ -1183,16 +1238,10 @@
 
       loadPack();
 
-      // ── Stars ───────────────────────────────────────────────────────────────
-
-      setInterval(() => {
-        const s = document.createElement("div");
-        s.className = "shooting-star";
-        s.style.left = Math.random() * 100 + "%";
-        s.style.top = Math.random() * 50 + "%";
-        starsContainer.appendChild(s);
-        setTimeout(() => s.remove(), 3000);
-      }, 2000);
+    </script>
+    <script src="../js/shared.js"></script>
+    <script>
+      initSharedComponents({ activePath: "/skinpacks/", starCount: 180 });
     </script>
     <script>
       function toggleMobileSidebar() {
