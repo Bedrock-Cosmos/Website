@@ -26,7 +26,7 @@
     <meta property="og:url" content="https://bedrock-cosmos.app/" />
     <meta
       property="og:image"
-      content="https://bedrock-cosmos.app/imgs/home.png"
+      content="https://bedrock-cosmos.app/imgs/home/home.png"
     />
     <meta property="og:image:width" content="1920" />
     <meta property="og:image:height" content="1080" />
@@ -42,7 +42,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://bedrock-cosmos.app/imgs/home.png"
+      content="https://bedrock-cosmos.app/imgs/home/home.png"
     />
     <meta
       name="twitter:image:alt"
@@ -81,7 +81,7 @@
         "softwareVersion": "1.0.1",
         "operatingSystem": "Windows 10, Windows 11",
         "applicationCategory": "GameApplication",
-        "screenshot": "https://bedrock-cosmos.app/imgs/home.png",
+        "screenshot": "https://bedrock-cosmos.app/imgs/home/home.png",
         "featureList": "Custom Capes, Custom Skin Packs, Marketplace Highlights, Restored Content, Open Source, Lightweight",
         "keywords": "Minecraft Bedrock custom capes, Minecraft Bedrock skin packs, Bedrock Edition proxy, Minecraft cosmetics",
         "inLanguage": "en",
@@ -515,11 +515,13 @@
         font-size: 0.85rem;
         font-weight: 800;
         color: var(--mc-text);
+        text-align: center;
       }
       .feature-card-item p {
         font-size: 0.78rem;
         color: var(--mc-muted);
         line-height: 1.55;
+        text-align: center;
       }
       .info-section {
         overflow: hidden;
@@ -565,6 +567,7 @@
       .info-section-text {
         padding: 18px 20px;
         min-width: 0;
+        text-align: center;
       }
       .info-section-text h2 {
         font-size: 0.95rem;
@@ -790,7 +793,7 @@
               class="btn-download"
               id="download-btn"
             >
-              &#x2193; Download for Windows
+              Download for Windows
             </a>
             <a
               href="https://discord.com/invite/HRG2NapegP"
@@ -841,10 +844,10 @@
             <div class="info-section">
               <div
                 class="info-section-img image-carousel"
-                data-images='["./imgs/img_1.png"]'
+                data-images='["./imgs/home/cape-showcase-1.png", "./imgs/home/cape-showcase-2.png", "./imgs/home/cape-showcase-3.png", "./imgs/home/cape-showcase-4.png"]'
               >
                 <img
-                  src="./imgs/img_1.png"
+                  src="./imgs/home/cape-showcase-1.png"
                   alt="Minecraft Bedrock Custom Capes"
                   class="carousel-img active"
                   loading="lazy"
@@ -866,10 +869,10 @@
             <div class="info-section">
               <div
                 class="info-section-img image-carousel"
-                data-images='["./imgs/img_2.png"]'
+                data-images='["./imgs/home/marketplace-1.png", "./imgs/home/marketplace-2.png", "./imgs/home/marketplace-3.png", "./imgs/home/marketplace-4.png", "./imgs/home/marketplace-5.png"]'
               >
                 <img
-                  src="./imgs/img_2.png"
+                  src="./imgs/home/marketplace-1.png"
                   alt="Minecraft Bedrock Marketplace"
                   class="carousel-img active"
                   loading="lazy"
@@ -888,10 +891,10 @@
             <div class="info-section">
               <div
                 class="info-section-img image-carousel"
-                data-images='["./imgs/fixedcape.png", "./imgs/fixedanimations.png"]'
+                data-images='["./imgs/home/fixedcape.png", "./imgs/home/fixedanimations.png", "./imgs/home/fixedarms.png"]'
               >
                 <img
-                  src="./imgs/fixedcape.png"
+                  src="./imgs/home/fixedcape.png"
                   alt="Minecraft Bedrock Restored Content"
                   class="carousel-img active"
                   loading="lazy"
@@ -1781,23 +1784,30 @@
       // ── Image carousel ──
       document.querySelectorAll(".image-carousel").forEach((carousel) => {
         const images = JSON.parse(carousel.dataset.images);
+        const alt = carousel.querySelector("img").alt;
+
+        // Replace the single hardcoded img with all images from the list
+        carousel.innerHTML = "";
+        images.forEach((src) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = alt;
+          img.className = "carousel-img";
+          img.loading = "lazy";
+          carousel.appendChild(img);
+        });
+
+        // Start on a random image
+        let idx = Math.floor(Math.random() * images.length);
+        carousel.querySelectorAll(".carousel-img")[idx].classList.add("active");
+
         if (images.length > 1) {
-          let idx = 0;
-          images.forEach((src, i) => {
-            if (i > 0) {
-              const img = document.createElement("img");
-              img.src = src;
-              img.alt = carousel.querySelector("img").alt;
-              img.className = "carousel-img";
-              carousel.appendChild(img);
-            }
-          });
           setInterval(() => {
             const all = carousel.querySelectorAll(".carousel-img");
             all[idx].classList.remove("active");
             idx = (idx + 1) % images.length;
             all[idx].classList.add("active");
-          }, 10000);
+          }, 7000);
         }
       });
     </script>
