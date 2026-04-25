@@ -51,11 +51,38 @@
       {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Minecraft Bedrock Skin Packs List",
-        "description": "A collection of legacy and custom skin packs for Minecraft Bedrock Edition, including Xbox 360 and PlayStation ports.",
-        "publisher": { "@type": "Organization", "name": "Bedrock Cosmos" }
+        "name": "Minecraft Bedrock Skin Packs",
+        "description": "Browse Legacy, Ported, Platform-Exclusive, Hidden, and Creator skin packs for Minecraft Bedrock Edition — including rare Xbox 360, PlayStation, and Nintendo packs restored by Bedrock Cosmos.",
+        "url": "https://bedrock-cosmos.app/skinpacks/",
+        "inLanguage": "en-US",
+        "isPartOf": { "@type": "WebSite", "url": "https://bedrock-cosmos.app" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Bedrock Cosmos",
+          "url": "https://bedrock-cosmos.app",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://bedrock-cosmos.app/icons/shootingstar.png",
+            "width": 512,
+            "height": 512
+          }
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://bedrock-cosmos.app/imgs/skinpacks.png",
+          "width": 1920,
+          "height": 1080
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home",      "item": "https://bedrock-cosmos.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Skin Packs","item": "https://bedrock-cosmos.app/skinpacks/" }
+          ]
+        }
       }
     </script>
+    <!-- ItemList schema is injected at runtime by injectItemListSchema() after skins.json loads -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7684217018329117"
@@ -1081,9 +1108,56 @@
         renderGrid();
       });
 
+      // ── ItemList schema injection ─────────────────────────────────────────
+      // Runs once after skins.json is loaded. Builds a full schema:ItemList
+      // from PACKS so Google can index every skin pack on this page without
+      // needing to execute the rendering JavaScript.
+      function injectItemListSchema() {
+        const BASE = "https://bedrock-cosmos.app";
+        const itemListElement = PACKS.map((pack, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          item: {
+            "@type": "Product",
+            name: pack.name,
+            url: `${BASE}/id/?pack=${pack.uuid}`,
+            image: pack.banner,
+            description: `${pack.name} is a ${pack.category} skin pack for Minecraft Bedrock Edition, available through Bedrock Cosmos.`,
+            brand: { "@type": "Brand", name: "Bedrock Cosmos" },
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              availability: "https://schema.org/InStock",
+              url: `${BASE}/id/?pack=${pack.uuid}`
+            },
+            additionalType: `https://bedrock-cosmos.app/skinpacks/#${pack.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`
+          }
+        }));
+
+        const schema = {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Minecraft Bedrock Skin Packs — Bedrock Cosmos",
+          description: `${PACKS.length} Legacy, Ported, Platform-Exclusive, Hidden, and Creator skin packs for Minecraft Bedrock Edition.`,
+          url: `${BASE}/skinpacks/`,
+          numberOfItems: PACKS.length,
+          itemListOrder: "https://schema.org/ItemListOrderAscending",
+          itemListElement
+        };
+
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.textContent = JSON.stringify(schema);
+        document.head.appendChild(script);
+      }
+
       // ── Init — load data from JSON, then preload thumbnails, then render
       loadData()
-        .then(() => preloadThumbs())
+        .then(() => {
+          injectItemListSchema();
+          return preloadThumbs();
+        })
         .then(() => {
           buildFeatured();
           const newlyAddedPacks = NEWLY_ADDED.map((entry) => {
