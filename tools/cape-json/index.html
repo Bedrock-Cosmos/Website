@@ -564,15 +564,6 @@
         width: 100%;
         height: 100%;
       }
-      .icon-status {
-        font-size: 0.68rem;
-        color: var(--mc-muted);
-        text-align: center;
-        line-height: 1.5;
-      }
-      .icon-status.ready {
-        color: #22c55e;
-      }
       .webgl-warn {
         display: none;
         font-size: 0.68rem;
@@ -760,9 +751,6 @@
                 <span class="icon-preview-panel-title">Cape Icon Preview</span>
                 <div class="canvas-wrap">
                   <canvas id="previewCanvas" width="256" height="256"></canvas>
-                </div>
-                <div class="icon-status" id="iconStatus">
-                  Load a cape texture to preview the icon.
                 </div>
                 <div class="webgl-warn" id="webglWarn">
                   WebGL2 unavailable — falling back to WebGL1.
@@ -2946,8 +2934,6 @@ void main() {
 
         async function renderIconPreview() {
           if (!pngFile) return;
-          document.getElementById("iconStatus").textContent = "Rendering…";
-          document.getElementById("iconStatus").className = "icon-status";
           try {
             // Load the cape PNG into an HTMLImageElement
             const url = URL.createObjectURL(pngFile);
@@ -2983,15 +2969,7 @@ void main() {
             }
 
             await renderCapeIcon(img, logoImg);
-            document.getElementById("iconStatus").textContent = logoImg
-              ? "Icon ready — cape texture + logo composited."
-              : "Icon ready — rendered from your cape texture.";
-            document.getElementById("iconStatus").className =
-              "icon-status ready";
-          } catch (e) {
-            document.getElementById("iconStatus").textContent =
-              "Preview failed: " + e.message;
-          }
+          } catch (e) {}
         }
       </script>
       <div id="mc-footer-placeholder"></div>
