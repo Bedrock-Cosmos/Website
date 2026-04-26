@@ -167,6 +167,98 @@
         background: var(--cfg-green-bg);
         border-color: var(--cfg-green-border);
       }
+
+      /* ── Developer Warning Modal ── */
+      .dev-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        background: rgba(0, 0, 0, 0);
+      }
+      .dev-backdrop.open {
+        opacity: 1;
+        pointer-events: all;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        background: rgba(0, 0, 0, 0.65);
+      }
+
+      .dev-modal {
+        background: var(--mc-panel, #1a1a2e);
+        border: 2px solid var(--cfg-accent);
+        border-radius: 4px;
+        max-width: 510px;
+        width: 100%;
+        padding: 2rem 2rem 1.6rem;
+        box-shadow:
+          0 0 0 1px rgba(139, 92, 246, 0.15),
+          0 8px 40px rgba(0, 0, 0, 0.6),
+          0 0 60px var(--cfg-accent-glow);
+        transform: translateY(10px) scale(0.97);
+        transition: transform 0.2s ease;
+        position: relative;
+      }
+      .dev-backdrop.open .dev-modal {
+        transform: translateY(0) scale(1);
+      }
+
+      .dev-modal-body {
+        font-size: 0.83rem;
+        line-height: 1.7;
+        color: var(--mc-text, #e2e2e2);
+        margin-bottom: 1.5rem;
+      }
+      .dev-modal-body strong {
+        color: #8b5cf6;
+      }
+
+      .dev-modal-actions {
+        display: flex;
+        gap: 8px;
+      }
+
+      .dev-btn {
+        flex: 1;
+        padding: 0.6rem 1rem;
+        border-radius: 2px;
+        border: 2px solid transparent;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          border-color 0.15s,
+          color 0.15s;
+      }
+      .dev-btn-cancel {
+        background: transparent;
+        border-color: var(--mc-border, #333);
+        color: var(--mc-muted, #888);
+      }
+      .dev-btn-cancel:hover {
+        border-color: #666;
+        color: var(--mc-text, #e2e2e2);
+      }
+      .dev-btn-proceed {
+        background: var(--cfg-accent);
+        border-color: var(--cfg-accent);
+        color: #fff;
+      }
+      .dev-btn-proceed:hover {
+        background: var(--cfg-accent-light);
+        border-color: var(--cfg-accent-light);
+      }
     </style>
     <script
       async
@@ -250,9 +342,8 @@
           </p>
         </div>
 
-        <div class="tools-section-title">JSON & Data</div>
         <div class="tool-grid">
-          <a href="/tools/json/" class="tool-card">
+          <a href="/tools/pack-json/" class="tool-card">
             <div class="tool-card-top">
               <div class="tool-icon">
                 <svg
@@ -284,39 +375,7 @@
             </div>
           </a>
 
-          <a href="/tools/news/" class="tool-card">
-            <div class="tool-card-top">
-              <div class="tool-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                  />
-                </svg>
-              </div>
-              <span class="tool-card-name">Announcement Editor</span>
-            </div>
-            <div class="tool-card-desc">
-              Build and preview OreUI announcement JSON with a live in-game
-              dialog preview.
-            </div>
-            <div class="tool-card-tags">
-              <span class="tool-tag">JSON</span>
-              <span class="tool-tag">OreUI</span>
-              <span class="tool-tag">Announcements</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="tools-section-title">Visual & Render</div>
-        <div class="tool-grid">
-          <a href="/tools/merelycapes-renderer/" class="tool-card">
+          <a href="/tools/cape-json/" class="tool-card">
             <div class="tool-card-top">
               <div class="tool-icon">
                 <svg
@@ -332,15 +391,41 @@
                   <polyline points="21 15 16 10 5 21" />
                 </svg>
               </div>
-              <span class="tool-card-name">Cape Icon Renderer</span>
+              <span class="tool-card-name">Cape Maker</span>
             </div>
             <div class="tool-card-desc">
-              WebGL port of MerelyCapes's cape renderer.
+              Create Custom Capes for use in Bedrock Cosmos.
             </div>
             <div class="tool-card-tags">
-              <span class="tool-tag">WebGL</span>
+              <span class="tool-tag">JSON</span>
               <span class="tool-tag">Capes</span>
-              <span class="tool-tag green">PNG Export</span>
+              <span class="tool-tag green">ZIP Export</span>
+            </div>
+          </a>
+
+          <a href="/tools/news-creator/" class="tool-card">
+            <div class="tool-card-top">
+              <div class="tool-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  />
+                </svg>
+              </div>
+              <span class="tool-card-name">News Creator</span>
+            </div>
+            <div class="tool-card-desc">Ingame News/Announcements creator.</div>
+            <div class="tool-card-tags">
+              <span class="tool-tag">JSON</span>
+              <span class="tool-tag">OreUI</span>
+              <span class="tool-tag">Announcements</span>
             </div>
           </a>
         </div>
@@ -349,7 +434,71 @@
       <div id="mc-footer-placeholder"></div>
     </main>
 
-    <script></script>
+    <!-- Developer Warning Modal -->
+    <div
+      class="dev-backdrop"
+      id="devBackdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="devModalTitle"
+    >
+      <div class="dev-modal">
+        <div class="dev-modal-body">
+          These tools are intended exclusively for
+          <strong>Bedrock Cosmos developers</strong> and smart people who
+          understand the file formats and systems.<br /><br />
+          If you're a regular user, these tools
+          <strong>will not be useful to you</strong> and do not add Custom Capes
+          or Skins.
+        </div>
+        <div class="dev-modal-actions">
+          <button class="dev-btn dev-btn-cancel" onclick="closeDevModal()">
+            Go Back
+          </button>
+          <button class="dev-btn dev-btn-proceed" onclick="proceedToTool()">
+            Blah Blah Blah
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let _pendingHref = null;
+
+      function openDevModal(href) {
+        _pendingHref = href;
+        var backdrop = document.getElementById("devBackdrop");
+        backdrop.classList.add("open");
+        backdrop.querySelector(".dev-btn-cancel").focus();
+      }
+
+      function closeDevModal() {
+        var backdrop = document.getElementById("devBackdrop");
+        backdrop.classList.remove("open");
+        _pendingHref = null;
+      }
+
+      function proceedToTool() {
+        if (_pendingHref) window.location.href = _pendingHref;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("devBackdrop")
+          .addEventListener("click", function (e) {
+            if (e.target === this) closeDevModal();
+          });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeDevModal();
+        });
+        document.querySelectorAll(".tool-card").forEach(function (card) {
+          card.addEventListener("click", function (e) {
+            e.preventDefault();
+            openDevModal(card.getAttribute("href"));
+          });
+        });
+      });
+    </script>
     <script src="../js/shared.js"></script>
     <script>
       initSharedComponents({ activePath: "/tools/" });

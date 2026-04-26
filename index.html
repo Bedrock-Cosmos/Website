@@ -1226,7 +1226,9 @@
                     background-image: url(&quot;https://pbs.twimg.com/profile_images/2025335760849608704/yZWUBqVN_400x400.jpg&quot;);
                   "
                 ></div>
-                <p class="nameplate-user-name" style="color: #d6680e">ItsMwamOffi</p>
+                <p class="nameplate-user-name" style="color: #d6680e">
+                  ItsMwamOffi
+                </p>
                 <span class="nameplate-role-label">Contributor</span>
               </div>
               <div
@@ -1264,12 +1266,13 @@
                     background-image: url(&quot;https://cdn.discordapp.com/avatars/786904872510423040/c01a9e6a2d61a29fdd60cba4fcefdb07.png&quot;);
                   "
                 ></div>
-                <p class="nameplate-user-name" style="color: #d6680e">MerelyMiserable</p>
+                <p class="nameplate-user-name" style="color: #d6680e">
+                  MerelyMiserable
+                </p>
                 <span class="nameplate-role-label">Contributor</span>
               </div>
             </div>
             <div class="team-row">
-              
               <div
                 class="nameplate-null-user nameplate-preview"
                 style="
@@ -1800,21 +1803,28 @@
       });
 
       // ── Team member URL update ──
-      document.querySelectorAll(".nameplate-null-user.nameplate-preview").forEach((card) => {
-        card.addEventListener("click", () => {
-          const nameEl = card.querySelector(".nameplate-user-name");
-          const roleEl = card.querySelector(".nameplate-role-label");
-          if (!nameEl || !roleEl) return;
-          const name = nameEl.textContent.trim();
-          const role = roleEl.textContent.trim()
-            .split(",")[0]          // take first role if multiple
-            .trim()
-            .toLowerCase()
-            .replace(/\s+/g, "_")  // spaces → underscores
-            .replace(/[^a-z0-9_]/g, ""); // strip special chars
-          history.replaceState(null, "", `/?${role}=${encodeURIComponent(name)}`);
+      document
+        .querySelectorAll(".nameplate-null-user.nameplate-preview")
+        .forEach((card) => {
+          card.addEventListener("click", () => {
+            const nameEl = card.querySelector(".nameplate-user-name");
+            const roleEl = card.querySelector(".nameplate-role-label");
+            if (!nameEl || !roleEl) return;
+            const name = nameEl.textContent.trim();
+            const role = roleEl.textContent
+              .trim()
+              .split(",")[0] // take first role if multiple
+              .trim()
+              .toLowerCase()
+              .replace(/\s+/g, "_") // spaces → underscores
+              .replace(/[^a-z0-9_]/g, ""); // strip special chars
+            history.replaceState(
+              null,
+              "",
+              `/?${role}=${encodeURIComponent(name)}`,
+            );
+          });
         });
-      });
 
       // ── Image carousel ──
       document.querySelectorAll(".image-carousel").forEach((carousel) => {
