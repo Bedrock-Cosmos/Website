@@ -695,7 +695,6 @@
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7684217018329117"
       crossorigin="anonymous"
     ></script>
-    <meta name="yandex-verification" content="efd91e4fa9043947" />
   </head>
   <body>
     <div
@@ -1260,6 +1259,28 @@
                 <div
                   class="nameplate-user-avatar"
                   style="
+                    background-image: url(&quot;https://cdn.discordapp.com/avatars/786904872510423040/c01a9e6a2d61a29fdd60cba4fcefdb07.png&quot;);
+                  "
+                ></div>
+                <p class="nameplate-user-name" style="color: #d6680e">MerelyMiserable</p>
+                <span class="nameplate-role-label">Contributor</span>
+              </div>
+            </div>
+            <div class="team-row">
+              
+              <div
+                class="nameplate-null-user nameplate-preview"
+                style="
+                  background-image: linear-gradient(
+                    90deg,
+                    #00000000 -30%,
+                    #1e1f22 200%
+                  );
+                "
+              >
+                <div
+                  class="nameplate-user-avatar"
+                  style="
                     background-image: url(&quot;https://cdn.discordapp.com/guilds/1460766433536508201/users/700956336292233316/avatars/3836eaacca11f3d64cceb80e74aa38b7.webp&quot;);
                   "
                 ></div>
@@ -1277,8 +1298,6 @@
                 </p>
                 <span class="nameplate-role-label">Cosmos Creator</span>
               </div>
-            </div>
-            <div class="team-row">
               <div
                 class="nameplate-null-user nameplate-preview"
                 style="
@@ -1411,6 +1430,8 @@
                 </p>
                 <span class="nameplate-role-label">Translator (VI)</span>
               </div>
+            </div>
+            <div class="team-row">
               <div
                 class="nameplate-null-user nameplate-preview"
                 style="
@@ -1432,8 +1453,6 @@
                 </p>
                 <span class="nameplate-role-label">Translator (BN)</span>
               </div>
-            </div>
-            <div class="team-row">
               <div
                 class="nameplate-null-user nameplate-preview"
                 style="
@@ -1454,10 +1473,6 @@
                   CenterX
                 </p>
                 <span class="nameplate-role-label">Translator (DE)</span>
-              </div>
-              <div class="nameplate-null-user">
-                <div class="nameplate-null-user-avatar"></div>
-                <div class="nameplate-null-user-name _2"></div>
               </div>
               <div class="nameplate-null-user">
                 <div class="nameplate-null-user-avatar"></div>
@@ -1779,6 +1794,23 @@
             .querySelectorAll(".faq-item-new")
             .forEach((i) => i.classList.remove("active"));
           if (!wasActive) item.classList.add("active");
+        });
+      });
+
+      // ── Team member URL update ──
+      document.querySelectorAll(".nameplate-null-user.nameplate-preview").forEach((card) => {
+        card.addEventListener("click", () => {
+          const nameEl = card.querySelector(".nameplate-user-name");
+          const roleEl = card.querySelector(".nameplate-role-label");
+          if (!nameEl || !roleEl) return;
+          const name = nameEl.textContent.trim();
+          const role = roleEl.textContent.trim()
+            .split(",")[0]          // take first role if multiple
+            .trim()
+            .toLowerCase()
+            .replace(/\s+/g, "_")  // spaces → underscores
+            .replace(/[^a-z0-9_]/g, ""); // strip special chars
+          history.replaceState(null, "", `/?${role}=${encodeURIComponent(name)}`);
         });
       });
 
