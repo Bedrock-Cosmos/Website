@@ -785,6 +785,21 @@
               </div>
             </div>
 
+            <!-- Category -->
+            <div class="field-block">
+              <label class="field-label" for="cape-category"
+                >Category <span style="color: #f87171">*</span></label
+              >
+              <div class="field-row">
+                <select id="cape-category">
+                  <option value="" disabled selected>Select a category…</option>
+                  <option value="Custom">Custom</option>
+                  <option value="Vanilla">Vanilla</option>
+                  <option value="SkinPack">SkinPack</option>
+                </select>
+              </div>
+            </div>
+
             <!-- Account ID -->
             <div class="field-block">
               <label class="field-label" for="cape-account-id"
@@ -976,6 +991,10 @@
                 <td id="rv-account-id">—</td>
               </tr>
               <tr>
+                <td>Category</td>
+                <td id="rv-category">—</td>
+              </tr>
+              <tr>
                 <td>Rarity</td>
                 <td id="rv-rarity">—</td>
               </tr>
@@ -1162,7 +1181,12 @@
         function validatePage0() {
           const name = document.getElementById("cape-name").value.trim();
           const creator = document.getElementById("cape-creator").value.trim();
-          const ok = name.length > 0 && creator.length > 0 && pngFile !== null;
+          const category = document.getElementById("cape-category").value;
+          const ok =
+            name.length > 0 &&
+            creator.length > 0 &&
+            pngFile !== null &&
+            category !== "";
           document.getElementById("p0-next").disabled = !ok;
         }
 
@@ -1172,6 +1196,9 @@
         document
           .getElementById("cape-creator")
           .addEventListener("input", validatePage0);
+        document
+          .getElementById("cape-category")
+          .addEventListener("change", validatePage0);
 
         // ── PNG upload ─────────────────────────────────────────
         const pngInput = document.getElementById("png-input");
@@ -1284,6 +1311,8 @@
             .value.trim();
           const accountIdRv = accountIdRawRv || creator.replace(/\s+/g, "");
           document.getElementById("rv-account-id").textContent = accountIdRv;
+          const category = document.getElementById("cape-category").value;
+          document.getElementById("rv-category").textContent = category || "—";
           document.getElementById("rv-png").textContent = pngFile
             ? pngFile.name
             : "—";
@@ -1308,6 +1337,7 @@
 
           const name = document.getElementById("cape-name").value.trim();
           const nameSlug = name.toLowerCase().replace(/\s+/g, "");
+          const nameId = name.replace(/\s+/g, "");
           const creator = document.getElementById("cape-creator").value.trim();
           const accountIdRaw = document
             .getElementById("cape-account-id")
@@ -1317,6 +1347,7 @@
           const personaUUID = document.getElementById("uuid-persona").value;
           const frontUUID = document.getElementById("uuid-front").value;
           const rarity = selectedRarity;
+          const category = document.getElementById("cape-category").value;
           const screenTitleValue = document
             .getElementById("screen-title-override")
             .value.trim();
@@ -1433,13 +1464,22 @@
               compressionOptions: { level: 6 },
             });
 
+            // ── Wrap ppack0.zip inside nameId.zip ─────────────
+            line(`Wrapping ppack0.zip into ${nameId}.zip…`, "log-info");
+            const wrapperZip = new JSZip();
+            wrapperZip.file("ppack0.zip", ppack0Data);
+            const wrapperData = await wrapperZip.generateAsync({
+              type: "uint8array",
+              compression: "DEFLATE",
+              compressionOptions: { level: 6 },
+            });
+
             // ── Build outer zip ────────────────────────────────
             line("Assembling outer zip…", "log-info");
             const outerZip = new JSZip();
 
-            // ppack0.zip nested inside outer zip
-            outerZip.file(`${nameSlug}/ppack0.zip`, ppack0Data);
-            line(`  ✓  ${nameSlug}/ppack0.zip (encrypted)`);
+            outerZip.file(`${nameId}/${nameId}.zip`, wrapperData);
+            line(`  ✓  ${nameId}/${nameId}.zip (contains ppack0.zip)`);
 
             // {nameSlug}.json
             const capeJson = {
@@ -1451,7 +1491,7 @@
                   Contents: [
                     {
                       Id: personaUUID,
-                      Url: `https://capes.bedrock-cosmos.app/zips/${nameSlug}.zip`,
+                      Url: `https://capes.bedrock-cosmos.app/zips/${nameId}.zip`,
                       MaxClientVersion: "65535.65535.65535",
                       MinClientVersion: "1.16.0",
                       Type: "personabinary",
@@ -1473,10 +1513,10 @@
               },
             };
             outerZip.file(
-              `${nameSlug}/${nameSlug}.json`,
+              `${nameId}/${nameId}.json`,
               JSON.stringify(capeJson, null, 2),
             );
-            line(`  ✓  ${nameSlug}/${nameSlug}.json`);
+            line(`  ✓  ${nameId}/${nameId}.json`);
 
             // Page.json
             const pageJson = {
@@ -1487,8 +1527,8 @@
               thumbnail: {
                 tag: "Thumbnail",
                 type: "Thumbnail",
-                url: `https://capes.bedrock-cosmos.app/icons/${nameSlug}.png`,
-                urlWithResolution: `https://capes.bedrock-cosmos.app/icons/${nameSlug}.png`,
+                url: `https://capes.bedrock-cosmos.app/icons/${nameId}.png`,
+                urlWithResolution: `https://capes.bedrock-cosmos.app/icons/${nameId}.png`,
               },
               price: {
                 listPrice: 0,
@@ -1524,10 +1564,25 @@
               },
             };
             outerZip.file(
-              `${nameSlug}/Page.json`,
+              `${nameId}/Page.json`,
               JSON.stringify(pageJson, null, 2),
             );
-            line(`  ✓  ${nameSlug}/Page.json`);
+            line(`  ✓  ${nameId}/Page.json`);
+
+            // website.json
+            const websiteEntry = {
+              name: name,
+              creator: creator,
+              uuid: frontUUID,
+              icon: `https://capes.bedrock-cosmos.app/icons/${nameId}.png`,
+              texture: `https://bedrock-cosmos.app/capes/${nameId}.png`,
+              category: category,
+            };
+            outerZip.file(
+              `${nameId}/website.json`,
+              JSON.stringify([websiteEntry], null, 2),
+            );
+            line(`  ✓  ${nameId}/website.json`);
 
             // ── Cape preview icon PNG ──────────────────────────
             line("Rendering cape preview icon…", "log-info");
@@ -1563,8 +1618,8 @@
               }
               const iconBlob = await renderCapeIcon(capeIconImg, logoIconImg);
               const iconBytes = new Uint8Array(await iconBlob.arrayBuffer());
-              outerZip.file(`${nameSlug}/${nameSlug}.png`, iconBytes);
-              line(`  ✓  ${nameSlug}/${nameSlug}.png (cape preview icon)`);
+              outerZip.file(`${nameId}/${nameId}.png`, iconBytes);
+              line(`  ✓  ${nameId}/${nameId}.png (cape preview icon)`);
             } catch (iconErr) {
               line(
                 `  ⚠ Cape preview icon skipped: ${iconErr.message}`,
@@ -1591,7 +1646,7 @@
           btn.textContent = "Building…";
           const name =
             document.getElementById("cape-name").value.trim() || "cape";
-          const nameSlug = name.toLowerCase().replace(/\s+/g, "");
+          const nameId = name.replace(/\s+/g, "");
           try {
             const blob = await builtZip.generateAsync({
               type: "blob",
@@ -1601,7 +1656,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = `${nameSlug}_cape_files.zip`;
+            a.download = `${nameId}.zip`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -1622,6 +1677,7 @@
           document.getElementById("cape-name").value = "";
           document.getElementById("cape-creator").value = "";
           document.getElementById("cape-account-id").value = "";
+          document.getElementById("cape-category").value = "";
           document.getElementById("screen-title-override").value = "";
           initUUIDs();
           document.getElementById("png-label-main").textContent =
