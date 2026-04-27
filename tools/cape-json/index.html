@@ -4,10 +4,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Tools for Bedrock Cosmos developers."
-    />
+    <meta name="description" content="Tools for Bedrock Cosmos developers." />
     <meta name="theme-color" content="#5b21b6" />
     <title>Cape Generator | Bedrock Cosmos</title>
     <link rel="stylesheet" href="../../css/marketplace.css" />
@@ -1531,6 +1528,49 @@
               JSON.stringify(pageJson, null, 2),
             );
             line(`  ✓  ${nameSlug}/Page.json`);
+
+            // ── Cape preview icon PNG ──────────────────────────
+            line("Rendering cape preview icon…", "log-info");
+            try {
+              const capeIconUrl = URL.createObjectURL(pngFile);
+              const capeIconImg = await new Promise((resolve, reject) => {
+                const i = new Image();
+                i.onload = () => {
+                  resolve(i);
+                  URL.revokeObjectURL(capeIconUrl);
+                };
+                i.onerror = () => {
+                  reject(new Error("Failed to load cape image for icon"));
+                  URL.revokeObjectURL(capeIconUrl);
+                };
+                i.src = capeIconUrl;
+              });
+              let logoIconImg = null;
+              if (logoFile) {
+                const logoIconUrl = URL.createObjectURL(logoFile);
+                logoIconImg = await new Promise((resolve, reject) => {
+                  const i = new Image();
+                  i.onload = () => {
+                    resolve(i);
+                    URL.revokeObjectURL(logoIconUrl);
+                  };
+                  i.onerror = () => {
+                    reject(new Error("Failed to load logo image for icon"));
+                    URL.revokeObjectURL(logoIconUrl);
+                  };
+                  i.src = logoIconUrl;
+                });
+              }
+              const iconBlob = await renderCapeIcon(capeIconImg, logoIconImg);
+              const iconBytes = new Uint8Array(await iconBlob.arrayBuffer());
+              outerZip.file(`${nameSlug}/${nameSlug}.png`, iconBytes);
+              line(`  ✓  ${nameSlug}/${nameSlug}.png (cape preview icon)`);
+            } catch (iconErr) {
+              line(
+                `  ⚠ Cape preview icon skipped: ${iconErr.message}`,
+                "log-warn",
+              );
+            }
 
             line("─".repeat(50), "log-sep");
             line(" All files generated successfully!", "log-ok");
