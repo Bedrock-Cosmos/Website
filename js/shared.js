@@ -123,8 +123,9 @@ function getFooterHTML() {
     <div class="footer-content">
       <div class="footer-section">
         <h3>Socials</h3>
-        <a href="https://www.youtube.com/watch?v=rKkmPG4bi4Y" target="_blank">YouTube</a>
+        <a href="https://www.youtube.com/@BedrockCosmos" target="_blank">YouTube</a>
         <a href="https://discord.com/invite/HRG2NapegP" id="discord-btn-footer" target="_blank">Discord</a>
+        <a href="https://x.com/bedrockcosmos" target="_blank">Twitter</a>
       </div>
       <div class="footer-section">
         <h3>Resources</h3>
@@ -137,10 +138,8 @@ function getFooterHTML() {
         <a href="/privacy-policy/">Privacy Policy</a>
       </div>
       <div class="footer-section">
-        <h3>Pages</h3>
-        <a href="/skinpacks/">Skin Packs</a>
-        <a href="/capes/">Capes</a>
-        <a href="/changelogs/">Changelogs</a>
+        <h3>Partners</h3>
+        <a href="https://minecraftcapes.net/">MinecraftCapes.net</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -178,7 +177,7 @@ function injectSharedStyles() {
       background: var(--mc-hover);
     }
     @media (max-width: 600px) {
-      .mc-topbar-title { display: flex !important; }
+      .mc-topbar-title { display: flex !important; cursor: pointer; }
       .mc-topbar-right { display: none !important; }
       .mc-mobile-menu-btn { display: flex; }
       .mc-topbar { padding-left: 0; }
@@ -228,4 +227,11 @@ function initSharedComponents({
   }
 
   generateStars(starsId, starCount);
+
+  const topbarTitle = document.querySelector(".mc-topbar-title");
+  if (topbarTitle) {
+    topbarTitle.addEventListener("click", () => {
+      window.location.href = "/";
+    });
+  }
 }

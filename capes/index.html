@@ -58,6 +58,49 @@
           margin-left: 280px;
         }
       }
+
+      /* Prevent viewer-panel from ever showing a scrollbar — desktop only */
+      @media (min-width: 901px) {
+        .viewer-panel {
+          overflow-y: hidden;
+        }
+        #three-canvas {
+          flex-shrink: 1;
+          min-height: 0;
+        }
+      }
+      /* Hide partner banner on mobile */
+      @media (max-width: 900px) {
+        .partner-banner {
+          display: none;
+        }
+      }
+
+      .partner-banner {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+        padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition:
+          background 0.15s,
+          border-color 0.15s;
+      }
+      .partner-banner:hover {
+        background: rgba(122, 199, 103, 0.08);
+        border-color: #7ac767;
+        color: #fff;
+        box-shadow: 0 0 10px rgba(122, 199, 103, 0.25);
+      }
+      .partner-banner strong {
+        color: #fff;
+      }
     </style>
     <!-- ItemList schema is injected server-side by the Cloudflare Worker -->
     <script
@@ -160,23 +203,34 @@
               style="display: none"
             />
           </label>
-          <div class="skin-name" id="skin-name"></div>
+          <!-- <div class="skin-name" id="skin-name"></div> -->
           <div class="viewer-controls-row">
             <div class="skin-type-wrap" id="skin-type-wrap">
-              <span class="skin-type-label">Type</span>
+              <!-- <span class="skin-type-label">Type</span> -->
               <div class="skin-type-toggle">
                 <button class="stt-btn active" id="btn-classic">Classic</button>
                 <button class="stt-btn" id="btn-slim">Slim</button>
               </div>
             </div>
             <div class="skin-type-wrap" id="back-equip-wrap">
-              <span class="skin-type-label">Back</span>
+              <!-- <span class="skin-type-label">Back</span> -->
               <div class="skin-type-toggle">
                 <button class="stt-btn active" id="btn-cape">Cape</button>
                 <button class="stt-btn" id="btn-elytra">Elytra</button>
               </div>
             </div>
           </div>
+          <a
+            class="partner-banner"
+            href="https://minecraftcapes.net"
+            target="_blank"
+            rel="noopener"
+          >
+            <span
+              >Want these Capes on Java too? Check out
+              <strong>MinecraftCapes.net</strong></span
+            >
+          </a>
         </aside>
 
         <main class="list-panel">
@@ -402,7 +456,7 @@
           const reader = new FileReader();
           reader.onload = (e) => {
             window.setSkinTexture(e.target.result);
-            document.getElementById("skin-name").textContent = file.name;
+            // document.getElementById("skin-name").textContent = file.name;
           };
           reader.readAsDataURL(file);
         });
