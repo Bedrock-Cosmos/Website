@@ -5,7 +5,14 @@
     "paramKey": "owner",
     "avatar": "https://cdn.discordapp.com/avatars/853439956545306665/2d7f22d46ad1aab483da2ed59ebeebf4.png",
     "link": "https://www.youtube.com/@BionicBen1218",
-    "color": "#fffea8"
+    "color": "#fffea8",
+    "nameplate": {
+      "gradientColor": "#730bc8",
+      "nameColor": "#6830cc",
+      "videoId": "1349849614286585866",
+      "decoId": "a_65db91cee351e36150a2b506b26eba71",
+      "decoAlt": "Fortnite Victory Crown"
+    }
   },
   {
     "name": "Zoroark",
@@ -13,7 +20,14 @@
     "paramKey": "developer",
     "avatar": "https://cdn.discordapp.com/avatars/1120916116328435812/ab1564c9ca0c83dcd486e35c99e8788e.png",
     "link": null,
-    "color": "#8a96e2"
+    "color": "#8a96e2",
+    "nameplate": {
+      "gradientColor": "#730bc8",
+      "nameColor": "#6830cc",
+      "videoId": "1427463138646954035",
+      "decoId": "a_75348082d14b5097708444fca20a09e0",
+      "decoAlt": "Magic Mists"
+    }
   },
   {
     "name": "ItsMwamOffi",
@@ -21,7 +35,10 @@
     "paramKey": "contributor",
     "avatar": "https://pbs.twimg.com/profile_images/2025335760849608704/yZWUBqVN_400x400.jpg",
     "link": "https://discord.gg/fanclub",
-    "color": "#fff3ca"
+    "color": "#fff3ca",
+    "nameplate": {
+      "nameColor": "#d6680e"
+    }
   },
   {
     "name": "Wadudi",
@@ -29,7 +46,10 @@
     "paramKey": "contributor",
     "avatar": "https://cdn.discordapp.com/avatars/694171261500391505/603335d9004ba9386cdb7ed629950513.png",
     "link": null,
-    "color": "#118ab2"
+    "color": "#118ab2",
+    "nameplate": {
+      "nameColor": "#d6680e"
+    }
   },
   {
     "name": "MerelyMiserable",
@@ -37,7 +57,10 @@
     "paramKey": "contributor",
     "avatar": "https://cdn.discordapp.com/avatars/786904872510423040/c01a9e6a2d61a29fdd60cba4fcefdb07.png",
     "link": "https://merely.is-a.dev/",
-    "color": "#670097"
+    "color": "#670097",
+    "nameplate": {
+      "nameColor": "#d6680e"
+    }
   },
   {
     "name": "exports",
@@ -45,15 +68,34 @@
     "paramKey": "cosmos_creator",
     "avatar": "https://cdn.discordapp.com/guilds/1460766433536508201/users/700956336292233316/avatars/3836eaacca11f3d64cceb80e74aa38b7.png",
     "link": "https://www.youtube.com/@exportscosmetics",
-    "color": "#111214"
+    "color": "#111214",
+    "nameplate": {
+      "decoId": "a_d1e5d3aabccb3d38f21b5ac8a33fcf4d",
+      "decoAlt": "Jet Ring",
+      "nameStyle": "neon",
+      "neonColor": "#b088f6",
+      "neonStroke": "#7d33ff",
+      "nameFont": "8bit"
+    }
   },
   {
     "name": "Stars",
     "role": "Cosmos Creator",
+    "roleLabel": "Cosmos Creator, Translator (ID)",
     "paramKey": "cosmos_creator",
     "avatar": "https://cdn.discordapp.com/avatars/895228843500126209/6ce022153bfb2e5f6e218f309a3f56e0.png",
     "link": "https://www.youtube.com/@Hypervitaminosis",
-    "color": "#29afe4"
+    "color": "#29afe4",
+    "nameplate": {
+      "gradientColor": "#0131c2",
+      "videoId": "1382845914267521117",
+      "decoId": "a_b20e3f13d48c5db0073f3629a170d49d",
+      "decoAlt": "Capybara",
+      "nameStyle": "gradient",
+      "gradientStart": "#903cda",
+      "gradientEnd": "#1fb373",
+      "nameFont": "8bit"
+    }
   },
   {
     "name": "yeh",
@@ -61,46 +103,76 @@
     "paramKey": "cosmos_creator",
     "avatar": "https://cdn.discordapp.com/avatars/1254148360001290250/d2a67c60d45858f35caa46b53c2422cd.png",
     "link": null,
-    "color": "#190b0c"
+    "color": "#190b0c",
+    "nameplate": {
+      "decoId": "a_8eec6d2e73acee219217e2d3da4af753",
+      "decoAlt": "Cosmic Twilight (Beryl)",
+      "nameColor": "#f1bef0"
+    }
   },
   {
     "name": "ZeroMISTER JA",
     "role": "Cosmos Creator",
+    "roleLabel": "Cosmos Creator, Translator (ES)",
     "paramKey": "cosmos_creator",
     "avatar": "https://cdn.discordapp.com/avatars/698302354251841638/7e97d0bf8692fe2eb7c65f06856a1008.png",
     "link": "https://bedrock.lol/ZeroMISTERJA",
-    "color": "#5eae5f"
+    "color": "#5eae5f",
+    "nameplate": {
+      "gradientColor": "#0131c2",
+      "videoId": "1349849614198505602",
+      "decoId": "a_462b0bddc07dd495765fe12abe8b077f",
+      "decoAlt": "Lava Blobs",
+      "nameColor": "#f1bef0"
+    }
   },
   {
     "name": "new vietnam",
     "role": "Translator",
+    "roleLabel": "Translator (VI)",
     "paramKey": "translator_vi",
     "avatar": "https://cdn.discordapp.com/avatars/992706184391954533/79d9cbe61adf32b3cfce786735440cb1.png",
     "link": null,
-    "color": "#d00000"
+    "color": "#d00000",
+    "nameplate": {
+      "nameColor": "#f1c40f"
+    }
   },
   {
     "name": "Maplized",
     "role": "Translator",
+    "roleLabel": "Translator (BN)",
     "paramKey": "translator_bn",
     "avatar": "https://miro.medium.com/v2/resize:fit:256/0*8WdBp_k4REJoMkfF.png",
     "link": null,
-    "color": "#00ff37"
+    "color": "#00ff37",
+    "nameplate": {
+      "nameColor": "#f1c40f"
+    }
   },
   {
     "name": "CenterX",
     "role": "Translator",
+    "roleLabel": "Translator (DE)",
     "paramKey": "translator_de",
     "avatar": "https://cdn.discordapp.com/avatars/1182140541245341779/b082de5a37b1810e0aacba06bce22bf4.png",
     "link": "https://github.com/center2055",
-    "color": "#091150"
+    "color": "#091150",
+    "nameplate": {
+      "nameColor": "#f1c40f"
+    }
   },
   {
     "name": "james090500",
     "role": "Partner",
     "paramKey": "partner",
-    "avatar": "https://cdn.discordapp.com/avatars/231385835054956544/059e61537fb4130badfc402110f562d1.png",
+    "avatar": "/icons/Slime.png",
     "link": "https://minecraftcapes.net/",
-    "color": "#011266"
+    "color": "#011266",
+    "nameplate": {
+      "gradientColor": "#0131c2",
+      "videoId": "1349849614198505602",
+      "nameColor": "#7ac767"
+    }
   }
 ]
