@@ -456,11 +456,11 @@
     "category": "Vanilla"
   },
   {
-    "name": "Birthday Cape",
+    "name": "Birthday Dungeons Cape",
     "creator": "Minecraft Dungeons",
     "uuid": "a115555a-315d-4a0f-8437-78df54a3f653",
-    "icon": "https://capes.bedrock-cosmos.app/icons/BirthdayCape.png",
-    "texture": "https://bedrock-cosmos.app/capes/BirthdayCape.png",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BirthdayDungeonsCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BirthdayDungeonsCape.png",
     "category": "Vanilla"
   },
   {
@@ -552,11 +552,11 @@
     "category": "Vanilla"
   },
   {
-    "name": "Iron Golem cape",
+    "name": "Iron Golem Cape",
     "creator": "Minecraft Dungeons",
     "uuid": "372ef312-7f50-4e2b-a985-62cb832e4c55",
-    "icon": "https://capes.bedrock-cosmos.app/icons/IronGolemcape.png",
-    "texture": "https://bedrock-cosmos.app/capes/IronGolemcape.png",
+    "icon": "https://capes.bedrock-cosmos.app/icons/IronGolemCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/IronGolemCape.png",
     "category": "Vanilla"
   },
   {
