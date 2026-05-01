@@ -1193,7 +1193,7 @@ footer {
   gap: 0.4rem;
   background: rgba(255, 255, 255, 0.06);
   color: #bbb;
-  border: 1px solid var(--capes-border);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 7px;
   padding: 0.4rem 0.8rem;
   font-size: 0.78rem;

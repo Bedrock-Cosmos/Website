@@ -101,6 +101,17 @@
       .partner-banner strong {
         color: #fff;
       }
+
+      #download-cape-btn:hover {
+        background: rgba(122, 199, 103, 0.08);
+        border-color: #7ac767;
+        color: #fff;
+        box-shadow: 0 0 10px rgba(122, 199, 103, 0.25);
+      }
+
+      .download-btn {
+        width: 100%;
+      }
     </style>
     <!-- ItemList schema is injected server-side by the Cloudflare Worker -->
     <script
@@ -184,25 +195,14 @@
           </div>
           <button class="equip-btn" id="equip-btn">Equip in Minecraft</button>
           <label class="skin-upload-btn" id="skin-upload-label">
-            <!-- <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              width="14"
-              height="14"
-              style="flex-shrink: 0"
-            >
-              <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 10V11" />
-            </svg> -->
-            Upload Skin
-            <input
-              type="file"
-              id="skin-upload"
-              accept="image/png"
-              style="display: none"
-            />
-          </label>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="flex-shrink:0"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Upload Skin
+              <input type="file" id="skin-upload" accept="image/png" style="display:none"/>
+            </label>
+          <button class="skin-upload-btn download-btn" id="download-cape-btn" onclick="downloadCape()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="flex-shrink:0"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Cape
+          </button>
           <!-- <div class="skin-name" id="skin-name"></div> -->
           <div class="viewer-controls-row">
             <div class="skin-type-wrap" id="skin-type-wrap">
@@ -447,19 +447,43 @@
       searchEl.addEventListener("input", renderGrid);
       filterEl.addEventListener("change", renderGrid);
 
+      // ── Cape download ──
+      function downloadCape() {
+        if (!currentCapeUrl) {
+          alert("Please select a cape first.");
+          return;
+        }
+        const btn = document.getElementById("download-cape-btn");
+        btn.textContent = "Downloading…";
+        btn.disabled = true;
+        fetch(currentCapeUrl)
+          .then((r) => r.blob())
+          .then((blob) => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            const capeName = (capeLabel.querySelector("span") || {}).textContent || "cape";
+            a.download = capeName.replace(/[^a-z0-9_\-]/gi, "_") + ".png";
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+          })
+          .catch(() => alert("Failed to download cape texture."))
+          .finally(() => {
+            btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="flex-shrink:0"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download`;
+            btn.disabled = false;
+          });
+      }
+
       // ── Skin upload ──
-      document
-        .getElementById("skin-upload")
-        .addEventListener("change", function () {
-          const file = this.files[0];
-          if (!file) return;
-          const reader = new FileReader();
-          reader.onload = (e) => {
-            window.setSkinTexture(e.target.result);
-            // document.getElementById("skin-name").textContent = file.name;
-          };
-          reader.readAsDataURL(file);
-        });
+      document.getElementById("skin-upload").addEventListener("change", function () {
+        const file = this.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => window.setSkinTexture(e.target.result);
+        reader.readAsDataURL(file);
+      });
 
       // ── Classic / Slim toggle ──
       const btnClassic = document.getElementById("btn-classic");

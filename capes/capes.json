@@ -448,6 +448,174 @@
     "category": "Vanilla"
   },
   {
+    "name": "Amethyst Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "e6ac6826-b590-4aaf-b87a-c4499d4283a1",
+    "icon": "https://capes.bedrock-cosmos.app/icons/AmethystCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/AmethystCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Birthday Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "a115555a-315d-4a0f-8437-78df54a3f653",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BirthdayCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BirthdayCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Cloudy Climb Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "cac8a80c-dfd5-4056-9af0-3bb549a9e8d3",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CloudyClimbCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CloudyClimbCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Cloudy Climb Trailer Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "d4e66f66-c47e-4020-8fdf-897432617d02",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CloudyClimbTrailerCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CloudyClimbTrailerCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Cow Crusader Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "cae14f00-efc1-4be9-afcf-513a125a8e91",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CowCrusaderCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CowCrusaderCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Downpour Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "1f0b25db-b7bc-4080-b345-394a3f18c977",
+    "icon": "https://capes.bedrock-cosmos.app/icons/DownpourCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/DownpourCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Fauna Faire Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "615a566e-d44b-4de4-9d91-46fc20072141",
+    "icon": "https://capes.bedrock-cosmos.app/icons/FaunaFaireCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/FaunaFaireCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Gift Wrap Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "a82f16ff-2520-4024-b318-13aca62e6710",
+    "icon": "https://capes.bedrock-cosmos.app/icons/GiftWrapCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/GiftWrapCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Glow Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "6335945a-ce24-41e1-9401-66c2e4d25557",
+    "icon": "https://capes.bedrock-cosmos.app/icons/GlowCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/GlowCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Gourdian Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "1da006d2-a91d-4677-9492-6ef57c6b7b35",
+    "icon": "https://capes.bedrock-cosmos.app/icons/GourdianCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/GourdianCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Hammer Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "ee861fd0-95dd-4954-af6e-1962582facfb",
+    "icon": "https://capes.bedrock-cosmos.app/icons/HammerCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/HammerCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Hero Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "2de148de-3196-4dac-8e2a-a28e589da380",
+    "icon": "https://capes.bedrock-cosmos.app/icons/HeroCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/HeroCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Iceologer Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "1a20c9bd-838b-4dad-b1b0-4e93a66b5fad",
+    "icon": "https://capes.bedrock-cosmos.app/icons/IceologerCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/IceologerCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Iron Golem cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "372ef312-7f50-4e2b-a985-62cb832e4c55",
+    "icon": "https://capes.bedrock-cosmos.app/icons/IronGolemcape.png",
+    "texture": "https://bedrock-cosmos.app/capes/IronGolemcape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Luminous Night Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "4cd3e857-ccdc-4d38-86cc-a7df3863973a",
+    "icon": "https://capes.bedrock-cosmos.app/icons/LuminousNightCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/LuminousNightCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Mystery Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "1bcf2c21-652e-4ae4-9af2-630968571130",
+    "icon": "https://capes.bedrock-cosmos.app/icons/MysteryCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/MysteryCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Ominous Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "a04cbd2c-fc46-452a-ad9a-b6aaa24b6a87",
+    "icon": "https://capes.bedrock-cosmos.app/icons/OminousCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/OminousCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Prism Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "a7eda0a7-5896-4e05-a01d-e03449567ecb",
+    "icon": "https://capes.bedrock-cosmos.app/icons/PrismCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/PrismCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Red Royal Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "6a07d42d-3e17-45b4-b712-0d6165e7c2d5",
+    "icon": "https://capes.bedrock-cosmos.app/icons/RedRoyalCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/RedRoyalCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Sinister Blue Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "47fb8bcd-9db1-4262-b1ad-c1c6bafdeaac",
+    "icon": "https://capes.bedrock-cosmos.app/icons/SinisterBlueCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/SinisterBlueCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Turtle Shell Cape",
+    "creator": "Minecraft Dungeons",
+    "uuid": "1a3f66b4-a66b-4a44-bb79-d795ca40bbf7",
+    "icon": "https://capes.bedrock-cosmos.app/icons/TurtleShellCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/TurtleShellCape.png",
+    "category": "Vanilla"
+  },
+  {
     "name": "Block Of Diamond Cape",
     "creator": "Liefubledo",
     "uuid": "80a1968a-853e-4ca8-9c70-6de7ddb732b1",
