@@ -1,32 +1,15 @@
 User-agent: *
 Allow: /
 
-# Crawl-delay for well-behaved bots
-Crawl-delay: 10
-
 # Disallow non-public / utility paths
 Disallow: /config/
 Disallow: /.vscode/
+Disallow: /*?q=
 
 # Disallow raw JSON data files
 Disallow: /capes/capes.json
 Disallow: /skinpacks/skins.json
 Disallow: /tools/creators.json
 
-# Allow major search engine bots explicitly
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
 # Sitemap
 Sitemap: https://bedrock-cosmos.app/sitemap.xml
-
-Disallow: /*?q=

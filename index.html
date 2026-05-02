@@ -15,10 +15,13 @@
     <link rel="canonical" href="https://bedrock-cosmos.app/" />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Bedrock Cosmos" />
-    <meta content="Bedrock Cosmos" property="og:site_name" />
-    <meta content="en" property="og:locale" />
+    <meta property="og:site_name" content="Bedrock Cosmos" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Home | Bedrock Cosmos" />
+    <meta
+      property="og:title"
+      content="Bedrock Cosmos | Minecraft Bedrock Custom Capes & Skin Packs"
+    />
     <meta
       property="og:description"
       content="Bedrock Cosmos is a free, open-source proxy for Minecraft Bedrock Edition that adds custom capes, reveals hidden marketplace packs, restores missing content, and adds custom skin packs."
@@ -32,10 +35,14 @@
     <meta property="og:image:height" content="1080" />
     <meta
       property="og:image:alt"
-      content="Bedrock Cosmos – custom capes and skin packs for Minecraft Bedrock Edition"
+      content="Bedrock Cosmos - custom capes and skin packs for Minecraft Bedrock Edition"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Home | Bedrock Cosmos" />
+    <meta name="twitter:domain" content="bedrock-cosmos.app" />
+    <meta
+      name="twitter:title"
+      content="Bedrock Cosmos | Minecraft Bedrock Custom Capes & Skin Packs"
+    />
     <meta
       name="twitter:description"
       content="Bedrock Cosmos is a free, open-source proxy for Minecraft Bedrock Edition that adds custom capes, reveals hidden marketplace packs, restores missing content, and adds custom skin packs."
@@ -46,30 +53,29 @@
     />
     <meta
       name="twitter:image:alt"
-      content="Bedrock Cosmos – custom capes and skin packs for Minecraft Bedrock Edition"
+      content="Bedrock Cosmos - custom capes and skin packs for Minecraft Bedrock Edition"
     />
-    <meta content="bedrock-cosmos.app" name="twitter:domain" />
-    <meta name="twitter:site" content="" />
-    <meta name="twitter:creator" content="" />
+    <meta name="twitter:site" content="@BedrockCosmos" />
+    <meta name="twitter:creator" content="@BedrockCosmos" />
     <link
       href="https://bedrock-cosmos.app/"
       hreflang="x-default"
       rel="alternate"
     />
     <meta name="theme-color" content="#5b21b6" />
-    <title>Home | Bedrock Cosmos</title>
-    <link rel="stylesheet" href="css/marketplace.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Bedrock Cosmos | Minecraft Bedrock Custom Capes & Skin Packs</title>
     <link rel="preload" href="css/marketplace.css" as="style" />
+    <link rel="stylesheet" href="css/marketplace.css" />
     <link
       rel="preload"
       href="./icons/shootingstar.png"
       as="image"
       fetchpriority="high"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cherry+Bomb+One&family=Chicle&family=Museomoderno:wght@100..900&family=New+Amsterdam&family=Cinzel:wght@400..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
       rel="stylesheet"
     />
     <script type="application/ld+json">
@@ -92,11 +98,6 @@
           "@type": "Organization",
           "name": "Bedrock Cosmos",
           "url": "https://bedrock-cosmos.app/"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "1000"
         },
         "offers": {
           "@type": "Offer",
@@ -659,6 +660,27 @@
       .faq-item-new.active .faq-answer-new {
         display: block;
       }
+      .faq-answer-warning {
+        margin-top: 10px;
+        padding: 10px 14px;
+        border: 1px solid #7f1d1d;
+        border-radius: 6px;
+        background: rgba(127, 29, 29, 0.15);
+        color: #fff;
+        font-size: 0.82rem;
+        line-height: 1.65;
+      }
+      .faq-answer-warning-title {
+        display: block;
+        font-weight: 700;
+        color: #f87171;
+        margin-bottom: 4px;
+        font-size: 0.85rem;
+      }
+      .faq-answer-warning a {
+        color: #f87171;
+        text-decoration: underline;
+      }
       @media (max-width: 900px) {
         .home-content {
           padding: 16px 14px 32px;
@@ -758,6 +780,9 @@
         <img
           src="./icons/shootingstar.png"
           alt=""
+          width="24"
+          height="24"
+          decoding="async"
           style="width: 24px; height: 24px; object-fit: contain"
         />
         <span
@@ -785,12 +810,19 @@
           src="./icons/shootingstar.png"
           alt="Bedrock Cosmos app icon"
           class="home-hero-icon-large"
+          width="256"
+          height="256"
+          fetchpriority="high"
+          decoding="async"
         />
         <img
           src="./icons/shootingstar.png"
           alt=""
           aria-hidden="true"
           class="home-hero-icon-float"
+          width="256"
+          height="256"
+          decoding="async"
         />
         <div class="home-hero-overlay">
           <h1>Bedrock Cosmos</h1>
@@ -863,6 +895,9 @@
                   alt="Minecraft Bedrock Custom Capes"
                   class="carousel-img active"
                   loading="lazy"
+                  decoding="async"
+                  width="1920"
+                  height="1080"
                 />
               </div>
               <div class="info-section-text">
@@ -888,6 +923,9 @@
                   alt="Minecraft Bedrock Marketplace"
                   class="carousel-img active"
                   loading="lazy"
+                  decoding="async"
+                  width="1920"
+                  height="1080"
                 />
               </div>
               <div class="info-section-text">
@@ -910,6 +948,9 @@
                   alt="Minecraft Bedrock Restored Content"
                   class="carousel-img active"
                   loading="lazy"
+                  decoding="async"
+                  width="1252"
+                  height="710"
                 />
               </div>
               <div class="info-section-text">
@@ -1119,6 +1160,10 @@
                 but these are not supported by the Bedrock Cosmos team. Follow
                 our Discord or GitHub for announcements when Android support
                 becomes available.
+                <div class="faq-answer-warning">
+                  <span class="faq-answer-warning-title">⚠ Warning</span>
+                  Please be aware of other people and/or services offering mobile support for Bedrock Cosmos currently! We cannot confirm the safety of other third-party forks or software. The only Android build that is confirmed safe is by <strong>Wadudi</strong>, who is listed in our Team page as a Contributor. However, this is still unofficial and not supported by the Bedrock Cosmos team. Any future updates about official Android support will be released on our website.
+                </div>
               </div>
             </div>
             <div class="faq-item-new">
@@ -1666,6 +1711,7 @@
           img.alt = alt;
           img.className = "carousel-img";
           img.loading = "lazy";
+          img.decoding = "async";
           carousel.appendChild(img);
         });
 

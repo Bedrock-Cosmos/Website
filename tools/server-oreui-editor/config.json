@@ -1,0 +1,1700 @@
+{
+  "status": "OK",
+  "code": 200,
+  "data": {
+    "Count": 11,
+    "Items": [
+      {
+        "Id": "e791fe3d-b419-44fc-a121-8cfbd5fa75bd",
+        "Type": "catalogItem",
+        "AlternateIds": [],
+        "Title": { "NEUTRAL": "Enchanted", "neutral": "Enchanted" },
+        "Description": {
+          "NEUTRAL": "Enchanted has Tycoons, RPG's, Custom Survival Worlds and Dragons!",
+          "neutral": "Enchanted has Tycoons, RPG's, Custom Survival Worlds and Dragons!"
+        },
+        "ContentType": "3PP_V2.0",
+        "Platforms": [
+          "android.amazonappstore",
+          "android.googleplay",
+          "ios.store",
+          "nx.store",
+          "oculus.store.rift",
+          "oculus.store.gearvr",
+          "b.store",
+          "uwp.store",
+          "win10.onestore",
+          "uwp.store.mobile",
+          "xboxone.store",
+          "title.bedrockvanilla",
+          "title.earth",
+          "title.sunderland",
+          "java"
+        ],
+        "Tags": ["e791fe3d-b419-44fc-a121-8cfbd5fa75bd"],
+        "CreationDate": "2024-02-05T18:10:04.576Z",
+        "LastModifiedDate": "2026-03-30T17:11:28.949Z",
+        "StartDate": "0001-01-01T00:00:00Z",
+        "Contents": [],
+        "Images": [
+          {
+            "Tag": "Thumbnail",
+            "Id": "d8ef8f2b-ecf4-4335-953d-eabb314f66ef",
+            "Type": "Thumbnail",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/d8ef8f2b-ecf4-4335-953d-eabb314f66ef/ad030eb0-b48a-42b3-8556-6beeea11e921.png"
+          },
+          {
+            "Tag": "Banner",
+            "Id": "7fae4e00-d644-450e-8332-11ff25d3fa58",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/7fae4e00-d644-450e-8332-11ff25d3fa58/59f94086-e07f-499a-ae79-d058b24a6440.jpg"
+          },
+          {
+            "Tag": "Icon",
+            "Id": "371a53a7-6790-49e0-8090-e0f73ea0b36c",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/371a53a7-6790-49e0-8090-e0f73ea0b36c/e93759b0-10cb-46a8-856a-7e9b84bfc106.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "4a0a24b9-ea46-4aa7-a142-b3dc04751d96",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/4a0a24b9-ea46-4aa7-a142-b3dc04751d96/caf7c3cc-e17d-4bc0-9d6e-bd7939830abb.jpg"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "b2124162-7842-498e-b542-f26b98c145b0",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/b2124162-7842-498e-b542-f26b98c145b0/5a6e79b4-73e6-4fe2-aefd-234ee28945ce.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "dd369c65-7a99-433d-b066-dd93b8d6eae6",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/dd369c65-7a99-433d-b066-dd93b8d6eae6/29ceb870-1820-44c8-8807-84444803cff4.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "900520a1-60b3-488b-8a1e-5ae974bfd1c7",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/900520a1-60b3-488b-8a1e-5ae974bfd1c7/c162ae9f-ef37-426e-aee4-5a367fa386c7.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "4ee1b234-efbb-4a39-a5d2-c31b5dfc2823",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/4ee1b234-efbb-4a39-a5d2-c31b5dfc2823/36e5c557-06ed-42ff-8aca-46340577fb2f.png"
+          },
+          {
+            "Tag": "AvailableGameOverpowered Survival",
+            "Id": "bb4a6432-8b8a-4418-83a8-a65c56a3d228",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/bb4a6432-8b8a-4418-83a8-a65c56a3d228/7c7826ef-7440-48dc-8e38-c8a3354d5ebd.jpg"
+          },
+          {
+            "Tag": "AvailableGameHatch, Dragons, Dragon",
+            "Id": "5e7fa22c-e7ee-4f5e-914f-c4c2574ce424",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/5e7fa22c-e7ee-4f5e-914f-c4c2574ce424/0ed3e458-e1f4-45cb-bd35-df304adfd7f3.png"
+          },
+          {
+            "Tag": "AvailableGameMINES, Pro Miners Only",
+            "Id": "1fde54a3-89a3-457c-b95f-7b0c77526b35",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/1fde54a3-89a3-457c-b95f-7b0c77526b35/4e66e658-0a4a-45de-b17a-92a255e28308.png"
+          },
+          {
+            "Tag": "AvailableGameFishing, ultimate Fisher,",
+            "Id": "f06efe3d-edc2-4798-8a5e-acec3b6539c0",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/f06efe3d-edc2-4798-8a5e-acec3b6539c0/d2f75b36-df8c-4969-be84-a93808395a00.png"
+          }
+        ],
+        "ItemReferences": [],
+        "DisplayProperties": {
+          "availableGames": [
+            {
+              "description": "Custom Terrain, Overpowered Enchants, Play with Friends. This is an Overpowered Survival world with buying and sells!",
+              "imageTag": "AvailableGameOverpowered Survival",
+              "subtitle": "OPSMP",
+              "title": "Overpowered Survival"
+            },
+            {
+              "description": "Hatch and train you own dragons, teach them new abilities, have them help you level up and become the best Dragon Tamer!",
+              "imageTag": "AvailableGameHatch, Dragons, Dragon",
+              "subtitle": "Hatch over 50,000 Dragons!",
+              "title": "Dragons MMO"
+            },
+            {
+              "description": "YEARN for the Mines in our new Game Mode... MINES. From 0 Meters to the depths of 10,000 Meters into the Earth, where new ores and mobs await you.",
+              "imageTag": "AvailableGameMINES, Pro Miners Only",
+              "subtitle": "Pro Miners Only",
+              "title": "MINES"
+            },
+            {
+              "description": "Become the ultimate Fisher, collect over 1000 different fish, from Common to Legendary. Play the Mini-game and level up your Skill.",
+              "imageTag": "AvailableGameFishing, ultimate Fisher,",
+              "subtitle": "EARLY ACCESS",
+              "title": "Fishing"
+            }
+          ],
+          "creatorName": "Enchanted",
+          "maxClientVersion": "9.99.9",
+          "minClientVersion": "1.16.0",
+          "news": "Train your own magical dragon, unlock powerful abilities, and explore mystical worlds filled with quests and treasure! Fly, fight, farm, and mine alongside your dragon as you level up and become a legendary trainer. Collect rare eggs and rise through the ranks from Tamer to Master. Adventure awaits — are you ready to soar?",
+          "newsTitle": "DRAGONS NOW RELEASED!",
+          "originalCreatorId": "2535449228377793",
+          "port": 19132,
+          "requireXBL": "True",
+          "storePageId": "ServerOffers_bd9477c6-650b-40a5-8f7d-623ca881ebd5",
+          "url": "play.enchanted.gg",
+          "whitelistUrl": "*.enchanted.gg",
+          "allowListUrl": "*.enchanted.gg",
+          "experienceId": ""
+        },
+        "IsStackable": false,
+        "CreatorEntityKey": {
+          "Id": "5366842229349662",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        },
+        "IsHydrated": false,
+        "Keywords": {},
+        "CreatorEntity": {
+          "Id": "5366842229349662",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        }
+      },
+      {
+        "Id": "086920fe-4f18-4db5-a7bf-b587cec822ec",
+        "Type": "catalogItem",
+        "AlternateIds": [],
+        "Title": { "NEUTRAL": "GALAXITE", "neutral": "GALAXITE" },
+        "Description": {
+          "NEUTRAL": "Home of My Farm Life, The Entity, Chronos: Battle-Royale, Parkour Builders, Rush, Hyper Racers, Playground, Prop hunt, Core Wars and Fill The Gaps!",
+          "neutral": "Home of My Farm Life, The Entity, Chronos: Battle-Royale, Parkour Builders, Rush, Hyper Racers, Playground, Prop hunt, Core Wars and Fill The Gaps!"
+        },
+        "ContentType": "3PP_V2.0",
+        "Platforms": [
+          "android.amazonappstore",
+          "android.googleplay",
+          "ios.store",
+          "nx.store",
+          "oculus.store.rift",
+          "oculus.store.gearvr",
+          "b.store",
+          "uwp.store",
+          "win10.onestore",
+          "uwp.store.mobile",
+          "xboxone.store",
+          "title.bedrockvanilla",
+          "title.earth",
+          "title.sunderland",
+          "java"
+        ],
+        "Tags": ["086920fe-4f18-4db5-a7bf-b587cec822ec"],
+        "CreationDate": "2020-06-01T23:23:58.029Z",
+        "LastModifiedDate": "2026-04-01T16:26:29.77Z",
+        "StartDate": "0001-01-01T00:00:00Z",
+        "Contents": [],
+        "Images": [
+          {
+            "Tag": "Thumbnail",
+            "Id": "c48b49eb-53db-4984-80cb-c044a7f619fd",
+            "Type": "Thumbnail",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/c48b49eb-53db-4984-80cb-c044a7f619fd/b8759b44-53d6-4347-8ff9-c21023e737b7.jpg"
+          },
+          {
+            "Tag": "Banner",
+            "Id": "9935f50f-52d6-4f79-87a2-0161f5bf1d47",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/9935f50f-52d6-4f79-87a2-0161f5bf1d47/f002abae-cd8c-48b4-b96d-ddbdf4431e81.png"
+          },
+          {
+            "Tag": "Icon",
+            "Id": "d3f7670d-743b-4abe-b081-d2ad35e31a60",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/d3f7670d-743b-4abe-b081-d2ad35e31a60/db419c0c-c717-4035-bd15-56040ee0c272.jpg"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "2548ae4c-4673-4458-861d-d55889e2b6cc",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/2548ae4c-4673-4458-861d-d55889e2b6cc/80365613-8fb5-4f32-9efd-3c51ad3df8c5.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "2bcdd2c5-038c-4295-bbba-6449a808df20",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/2bcdd2c5-038c-4295-bbba-6449a808df20/e46cf9a1-c007-49e5-9396-0b34eb848ed9.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "175c92b7-ad7a-41f7-bd0d-1e5c35c23d53",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/175c92b7-ad7a-41f7-bd0d-1e5c35c23d53/d1326785-03ba-4db9-81cf-0955bc530e81.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "ba55a50b-c9f8-4f56-800d-15b5c58f6527",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/ba55a50b-c9f8-4f56-800d-15b5c58f6527/b71a1e33-13f4-4337-ab94-db30f8347f41.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "18e13349-1e97-4a82-aa13-2f6e92b4ffb7",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/18e13349-1e97-4a82-aa13-2f6e92b4ffb7/9bd209ee-7c8b-460a-8b49-7536c273141f.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "58136a07-822a-4e13-9817-0d7a8a7c61f5",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/58136a07-822a-4e13-9817-0d7a8a7c61f5/86494c7f-6e05-49c6-aff7-1fe329042727.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "3ee0c8af-9f70-49d3-9eed-cbe52e688e9a",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/3ee0c8af-9f70-49d3-9eed-cbe52e688e9a/8f0032a0-b640-431e-a1b7-ea6a824e8110.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "e7ab253c-ab7e-4e7b-93b6-ad1e5f2e3073",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/e7ab253c-ab7e-4e7b-93b6-ad1e5f2e3073/eaf58c78-6ba8-45d2-928a-b37a6b3538bb.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "678188b6-9759-4012-8611-ba1da57dc753",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/678188b6-9759-4012-8611-ba1da57dc753/3131b7b7-a253-4f0c-9c30-401439b4f68d.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "78a8c15d-a1b1-4e79-97b6-aca801a303ba",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/78a8c15d-a1b1-4e79-97b6-aca801a303ba/8fc1f932-b294-4e37-b6fa-969bbfb2c392.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "280323f4-3a7b-4ae4-bb40-ceb4baab145a",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/280323f4-3a7b-4ae4-bb40-ceb4baab145a/431bcbe6-c94a-4752-87d0-72a962e946ea.png"
+          },
+          {
+            "Tag": "Screenshot",
+            "Id": "01ae6632-84bf-48d2-a038-63c65fbcff67",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/01ae6632-84bf-48d2-a038-63c65fbcff67/4736e94b-5805-43ff-8fbc-270a1c48338a.png"
+          },
+          {
+            "Tag": "AvailableGameCoreWars",
+            "Id": "8beddd99-ef09-4d6e-983c-9f5cc92657c4",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/8beddd99-ef09-4d6e-983c-9f5cc92657c4/98588969-e502-4e36-a433-35850bf9cb46.png"
+          },
+          {
+            "Tag": "AvailableGameRush",
+            "Id": "1b754875-af20-4003-943b-750ee5847260",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/1b754875-af20-4003-943b-750ee5847260/0f862abe-efac-4c5e-b933-799a987906e8.png"
+          },
+          {
+            "Tag": "AvailableGameHyperRacers",
+            "Id": "d2cb04c5-87d2-469b-9700-b114f5c3bdeb",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/d2cb04c5-87d2-469b-9700-b114f5c3bdeb/eab3bbf9-d8df-40c6-939c-7df4e707e06a.png"
+          },
+          {
+            "Tag": "AvailableGameChronos",
+            "Id": "8cb9e32a-7be3-4808-b678-876a6f4e892e",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/8cb9e32a-7be3-4808-b678-876a6f4e892e/563a104a-695e-4aed-9197-ea281dc43b43.png"
+          },
+          {
+            "Tag": "AvailableGamePropHunt",
+            "Id": "ed44fbdc-c81b-4426-ab7c-31e04e695e26",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/ed44fbdc-c81b-4426-ab7c-31e04e695e26/668fcc12-77bb-466e-a238-f28405266e77.png"
+          },
+          {
+            "Tag": "AvailableGameFillTheGaps",
+            "Id": "d0c807b1-410d-4bdb-a678-63d7103ea03b",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/d0c807b1-410d-4bdb-a678-63d7103ea03b/01ea8150-dd1a-4533-8bf9-0252e2e53fa1.png"
+          },
+          {
+            "Tag": "AvailableGameAlienBlast",
+            "Id": "6fdf53fd-dd7f-4d45-b399-d8d5371bd24e",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/6fdf53fd-dd7f-4d45-b399-d8d5371bd24e/385f2669-58c8-4e36-b6e4-ea9d06bf274a.png"
+          },
+          {
+            "Tag": "AvailableGameMelvinsMine",
+            "Id": "f0c9f628-4d51-4574-8e8d-8e42cfff0a8e",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/f0c9f628-4d51-4574-8e8d-8e42cfff0a8e/ceb0534c-6680-4599-af2f-9d408b77659d.png"
+          },
+          {
+            "Tag": "AvailableGameMyFarmLife",
+            "Id": "f860406d-1cc0-446a-98e2-4abb4fd4daed",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/f860406d-1cc0-446a-98e2-4abb4fd4daed/ec1552ee-cc1e-4456-870a-7990aabc966b.png"
+          },
+          {
+            "Tag": "AvailableGameParkourBuilders",
+            "Id": "fb1c34e4-6aaf-46d3-aa12-98204623279f",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/fb1c34e4-6aaf-46d3-aa12-98204623279f/8cdce275-d11e-481c-b0b7-4fdded2c8606.png"
+          },
+          {
+            "Tag": "AvailableGamePlayground",
+            "Id": "cefba56f-b18b-48f0-8c68-88b396259048",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/cefba56f-b18b-48f0-8c68-88b396259048/11abe294-55a8-486a-97e7-d6d4fa21a82c.png"
+          },
+          {
+            "Tag": "AvailableGameTheEntity",
+            "Id": "1e9e8b65-34c5-47d3-863d-28c9e9de5307",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/1e9e8b65-34c5-47d3-863d-28c9e9de5307/cc1fb0c5-2f8a-4eaa-9783-651d19cc967d.png"
+          }
+        ],
+        "ItemReferences": [],
+        "DisplayProperties": {
+          "availableGames": [
+            {
+              "description": "Defend your core and be the last player standing!",
+              "imageTag": "AvailableGameCoreWars",
+              "subtitle": "Solo, Duo & Quad",
+              "title": "Core Wars"
+            },
+            {
+              "description": "Get to the center to find the best loot and be the last player remaining in the game!",
+              "imageTag": "AvailableGameRush",
+              "subtitle": "Solo, Duo & Quad",
+              "title": "Rush"
+            },
+            {
+              "description": "Race against your friends while gathering power-ups to get an advantage!",
+              "imageTag": "AvailableGameHyperRacers",
+              "subtitle": "Race & Battle",
+              "title": "Hyper Racers"
+            },
+            {
+              "description": "Enter the arena and battle to get the most time and be the last player standing!",
+              "imageTag": "AvailableGameChronos",
+              "subtitle": "Battle-Royale!",
+              "title": "Chronos"
+            },
+            {
+              "description": "Disguise as a prop and hide within your surroundings!",
+              "imageTag": "AvailableGamePropHunt",
+              "subtitle": "Hide & Seek!",
+              "title": "Prop Hunt"
+            },
+            {
+              "description": "Be the fastest to fill in the missing blocks from a variety of builds!",
+              "imageTag": "AvailableGameFillTheGaps",
+              "subtitle": "Solo, Duo & Quad!",
+              "title": "Fill The Gaps"
+            },
+            {
+              "description": "Survive waves of aliens by blasting them away!",
+              "imageTag": "AvailableGameAlienBlast",
+              "subtitle": "School & Santa's Cabin!",
+              "title": "Alien Blast"
+            },
+            {
+              "description": "Mine some ores while waiting for a game and speak to Melvin to get better tools!",
+              "imageTag": "AvailableGameMelvinsMine",
+              "subtitle": "Survival Mining!",
+              "title": "Melvin's Mine"
+            },
+            {
+              "description": "Build and decorate your own farm, but don't forget to explore the multiple tiers of the wilderness!",
+              "imageTag": "AvailableGameMyFarmLife",
+              "subtitle": "Early-Access!",
+              "title": "My Farm Life"
+            },
+            {
+              "description": "Build and publish your very own parkour or play one of over 150,000 community-made parkours!",
+              "imageTag": "AvailableGameParkourBuilders",
+              "subtitle": "Build & Play!",
+              "title": "Parkour Builders"
+            },
+            {
+              "description": "Play microgames with your friends and watch others as they play!",
+              "imageTag": "AvailableGamePlayground",
+              "subtitle": "Duels, Party & Kit PvP!",
+              "title": "Playground"
+            },
+            {
+              "description": "Complete objectives to escape from the monsters that have you trapped!",
+              "imageTag": "AvailableGameTheEntity",
+              "subtitle": "Monsters & Werewolves!",
+              "title": "The Entity"
+            }
+          ],
+          "creatorName": "Galaxite",
+          "maxClientVersion": "9.99.9",
+          "minClientVersion": "1.16.00",
+          "news": "Create your own Farm in My Farm Life and Survive the Werewolf in the Entity: Chapter 2",
+          "newsTitle": "New Games!",
+          "originalCreatorId": "2535416788357584",
+          "port": 19132,
+          "requireXBL": "True",
+          "storePageId": "ServerPage_master_player_account!33171D90895F3788",
+          "url": "play.galaxite.net",
+          "whitelistUrl": "*.galaxite.net",
+          "allowListUrl": "*.galaxite.net",
+          "experienceId": ""
+        },
+        "IsStackable": false,
+        "CreatorEntityKey": {
+          "Id": "33171D90895F3788",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        },
+        "IsHydrated": false,
+        "Keywords": {},
+        "CreatorEntity": {
+          "Id": "33171D90895F3788",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        }
+      },
+      {
+        "Id": "f33e1256-b667-4679-b37a-91dd57fd7eba",
+        "Type": "catalogItem",
+        "AlternateIds": [],
+        "Title": { "NEUTRAL": "The Hive", "neutral": "The Hive" },
+        "Description": {
+          "NEUTRAL": "The Hive offers fun & polished minigames, with advanced social features.",
+          "neutral": "The Hive offers fun & polished minigames, with advanced social features."
+        },
+        "ContentType": "3PP_V2.0",
+        "Platforms": [
+          "android.amazonappstore",
+          "android.googleplay",
+          "ios.store",
+          "nx.store",
+          "oculus.store.rift",
+          "oculus.store.gearvr",
+          "b.store",
+          "uwp.store",
+          "win10.onestore",
+          "uwp.store.mobile",
+          "xboxone.store",
+          "title.bedrockvanilla",
+          "title.earth",
+          "title.sunderland",
+          "java"
+        ],
+        "Tags": ["f33e1256-b667-4679-b37a-91dd57fd7eba"],
+        "CreationDate": "2020-06-01T23:27:51.568Z",
+        "LastModifiedDate": "2025-12-20T03:22:25.513Z",
+        "StartDate": "0001-01-01T00:00:00Z",
+        "Contents": [],
+        "Images": [
+          {
+            "Tag": "Thumbnail",
+            "Id": "7770057a-2228-4fae-a8e0-5b208e7332ed",
+            "Type": "Thumbnail",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/7770057a-2228-4fae-a8e0-5b208e7332ed/266855ec-063f-4dc6-90f3-63b87ef4b7a3.jpg"
+          },
+          {
+            "Tag": "Banner",
+            "Id": "ec76112c-a7ce-4729-a6e9-fb8f617f86e6",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/ec76112c-a7ce-4729-a6e9-fb8f617f86e6/2a4db08e-4334-4b9d-91af-f5994853e9bf.jpg"
+          },
+          {
+            "Tag": "Icon",
+            "Id": "419bc9ce-d459-434b-ae26-0c1a86d448c9",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/419bc9ce-d459-434b-ae26-0c1a86d448c9/977cd392-cdea-40f8-9f2f-8a06a2c23810.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "d7759349-ff95-419b-a682-3ebc8f304ba4",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-title-b63a0803d3653643-20ca2/d7759349-ff95-419b-a682-3ebc8f304ba4/hive_screenshot_1.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "7c11f0d7-dfaa-4145-a7ff-373351997914",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-title-b63a0803d3653643-20ca2/7c11f0d7-dfaa-4145-a7ff-373351997914/hive_screenshot_2.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "ee9241f5-3009-48de-a989-b095ff6d08fb",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-title-b63a0803d3653643-20ca2/ee9241f5-3009-48de-a989-b095ff6d08fb/hive_screenshot_3.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "d2c1c655-33e4-46f8-9c13-40d7bc6fecca",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-title-b63a0803d3653643-20ca2/d2c1c655-33e4-46f8-9c13-40d7bc6fecca/hive_screenshot_4.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "6acd5e6b-4057-4a39-beaf-b1e166a5f1a3",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-title-b63a0803d3653643-20ca2/6acd5e6b-4057-4a39-beaf-b1e166a5f1a3/hive_screenshot_5.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "b35c8851-e9e2-4552-b05e-8d74d426aafd",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-title-b63a0803d3653643-20ca2/b35c8851-e9e2-4552-b05e-8d74d426aafd/hive_screenshot_6.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "dc1fd44e-a8c3-41f9-aa84-f6d7a7812381",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-title-b63a0803d3653643-20ca2/dc1fd44e-a8c3-41f9-aa84-f6d7a7812381/hive_screenshot_7.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "043d3e08-3e86-4a9b-8cb4-8a1af345fc81",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-title-b63a0803d3653643-20ca2/043d3e08-3e86-4a9b-8cb4-8a1af345fc81/hive_screenshot_8.jpg"
+          },
+          {
+            "Tag": "AvailableGameSkyWars",
+            "Id": "42c936ef-31a3-4cfe-a9de-dc577b0249d0",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/42c936ef-31a3-4cfe-a9de-dc577b0249d0/24c89bc1-c55c-4f18-9ef7-d030895905e3.jpg"
+          },
+          {
+            "Tag": "AvailableGameHub",
+            "Id": "a267372d-861f-4bdb-9c6c-de884fab95a0",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/a267372d-861f-4bdb-9c6c-de884fab95a0/9f8682b0-3ba6-44b9-bfd1-4499f3e3bd8b.jpg"
+          },
+          {
+            "Tag": "AvailableGameHideAndSeek",
+            "Id": "f4732275-8df7-4c79-80b4-5da37ec531ad",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/f4732275-8df7-4c79-80b4-5da37ec531ad/a2a0982b-d30c-40e0-baa7-0b76bf952554.jpg"
+          },
+          {
+            "Tag": "AvailableGameMurderMystery",
+            "Id": "6a647264-36b5-4b6a-8ff1-1c8bb7efde02",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/6a647264-36b5-4b6a-8ff1-1c8bb7efde02/65bfcd61-7404-477f-aa27-71bdebab1c65.jpg"
+          },
+          {
+            "Tag": "AvailableGameBedwars",
+            "Id": "6efb001d-5117-4a97-b477-56be67a78f51",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/6efb001d-5117-4a97-b477-56be67a78f51/8ffbcca2-996c-467a-951a-5af7a4bd5ff7.jpg"
+          },
+          {
+            "Tag": "AvailableGameBuild Battle",
+            "Id": "a157310a-be3b-4e4d-9a56-ec805c33909b",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/a157310a-be3b-4e4d-9a56-ec805c33909b/a7a27d8a-501b-4745-b3b2-f9d17aec5c62.jpg"
+          },
+          {
+            "Tag": "AvailableGameCustom Servers",
+            "Id": "a72aab9b-6eb9-496d-966c-c6559971f99d",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/a72aab9b-6eb9-496d-966c-c6559971f99d/e8f40288-9a45-4904-8ab1-84d068f7da0d.jpg"
+          }
+        ],
+        "ItemReferences": [],
+        "DisplayProperties": {
+          "availableGames": [
+            {
+              "description": "Mine rare ores for powerful gear, bridge between islands, and dominate the skies. Last team standing wins!",
+              "imageTag": "AvailableGameSkyWars",
+              "subtitle": "Strike it lucky in SkyWars!",
+              "title": "SkyWars"
+            },
+            {
+              "description": "Discover and collect thousands of unique cosmetics as you play your favorite minigames and participate in seasonal events!",
+              "imageTag": "AvailableGameHub",
+              "subtitle": "Stand out with style!",
+              "title": "Thousands of Cosmetics"
+            },
+            {
+              "description": "Transform into blocks, find the perfect hiding spot, and emote with fellow hiders. Don't get found!",
+              "imageTag": "AvailableGameHideAndSeek",
+              "subtitle": "Master the art of disguise!",
+              "title": "Hide and Seek"
+            },
+            {
+              "description": "Stop the murderer before they strike again, or secretly eliminate everyone! Who can you trust?",
+              "imageTag": "AvailableGameMurderMystery",
+              "subtitle": "Where deception meets detection!",
+              "title": "Murder Mystery"
+            },
+            {
+              "description": "Fight in solo, duo, or squad matches. Collect resources, upgrade gear, and break enemy beds!",
+              "imageTag": "AvailableGameBedwars",
+              "subtitle": "Build, battle, destroy!",
+              "title": "BedWars"
+            },
+            {
+              "description": "Race the clock to create amazing builds, judge other creations, and become the ultimate builder!",
+              "imageTag": "AvailableGameBuild Battle",
+              "subtitle": "Show off your building skills!",
+              "title": "Build Battle"
+            },
+            {
+              "description": "Create private matches, tweak settings, and play minigames your way with friends!",
+              "imageTag": "AvailableGameCustom Servers",
+              "subtitle": "Your Game, Your Rules!",
+              "title": "Custom Servers"
+            }
+          ],
+          "creatorName": "The Hive",
+          "maxClientVersion": "9.9.99",
+          "minClientVersion": "1.15.9",
+          "news": "Modify gameplay, create and share presets and play Hive minigames the way you like it with Custom Servers!",
+          "newsTitle": "Major update: Custom Servers",
+          "originalCreatorId": "2535412081982588",
+          "port": 19132,
+          "requireXBL": "True",
+          "storePageId": "ServerPage_master_player_account!DD292649E51DB5F9",
+          "url": "geo.hivebedrock.network",
+          "whitelistUrl": "*.hivebedrock.network",
+          "allowListUrl": "*.hivebedrock.network",
+          "experienceId": "",
+          "isTop": false
+        },
+        "IsStackable": false,
+        "CreatorEntityKey": {
+          "Id": "DD292649E51DB5F9",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        },
+        "IsHydrated": false,
+        "Keywords": {},
+        "CreatorEntity": {
+          "Id": "DD292649E51DB5F9",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        }
+      },
+      {
+        "Id": "c9f9af01-979a-4f36-b970-70bdf2fe593e",
+        "Type": "catalogItem",
+        "AlternateIds": [],
+        "Title": { "NEUTRAL": "Mineville Earth", "neutral": "Mineville Earth" },
+        "Description": {
+          "NEUTRAL": "Play on a large Earth SMP map! Build a city, make alliances, fight others, and trade to become the most powerful city on the server!",
+          "neutral": "Play on a large Earth SMP map! Build a city, make alliances, fight others, and trade to become the most powerful city on the server!"
+        },
+        "ContentType": "3PP_V2.0",
+        "Platforms": [
+          "android.amazonappstore",
+          "android.googleplay",
+          "ios.store",
+          "nx.store",
+          "oculus.store.rift",
+          "oculus.store.gearvr",
+          "b.store",
+          "uwp.store",
+          "win10.onestore",
+          "uwp.store.mobile",
+          "xboxone.store",
+          "title.bedrockvanilla",
+          "title.earth",
+          "title.sunderland",
+          "java"
+        ],
+        "Tags": ["c9f9af01-979a-4f36-b970-70bdf2fe593e"],
+        "CreationDate": "2020-06-01T23:25:12.134Z",
+        "LastModifiedDate": "2026-04-09T16:40:40.601Z",
+        "StartDate": "0001-01-01T00:00:00Z",
+        "Contents": [],
+        "Images": [
+          {
+            "Tag": "Thumbnail",
+            "Id": "5df2665e-e1b6-4ca2-9f51-7412f5ab82ce",
+            "Type": "Thumbnail",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/5df2665e-e1b6-4ca2-9f51-7412f5ab82ce/c6a0e3f6-bf51-40ec-b12c-fd3b4d73c6e6.png"
+          },
+          {
+            "Tag": "Banner",
+            "Id": "ddd97a21-8465-4570-91f3-da78339f70ef",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/ddd97a21-8465-4570-91f3-da78339f70ef/1139479b-ec63-4304-83df-26a9f18f392a.png"
+          },
+          {
+            "Tag": "Icon",
+            "Id": "8eb999d8-cace-483c-b93f-012250f1ed68",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/8eb999d8-cace-483c-b93f-012250f1ed68/88dbd881-5b28-469c-869c-85921589f07b.png"
+          },
+          {
+            "Tag": "AvailableGameEarth Map",
+            "Id": "286f8d34-4262-4d21-8146-5d72ce7e3853",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/286f8d34-4262-4d21-8146-5d72ce7e3853/f1d2ec93-7793-4df4-a5d2-afa67e19628d.png"
+          }
+        ],
+        "ItemReferences": [],
+        "DisplayProperties": {
+          "availableGames": [
+            {
+              "description": "Play on a large map modeled after planet Earth. Teleport to a continent and build your own City or join others! Sell items, trade, and become rich. Own the largest and most powerful City!",
+              "imageTag": "AvailableGameEarth Map",
+              "subtitle": "Earth Map",
+              "title": "Earth Map"
+            }
+          ],
+          "creatorName": "InPvP",
+          "maxClientVersion": "9.9.99",
+          "minClientVersion": "1.15.9",
+          "news": "Choose a continent and jump right in! MineVille Earth SMP is waiting for you with endless amounts of fun to be had.",
+          "newsTitle": "Earth SMP map!",
+          "originalCreatorId": "2535443997021653",
+          "port": 19132,
+          "requireXBL": "True",
+          "storePageId": "ServerOffers_9c3eac4f-c579-4525-80d9-723e705c992d",
+          "url": "play.inpvp.net",
+          "whitelistUrl": "*.inpvp.net",
+          "allowListUrl": "*.inpvp.net",
+          "experienceId": ""
+        },
+        "IsStackable": false,
+        "CreatorEntityKey": {
+          "Id": "4CACD50BFFEC08EA",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        },
+        "IsHydrated": false,
+        "Keywords": {},
+        "CreatorEntity": {
+          "Id": "4CACD50BFFEC08EA",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        }
+      },
+      {
+        "Id": "ae4d3c11-be26-4e87-b969-70e9b8c9f73a",
+        "Type": "catalogItem",
+        "AlternateIds": [],
+        "Title": { "NEUTRAL": "CubeCraft", "neutral": "CubeCraft" },
+        "Description": {
+          "NEUTRAL": "CubeCraft features awesome minigames, with friends, parties & more!",
+          "neutral": "CubeCraft features awesome minigames, with friends, parties & more!"
+        },
+        "ContentType": "3PP_V2.0",
+        "Platforms": [
+          "android.amazonappstore",
+          "android.googleplay",
+          "ios.store",
+          "nx.store",
+          "oculus.store.rift",
+          "oculus.store.gearvr",
+          "b.store",
+          "uwp.store",
+          "win10.onestore",
+          "uwp.store.mobile",
+          "xboxone.store",
+          "title.bedrockvanilla",
+          "title.earth",
+          "title.sunderland",
+          "java"
+        ],
+        "Tags": ["ae4d3c11-be26-4e87-b969-70e9b8c9f73a"],
+        "CreationDate": "2020-06-23T17:37:07.073Z",
+        "LastModifiedDate": "2026-04-01T18:36:39.639Z",
+        "StartDate": "0001-01-01T00:00:00Z",
+        "Contents": [],
+        "Images": [
+          {
+            "Tag": "Thumbnail",
+            "Id": "540f56e0-6e42-42f2-b4c6-6401bd79b096",
+            "Type": "Thumbnail",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/540f56e0-6e42-42f2-b4c6-6401bd79b096/92c89d7f-86ca-43c4-b9bc-0bf17ddb00a9.jpg"
+          },
+          {
+            "Tag": "Banner",
+            "Id": "847f544e-b24c-44ab-9f41-c40e7ee9833b",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/847f544e-b24c-44ab-9f41-c40e7ee9833b/d5e50d44-7150-45d3-bc9e-8850cd1c9d39.png"
+          },
+          {
+            "Tag": "Icon",
+            "Id": "2ba73d7b-e00f-4ea2-a007-6c2b81e962e8",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/2ba73d7b-e00f-4ea2-a007-6c2b81e962e8/693a276e-da92-4515-a114-f5101db173f7.png"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "4ba247dc-d993-4af4-b5a2-2b73cd647459",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-20ca2/4ba247dc-d993-4af4-b5a2-2b73cd647459/Cubecraft_screenshot_1.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "1d95cc18-eec7-4004-bbfe-2dbcbc40da93",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-20ca2/1d95cc18-eec7-4004-bbfe-2dbcbc40da93/Cubecraft_screenshot_10.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "a54af5a2-f365-4f2b-89c2-f7489d16b463",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-20ca2/a54af5a2-f365-4f2b-89c2-f7489d16b463/Cubecraft_screenshot_11.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "993b80a8-8be1-4240-ac35-864e541d1e5a",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-20ca2/993b80a8-8be1-4240-ac35-864e541d1e5a/Cubecraft_screenshot_12.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "9dec0f6f-006e-4c3c-b962-f824cef198fe",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-20ca2/9dec0f6f-006e-4c3c-b962-f824cef198fe/Cubecraft_screenshot_2.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "c090e1db-3424-4263-aa29-1d23135440b8",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-20ca2/c090e1db-3424-4263-aa29-1d23135440b8/Cubecraft_screenshot_3.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "6bb782db-550e-4c26-a0f1-4aa7f5d7f287",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-20ca2/6bb782db-550e-4c26-a0f1-4aa7f5d7f287/Cubecraft_screenshot_4.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "11916493-08ab-4f6a-94e2-244e10a6b7aa",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-20ca2/11916493-08ab-4f6a-94e2-244e10a6b7aa/Cubecraft_screenshot_5.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "a49dd5f8-7d73-4b0a-a151-b7cab924384f",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-20ca2/a49dd5f8-7d73-4b0a-a151-b7cab924384f/Cubecraft_screenshot_6.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "b09c99f0-e621-423f-aac5-425613a04999",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-20ca2/b09c99f0-e621-423f-aac5-425613a04999/Cubecraft_screenshot_7.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "02ded4c1-b84a-4a93-ba96-38e32780d7c5",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-20ca2/02ded4c1-b84a-4a93-ba96-38e32780d7c5/Cubecraft_screenshot_8.jpg"
+          },
+          {
+            "Tag": "screenshot",
+            "Id": "d17ef9ed-f8ae-4567-a791-2d9d7f1371d3",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-title-b63a0803d3653643-20ca2/d17ef9ed-f8ae-4567-a791-2d9d7f1371d3/Cubecraft_screenshot_9.jpg"
+          },
+          {
+            "Tag": "AvailableGameBedWars",
+            "Id": "6eeef9eb-7531-4fe5-bf8b-7787869b875c",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/6eeef9eb-7531-4fe5-bf8b-7787869b875c/94e7e14e-d673-44ef-90fc-4f991f8baef2.jpg"
+          },
+          {
+            "Tag": "AvailableGameSkyblock",
+            "Id": "d967494d-db6c-4d5e-aaf4-de0826cfaf9b",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/d967494d-db6c-4d5e-aaf4-de0826cfaf9b/c267c2dc-9e96-47e5-8bf7-ce8aed2fedf3.jpg"
+          },
+          {
+            "Tag": "AvailableGameEggWars",
+            "Id": "66297ac0-a0f8-4349-a383-238c635aa66b",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/66297ac0-a0f8-4349-a383-238c635aa66b/073ec0ac-750a-4c88-8275-2a0c61280a5a.jpg"
+          },
+          {
+            "Tag": "AvailableGameSkyWars",
+            "Id": "c42ff4d1-8596-4ebb-8117-a3c6160d3baf",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/c42ff4d1-8596-4ebb-8117-a3c6160d3baf/d5969a66-58e3-4bef-a5fa-6ce472ba0cd4.jpg"
+          },
+          {
+            "Tag": "AvailableGamePillars of Fortune",
+            "Id": "fde5216d-434d-4b8e-a788-7d3c14d51b30",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/fde5216d-434d-4b8e-a788-7d3c14d51b30/a0e67ccf-bb57-499b-a469-2e1cf2bece37.jpg"
+          },
+          {
+            "Tag": "AvailableGameLuckyIslands",
+            "Id": "9727ce64-0962-4631-b6d0-15e6d6c8e165",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/9727ce64-0962-4631-b6d0-15e6d6c8e165/59f7ac70-fc48-4a6b-94aa-5a96a979a3c3.jpg"
+          },
+          {
+            "Tag": "AvailableGameBattle Arena",
+            "Id": "e2c855c2-dae2-4be4-b23c-d1e93582eb91",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/e2c855c2-dae2-4be4-b23c-d1e93582eb91/85a8b323-b12b-407a-aadb-3dc6244b2306.jpg"
+          },
+          {
+            "Tag": "AvailableGameLots of Cosmetics",
+            "Id": "5607cbbf-1c70-42e5-ae29-bbe42d941542",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/5607cbbf-1c70-42e5-ae29-bbe42d941542/f74a396d-cd16-4673-8de9-43095f4a3bb1.jpg"
+          }
+        ],
+        "ItemReferences": [],
+        "DisplayProperties": {
+          "availableGames": [
+            {
+              "description": "Battle to destroy each other's beds while protecting your own! Collect tokens and upgrade your team perks.",
+              "imageTag": "AvailableGameBedWars",
+              "subtitle": "Solo, Duos, Quads",
+              "title": "BedWars"
+            },
+            {
+              "description": "Play on your own or with friends! Explore & unlock islands, complete quests & grow your island!",
+              "imageTag": "AvailableGameSkyblock",
+              "subtitle": "Solo & Co-op",
+              "title": "Skyblock"
+            },
+            {
+              "description": "Battle to destroy each other's life-giving eggs while protecting your own!",
+              "imageTag": "AvailableGameEggWars",
+              "subtitle": "Solo, Duos, Quads, Mega, Duels",
+              "title": "EggWars"
+            },
+            {
+              "description": "Battle each other, loot chests on islands in the sky. Last player or team alive wins!",
+              "imageTag": "AvailableGameSkyWars",
+              "subtitle": "Solo, Duos, Quads, Mega, Chaos, Duels",
+              "title": "SkyWars"
+            },
+            {
+              "description": "Spawn in on a terrifyingly tall tower, gain random items over time and battle it out to become the last player standing.",
+              "imageTag": "AvailableGamePillars of Fortune",
+              "subtitle": "Try your luck!",
+              "title": "Pillars of Fortune"
+            },
+            {
+              "description": "Battle other players & break Lucky blocks and unlock rewards. Will you be lucky?",
+              "imageTag": "AvailableGameLuckyIslands",
+              "subtitle": "Solo, Quads & Duels",
+              "title": "Lucky Islands"
+            },
+            {
+              "description": "Brawl with your friends in our Free for All, or fight them in PvP duels!",
+              "imageTag": "AvailableGameBattle Arena",
+              "subtitle": "Free for All, PvP Duels, Game Duels",
+              "title": "Battle Arena"
+            },
+            {
+              "description": "Equip many of our awesome cosmetics to show off in style in our games or lobbies!",
+              "imageTag": "AvailableGameLots of Cosmetics",
+              "subtitle": "Show off to everyone!",
+              "title": "Lots of Cosmetics"
+            }
+          ],
+          "creatorName": "CubeCraft Games",
+          "maxClientVersion": "9.9.99",
+          "minClientVersion": "1.6.0",
+          "news": "Check out our Botanical Garden Hub, Flower Hunt, Spring Maps & Cottagecore Bundle!",
+          "newsTitle": "SPRING EVENT!",
+          "originalCreatorId": "2535444456665343",
+          "port": 19132,
+          "requireXBL": "True",
+          "storePageId": "ServerPage_master_player_account!4B74434622F61126",
+          "url": "mco.cubecraft.net",
+          "whitelistUrl": "*.cubecraft.net",
+          "allowListUrl": "*.cubecraft.net",
+          "experienceId": ""
+        },
+        "IsStackable": false,
+        "CreatorEntityKey": {
+          "Id": "4B74434622F61126",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        },
+        "IsHydrated": false,
+        "Keywords": {},
+        "CreatorEntity": {
+          "Id": "4B74434622F61126",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        }
+      },
+      {
+        "Id": "6b5e355a-be73-4f2c-8c2f-e0623517b7f6",
+        "Type": "catalogItem",
+        "AlternateIds": [],
+        "Title": { "NEUTRAL": "Lifeboat", "neutral": "Lifeboat" },
+        "Description": {
+          "NEUTRAL": "Lifeboat Network features PVP, building, progression, and roleplay game modes.",
+          "neutral": "Lifeboat Network features PVP, building, progression, and roleplay game modes."
+        },
+        "ContentType": "3PP_V2.0",
+        "Platforms": [
+          "android.amazonappstore",
+          "android.googleplay",
+          "ios.store",
+          "nx.store",
+          "oculus.store.rift",
+          "oculus.store.gearvr",
+          "b.store",
+          "uwp.store",
+          "win10.onestore",
+          "uwp.store.mobile",
+          "xboxone.store",
+          "title.bedrockvanilla",
+          "title.earth",
+          "title.sunderland",
+          "java"
+        ],
+        "Tags": ["6b5e355a-be73-4f2c-8c2f-e0623517b7f6"],
+        "CreationDate": "2020-06-01T23:26:06.263Z",
+        "LastModifiedDate": "2026-04-21T17:35:34.755Z",
+        "StartDate": "0001-01-01T00:00:00Z",
+        "Contents": [],
+        "Images": [
+          {
+            "Tag": "Thumbnail",
+            "Id": "d1636f2b-2c66-408d-ae8d-c5ccec028040",
+            "Type": "Thumbnail",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/d1636f2b-2c66-408d-ae8d-c5ccec028040/be27acda-f786-47f3-88bb-b8d826fd536c.png"
+          },
+          {
+            "Tag": "Banner",
+            "Id": "2a63cc2d-4a26-43dc-b4fb-3672df8f630f",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/2a63cc2d-4a26-43dc-b4fb-3672df8f630f/ae44f38c-7d0b-4b95-b6dc-cbf46010a670.png"
+          },
+          {
+            "Tag": "Icon",
+            "Id": "3caa9b0a-834d-44de-a51e-df415d612456",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/3caa9b0a-834d-44de-a51e-df415d612456/33cbc72d-16c7-464f-9564-9762a109f8f9.png"
+          },
+          {
+            "Tag": "AvailableGameSurvival Mode",
+            "Id": "1f3e0aa0-59b5-4c04-b384-453f4ec4db9d",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/1f3e0aa0-59b5-4c04-b384-453f4ec4db9d/0fabae83-da3b-45cc-a2b5-8b197ba15e71.png"
+          },
+          {
+            "Tag": "AvailableGameBedWars",
+            "Id": "e93aaf2e-e651-423f-8b4a-1474a36dfda0",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/e93aaf2e-e651-423f-8b4a-1474a36dfda0/dd2b8626-36cf-40da-8c62-5a3ec5bb8a5b.png"
+          },
+          {
+            "Tag": "AvailableGameSkyblock",
+            "Id": "fa90ba37-6279-43aa-a01f-8add17888cec",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/fa90ba37-6279-43aa-a01f-8add17888cec/849d6156-59e5-4dd0-8b70-e5eb62c5f2ec.png"
+          },
+          {
+            "Tag": "AvailableGamePrisons",
+            "Id": "817d2672-cc98-4c18-a7f6-58ab7bc24b47",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/817d2672-cc98-4c18-a7f6-58ab7bc24b47/448f09ee-50f4-4972-9265-0026bfa1ea30.png"
+          },
+          {
+            "Tag": "AvailableGameSkyWars",
+            "Id": "88400af6-8abc-430d-9a75-0105eea93bf6",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/88400af6-8abc-430d-9a75-0105eea93bf6/443d466e-28d7-4d28-bbd9-84aea428250f.png"
+          },
+          {
+            "Tag": "AvailableGameLifeboat City",
+            "Id": "61f5982f-d99c-46a6-937f-8866204d8fc6",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/61f5982f-d99c-46a6-937f-8866204d8fc6/a9523289-2177-40d7-8dae-ecc3e50cb79d.png"
+          },
+          {
+            "Tag": "AvailableGameCreative",
+            "Id": "492fd85c-ea61-486d-b6f7-91304d212a4c",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/492fd85c-ea61-486d-b6f7-91304d212a4c/87d40fea-3adf-42fe-8c92-1d44beda257b.png"
+          },
+          {
+            "Tag": "AvailableGameZombie Apocolypse",
+            "Id": "d92dc9f0-5c93-4fc0-8cf0-bff0ad65a6bb",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/d92dc9f0-5c93-4fc0-8cf0-bff0ad65a6bb/6a0795c3-8acc-4075-a0bb-ea3d5dafe234.png"
+          },
+          {
+            "Tag": "AvailableGameSurvival Games",
+            "Id": "0b6d4c56-0430-439d-8418-ec9fea4d30b0",
+            "Type": "Screenshot",
+            "Url": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/0b6d4c56-0430-439d-8418-ec9fea4d30b0/d3f47511-3ad9-49d4-ab25-432c377fa860.png"
+          }
+        ],
+        "ItemReferences": [],
+        "DisplayProperties": {
+          "availableGames": [
+            {
+              "description": "Build, mine, craft, and survive with your friends. Engage in thrilling PvP battles and test your survival skills!",
+              "imageTag": "AvailableGameSurvival Mode",
+              "subtitle": "Ultimate Survival Challenge",
+              "title": "Survival Mode"
+            },
+            {
+              "description": "Destroy enemy beds while protecting your own. Gather materials, upgrade your equipment, and dominate the battlefield!",
+              "imageTag": "AvailableGameBedWars",
+              "subtitle": "A Bed Battle Blitz",
+              "title": "BedWars"
+            },
+            {
+              "description": "Survive on a floating island in the sky. Farm resources, trade with the shop, and thrive in this unique challenge!",
+              "imageTag": "AvailableGameSkyblock",
+              "subtitle": "Sky Survival Saga",
+              "title": "Skyblock"
+            },
+            {
+              "description": "Work hard and earn your way out of prison. Climb the leaderboard and prove your determination!",
+              "imageTag": "AvailableGamePrisons",
+              "subtitle": "Escape to Freedom",
+              "title": "Prisons"
+            },
+            {
+              "description": "Eliminate all other players to win. Be strategic and careful, as falling into the void means instant elimination!",
+              "imageTag": "AvailableGameSkyWars",
+              "subtitle": "Sky Combat Showdown",
+              "title": "SkyWars"
+            },
+            {
+              "description": "Be whoever you want to be. Roleplay, take care of your pet, and build your dream home in a vibrant city!",
+              "imageTag": "AvailableGameLifeboat City",
+              "subtitle": "Your Dream City Awaits",
+              "title": "Lifeboat City"
+            },
+            {
+              "description": "Build anything your heart desires. Explore and admire each other's creations in a world of limitless possibilities!",
+              "imageTag": "AvailableGameCreative",
+              "subtitle": "Unlimited Creativity",
+              "title": "Creative Mode"
+            },
+            {
+              "description": "Teamwork is essential to survive the zombie apocalypse. Join forces and fend off hordes of zombies together!",
+              "imageTag": "AvailableGameZombie Apocolypse",
+              "subtitle": "Team Up Against Zombies",
+              "title": "Zombie Apocalypse"
+            },
+            {
+              "description": "Be the last player standing in this fast-paced game mode. Outwit and outlast your opponents to claim victory!",
+              "imageTag": "AvailableGameSurvival Games",
+              "subtitle": "Fast-Paced Survival Showdown",
+              "title": "Survival Games"
+            }
+          ],
+          "creatorName": "Lifeboat",
+          "maxClientVersion": "9.9.99",
+          "minClientVersion": "1.15.9",
+          "news": "We've added 3 new professions for maximum roleplay potential, or just to help you build your dream house.",
+          "newsTitle": "Lifeboat City Update!",
+          "originalCreatorId": "2535467848971511",
+          "port": 19132,
+          "requireXBL": "True",
+          "storePageId": "ServerPage_master_player_account!5F3E53D5C111968C",
+          "url": "mco.lbsg.net",
+          "whitelistUrl": "*.lbsg.net",
+          "allowListUrl": "*.lbsg.net",
+          "experienceId": ""
+        },
+        "IsStackable": false,
+        "CreatorEntityKey": {
+          "Id": "5F3E53D5C111968C",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        },
+        "IsHydrated": false,
+        "Keywords": {},
+        "CreatorEntity": {
+          "Id": "5F3E53D5C111968C",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        }
+      },
+      {
+        "Id": "a26af7a2-ed3b-473d-8d1c-a5b4733b85bd",
+        "Type": "catalogItem",
+        "AlternateIds": [],
+        "Title": { "NEUTRAL": "MegaSMP", "neutral": "MegaSMP" },
+        "Description": {
+          "NEUTRAL": "Come play on the largest SMP (survival world) experience on Bedrock Edition. One world, thousands of players, life stealing, endless fun and PvP.",
+          "neutral": "Come play on the largest SMP (survival world) experience on Bedrock Edition. One world, thousands of players, life stealing, endless fun and PvP."
+        },
+        "ContentType": "3PP_V2.0",
+        "Platforms": [
+          "android.amazonappstore",
+          "android.googleplay",
+          "ios.store",
+          "nx.store",
+          "oculus.store.rift",
+          "oculus.store.gearvr",
+          "b.store",
+          "uwp.store",
+          "win10.onestore",
+          "uwp.store.mobile",
+          "xboxone.store",
+          "title.bedrockvanilla",
+          "title.earth",
+          "title.sunderland",
+          "java"
+        ],
+        "Tags": [],
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastModifiedDate": "0001-01-01T00:00:00Z",
+        "StartDate": "0001-01-01T08:00:00Z",
+        "Contents": [],
+        "Images": [
+          {
+            "Tag": "Banner",
+            "Id": "6c2f3ce9-3876-4d34-b151-aadf826b0b2a",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/inpvp/msmp_banner.png"
+          },
+          {
+            "Tag": "Thumbnail",
+            "Id": "48fa1e49-9bbc-456c-99d6-410f720b3032",
+            "Type": "Thumbnail",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/inpvp/msmp_icon.png"
+          },
+          {
+            "Tag": "Icon",
+            "Id": "48fa1e49-9bbc-456c-99d6-410f720b3032",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/inpvp/msmp_icon.png"
+          },
+          {
+            "Tag": "MSMP_Base",
+            "Id": "48a0eea5-ada5-433a-b3a8-04d5796c70ec",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/inpvp/msmp_base.png"
+          },
+          {
+            "Tag": "MSMP_LifeSteal",
+            "Id": "c4261fdd-5d0b-4c05-b9c0-6cc4f94abf16",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/inpvp/msmp_lifesteal.png"
+          },
+          {
+            "Tag": "MSMP_CrystalPvP",
+            "Id": "c4261fdd-5d0b-4c05-b9c0-6cc4f94abf16",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/inpvp/msmp_crystal_pvp.png"
+          },
+          {
+            "Tag": "MSMP_Trading",
+            "Id": "9d4d3e3f-456f-4c1d-b665-fe588687c78d",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/inpvp/msmp_trading.png"
+          }
+        ],
+        "ItemReferences": [],
+        "DisplayProperties": {
+          "availableGames": [
+            {
+              "imageTag": "MSMP_Base",
+              "title": "Protect your Base",
+              "subtitle": "",
+              "description": "Build a very strong hidden base, solo or with friends, and protect against other players coming to raid it!"
+            },
+            {
+              "imageTag": "MSMP_LifeSteal",
+              "title": "Lifesteal",
+              "subtitle": "",
+              "description": "Kill players to steal their hearts. But beware, you will lose a heart when you die too!"
+            },
+            {
+              "imageTag": "MSMP_CrystalPvP",
+              "title": "Crystal PvP",
+              "subtitle": "",
+              "description": "Engage in fierce Crystal PvP in the warzones and the overworld."
+            },
+            {
+              "imageTag": "MSMP_Trading",
+              "title": "Player Trading",
+              "subtitle": "",
+              "description": "Trade with thousands of online players easily. Make money selling your spoils of war."
+            }
+          ],
+          "creatorName": "InPVP",
+          "maxClientVersion": "9.9.99",
+          "minClientVersion": "1.6.0",
+          "newsTitle": "",
+          "news": "Join MegaSMP to enjoy endless fun with thousands of players on a shared world with raiding, pvp, and trading enabled.",
+          "originalCreatorId": "4cacd50bffec08ea",
+          "url": "play.megasmp.gg",
+          "port": 19132,
+          "requireXBL": "True",
+          "storePageId": "ServerOffers_0ad4e564-8dcd-4b16-bdf7-229f3c9a0cd0",
+          "whitelistUrl": "localhost",
+          "allowListUrl": "localhost",
+          "experienceId": "a26af7a2-ed3b-473d-8d1c-a5b4733b85bd",
+          "rank": 9
+        },
+        "IsStackable": false,
+        "IsHydrated": false,
+        "Keywords": {}
+      },
+      {
+        "Id": "e3da296b-8be0-4d79-8608-e53d60531b7b",
+        "Type": "catalogItem",
+        "AlternateIds": [],
+        "Title": { "NEUTRAL": "SoulSteel", "neutral": "SoulSteel" },
+        "Description": {
+          "NEUTRAL": "Discover newfound lands and raid the depths of mysterious tombs— ancient prisons that hold the souls of lost civilizations. Harness the power of these spirits and forge them into mighty weapons to overcome strange and fearsome foes.",
+          "neutral": "Discover newfound lands and raid the depths of mysterious tombs— ancient prisons that hold the souls of lost civilizations. Harness the power of these spirits and forge them into mighty weapons to overcome strange and fearsome foes.",
+          "bg-BG": "Открийте нови земи и нападнете дълбините на мистериозни гробници — древни затвори, които държат душите на изгубени цивилизации. Използвайте силата на тези духове и ги превърнете в могъщи оръжия, за да победите странни и страховити врагове.",
+          "cs-CZ": "Objevte nová území a prozkoumejte hloubky tajemných hrobek — starodávných vězení, která ukrývají duše ztracených civilizací. Využijte sílu těchto duchů a přetavte ji do mocných zbraní, abyste překonali podivné a děsivé nepřátele.",
+          "da-DK": "Opdag nye lande og plyndr dybderne af mystiske grave— gamle fængsler, der holder sjælene fra tabte civilisationer. Udnyt kraften fra disse ånder og smed dem til mægtige våben for at overvinde mærkelige og frygtindgydende fjender.",
+          "de-DE": "Entdecke neue Länder und durchstöbere die Tiefen geheimnisvoller Gräber — uralte Gefängnisse, die die Seelen verlorener Zivilisationen beherbergen. Nutze die Kraft dieser Geister und schmiede sie zu mächtigen Waffen, um seltsame und furchterregende Feinde zu besiegen.",
+          "el-GR": "Ανακαλύψτε καινούργιες γαίες και λεηλατήστε τα βάθη μυστηριωδών τάφων— αρχαίες φυλακές που κρατούν τις ψυχές χαμένων πολιτισμών. Αξιοποιήστε τη δύναμη αυτών των πνευμάτων και σφυρηλατήστε τα σε ισχυρά όπλα για να νικήσετε παράξενους και τρομερούς εχθρούς.",
+          "en-GB": "Discover newfound lands and raid the depths of mysterious tombs— ancient prisons that hold the souls of lost civilisations. Harness the power of these spirits and forge them into mighty weapons to overcome strange and fearsome foes.",
+          "es-ES": "Descubre tierras nuevas y saquea las profundidades de tumbas misteriosas— prisiones antiguas que guardan las almas de civilizaciones perdidas. Aprovecha el poder de estos espíritus y forjalos en poderosas armas para vencer a enemigos extraños y temibles.",
+          "es-MX": "Descubre tierras nuevas y saquea las profundidades de tumbas misteriosas— prisiones antiguas que guardan las almas de civilizaciones perdidas. Aprovecha el poder de estos espíritus y forjalos en poderosas armas para vencer a enemigos extraños y temibles.",
+          "fi-FI": "Löydä uusia maita ja ryöstä salaperäisten haudanhyllyjen syvyyksiä— muinaisia vankiloita, jotka pitävät sisällään kadonneiden sivilisaatioiden sieluja. Hyödynnä näiden henkien voimaa ja takoa niistä mahtavia aseita voittaaksesi outoja ja pelottavia vihollisia.",
+          "fr-CA": "Découvrez de nouvelles terres et explorez les profondeurs de mystérieuses tombes— prisons anciennes qui renferment les âmes de civilisations perdues. Exploitez le pouvoir de ces esprits et forgez-les en armes puissantes pour vaincre des ennemis étranges et redoutables.",
+          "fr-FR": "Découvrez de nouvelles terres et explorez les profondeurs de mystérieuses tombes— prisons anciennes qui renferment les âmes de civilisations perdues. Exploitez le pouvoir de ces esprits et forgez-les en armes puissantes pour vaincre des ennemis étranges et redoutables.",
+          "hu-HU": "Fedezd fel az újonnan felfedezett földeket, és foszd ki a titokzatos sírok mélységeit— ősi börtönöket, amelyek elveszett civilizációk lelkét őrzik. Használd ki ezeknek a szellemeknek az erejét, és kovácsold őket hatalmas fegyverekké, hogy legyőzd a furcsa és félelmetes ellenségeket.",
+          "id-ID": "Temukan tanah baru dan serbu kedalaman makam misterius— penjara kuno yang menyimpan jiwa peradaban yang hilang. Manfaatkan kekuatan roh-roh ini dan bentuklah menjadi senjata perkasa untuk mengalahkan musuh yang aneh dan menakutkan.",
+          "it-IT": "Scopri terre inesplorate e saccheggia le profondità di misteriose tombe— antiche prigioni che custodiscono le anime di civiltà perdute. Sfrutta il potere di questi spiriti e forgiali in potenti armi per sconfiggere nemici strani e temibili.",
+          "ja-JP": "未知の土地を発見し、失われた文明の魂を閉じ込めた古代の監獄である神秘的な墓の奥深くを襲撃しましょう。これらの霊の力を利用して強力な武器を鍛え、奇妙で恐ろしい敵を打ち倒してください。",
+          "ko-KR": "새로운 땅을 발견하고 신비로운 무덤의 깊이를 탐험하세요—잃어버린 문명의 영혼이 갇힌 고대의 감옥입니다. 이 영혼들의 힘을 활용하여 강력한 무기로 만들어 이상하고 무서운 적들을 물리치세요.",
+          "nb-NO": "Oppdag nye land og plyndre dypet av mystiske graver—eldgamle fengsler som holder sjelene til tapte sivilisasjoner. Utnytt kraften til disse åndene og smi dem om til mektige våpen for å overvinne merkelige og fryktinngytende fiender.",
+          "nl-NL": "Ontdek nieuwe landen en plunder de diepten van mysterieuze graven— oude gevangenissen die de zielen van verloren beschavingen vasthouden. Benut de kracht van deze geesten en smeed ze tot machtige wapens om vreemde en angstaanjagende vijanden te overwinnen.",
+          "pl-PL": "Odkrywaj nowe lądy i najeżdżaj głębiny tajemniczych grobowców — pradawnych więzień, które skrywają dusze zagubionych cywilizacji. Wykorzystaj moc tych duchów i wykuj z nich potężną broń, by pokonać dziwacznych i przerażających wrogów.",
+          "pt-BR": "Descubra terras recém-encontradas e invada as profundezas de tumbas misteriosas — prisões antigas que guardam as almas de civilizações perdidas. Aproveite o poder desses espíritos e forje-os em armas poderosas para vencer inimigos estranhos e temíveis.",
+          "pt-PT": "Descobre terras novas e invade as profundezas de túmulos misteriosos — prisões antigas que guardam as almas de civilizações perdidas. Aproveita o poder destes espíritos e forja-os em armas poderosas para vencer inimigos estranhos e temíveis.",
+          "ru-RU": "Исследуйте новые земли и исследуйте глубины таинственных гробниц — древних тюрем, в которых хранятся души потерянных цивилизаций. Используйте силу этих духов и куйте из них могущественное оружие, чтобы победить странных и грозных врагов.",
+          "sk-SK": "Objavte nové krajiny a prepadnite hlbiny tajomných hrobiek — starobylých väzení, ktoré držia duše stratených civilizácií. Využite silu týchto duchov a prekovajte ich do mocných zbraní, aby ste prekonali zvláštnych a hrozivých nepriateľov.",
+          "sv-SE": "Upptäck nya land och plundra djupet av mystiska gravar— forntida fängelser som håller själarna från förlorade civilisationer. Utnyttja kraften från dessa andar och smid dem till mäktiga vapen för att besegra märkliga och fruktansvärda fiender.",
+          "tr-TR": "Yeni keşfedilen toprakları keşfedin ve kayıp medeniyetlerin ruhlarını barındıran gizemli mezarların derinliklerine baskın yapın— kadim hapishaneler. Bu ruhların gücünü kullanarak onları garip ve korkutucu düşmanları yenmek için güçlü silahlara dönüştürün.",
+          "uk-UA": "Відкривайте нові землі та досліджуйте глибини загадкових гробниць — стародавніх в’язниць, що тримають душі загублених цивілізацій. Використовуйте силу цих духів і куйте їх у могутню зброю, щоб подолати дивних і страхітливих ворогів.",
+          "zh-CN": "发现新大陆，突袭神秘墓穴的深处——那些囚禁着失落文明灵魂的古老牢狱。利用这些灵魂的力量，将它们锻造成强大的武器，战胜奇异而可怕的敌人。",
+          "zh-TW": "探索新發現的土地，突襲神秘墓穴的深處——這些古老的監獄封印著失落文明的靈魂。利用這些靈魂的力量，鍛造出強大的武器，擊敗奇異且可怕的敵人。",
+          "en-US": "Discover newfound lands and raid the depths of mysterious tombs— ancient prisons that hold the souls of lost civilizations. Harness the power of these spirits and forge them into mighty weapons to overcome strange and fearsome foes."
+        },
+        "ContentType": "3PP_V2.0",
+        "Platforms": [
+          "android.amazonappstore",
+          "android.googleplay",
+          "ios.store",
+          "nx.store",
+          "oculus.store.rift",
+          "oculus.store.gearvr",
+          "b.store",
+          "uwp.store",
+          "win10.onestore",
+          "uwp.store.mobile",
+          "xboxone.store",
+          "title.bedrockvanilla",
+          "title.earth",
+          "title.sunderland",
+          "java"
+        ],
+        "Tags": ["e3da296b-8be0-4d79-8608-e53d60531b7b", "env.prod"],
+        "CreationDate": "2025-04-02T00:00:00Z",
+        "LastModifiedDate": "2025-05-28T15:00:00Z",
+        "StartDate": "2025-04-02T00:00:00Z",
+        "Contents": [],
+        "Images": [
+          {
+            "Tag": "Banner",
+            "Id": "6349c855-6e42-4b4f-90e1-59e136cda1f0",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/noxcrew/BattlePassForgeBanner.png"
+          },
+          {
+            "Tag": "Icon",
+            "Id": "54c59230-7a22-4230-880d-50a3478a1327",
+            "Type": "Icon",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/noxcrew/SoulSteelIcon.png"
+          },
+          {
+            "Tag": "soulsteel1",
+            "Id": "f5ac3608-aac5-4a5d-a543-aad48c865abe",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/noxcrew/SoulSteelActivity_1.png"
+          },
+          {
+            "Tag": "soulsteel2",
+            "Id": "01cf30c1-5f05-47d5-b4df-4450942f0fcd",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/noxcrew/SoulSteelActivity_2.png"
+          },
+          {
+            "Tag": "soulsteel3",
+            "Id": "95a90fa7-679a-4d62-b6ad-1c55f71cac70",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/noxcrew/SoulSteelActivity_3.png"
+          },
+          {
+            "Tag": "soulsteel4",
+            "Id": "a1414fb8-fb91-4d71-883a-d3a7b6e6a6fc",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/noxcrew/SoulSteelActivity_4.png"
+          },
+          {
+            "Tag": "soulsteel5",
+            "Id": "d5d75fd2-0211-40aa-bc84-b0ec8d95b763",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/noxcrew/SoulSteelActivity_5.png"
+          }
+        ],
+        "ItemReferences": [],
+        "DisplayProperties": {
+          "availableGames": [
+            {
+              "title": "Explore a vast expanding world",
+              "description": "Venture into a land filled with mysterious dungeons frozen in time rifts. Delve into their depths to uncover their riches.",
+              "imageTag": "soulsteel1"
+            },
+            {
+              "title": "Unlock dark secrets",
+              "description": "The power rippling through you must have come from somewhere...",
+              "imageTag": "soulsteel2"
+            },
+            {
+              "title": "Discover rare artifacts",
+              "description": "Delve into Dungeons to loot ancient artifacts which help grow your power.",
+              "imageTag": "soulsteel3"
+            },
+            {
+              "title": "Wield ultimate power",
+              "description": "Discover ancient Weapons and Armor, and unleash their powerful Abilities to defeat your foes.",
+              "imageTag": "soulsteel4"
+            },
+            {
+              "title": "Become the Ultimate Adventurer",
+              "description": "As your power grows, greater challenges reveal themselves. Do you have the strength and the will to survive?",
+              "imageTag": "soulsteel5"
+            }
+          ],
+          "creatorName": "SoulSteel",
+          "maxClientVersion": "9.9.99",
+          "minClientVersion": "1.0.0",
+          "news": "",
+          "newsTitle": "New Release!",
+          "originalCreatorId": "2535444494929832",
+          "requireXBL": "True",
+          "storePageId": "ServerPage_master_player_account!EBFC1BF4FAB55EFB",
+          "whitelistUrl": "localhost",
+          "allowListUrl": "localhost",
+          "experienceId": "e3da296b-8be0-4d79-8608-e53d60531b7b",
+          "isTop": true,
+          "rank": 2
+        },
+        "IsStackable": false,
+        "CreatorEntityKey": {
+          "Id": "EBFC1BF4FAB55EFB",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        },
+        "IsHydrated": false,
+        "Keywords": {}
+      },
+      {
+        "Id": "f22e6d68-93c7-44b2-9cc5-716b2e6031cf",
+        "Type": "catalogItem",
+        "AlternateIds": [],
+        "Title": { "NEUTRAL": "Mob Maze", "neutral": "Mob Maze" },
+        "Description": {
+          "NEUTRAL": "Enter a super-sized maze filled with giant mobs, traps, and co-op puzzles! Team up to gather loot, unlock powerful abilities, and fight to survive before time runs out. Can you escape the maze?",
+          "neutral": "Enter a super-sized maze filled with giant mobs, traps, and co-op puzzles! Team up to gather loot, unlock powerful abilities, and fight to survive before time runs out. Can you escape the maze?",
+          "bg-BG": "Влезте в огромен лабиринт, пълен с гигантски мобове, капани и кооперативни пъзели! Обединете сили, за да съберете плячка, да отключите мощни способности и да се борите за оцеляване, преди да изтече времето. Можете ли да избягате от лабиринта?",
+          "cs-CZ": "Vstupte do supervelkého bludiště s obrovskými stvořeními, pastmi a kooperativní hádankami! Spojte se s ostatními a sbírejte kořist, odemkněte mocné schopnosti a bojujte o přežití než vám dojde čas. Dokážete uniknout z bludiště?",
+          "da-DK": "Træd ind i en superstor labyrint fyldt med kæmpe mobs, fælder og co-op-gåder! Slå dig sammen med andre for at samle bytte, låse op for kraftfulde evner og kæmpe for at overleve, før tiden løber ud. Kan du slippe ud af labyrinten?",
+          "de-DE": "Betritt einen gigantischen Irrgarten voller riesiger Kreaturen, Fallen und kooperativen Rätseln! Verbünde dich mit anderen, um Beute zu sammeln, mächtige Fertigkeiten freizuschalten und im Kampf gegen die Zeit zu überleben. Wirst du dem Irrgarten entkommen?",
+          "el-GR": "Μπες σε έναν τεράστιο λαβύρινθο γεμάτο με γιγάντια πλάσματα, παγίδες και συνεργατικούς γρίφους! Συνεργάσου για να συγκεντρώσεις λάφυρα, να ξεκλειδώσεις πανίσχυρες ικανότητες και να πολεμήσεις για να επιβιώσεις πριν τελειώσει ο χρόνος. Μπορείς να ξεφύγεις από τον λαβύρινθο;",
+          "en-GB": "Enter a super-sized maze filled with giant mobs, traps and co-op puzzles! Team up to gather loot, unlock powerful abilities and fight to survive before time runs out. Can you escape the maze?",
+          "en-US": "Enter a super-sized maze filled with giant mobs, traps, and co-op puzzles! Team up to gather loot, unlock powerful abilities, and fight to survive before time runs out. Can you escape the maze?",
+          "es-ES": "¡Entra en un laberinto enorme lleno de criaturas gigantes, trampas y rompecabezas cooperativos! Únete para conseguir botín, desbloquear habilidades poderosas y luchar para sobrevivir antes de que se acabe el tiempo. ¿Podrás escapar del laberinto?",
+          "es-MX": "¡Entra en un laberinto enorme lleno de criaturas gigantes, trampas y rompecabezas cooperativos! Únete a otros jugadores para conseguir botín, desbloquear potentes habilidades y pelear para sobrevivir antes de que se acabe el tiempo. ¿Podrás escapar del laberinto?",
+          "fi-FI": "Astu superkokoiseen sokkeloon täynnä jättimäisiä vihollisia, ansoja ja yhteistyöpulmia! Yhdistä voimasi muiden kanssa saaliin keräämiseksi, voimakkaiden kykyjen avaamiseksi ja selviytymisestä taistelemiseksi ennen kuin aika loppuu. Pääsetkö pakoon sokkelosta?",
+          "fr-CA": "Pénétrez dans un gigantesque dédale rempli de créatures, de pièges et d'énigmes à résoudre à plusieurs! Formez une équipe et partez à la recherche de trésors, débloquez de puissantes capacités et combattez les monstres pour survivre jusqu'à la fin du temps imparti. Parviendrez-vous à trouver la sortie du labyrinthe?",
+          "fr-FR": "Pénétrez dans un gigantesque dédale rempli de créatures, de pièges et d'énigmes à résoudre à plusieurs ! Formez une équipe et partez à la recherche de trésors, débloquez de puissantes capacités et combattez les monstres pour survivre jusqu'à la fin du temps imparti. Parviendrez-vous à trouver la sortie du labyrinthe ?",
+          "hu-HU": "Lépj be egy hatalmas labirintusba, tele óriási mobokkal, csapdákkal és kooperatív fejtörőkkel! Fogj össze a barátaiddal, és gyűjtsetek zsákmányokat, oldjatok fel erős képességeket, és harcoljatok a túlélésért, mielőtt kifuttok az időből. Vajon sikerül kijutnod a labirintusból?",
+          "id-ID": "Masuki labirin berukuran super yang penuh dengan mob raksasa, jebakan, dan teka-teki mode kerjasama! Bekerja sama untuk mengumpulkan jarahan, membuka kemampuan kuat, dan berjuang untuk bertahan hidup sebelum waktu habis. Bisakah kamu melarikan diri dari labirin?",
+          "it-IT": "Entra in un labirinto enorme pieno di creature giganti, trappole ed enigmi da risolvere in compagnia! Unisciti agli altri giocatori per raccogliere bottini, sbloccare potenti abilità e combattere per sopravvivere prima che scada il tempo. Riuscirai a scappare dal labirinto?",
+          "ja-JP": "巨大なモブ、罠、そして協力型パズルが満載の超巨大迷路に足を踏み入れよう! チームを組んで戦利品を集め、強力な能力をアンロックして、時間切れになる前に生き残るために戦おう。迷路から脱出できるかな?",
+          "ko-KR": "거대한 몹, 함정, 협동 퍼즐로 가득한 초대형 미로에 도전하세요! 팀을 이루어 전리품을 모으고, 강력한 능력을 잠금 해제하고, 제한된 시간 동안 생존을 걸고 싸우세요. 미로에서 탈출하실 수 있나요?",
+          "nb-NO": "Tre inn i en superstor labyrint full av gigantiske vesener, feller og samarbeidsoppgaver! Slå dere sammen for å samle bytte, låse opp kraftige evner og kjempe for å overleve før tiden renner ut. Klarer du å unnslippe labyrinten?",
+          "nl-NL": "Ga een supergroot doolhof in vol gigantische monsters, vallen en coöp-puzzels! Werk samen om buit te verzamelen, ontgrendel krachtige vaardigheden en vecht om te overleven voordat de tijd om is. Kun jij ontsnappen uit het doolhof?",
+          "pl-PL": "Wejdź do ogromnego labiryntu wypełnionego gigantycznymi mobami, pułapkami i łamigłówkami w trybie współpracy! Utwórz drużynę i wspólnie zbierajcie łupy, odblokowujcie potężne umiejętności i walczcie o przetrwanie przed upływem czasu. Czy uda wam się uciec z labiryntu?",
+          "pt-BR": "Entre em um labirinto gigantesco cheio de criaturas gigantes, armadilhas e quebra-cabeças cooperativos! Unam forças para coletar itens, desbloquear habilidades poderosas e lutar para sobreviver antes que o tempo acabe. Você consegue escapar do labirinto?",
+          "pt-PT": "Entra num labirinto de grandes dimensões cheio de criaturas gigantes, armadilhas e quebra-cabeças cooperativos! Forma uma equipa para obter saque, desbloquear habilidades poderosas e lutar pela sobrevivência antes que o tempo acabe. Conseguirás escapar do labirinto?",
+          "ru-RU": "Лабиринт огромен, а в стенах его таятся мобы-гиганты, ловушки и загадки! Вместе с друзьями решайте головоломки, собирайте добычу, открывайте мощные способности и боритесь, чтобы выжить. Получится ли у вас найти выход прежде, чем выйдет время?",
+          "sk-SK": "Vstúpte do mimoriadne veľkého bludiska plného obrovských nepriateľov, pascí a kooperatívnych hádaniek! Spojte sa, aby ste zbierali korisť, odomykali mocné schopnosti a bojovali o prežitie pred uplynutím času. Dokážete z bludiska uniknúť?",
+          "sv-SE": "Gå in i en superstor labyrint full av jättelika varelser, fällor och samarbetspussel! Ta med dina kompisar och samla loot, lås upp kraftfulla förmågor och kämpa för livet tills tiden tar slut. Kan du fly labyrinten?",
+          "tr-TR": "Dev moblar, tuzaklar ve iş birliği bulmacalarıyla dolu devasa bir labirente adım atın! Ganimet toplamak, güçlü yeteneklerin kilidini açmak ve zaman dolmadan hayatta kalmak için birlikte mücadele edeceğiniz takımı kurun. Labirentten kaçabilir misiniz?",
+          "uk-UA": "Ввійдіть у величезний лабіринт, наповнений гігантськими мобами, пастками та командними головоломками! Об'єднайтеся, щоб зібрати здобич, розблокувати потужні здібності та поборотися за виживання, поки не сплив час. Чи зможете ви вибратися з лабіринту?",
+          "zh-CN": "进入这座遍布巨型生物、陷阱与合作谜题的超大迷宫！与队友携手搜集战利品、解锁强大能力，在时间耗尽前奋力求生。你能否成功逃出迷宫？",
+          "zh-TW": "進入充滿巨大生物、陷阱與合作解謎的超巨大迷宮！組隊搜刮戰利品、解鎖強大能力，並在時間耗盡前為生存而戰。你能逃出迷宮嗎？"
+        },
+        "ContentType": "3PP_V2.0",
+        "Platforms": [
+          "android.amazonappstore",
+          "android.googleplay",
+          "ios.store",
+          "nx.store",
+          "oculus.store.rift",
+          "oculus.store.gearvr",
+          "b.store",
+          "uwp.store",
+          "win10.onestore",
+          "uwp.store.mobile",
+          "xboxone.store",
+          "title.bedrockvanilla",
+          "title.earth",
+          "title.sunderland",
+          "java"
+        ],
+        "Tags": ["f22e6d68-93c7-44b2-9cc5-716b2e6031cf", "env.prod"],
+        "CreationDate": "2025-04-20T00:00:00Z",
+        "LastModifiedDate": "2025-05-28T15:00:00Z",
+        "StartDate": "2025-04-20T00:00:00Z",
+        "Contents": [],
+        "Images": [
+          {
+            "Tag": "Icon",
+            "Id": "109004cc-ca45-4778-a844-21c6cd2962e7",
+            "Type": "Icon",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/gamemode1/mm_24x24.png"
+          },
+          {
+            "Tag": "Thumbnail",
+            "Id": "109004cc-ca45-4778-a844-21c6cd2962e7",
+            "Type": "Thumbnail",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/gamemode1/mm_24x24.png"
+          },
+          {
+            "Tag": "Banner",
+            "Id": "6349c855-6e42-4b4f-90e1-59e136cda1f0",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/gamemode1/Maize_Keyart_UpdateFinal.png"
+          },
+          {
+            "Tag": "Server.Activities.1.Image",
+            "Id": "95e1c248-3187-4315-8aed-2f7c1c845983",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/gamemode1/server.activities.1.image.png"
+          },
+          {
+            "Tag": "Server.Activities.2.Image",
+            "Id": "a1b2c3d4-e5f6-4789-0123-456789abcdef",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/gamemode1/server.activities.2.image.png"
+          },
+          {
+            "Tag": "Server.Activities.3.Image",
+            "Id": "b2c3d4e5-f6a7-4890-1234-567890abcdef",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/gamemode1/server.activities.3.image.png"
+          },
+          {
+            "Tag": "Server.Activities.4.Image",
+            "Id": "c3d4e5f6-a7b8-4901-2345-678901abcdef",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/gamemode1/server.activities.4.image.png"
+          },
+          {
+            "Tag": "Server.Activities.5.Image",
+            "Id": "d4e5f6a7-b8c9-4012-3456-789012abcdef",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/gamemode1/server.activities.5.image.png"
+          },
+          {
+            "Tag": "Server.Activities.6.Image",
+            "Id": "e5f6a7b8-c9d0-4123-4567-890123abcdef",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/gamemode1/server.activities.6.image.png"
+          },
+          {
+            "Tag": "Server.Activities.7.Image",
+            "Id": "f6a7b8c9-d0e1-4234-5678-901234abcdef",
+            "Type": "Screenshot",
+            "Url": "https://cdn.gatherings.franchise.minecraft-services.net/public/discovery/gamemode1/server.activities.7.image.png"
+          }
+        ],
+        "ItemReferences": [],
+        "DisplayProperties": {
+          "availableGames": [
+            {
+              "description": "Danger lurks around every corner; glitched-out super-sized mobs are waiting for you. Steel yourself, and prepare to run.",
+              "imageTag": "Server.Activities.1.Image",
+              "subtitle": "Can you escape?",
+              "title": "ENTER THE MAZE"
+            },
+            {
+              "description": "Break chests, gather loot, and complete puzzles with others to speed up your progress through the Maze.",
+              "imageTag": "Server.Activities.2.Image",
+              "subtitle": "Collect as many points as you can!",
+              "title": "GATHER LOOT"
+            },
+            {
+              "description": "You are stronger together. Solve problems and use your collective might to conquer the Maze.",
+              "imageTag": "Server.Activities.3.Image",
+              "subtitle": "Teamwork makes the dream work.",
+              "title": "COMPLETE PUZZLES TOGETHER"
+            },
+            {
+              "description": "Push further into the Maze with unique abilities — level them up in the Plot for even more power!",
+              "imageTag": "Server.Activities.4.Image",
+              "subtitle": "Unlock and upgrade powerful abilities!",
+              "title": "BECOME THE ULTIMATE SURVIVOR"
+            },
+            {
+              "description": "Showcase your maze-running prowess with awesome cosmetics available in the Plot!",
+              "imageTag": "Server.Activities.5.Image",
+              "subtitle": "STRUT YOUR STUFF!",
+              "title": "EARN EPIC COSMETICS"
+            },
+            {
+              "description": "The Maze is collapsing around you. Try to escape before the Miasma destroys everything.",
+              "imageTag": "Server.Activities.6.Image",
+              "subtitle": "The Miasma waits for no one.",
+              "title": "ESCAPE OR DIE!"
+            },
+            {
+              "description": "Face a new maze every day. Sharpen your maze-running mastery - explore secret passageways, learn the hidden traps, and uncover the mystery of the Maze.",
+              "imageTag": "Server.Activities.7.Image",
+              "subtitle": "Get lost in a SUPER-SIZED ever-changing maze!",
+              "title": "A LABYRINTH OF MYSTERIES!"
+            }
+          ],
+          "creatorName": "Mob Maze",
+          "maxClientVersion": "9.9.99",
+          "minClientVersion": "1.0.0",
+          "news": "Welcome to the super-sized Mob Maze!\nEnter, explore, escape, or die!",
+          "newsTitle": "Breaking News!",
+          "originalCreatorId": "2533274941780012",
+          "requireXBL": "True",
+          "storePageId": "ServerPage_master_player_account!163AC5C76001EEB1",
+          "whitelistUrl": "localhost",
+          "allowListUrl": "localhost",
+          "experienceId": "f22e6d68-93c7-44b2-9cc5-716b2e6031cf",
+          "rank": 6
+        },
+        "IsStackable": false,
+        "CreatorEntityKey": {
+          "Id": "163AC5C76001EEB1",
+          "Type": "master_player_account",
+          "TypeString": "master_player_account"
+        },
+        "IsHydrated": false,
+        "Keywords": {}
+      }
+    ],
+    "ConfigurationName": "DEFAULT"
+  }
+}

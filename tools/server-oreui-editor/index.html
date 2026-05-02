@@ -1,0 +1,1920 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="canonical"
+      href="https://bedrock-cosmos.app/tools/server-oreui-editor/"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <title>Minecraft Bedrock Ore UI Customizer | Server List</title>
+    <meta
+      name="description"
+      content="The #1 Minecraft Bedrock Ore UI Customizer. Use the ultimate Minecraft Bedrock OreUi Editor to manage your server list for Bedrock Cosmos."
+    />
+    <meta
+      name="keywords"
+      content="Minecraft Bedrock, OreUi Editor, Server List, MCBE, Custom Server List Editor, Bedrock Cosmos, Minecraft Server Config"
+    />
+    <meta name="theme-color" content="#5b21b6" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Minecraft Bedrock Ore UI Customizer | Server List"
+    />
+    <meta
+      name="twitter:description"
+      content="The #1 Minecraft Bedrock Ore UI Customizer. Easily manage, edit, and configure your server list in OreUI."
+    />
+    <meta
+      name="twitter:image"
+      content="https://bedrock-cosmos.app/icons/shootingstar.png"
+    />
+    <meta name="twitter:image:alt" content="Minecraft Bedrock Ore UI Editor" />
+    <meta name="twitter:domain" content="bedrock-cosmos.app" />
+    <meta name="twitter:site" content="@BedrockCosmos" />
+    <meta name="twitter:creator" content="@BedrockCosmos" />
+
+    <meta property="og:site_name" content="Bedrock Cosmos" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Minecraft Bedrock Ore UI Customizer | Server List"
+    />
+    <meta
+      property="og:description"
+      content="The #1 Minecraft Bedrock Ore UI Customizer. Easily manage, edit, and configure your server list in OreUI."
+    />
+    <meta
+      property="og:url"
+      content="https://bedrock-cosmos.app/tools/server-oreui-editor/"
+    />
+    <meta
+      property="og:image"
+      content="https://bedrock-cosmos.app/icons/shootingstar.png"
+    />
+    <meta property="og:image:width" content="256" />
+    <meta property="og:image:height" content="256" />
+    <meta property="og:image:alt" content="Minecraft Bedrock Ore UI Customizer" />
+
+    <link rel="stylesheet" href="../../css/marketplace.css" />
+    <style>
+      @font-face {
+        font-family: "Minecraft";
+        src:
+          url("/fonts/Minecraft.ttf") format("truetype"),
+          url("../../fonts/Minecraft.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      :root {
+        --ore-green40: #52a535;
+        --ore-green50: #3c8527;
+        --ore-green60: #2a641c;
+        --ore-gray20: #e6e8eb;
+        --ore-gray30: #d0d1d4;
+        --ore-gray40: #b1b2b5;
+        --ore-gray50: #8c8d90;
+        --ore-gray60: #58585a;
+        --ore-gray70: #48494a;
+        --ore-gray80: #313233;
+        --ore-gray90: #242425;
+        --ore-gray100: #1e1e1f;
+        --ore-white: #ffffff;
+      }
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .mc-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      footer {
+        position: relative;
+        z-index: 10;
+        flex-shrink: 0;
+      }
+      .tool-outer {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .editor-split {
+        flex: 1;
+        display: flex;
+        align-items: stretch;
+      }
+
+      .empty-state {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        color: var(--ore-gray60);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .empty-state svg {
+        opacity: 0.25;
+      }
+      .empty-state p {
+        margin: 0;
+        text-align: center;
+        line-height: 1.7;
+      }
+
+      .ore-editor {
+        width: 360px;
+        flex-shrink: 0;
+        background: var(--ore-gray90);
+        border-right: 2px solid #000;
+        display: flex;
+        flex-direction: column;
+        position: sticky;
+        top: 0;
+        align-self: flex-start;
+        max-height: 100vh;
+        overflow: hidden;
+      }
+      #editor-fields::-webkit-scrollbar {
+        width: 6px;
+      }
+      #editor-fields::-webkit-scrollbar-track {
+        background: var(--ore-gray100);
+      }
+      #editor-fields::-webkit-scrollbar-thumb {
+        background: var(--ore-gray70);
+        border-left: 1px solid #000;
+      }
+      #editor-fields::-webkit-scrollbar-thumb:hover {
+        background: var(--ore-gray60);
+      }
+      #editor-fields {
+        scrollbar-width: thin;
+        scrollbar-color: var(--ore-gray70) var(--ore-gray100);
+      }
+      .editor-head {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ore-gray30);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 0;
+        background: var(--ore-gray100);
+        border-bottom: 1px solid #000;
+        padding: 11px 14px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      .editor-head-btns {
+        display: flex;
+        gap: 6px;
+      }
+      .import-btn,
+      .export-btn {
+        background: var(--ore-gray70);
+        border: 1px solid var(--ore-gray60);
+        color: var(--ore-gray20);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 5px 11px;
+        cursor: pointer;
+        border-radius: 0;
+        font-family: inherit;
+        transition:
+          background 0.12s,
+          border-color 0.12s;
+      }
+      .import-btn:hover {
+        background: var(--ore-gray60);
+        border-color: var(--ore-gray40);
+        color: var(--ore-white);
+      }
+      .export-btn {
+        background: var(--ore-green50);
+        border-color: var(--ore-green40);
+        color: var(--ore-white);
+      }
+      .export-btn:hover {
+        background: var(--ore-green40);
+      }
+      .ore-sec {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ore-gray50);
+        margin: 0;
+        padding: 8px 14px 6px;
+        border-top: 1px solid #000;
+        background: var(--ore-gray100);
+      }
+      .ore-field {
+        padding: 5px 14px;
+      }
+      .ore-field:last-of-type {
+        padding-bottom: 10px;
+      }
+      .ore-field label {
+        display: block;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--ore-gray50);
+        margin-bottom: 4px;
+      }
+      .ore-field input,
+      .ore-field textarea,
+      .ore-field select {
+        width: 100%;
+        background: var(--ore-gray80);
+        border: 1px solid var(--ore-gray70);
+        color: var(--ore-gray20);
+        font-family: inherit;
+        font-size: 13px;
+        padding: 7px 10px;
+        border-radius: 0;
+        outline: none;
+        appearance: none;
+        -webkit-appearance: none;
+        transition:
+          border-color 0.12s,
+          background 0.12s;
+        box-sizing: border-box;
+      }
+      .ore-field input:focus,
+      .ore-field textarea:focus,
+      .ore-field select:focus {
+        border-color: var(--ore-gray40);
+        background: var(--ore-gray70);
+      }
+      .ore-field input::placeholder,
+      .ore-field textarea::placeholder {
+        color: var(--ore-gray60);
+      }
+      .ore-field textarea {
+        resize: vertical;
+        min-height: 56px;
+        line-height: 1.5;
+      }
+      .ore-field-row {
+        display: flex;
+        gap: 8px;
+        padding: 5px 14px;
+      }
+      .ore-field-row .ore-field {
+        flex: 1;
+        padding: 0;
+      }
+      .ore-toggle-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6px 14px;
+      }
+      .ore-toggle-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--ore-gray50);
+      }
+      .ore-toggle {
+        position: relative;
+        width: 36px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+      .ore-toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .ore-toggle-slider {
+        position: absolute;
+        inset: 0;
+        background: var(--ore-gray70);
+        border: 1px solid var(--ore-gray60);
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .ore-toggle-slider::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 14px;
+        height: 14px;
+        background: var(--ore-gray40);
+        transition:
+          transform 0.15s,
+          background 0.15s;
+      }
+      .ore-toggle input:checked + .ore-toggle-slider {
+        background: var(--ore-green50);
+        border-color: var(--ore-green40);
+      }
+      .ore-toggle input:checked + .ore-toggle-slider::after {
+        transform: translateX(16px);
+        background: var(--ore-white);
+      }
+
+      .game-entry {
+        background: var(--ore-gray80);
+        border: 1px solid var(--ore-gray70);
+        border-left: 3px solid var(--ore-green50);
+        margin: 4px 14px;
+        padding: 8px 10px;
+      }
+      .game-entry-title {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--ore-gray30);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .game-entry input,
+      .game-entry textarea {
+        width: 100%;
+        background: var(--ore-gray90);
+        border: 1px solid var(--ore-gray70);
+        color: var(--ore-gray20);
+        font-family: inherit;
+        font-size: 12px;
+        padding: 5px 8px;
+        border-radius: 0;
+        outline: none;
+        margin-bottom: 4px;
+        box-sizing: border-box;
+      }
+      .game-entry input:focus,
+      .game-entry textarea:focus {
+        border-color: var(--ore-gray40);
+        background: var(--ore-gray70);
+      }
+      .game-entry input::placeholder,
+      .game-entry textarea::placeholder {
+        color: var(--ore-gray60);
+      }
+      .game-entry textarea {
+        resize: vertical;
+        min-height: 44px;
+      }
+      .game-entry-label {
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--ore-gray50);
+        margin-bottom: 2px;
+        display: block;
+      }
+      .remove-game-btn {
+        background: none;
+        border: none;
+        color: var(--ore-gray50);
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 1;
+        padding: 0;
+        transition: color 0.12s;
+      }
+      .remove-game-btn:hover {
+        color: #e74c3c;
+      }
+      .add-game-btn {
+        margin: 6px 14px 10px;
+        background: var(--ore-gray80);
+        border: 1px dashed var(--ore-gray60);
+        color: var(--ore-gray50);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 7px;
+        cursor: pointer;
+        width: calc(100% - 28px);
+        font-family: inherit;
+        transition:
+          background 0.12s,
+          color 0.12s;
+      }
+      .add-game-btn:hover {
+        background: var(--ore-gray70);
+        color: var(--ore-gray20);
+      }
+
+      .platform-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+        padding: 4px 14px 8px;
+      }
+      .platform-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        color: var(--ore-gray40);
+        cursor: pointer;
+      }
+      .platform-item input[type="checkbox"] {
+        width: 14px;
+        height: 14px;
+        accent-color: var(--ore-green40);
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      .img-thumb {
+        margin-top: 4px;
+        /* width: 100%; */
+        image-rendering: pixelated;
+        height: 60px;
+        object-fit: cover;
+        display: none;
+        border: 1px solid var(--ore-gray70);
+        background: #000;
+      }
+      .img-thumb.vis {
+        display: block;
+      }
+
+      .preview-panel {
+        flex: 1;
+        background: var(--ore-gray90);
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+
+      .ingame-wrap {
+        display: flex;
+        flex: 1;
+        min-height: 0;
+        background: #2b2b2b;
+        font-family: "Minecraft", monospace;
+      }
+      .igui-list {
+        width: 280px;
+        flex-shrink: 0;
+        background: #2b2b2b;
+        border-right: 2px solid #1a1a1a;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .igui-list-empty {
+        padding: 20px 14px;
+        font-family: "Minecraft", monospace;
+        font-size: 11px;
+        color: #555;
+        text-align: center;
+        line-height: 1.8;
+      }
+      .igui-action-row {
+        display: flex;
+        flex-shrink: 0;
+        border-bottom: 1px solid #1a1a1a;
+      }
+      .igui-add-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 9px 12px;
+        background: var(--ore-gray30);
+        border: none;
+        color: var(--ore-gray100);
+        font-family: "Minecraft", monospace;
+        font-size: 11px;
+        cursor: pointer;
+        flex: 1;
+        text-align: center;
+        letter-spacing: 0.04em;
+        transition:
+          background 0.12s,
+          color 0.12s;
+      }
+      .igui-add-btn:hover {
+        background: var(--ore-gray40);
+        color: var(--ore-gray100);
+      }
+      .igui-delete-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px 14px;
+        background: #ca3636;
+        border: none;
+        border-left: 2px solid #1a1a1a;
+        color: var(--ore-white);
+        font-family: "Minecraft", monospace;
+        font-size: 11px;
+        cursor: pointer;
+        flex-shrink: 0;
+        letter-spacing: 0.04em;
+        transition:
+          background 0.12s,
+          color 0.12s;
+      }
+      .igui-delete-btn:hover:not(:disabled) {
+        background: #ad1d1d;
+        color: var(--ore-white);
+      }
+      .igui-delete-btn:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+      .igui-category-header {
+        font-family: "Minecraft", monospace;
+        font-size: 9px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #666;
+        padding: 8px 12px 4px;
+        background: #242424;
+        border-bottom: 1px solid #1a1a1a;
+        border-top: 2px solid #1a1a1a;
+        flex-shrink: 0;
+      }
+      .igui-category-header:first-child {
+        border-top: none;
+      }
+      .igui-list-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-bottom: 1px solid #222;
+        cursor: pointer;
+        transition: background 0.1s;
+        border-left: 3px solid transparent;
+      }
+      .igui-list-item:hover {
+        background: #333;
+      }
+      .igui-list-item.active {
+        background: #3a3a3a;
+        border-left-color: var(--ore-green40);
+      }
+      .igui-list-thumb {
+        width: 46px;
+        height: 46px;
+        image-rendering: pixelated;
+        object-fit: cover;
+        flex-shrink: 0;
+        background: var(--ore-gray100);
+        border: 2px solid #1a1a1a;
+      }
+      .igui-list-info {
+        flex: 1;
+        min-width: 0;
+      }
+      .igui-list-name {
+        font-family: "Minecraft", monospace;
+        font-size: 13px;
+        color: var(--ore-white);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .igui-list-tagline {
+        font-family: "Minecraft", monospace;
+        font-size: 10px;
+        color: #aaa;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 2px;
+      }
+
+      .igui-detail {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        min-width: 0;
+      }
+      .igui-banner {
+        width: 100%;
+        aspect-ratio: 10/3;
+        object-fit: cover;
+        display: block;
+        flex-shrink: 0;
+        background: var(--ore-gray100);
+        border-bottom: 2px solid #1a1a1a;
+      }
+      .igui-banner-ph {
+        width: 100%;
+        aspect-ratio: 10/3;
+        background: var(--ore-gray100);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        font-family: "Minecraft", monospace;
+        font-size: 11px;
+        flex-shrink: 0;
+      }
+      .igui-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 16px 16px;
+        background: #2b2b2b;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+      .igui-server-name {
+        font-family: "Minecraft", monospace;
+        font-size: 15px;
+        color: var(--ore-white);
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .igui-play-btn {
+        background: var(--ore-green40);
+        border: none;
+        color: var(--ore-white);
+        font-family: "Minecraft", monospace;
+        font-size: 13px;
+        padding: 10px 80px;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        flex-shrink: 0;
+        border-bottom: 3px solid var(--ore-green60);
+        border: 2px solid #1a1a1a;
+      }
+      .igui-section {
+        padding: 16px 16px 16px;
+        border-top: 2px solid #1a1a1a;
+      }
+      .igui-section-title {
+        font-family: "Minecraft", monospace;
+        font-size: 12px;
+        color: #ccc;
+        margin-bottom: 8px;
+      }
+      .igui-desc {
+        font-family: "Minecraft", monospace;
+        font-size: 11px;
+        color: #aaa;
+        line-height: 1.7;
+      }
+      /* .igui-news-box{margin:4px 14px 10px;background:#222;border:2px solid #1a1a1a;padding:10px 12px;} */
+      .igui-news-title {
+        font-family: "Minecraft", monospace;
+        font-size: 12px;
+        color: var(--ore-white);
+        margin-bottom: 5px;
+      }
+      .igui-news-body {
+        font-family: "Minecraft", monospace;
+        font-size: 10px;
+        color: #aaa;
+        line-height: 1.7;
+      }
+      /* .igui-activities{display:flex;flex-direction:column;gap:10px;padding:0 14px 14px;} */
+      .igui-activity-card {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 0 0px 10px;
+      }
+      .igui-activity-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        flex-shrink: 0;
+        background: var(--ore-gray100);
+      }
+      .igui-activity-img-ph {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+        background: var(--ore-gray100);
+        border: 1px solid #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        font-size: 9px;
+        font-family: "Minecraft", monospace;
+        text-align: center;
+      }
+      .igui-activity-info {
+        flex: 1;
+        min-width: 0;
+      }
+      .igui-activity-name {
+        font-family: "Minecraft", monospace;
+        font-size: 12px;
+        color: var(--ore-white);
+        margin-bottom: 3px;
+      }
+      .igui-activity-subtitle {
+        font-family: "Minecraft", monospace;
+        font-size: 10px;
+        color: #888;
+        margin-bottom: 5px;
+      }
+      .igui-activity-desc {
+        font-family: "Minecraft", monospace;
+        font-size: 10px;
+        color: #888;
+        line-height: 1.6;
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(60px);
+        background: var(--ore-gray70);
+        border: 1px solid var(--ore-gray60);
+        color: var(--ore-gray20);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 9px 20px;
+        z-index: 9999;
+        transition:
+          transform 0.25s,
+          opacity 0.25s;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .toast.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+      .toast.ok {
+        border-color: var(--ore-green40);
+      }
+      .toast.err {
+        border-color: #e74c3c;
+      }
+
+      @media (max-width: 800px) {
+        .igui-list {
+          width: 200px;
+        }
+        .ore-editor {
+          width: 300px;
+        }
+      }
+      @media (max-width: 600px) {
+        .editor-split {
+          flex-direction: column;
+        }
+        .ore-editor {
+          width: 100%;
+          border-right: none;
+          border-bottom: 2px solid #000;
+          max-height: 50vh;
+        }
+        .igui-list {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="mc-topbar">
+      <button
+        id="mc-mobile-menu-btn"
+        class="mc-mobile-menu-btn"
+        aria-label="Open navigation menu"
+        onclick="toggleMobileSidebar()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 5h16" />
+          <path d="M4 12h16" />
+          <path d="M4 19h16" />
+        </svg>
+      </button>
+      <a href="/tools/" class="mc-topbar-back">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Tools
+      </a>
+      <span
+        class="mc-topbar-title"
+        style="align-items: center; justify-content: center; gap: 8px"
+      >
+        <img
+          src="https://bedrock-cosmos.app/icons/shootingstar.png"
+          alt=""
+          style="width: 24px; height: 24px; object-fit: contain"
+        />
+        <span style="font-size: 1rem; font-weight: 800; letter-spacing: 0.05em"
+          >Bedrock Cosmos</span
+        >
+      </span>
+      <div class="mc-topbar-right">
+        <a href="/config/" class="mc-library-btn">My Library</a>
+      </div>
+    </header>
+
+    <div id="mc-sidebar-placeholder"></div>
+    <div id="mc-sidebar-overlay" onclick="toggleMobileSidebar()"></div>
+
+    <main class="mc-main tool-outer">
+      <div class="editor-split">
+        <!-- EDITOR -->
+        <div class="ore-editor">
+          <div class="editor-head">
+            <span id="editor-head-title">No Server Selected</span>
+            <div class="editor-head-btns">
+              <button
+                class="import-btn"
+                onclick="document.getElementById('fileInput').click()"
+              >
+                Import JSON
+              </button>
+              <button class="export-btn" onclick="exportAll()">
+                Export All
+              </button>
+            </div>
+          </div>
+          <input
+            type="file"
+            id="fileInput"
+            accept=".json"
+            style="display: none"
+          />
+
+          <div id="editor-empty" class="empty-state" style="padding: 40px 20px">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2z"
+              />
+            </svg>
+            <p>Import a blobclient.json<br />to begin editing servers</p>
+          </div>
+
+          <div
+            id="editor-fields"
+            style="
+              display: none;
+              flex-direction: column;
+              overflow-y: auto;
+              flex: 1;
+              min-height: 0;
+            "
+          >
+            <div class="ore-sec">Identity</div>
+            <div class="ore-field">
+              <label>Server Name</label
+              ><input
+                type="text"
+                id="f-name"
+                placeholder="Server Name"
+                oninput="onChange()"
+              />
+            </div>
+            <div class="ore-field">
+              <label>Description</label
+              ><textarea
+                id="f-desc"
+                placeholder="Short description..."
+                oninput="onChange()"
+              ></textarea>
+            </div>
+            <div class="ore-field">
+              <label>Creator Name</label
+              ><input
+                type="text"
+                id="f-creator"
+                placeholder="Creator"
+                oninput="onChange()"
+              />
+            </div>
+
+            <div class="ore-sec">Connection</div>
+            <div class="ore-field-row">
+              <div class="ore-field">
+                <label>Host / URL</label
+                ><input
+                  type="text"
+                  id="f-url"
+                  placeholder="play.example.net"
+                  oninput="onChange()"
+                />
+              </div>
+              <div class="ore-field" style="max-width: 90px">
+                <label>Port</label
+                ><input
+                  type="number"
+                  id="f-port"
+                  placeholder="19132"
+                  oninput="onChange()"
+                />
+              </div>
+            </div>
+            <div class="ore-field">
+              <label>Whitelist URL</label
+              ><input
+                type="text"
+                id="f-whitelist"
+                placeholder="*.example.net"
+                oninput="onChange()"
+              />
+            </div>
+            <div class="ore-field-row">
+              <div class="ore-field">
+                <label>Min Version</label
+                ><input
+                  type="text"
+                  id="f-minver"
+                  placeholder="1.16.0"
+                  oninput="onChange()"
+                />
+              </div>
+              <div class="ore-field">
+                <label>Max Version</label
+                ><input
+                  type="text"
+                  id="f-maxver"
+                  placeholder="9.9.99"
+                  oninput="onChange()"
+                />
+              </div>
+            </div>
+            <div class="ore-toggle-row">
+              <span class="ore-toggle-label">Require Xbox Live (XBL)</span>
+              <label class="ore-toggle"
+                ><input type="checkbox" id="f-xbl" onchange="onChange()" /><span
+                  class="ore-toggle-slider"
+                ></span
+              ></label>
+            </div>
+
+            <div class="ore-sec">Images</div>
+            <div class="ore-field">
+              <label>Icon URL</label>
+              <input
+                type="url"
+                id="f-icon"
+                placeholder="https://..."
+                oninput="
+                  prevImg('f-icon', 'prev-icon');
+                  onChange();
+                "
+              />
+              <img
+                id="prev-icon"
+                class="img-thumb"
+                src=""
+                alt=""
+                onerror="this.classList.remove('vis')"
+              />
+            </div>
+            <div class="ore-field">
+              <label>Banner URL</label>
+              <input
+                type="url"
+                id="f-banner"
+                placeholder="https://..."
+                oninput="
+                  prevImg('f-banner', 'prev-banner');
+                  onChange();
+                "
+              />
+              <img
+                id="prev-banner"
+                class="img-thumb"
+                src=""
+                alt=""
+                onerror="this.classList.remove('vis')"
+              />
+            </div>
+            <div class="ore-field">
+              <label
+                >Thumbnail URL -
+                <span style="color: #f87171">Outdated</span></label
+              >
+              <input
+                type="url"
+                id="f-thumb"
+                placeholder="https://..."
+                oninput="
+                  prevImg('f-thumb', 'prev-thumb');
+                  onChange();
+                "
+              />
+              <img
+                id="prev-thumb"
+                class="img-thumb"
+                src=""
+                alt=""
+                onerror="this.classList.remove('vis')"
+              />
+            </div>
+
+            <div class="ore-sec">News</div>
+            <div class="ore-field">
+              <label>News Title</label
+              ><input
+                type="text"
+                id="f-news-title"
+                placeholder="Update title..."
+                oninput="onChange()"
+              />
+            </div>
+            <div class="ore-field">
+              <label>News Body</label
+              ><textarea
+                id="f-news-body"
+                placeholder="Update description..."
+                oninput="onChange()"
+              ></textarea>
+            </div>
+
+            <div class="ore-sec">Activities / Games</div>
+            <div id="games-list"></div>
+            <button class="add-game-btn" onclick="addGame()">
+              + Add Activity
+            </button>
+
+            <div class="ore-sec">Platforms - <span style="color: #f87171">No Effect</span></div>
+            <div class="platform-grid" id="platform-grid"></div>
+
+            <div class="ore-sec">Experience</div>
+            <div class="ore-toggle-row">
+              <span class="ore-toggle-label">Is Experience</span>
+              <label class="ore-toggle"
+                ><input
+                  type="checkbox"
+                  id="f-is-experience"
+                  onchange="onExperienceToggle()" /><span
+                  class="ore-toggle-slider"
+                ></span
+              ></label>
+            </div>
+            <div class="ore-field">
+              <label
+                >Rank -
+                <span style="color: #f87171"
+                  >Big Number = Higher Position</span
+                ></label
+              ><input
+                type="number"
+                id="f-rank"
+                placeholder="0"
+                min="0"
+                step="1"
+                oninput="onChange()"
+              />
+            </div>
+
+            <div class="ore-sec">Identifiers</div>
+            <div class="ore-field">
+              <label>Catalog Item ID</label
+              ><input
+                type="text"
+                id="f-id"
+                placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                oninput="onChange()"
+              />
+            </div>
+            <div class="ore-field">
+              <label>Creator Entity ID</label
+              ><input
+                type="text"
+                id="f-creator-id"
+                placeholder="XXXXXXXXXXXXXXXX"
+                oninput="onChange()"
+              />
+            </div>
+            <div class="ore-field">
+              <label>Store Page ID</label
+              ><input
+                type="text"
+                id="f-storepage"
+                placeholder="ServerPage_master_player_account!..."
+                oninput="onChange()"
+              />
+            </div>
+            <div class="ore-field" style="padding-bottom: 14px">
+              <label>Original Creator ID</label
+              ><input
+                type="text"
+                id="f-origcreator"
+                placeholder="0000000000000000"
+                oninput="onChange()"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- PREVIEW -->
+        <div class="preview-panel">
+          <div class="ingame-wrap">
+            <div class="igui-list" id="igui-list">
+              <div class="igui-list-empty">
+                Import a JSON file<br />to see servers here
+              </div>
+            </div>
+            <div class="igui-detail" id="igui-detail">
+              <div class="empty-state" style="flex: 1; padding: 40px">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+                <p>Select a server from the list<br />to see the preview</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="mc-footer-placeholder"></div>
+    <div id="toast" class="toast"></div>
+
+    <script>
+      const ALL_PLATFORMS = [
+        { id: "android.googleplay", label: "Android (Play)" },
+        { id: "android.amazonappstore", label: "Android (Amazon)" },
+        { id: "ios.store", label: "iOS" },
+        { id: "nx.store", label: "Nintendo Switch" },
+        { id: "xboxone.store", label: "Xbox One" },
+        { id: "uwp.store", label: "Windows" },
+        { id: "win10.onestore", label: "Windows 10" },
+        { id: "uwp.store.mobile", label: "Windows Mobile" },
+        { id: "b.store", label: "Playstation" },
+        { id: "oculus.store.rift", label: "Oculus Rift" },
+        { id: "oculus.store.gearvr", label: "Oculus GearVR" },
+        { id: "title.bedrockvanilla", label: "Bedrock Vanilla" },
+        { id: "java", label: "Java" },
+      ];
+      const pg = document.getElementById("platform-grid");
+      ALL_PLATFORMS.forEach((p) => {
+        const lbl = document.createElement("label");
+        lbl.className = "platform-item";
+        lbl.innerHTML = `<input type="checkbox" id="plat-${p.id}" value="${p.id}" onchange="onChange()" /><span>${p.label}</span>`;
+        pg.appendChild(lbl);
+      });
+
+      let allItems = [],
+        fullJson = null,
+        selectedIdx = -1,
+        gameCount = 0,
+        motdCache = {}; // key: "host:port" → resolved MOTD string or null
+
+      // AUTO-LOAD config.json from the same folder
+      (async () => {
+        try {
+          const res = await fetch("./config.json");
+          if (!res.ok) throw new Error("Not found");
+          const parsed = await res.json();
+          loadFull(parsed);
+          // showToast("Auto-loaded config.json (" + allItems.length + " servers)", "ok");
+        } catch {
+          // config.json not present or invalid — silently do nothing, manual import still works
+        }
+      })();
+
+      // MOTD fetching via mcstatus.io HTTP API (works from browser, supports Bedrock)
+      // Falls back to newsTitle / availableGames[0].title / url if unreachable.
+      async function fetchMotd(host, port) {
+        port = port || 19132;
+        try {
+          const res = await fetch(
+            `https://api.mcstatus.io/v2/status/bedrock/${encodeURIComponent(host)}:${port}`,
+            {
+              signal: AbortSignal.timeout(4000),
+            },
+          );
+          if (!res.ok) return null;
+          const data = await res.json();
+          if (!data.online) return null;
+          // motd.clean strips colour codes; fall back to raw if absent
+          return data.motd?.clean || data.motd?.raw || null;
+        } catch {
+          return null;
+        }
+      }
+
+      // Update a single list row's tagline, trying MOTD first
+      async function refreshTagline(idx) {
+        const item = allItems[idx];
+        if (!item) return;
+        const dp = item.DisplayProperties || {};
+        const fallback =
+          dp.newsTitle || dp.availableGames?.[0]?.title || dp.url || "";
+        const row = document.querySelector(
+          `.igui-list-item[data-idx="${idx}"]`,
+        );
+        if (!row) return;
+        const taglineEl = row.querySelector(".igui-list-tagline");
+        if (!taglineEl) return;
+
+        if (dp.url) {
+          const cacheKey = `${dp.url}:${dp.port || 19132}`;
+          // If already cached, apply immediately without fetching
+          if (cacheKey in motdCache) {
+            taglineEl.textContent = motdCache[cacheKey] || fallback;
+            return;
+          }
+          // Show fallback immediately, then replace if MOTD resolves
+          taglineEl.textContent = fallback;
+          const motd = await fetchMotd(dp.url, dp.port);
+          motdCache[cacheKey] = motd; // cache result (even null = "tried, got nothing")
+          // Re-query in case DOM changed while we awaited
+          const el = document.querySelector(
+            `.igui-list-item[data-idx="${idx}"] .igui-list-tagline`,
+          );
+          if (el) el.textContent = motd || fallback;
+        } else {
+          taglineEl.textContent = fallback;
+        }
+      }
+
+      // FILE IMPORT
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function () {
+          const file = this.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            try {
+              loadFull(JSON.parse(e.target.result));
+              showToast("Loaded " + allItems.length + " servers", "ok");
+            } catch {
+              showToast("Invalid JSON", "err");
+            }
+          };
+          reader.readAsText(file);
+          this.value = "";
+        });
+
+      function loadFull(parsed) {
+        fullJson = parsed;
+        allItems = parsed?.data?.Items || [];
+        selectedIdx = -1;
+        gameCount = 0;
+        motdCache = {};
+        buildList();
+        if (allItems.length > 0) selectServer(0);
+      }
+
+      function buildList() {
+        const list = document.getElementById("igui-list");
+        list.innerHTML = "";
+
+        // Always show action row (Add Server + Delete) at top
+        const actionRow = document.createElement("div");
+        actionRow.className = "igui-action-row";
+
+        const addBtn = document.createElement("button");
+        addBtn.className = "igui-add-btn";
+        addBtn.textContent = "+ Add Server";
+        addBtn.onclick = addNewServer;
+        actionRow.appendChild(addBtn);
+
+        const delBtn = document.createElement("button");
+        delBtn.className = "igui-delete-btn";
+        delBtn.id = "igui-delete-btn";
+        delBtn.textContent = "Delete";
+        delBtn.disabled = true;
+        delBtn.onclick = deleteSelectedServer;
+        actionRow.appendChild(delBtn);
+
+        list.appendChild(actionRow);
+
+        if (!allItems.length) {
+          const empty = document.createElement("div");
+          empty.className = "igui-list-empty";
+          empty.innerHTML = "No servers loaded";
+          list.appendChild(empty);
+          return;
+        }
+
+        const featured = [],
+          creator = [];
+        allItems.forEach((item, idx) => {
+          const dp = item.DisplayProperties || {};
+          if (dp.experienceId && dp.experienceId.trim()) featured.push(idx);
+          else creator.push(idx);
+        });
+
+        // Sort featured descending by rank (higher rank = earlier in list)
+        featured.sort((a, b) => {
+          const ra = allItems[a].DisplayProperties?.rank ?? -Infinity;
+          const rb = allItems[b].DisplayProperties?.rank ?? -Infinity;
+          return rb - ra;
+        });
+
+        function appendItem(idx) {
+          const item = allItems[idx];
+          const div = document.createElement("div");
+          div.className = "igui-list-item";
+          div.dataset.idx = idx;
+          const dp = item.DisplayProperties || {};
+          const thumb = findImg(item, "Icon");
+          const name = item.Title?.NEUTRAL || item.Title?.neutral || "Unnamed";
+          const tagline =
+            dp.newsTitle || dp.availableGames?.[0]?.title || dp.url || "";
+          div.innerHTML = `
+          <img class="igui-list-thumb" src="${eh(thumb)}" alt="" onerror="this.style.background='#333'" />
+          <div class="igui-list-info">
+            <div class="igui-list-name">${eh(name)}</div>
+            <div class="igui-list-tagline">${eh(tagline)}</div>
+          </div>`;
+          div.addEventListener("click", () => selectServer(idx));
+          list.appendChild(div);
+          refreshTagline(idx);
+        }
+
+        if (featured.length) {
+          const hdr = document.createElement("div");
+          hdr.className = "igui-category-header";
+          hdr.textContent = "Featured Experiences";
+          list.appendChild(hdr);
+          featured.forEach(appendItem);
+        }
+
+        if (creator.length) {
+          const hdr = document.createElement("div");
+          hdr.className = "igui-category-header";
+          hdr.textContent = "Creator Experiences";
+          list.appendChild(hdr);
+          creator.forEach(appendItem);
+        }
+      }
+
+      function addNewServer() {
+        if (selectedIdx >= 0) flush();
+        // Build a blank item with the same structure
+        const newId = crypto.randomUUID
+          ? crypto.randomUUID()
+          : "new-" + Date.now();
+        const blank = {
+          Id: newId,
+          Type: "catalogItem",
+          AlternateIds: [],
+          Title: { NEUTRAL: "New Server", neutral: "New Server" },
+          Description: { NEUTRAL: "", neutral: "" },
+          ContentType: "3PP_V2.0",
+          Platforms: [],
+          Tags: [newId],
+          CreationDate: new Date().toISOString(),
+          LastModifiedDate: new Date().toISOString(),
+          StartDate: "0001-01-01T00:00:00Z",
+          Contents: [],
+          Images: [],
+          DisplayProperties: {
+            url: "",
+            port: 19132,
+            creatorName: "",
+            newsTitle: "",
+            news: "",
+            requireXBL: "False",
+            availableGames: [],
+            experienceId: "",
+            rank: null,
+          },
+        };
+        if (!fullJson) {
+          fullJson = { status: "OK", code: 200, data: { Count: 0, Items: [] } };
+        }
+        allItems.push(blank);
+        fullJson.data.Items = allItems;
+        buildList();
+        selectServer(allItems.length - 1);
+        showToast("New server created", "ok");
+      }
+
+      function selectServer(idx) {
+        if (selectedIdx >= 0) flush();
+        selectedIdx = idx;
+        document
+          .querySelectorAll(".igui-list-item")
+          .forEach((el) =>
+            el.classList.toggle("active", parseInt(el.dataset.idx) === idx),
+          );
+        loadToEditor(allItems[idx]);
+        renderPreview(allItems[idx]);
+        document.getElementById("editor-head-title").textContent =
+          allItems[idx].Title?.NEUTRAL ||
+          allItems[idx].Title?.neutral ||
+          "Unnamed";
+        const delBtn = document.getElementById("igui-delete-btn");
+        if (delBtn) delBtn.disabled = false;
+      }
+
+      function deleteSelectedServer() {
+        if (selectedIdx < 0) return;
+        const name =
+          allItems[selectedIdx].Title?.NEUTRAL ||
+          allItems[selectedIdx].Title?.neutral ||
+          "Unnamed";
+        if (!confirm(`Delete "${name}"? This cannot be undone.`)) return;
+        allItems.splice(selectedIdx, 1);
+        if (fullJson) fullJson.data.Items = allItems;
+        selectedIdx = -1;
+        gameCount = 0;
+        document.getElementById("editor-fields").style.display = "none";
+        document.getElementById("editor-empty").style.display = "";
+        document.getElementById("editor-head-title").textContent =
+          "No Server Selected";
+        buildList();
+        if (allItems.length > 0) {
+          selectServer(0);
+        } else {
+          const delBtn = document.getElementById("igui-delete-btn");
+          if (delBtn) delBtn.disabled = true;
+        }
+        showToast(`Deleted "${name}"`, "ok");
+      }
+
+      function loadToEditor(item) {
+        const dp = item.DisplayProperties || {};
+        document.getElementById("editor-empty").style.display = "none";
+        document.getElementById("editor-fields").style.display = "flex";
+
+        sv("f-id", item.Id);
+        sv("f-name", item.Title?.NEUTRAL || item.Title?.neutral);
+        sv("f-desc", item.Description?.NEUTRAL || item.Description?.neutral);
+        sv("f-creator", dp.creatorName);
+        sv("f-url", dp.url);
+        sv("f-port", dp.port ?? 19132);
+        sv("f-whitelist", dp.whitelistUrl || dp.allowListUrl);
+        sv("f-minver", dp.minClientVersion);
+        sv("f-maxver", dp.maxClientVersion);
+        sv("f-news-title", dp.newsTitle);
+        sv("f-news-body", dp.news);
+        sv("f-origcreator", dp.originalCreatorId);
+        sv("f-storepage", dp.storePageId);
+        sv("f-creator-id", item.CreatorEntityKey?.Id);
+        document.getElementById("f-xbl").checked =
+          dp.requireXBL === "True" || dp.requireXBL === true;
+
+        // Experience fields
+        const hasExperience = !!(dp.experienceId && dp.experienceId.trim());
+        document.getElementById("f-is-experience").checked = hasExperience;
+        sv("f-rank", dp.rank != null ? dp.rank : "");
+
+        sv("f-thumb", findImg(item, "Thumbnail"));
+        sv("f-banner", findImg(item, "Banner"));
+        sv("f-icon", findImg(item, "Icon"));
+        prevImg("f-thumb", "prev-thumb");
+        prevImg("f-banner", "prev-banner");
+        prevImg("f-icon", "prev-icon");
+
+        ALL_PLATFORMS.forEach((p) => {
+          const el = document.getElementById("plat-" + p.id);
+          if (el) el.checked = (item.Platforms || []).includes(p.id);
+        });
+
+        document.getElementById("games-list").innerHTML = "";
+        gameCount = 0;
+        (dp.availableGames || []).forEach((ag) =>
+          addGame({
+            title: ag.title,
+            subtitle: ag.subtitle,
+            description: ag.description,
+            imageTag: ag.imageTag,
+            imageUrl: findImg(item, ag.imageTag),
+          }),
+        );
+      }
+
+      function flush() {
+        if (selectedIdx < 0) return;
+        const item = allItems[selectedIdx];
+        const dp = item.DisplayProperties || {};
+
+        // Snapshot values that trigger re-fetches BEFORE writing new ones
+        const prevUrl = dp.url || "";
+        const prevPort = dp.port || 19132;
+        const prevIcon = findImg(item, "Icon");
+
+        const name = gv("f-name"),
+          desc = gv("f-desc");
+        item.Title = { NEUTRAL: name, neutral: name };
+        item.Description = { NEUTRAL: desc, neutral: desc };
+        dp.creatorName = gv("f-creator");
+        dp.url = gv("f-url");
+        dp.port = parseInt(gv("f-port")) || 19132;
+        dp.whitelistUrl = dp.allowListUrl = gv("f-whitelist");
+        dp.minClientVersion = gv("f-minver");
+        dp.maxClientVersion = gv("f-maxver");
+        dp.newsTitle = gv("f-news-title");
+        dp.news = gv("f-news-body");
+        dp.originalCreatorId = gv("f-origcreator");
+        dp.storePageId = gv("f-storepage");
+        dp.requireXBL = document.getElementById("f-xbl").checked
+          ? "True"
+          : "False";
+        item.Id = gv("f-id");
+        if (item.CreatorEntityKey)
+          item.CreatorEntityKey.Id = gv("f-creator-id");
+        if (item.CreatorEntity) item.CreatorEntity.Id = gv("f-creator-id");
+        item.Platforms = ALL_PLATFORMS.filter(
+          (p) => document.getElementById("plat-" + p.id)?.checked,
+        ).map((p) => p.id);
+
+        // Experience fields
+        const prevExpId = dp.experienceId || "";
+        const prevRank = dp.rank ?? null;
+        dp.experienceId = document.getElementById("f-is-experience").checked
+          ? gv("f-id") || item.Id || ""
+          : "";
+        const rankVal = gv("f-rank");
+        dp.rank = rankVal !== "" ? parseInt(rankVal) : null;
+
+        // Rebuild list if category changed, or if rank changed on a featured item (re-sorts)
+        const wasExp = !!prevExpId.trim();
+        const nowExp = !!(dp.experienceId && dp.experienceId.trim());
+        const rankChanged = nowExp && dp.rank !== prevRank;
+        if (wasExp !== nowExp || rankChanged) {
+          buildList();
+          // Re-mark active item after rebuild
+          document
+            .querySelectorAll(".igui-list-item")
+            .forEach((el) =>
+              el.classList.toggle(
+                "active",
+                parseInt(el.dataset.idx) === selectedIdx,
+              ),
+            );
+        }
+
+        const upsert = (tag, url, type = "Screenshot") => {
+          if (!url) {
+            item.Images = (item.Images || []).filter((i) => i.Tag !== tag);
+            return;
+          }
+          const ex = (item.Images || []).find((i) => i.Tag === tag);
+          if (ex) ex.Url = url;
+          else
+            (item.Images = item.Images || []).push({
+              Tag: tag,
+              Id: tag,
+              Type: type,
+              Url: url,
+            });
+        };
+        upsert("Thumbnail", gv("f-thumb"), "Thumbnail");
+        upsert("Banner", gv("f-banner"));
+        upsert("Icon", gv("f-icon"));
+
+        const games = getGames();
+        dp.availableGames = games.map((g) => ({
+          title: g.title,
+          subtitle: g.subtitle,
+          description: g.description,
+          imageTag: g.imageTag,
+        }));
+        games.forEach((g) => {
+          if (g.imageUrl && g.imageTag) upsert(g.imageTag, g.imageUrl);
+        });
+        item.DisplayProperties = dp;
+
+        // refresh list row
+        const row = document.querySelector(
+          `.igui-list-item[data-idx="${selectedIdx}"]`,
+        );
+        if (row) {
+          row.querySelector(".igui-list-name").textContent = name;
+
+          // Only re-fetch MOTD if host or port actually changed
+          const hostChanged = dp.url !== prevUrl || dp.port !== prevPort;
+          if (hostChanged) {
+            // Bust the cache for the old address so the new one gets a fresh fetch
+            delete motdCache[`${prevUrl}:${prevPort}`];
+            row.querySelector(".igui-list-tagline").textContent =
+              dp.newsTitle || dp.availableGames?.[0]?.title || dp.url || "";
+            refreshTagline(selectedIdx);
+          }
+
+          // Only update thumb if Icon URL actually changed
+          const newIcon = findImg(item, "Icon");
+          if (newIcon !== prevIcon) {
+            row.querySelector(".igui-list-thumb").src = newIcon || "";
+          }
+        }
+      }
+
+      function onChange() {
+        if (selectedIdx < 0) return;
+        flush();
+        patchPreview(allItems[selectedIdx]);
+      }
+
+      // Lightweight in-place update — never recreates img tags so images don't reload.
+      // Falls back to a full renderPreview only when the activity count has changed.
+      function patchPreview(item) {
+        const detail = document.getElementById("igui-detail");
+        const dp = item?.DisplayProperties || {};
+        const games = dp.availableGames || [];
+
+        // If the structural skeleton doesn't exist yet, or activity count changed, do a full render.
+        const existingCards = detail.querySelectorAll(".igui-activity-card");
+        if (
+          !detail.querySelector(".igui-server-name") ||
+          existingCards.length !== games.length
+        ) {
+          renderPreview(item);
+          return;
+        }
+
+        // Text-only fields
+        const name = item?.Title?.NEUTRAL || item?.Title?.neutral || "";
+        const desc =
+          item?.Description?.NEUTRAL || item?.Description?.neutral || "";
+        detail.querySelector(".igui-server-name").textContent = name;
+        detail.querySelector(".igui-desc").textContent =
+          desc || "No description set.";
+
+        // Banner — only update src if URL changed, never swap element type here
+        const bannerUrl = findImg(item, "Banner");
+        const bannerImg = detail.querySelector(".igui-banner");
+        if (bannerImg && bannerImg.src !== bannerUrl) bannerImg.src = bannerUrl;
+
+        // News section — show/hide and update text without touching images
+        let newsSection = detail
+          .querySelector(".igui-news-box")
+          ?.closest(".igui-section");
+        if (dp.newsTitle || dp.news) {
+          if (!newsSection) {
+            renderPreview(item);
+            return;
+          } // structural change, full rebuild
+          newsSection.style.display = "";
+          newsSection.querySelector(".igui-news-title").textContent =
+            dp.newsTitle || "";
+          newsSection.querySelector(".igui-news-body").textContent =
+            dp.news || "";
+        } else if (newsSection) {
+          newsSection.style.display = "none";
+        }
+
+        // Activity cards — update text and only swap src if URL changed
+        existingCards.forEach((card, i) => {
+          const ag = games[i];
+          if (!ag) return;
+          const nameEl = card.querySelector(".igui-activity-name");
+          const subEl = card.querySelector(".igui-activity-subtitle");
+          const descEl = card.querySelector(".igui-activity-desc");
+          const imgEl = card.querySelector(".igui-activity-img");
+          if (nameEl) nameEl.textContent = ag.title || "Untitled";
+          if (subEl) subEl.textContent = ag.subtitle || "";
+          if (descEl) descEl.textContent = ag.description || "";
+          const newSrc = findImg(item, ag.imageTag) || "";
+          if (imgEl && imgEl.src !== newSrc) imgEl.src = newSrc;
+        });
+      }
+
+      function renderPreview(item) {
+        const dp = item?.DisplayProperties || {};
+        const name = item?.Title?.NEUTRAL || item?.Title?.neutral || "";
+        const desc =
+          item?.Description?.NEUTRAL || item?.Description?.neutral || "";
+        const banner = findImg(item, "Banner");
+        const games = dp.availableGames || [];
+        const xbl = dp.requireXBL === "True" || dp.requireXBL === true;
+
+        document.getElementById("igui-detail").innerHTML = `
+        ${
+          banner
+            ? `<img class="igui-banner" src="${eh(banner)}" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" /><div class="igui-banner-ph" style="display:none">No Banner Image</div>`
+            : `<div class="igui-banner-ph">No Banner Image</div>`
+        }
+        <div class="igui-title-row">
+          <div class="igui-server-name">${eh(name)}</div>
+          <button class="igui-play-btn">PLAY</button>
+        </div>
+        <div class="igui-section">
+          <div class="igui-section-title">Description</div>
+          <div class="igui-desc">${eh(desc) || "No description set."}</div>
+        </div>
+        ${
+          games.length
+            ? `
+        <div class="igui-section">
+          <div class="igui-section-title">Activities</div>
+          <div class="igui-activities">
+            ${games
+              .map((ag) => {
+                const imgUrl = findImg(item, ag.imageTag);
+                return `<div class="igui-activity-card">
+                ${imgUrl ? `<img class="igui-activity-img" src="${eh(imgUrl)}" alt="" onerror="this.outerHTML='<div class=igui-activity-img-ph>No<br>Image</div>'" />` : `<div class="igui-activity-img-ph">No<br>Image</div>`}
+                <div class="igui-activity-info">
+                  <div class="igui-activity-name">${eh(ag.title || "Untitled")}</div>
+                  ${ag.subtitle ? `<div class="igui-activity-subtitle">${eh(ag.subtitle)}</div>` : ""}
+                  <div class="igui-activity-desc">${eh(ag.description || "")}</div>
+                </div>
+              </div>`;
+              })
+              .join("")}
+          </div>
+        </div>`
+            : ""
+        }
+        ${
+          dp.newsTitle || dp.news
+            ? `
+        <div class="igui-section">
+          <div class="igui-section-title">News</div>
+          <div class="igui-news-box">
+            <div class="igui-news-title">${eh(dp.newsTitle || "")}</div>
+            <div class="igui-news-body">${eh(dp.news || "")}</div>
+          </div>
+        </div>`
+            : ""
+        }
+      `;
+      }
+
+      function addGame(data = {}) {
+        gameCount++;
+        const id = "game-" + gameCount;
+        const div = document.createElement("div");
+        div.className = "game-entry";
+        div.id = id;
+        div.innerHTML = `
+        <div class="game-entry-title"><span>Activity #${gameCount}</span><button class="remove-game-btn" onclick="removeGame('${id}')">✕</button></div>
+        <span class="game-entry-label">Title</span><input type="text" placeholder="SkyWars" value="${ea(data.title || "")}" oninput="onChange()" />
+        <span class="game-entry-label">Subtitle</span><input type="text" placeholder="Strike it lucky!" value="${ea(data.subtitle || "")}" oninput="onChange()" />
+        <span class="game-entry-label">Description</span><textarea placeholder="Game description..." oninput="onChange()">${eh(data.description || "")}</textarea>
+        <span class="game-entry-label">Image URL</span><input type="url" placeholder="https://..." value="${ea(data.imageUrl || "")}" oninput="onChange()" />
+        <span class="game-entry-label">Image Tag</span><input type="text" placeholder="AvailableGameSkyWars" value="${ea(data.imageTag || "")}" oninput="onChange()" />
+      `;
+        document.getElementById("games-list").appendChild(div);
+      }
+      function removeGame(id) {
+        document.getElementById(id).remove();
+        if (selectedIdx >= 0) {
+          flush();
+          renderPreview(allItems[selectedIdx]);
+        }
+      }
+      function getGames() {
+        return Array.from(document.querySelectorAll(".game-entry")).map((e) => {
+          const inp = e.querySelectorAll("input"),
+            ta = e.querySelector("textarea");
+          return {
+            title: inp[0]?.value || "",
+            subtitle: inp[1]?.value || "",
+            description: ta?.value || "",
+            imageUrl: inp[2]?.value || "",
+            imageTag: inp[3]?.value || "",
+          };
+        });
+      }
+
+      function onExperienceToggle() {
+        onChange();
+      }
+
+      function exportAll() {
+        if (!fullJson) {
+          showToast("Nothing to export", "err");
+          return;
+        }
+        flush();
+        const out = JSON.parse(JSON.stringify(fullJson));
+        out.data.Items = allItems;
+        out.data.Count = allItems.length;
+        const json = JSON.stringify(out, null, 2);
+        navigator.clipboard
+          .writeText(json)
+          .then(() => showToast("Copied to clipboard", "ok"))
+          .catch(() => {
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(
+              new Blob([json], { type: "application/json" }),
+            );
+            a.download = "blobclient.json";
+            a.click();
+            showToast("Downloaded blobclient.json", "ok");
+          });
+      }
+
+      function findImg(item, tag) {
+        return (item?.Images || []).find((i) => i.Tag === tag)?.Url || "";
+      }
+      function sv(id, val) {
+        const el = document.getElementById(id);
+        if (el) el.value = val ?? "";
+      }
+      function gv(id) {
+        const el = document.getElementById(id);
+        return el ? el.value : "";
+      }
+      function eh(s) {
+        const d = document.createElement("div");
+        d.textContent = s;
+        return d.innerHTML;
+      }
+      function ea(s) {
+        return String(s)
+          .replace(/"/g, "&quot;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+      function prevImg(iId, pId) {
+        const url = gv(iId).trim(),
+          img = document.getElementById(pId);
+        if (!img) return;
+        if (url) {
+          img.src = url;
+          img.classList.add("vis");
+        } else {
+          img.src = "";
+          img.classList.remove("vis");
+        }
+      }
+      let tt;
+      function showToast(msg, type = "ok") {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.className = "toast " + type + " show";
+        clearTimeout(tt);
+        tt = setTimeout(() => t.classList.remove("show"), 2800);
+      }
+    </script>
+    <script src="../../js/shared.js"></script>
+    <script>
+      initSharedComponents({ activePath: "/tools/" });
+    </script>
+  </body>
+</html>
