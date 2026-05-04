@@ -63,6 +63,53 @@
     }
   },
   {
+    "name": "CenterX",
+    "role": "Translator",
+    "roleLabel": "Contributor/Translator (DE)",
+    "paramKey": ["contributor", "translator"],
+    "avatar": "https://cdn.discordapp.com/avatars/1182140541245341779/b082de5a37b1810e0aacba06bce22bf4.png",
+    "link": "https://github.com/center2055",
+    "color": "#091150",
+    "nameplate": {
+      "nameColor": "#d6680e"
+    }
+  },
+  {
+    "name": "Stars",
+    "role": "Cosmos Creator",
+    "roleLabel": "Cosmos Creator, Translator (ID)",
+    "paramKey": ["cosmos_creator", "translator"],
+    "avatar": "https://cdn.discordapp.com/avatars/895228843500126209/6ce022153bfb2e5f6e218f309a3f56e0.png",
+    "link": "https://www.youtube.com/@Hypervitaminosis",
+    "color": "#29afe4",
+    "nameplate": {
+      "gradientColor": "#0131c2",
+      "videoId": "1382845914267521117",
+      "decoId": "a_b20e3f13d48c5db0073f3629a170d49d",
+      "decoAlt": "Capybara",
+      "nameStyle": "gradient",
+      "gradientStart": "#903cda",
+      "gradientEnd": "#1fb373",
+      "nameFont": "8bit"
+    }
+  },
+  {
+    "name": "ZeroMISTER JA",
+    "role": "Cosmos Creator",
+    "roleLabel": "Cosmos Creator, Translator (ES)",
+    "paramKey": ["cosmos_creator", "translator"],
+    "avatar": "https://cdn.discordapp.com/avatars/698302354251841638/7e97d0bf8692fe2eb7c65f06856a1008.png",
+    "link": "https://bedrock.lol/ZeroMISTERJA",
+    "color": "#5eae5f",
+    "nameplate": {
+      "gradientColor": "#0131c2",
+      "videoId": "1349849614198505602",
+      "decoId": "a_462b0bddc07dd495765fe12abe8b077f",
+      "decoAlt": "Lava Blobs",
+      "nameColor": "#f1bef0"
+    }
+  },
+  {
     "name": "exports",
     "role": "Cosmos Creator",
     "paramKey": "cosmos_creator",
@@ -75,25 +122,6 @@
       "nameStyle": "neon",
       "neonColor": "#b088f6",
       "neonStroke": "#7d33ff",
-      "nameFont": "8bit"
-    }
-  },
-  {
-    "name": "Stars",
-    "role": "Cosmos Creator",
-    "roleLabel": "Cosmos Creator, Translator (ID)",
-    "paramKey": "cosmos_creator",
-    "avatar": "https://cdn.discordapp.com/avatars/895228843500126209/6ce022153bfb2e5f6e218f309a3f56e0.png",
-    "link": "https://www.youtube.com/@Hypervitaminosis",
-    "color": "#29afe4",
-    "nameplate": {
-      "gradientColor": "#0131c2",
-      "videoId": "1382845914267521117",
-      "decoId": "a_b20e3f13d48c5db0073f3629a170d49d",
-      "decoAlt": "Capybara",
-      "nameStyle": "gradient",
-      "gradientStart": "#903cda",
-      "gradientEnd": "#1fb373",
       "nameFont": "8bit"
     }
   },
@@ -111,26 +139,10 @@
     }
   },
   {
-    "name": "ZeroMISTER JA",
-    "role": "Cosmos Creator",
-    "roleLabel": "Cosmos Creator, Translator (ES)",
-    "paramKey": "cosmos_creator",
-    "avatar": "https://cdn.discordapp.com/avatars/698302354251841638/7e97d0bf8692fe2eb7c65f06856a1008.png",
-    "link": "https://bedrock.lol/ZeroMISTERJA",
-    "color": "#5eae5f",
-    "nameplate": {
-      "gradientColor": "#0131c2",
-      "videoId": "1349849614198505602",
-      "decoId": "a_462b0bddc07dd495765fe12abe8b077f",
-      "decoAlt": "Lava Blobs",
-      "nameColor": "#f1bef0"
-    }
-  },
-  {
     "name": "new vietnam",
     "role": "Translator",
     "roleLabel": "Translator (VI)",
-    "paramKey": "translator_vi",
+    "paramKey": "translator",
     "avatar": "https://cdn.discordapp.com/avatars/992706184391954533/79d9cbe61adf32b3cfce786735440cb1.png",
     "link": null,
     "color": "#d00000",
@@ -142,22 +154,10 @@
     "name": "Maplized",
     "role": "Translator",
     "roleLabel": "Translator (BN)",
-    "paramKey": "translator_bn",
+    "paramKey": "translator",
     "avatar": "https://miro.medium.com/v2/resize:fit:256/0*8WdBp_k4REJoMkfF.png",
     "link": null,
     "color": "#00ff37",
-    "nameplate": {
-      "nameColor": "#f1c40f"
-    }
-  },
-  {
-    "name": "CenterX",
-    "role": "Translator",
-    "roleLabel": "Contributor/Translator (DE)",
-    "paramKey": "translator_de",
-    "avatar": "https://cdn.discordapp.com/avatars/1182140541245341779/b082de5a37b1810e0aacba06bce22bf4.png",
-    "link": "https://github.com/center2055",
-    "color": "#091150",
     "nameplate": {
       "nameColor": "#f1c40f"
     }
@@ -173,6 +173,18 @@
       "gradientColor": "#0131c2",
       "videoId": "1349849614198505602",
       "nameColor": "#7ac767"
+    }
+  },
+  {
+    "name": "Lord HashyYT",
+    "role": "Youtuber",
+    "roleLabel": "Youtuber",
+    "paramKey": "youtuber",
+    "avatar": "https://cdn.discordapp.com/avatars/1057092293078831154/6d57ccb603ef6d574a944d8a8e0d99e9.png",
+    "link": null,
+    "color": "#00ff37",
+    "nameplate": {
+      "nameColor": "#d42020"
     }
   }
 ]

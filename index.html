@@ -1569,6 +1569,8 @@
         const card = document.createElement("div");
         card.className = "nameplate-null-user nameplate-preview";
         card.style.backgroundImage = `linear-gradient(90deg, #00000000 -30%, ${gradientColor} 200%)`;
+        const firstParamKey = Array.isArray(member.paramKey) ? member.paramKey[0] : member.paramKey;
+        card.dataset.paramKey = firstParamKey;
 
         // Optional background video
         if (np.videoId) {
@@ -1680,16 +1682,9 @@
           .forEach((card) => {
             card.addEventListener("click", () => {
               const nameEl = card.querySelector(".nameplate-user-name");
-              const roleEl = card.querySelector(".nameplate-role-label");
-              if (!nameEl || !roleEl) return;
+              if (!nameEl) return;
               const name = nameEl.textContent.trim();
-              const role = roleEl.textContent
-                .trim()
-                .split(",")[0]
-                .trim()
-                .toLowerCase()
-                .replace(/\s+/g, "_")
-                .replace(/[^a-z0-9_]/g, "");
+              const role = card.dataset.paramKey;
               history.replaceState(
                 null,
                 "",
