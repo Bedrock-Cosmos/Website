@@ -11,10 +11,7 @@ function toggleMobileSidebar() {
   const isOpen = sidebar.classList.toggle("mobile-open");
   overlay.classList.toggle("active", isOpen);
   btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  btn.setAttribute(
-    "aria-label",
-    isOpen ? "Close navigation menu" : "Open navigation menu",
-  );
+  btn.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
 }
 
 /* ─── Stars Generator ────────────────────────────────────────── */
@@ -114,11 +111,65 @@ function getSidebarHTML(activePath = "") {
   </aside>`;
 }
 
+/* ─── Platform Detection ─────────────────────────────────────── */
+/**
+ * Detects the current platform.
+ * Returns "android", "ios", or "windows" (default/fallback).
+ */
+function detectPlatform() {
+  const ua = navigator.userAgent || "";
+  if (/android/i.test(ua)) return "android";
+  if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return "ios";
+  return "windows";
+}
+
+/**
+ * Returns the appropriate download link config for the current platform.
+ * @returns {{ href: string, label: string, svgInner: string, viewBox: string, isMobileIcon: boolean }}
+ */
+function getDownloadLink() {
+  const platform = detectPlatform();
+
+  if (platform === "android") {
+    return {
+      href: "https://bedrock-cosmos.app/android/",
+      label: "Download",
+      viewBox: "0 0 256 256",
+      svgInner: `<rect width="256" height="256" fill="none"/><circle cx="164" cy="148" r="12"/><circle cx="92" cy="148" r="12"/><path d="M24,184V161.13C24,103.65,70.15,56.2,127.63,56A104,104,0,0,1,232,160v24a8,8,0,0,1-8,8H32A8,8,0,0,1,24,184Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="32" y1="48" x2="63.07" y2="79.07" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="224" y1="48" x2="193.1" y2="78.9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>`,
+    };
+  }
+
+  if (platform === "ios") {
+    return {
+      href: "https://bedrock-cosmos.app/android/",
+      label: "Download",
+      viewBox: "0 0 256 256",
+      svgInner: `<rect width="256" height="256" fill="none"/><path d="M216,73.52C204.53,62.66,185,56,168,56a63.72,63.72,0,0,0-40,14h0A63.71,63.71,0,0,0,88.88,56C52,55.5,23.06,86.3,24,123.19a119.62,119.62,0,0,0,37.65,84.12A31.92,31.92,0,0,0,83.6,216h87.7a31.75,31.75,0,0,0,23.26-10c15.85-17,21.44-33.2,21.44-33.2h0c-16.79-11.53-24-30.87-24-52.78,0-18.3,11.68-34.81,24-46.48Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M168,8h-1a32,32,0,0,0-31,24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>`,
+    };
+  }
+
+  // Default: Windows
+  return {
+    href: "https://github.com/Bedrock-Cosmos/Launcher/releases/",
+    label: "Download",
+    viewBox: "0 0 256 256",
+    svgInner: `<path d="M104,144v51.64a8,8,0,0,1-8,8,8.54,8.54,0,0,1-1.43-.13l-64-11.64A8,8,0,0,1,24,184V144a8,8,0,0,1,8-8H96A8,8,0,0,1,104,144Zm-2.87-89.78a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm5.13-102.14a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86Z"/>`,
+  };
+}
+
 /* ─── Footer HTML ────────────────────────────────────────────── */
 /**
  * Returns the shared footer HTML string.
+ * The Download link automatically adapts to the visitor's platform:
+ *   - Android → /android/  (Android robot icon)
+ *   - iOS     → /ios/       (Apple icon)
+ *   - Default → GitHub releases (Windows icon)
  */
 function getFooterHTML() {
+  const dl = getDownloadLink();
+  const downloadLink = `<a href="${dl.href}" id="bc-download-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="${dl.viewBox}" fill="currentColor" style="vertical-align:middle;margin-right:4px;">${dl.svgInner}</svg>${dl.label}</a>`;
+
   return `<footer style="z-index: 10; position: relative">
     <div class="footer-content">
       <div class="footer-section">
@@ -209,11 +260,7 @@ function injectSharedStyles() {
  * @param {string}  opts.starsId      - id of the stars container (default: "stars")
  * @param {number}  opts.starCount    - number of stars (default: 180)
  */
-function initSharedComponents({
-  activePath = "",
-  starsId = "stars",
-  starCount = 180,
-} = {}) {
+function initSharedComponents({ activePath = "", starsId = "stars", starCount = 180 } = {}) {
   injectSharedStyles();
 
   const sidebarPlaceholder = document.getElementById("mc-sidebar-placeholder");

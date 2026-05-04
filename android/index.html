@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- ══ PRIMARY SEO ══ -->
+    <title>Bedrock Cosmos Android</title>
+    <meta
+      name="description"
+      content="Bedrock Cosmos Android support is in development. No official ETA just yet, but we're working on bringing custom capes and skin packs to Minecraft Bedrock on Android. Stay tuned via Discord."
+    />
+    <meta
+      name="keywords"
+      content="Bedrock Cosmos Android, Minecraft Bedrock Android, custom capes mcbe, Bedrock Cosmos App"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Bedrock Cosmos" />
+    <meta name="theme-color" content="#181a1b" />
+    <link rel="canonical" href="https://bedrock-cosmos.app/android/" />
+
+    <!-- ══ OPEN GRAPH ══ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bedrock Cosmos" />
+    <meta property="og:title" content="Bedrock Cosmos Android" />
+    <meta
+      property="og:description"
+      content="Bedrock Cosmos Android support is in development. No official ETA just yet."
+    />
+    <meta property="og:url" content="https://bedrock-cosmos.app/android/" />
+    <meta property="og:image" content="https://bedrock-cosmos.app/imgs/android.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ══ TWITTER CARD ══ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@BedrockCosmos" />
+    <meta name="twitter:title" content="Bedrock Cosmos Android" />
+    <meta
+      name="twitter:description"
+      content="Bedrock Cosmos Android support is in development. No official ETA just yet."
+    />
+    <meta name="twitter:image" content="https://bedrock-cosmos.app/imgs/android.png" />
+
+    <!-- ══ SCHEMA ══ -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Bedrock Cosmos Android",
+        "description": "Bedrock Cosmos Android support is in development. No official ETA just yet.",
+        "url": "https://bedrock-cosmos.app/android/",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Bedrock Cosmos",
+          "url": "https://bedrock-cosmos.app",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://bedrock-cosmos.app/imgs/android.png",
+            "width": 320,
+            "height": 160
+          }
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bedrock-cosmos.app" },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Android",
+            "item": "https://bedrock-cosmos.app/android/"
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .mc-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ── Article wrap (reuse existing pattern) ── */
+      .article-wrap {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: clamp(24px, 5vw, 48px) clamp(16px, 4vw, 32px);
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* ── Status card ── */
+      .android-status-card {
+        background: rgba(139, 92, 246, 0.07);
+        border: 1px solid rgba(139, 92, 246, 0.25);
+        border-radius: 12px;
+        padding: 24px 28px;
+        margin: 0px 0px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .android-status-card-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+      }
+      .android-status-icon {
+        flex-shrink: 0;
+        color: #a78bfa;
+        display: flex;
+        align-items: center;
+      }
+      .android-status-card h2 {
+        margin: 0 !important;
+        font-size: 1.1rem !important;
+        font-weight: 800 !important;
+        color: #a78bfa !important;
+        letter-spacing: 0.01em;
+      }
+
+      .android-status-card p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.7;
+      }
+
+      /* ── Status image ── */
+      .android-status-img {
+        z-index: 10;
+        margin-top: 6px;
+        border-radius: 10px;
+        overflow: hidden;
+        line-height: 0; /* collapse inline gap under img */
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+        cursor: zoom-in;
+        transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+      .android-status-img:hover {
+        box-shadow: 0 6px 32px rgba(139, 92, 246, 0.25);
+        border-color: rgba(139, 92, 246, 0.45);
+      }
+      .android-status-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+
+      /* ── FAQ warning block (from existing site) ── */
+      .faq-answer-warning {
+        margin-top: 16px;
+        background: rgba(251, 191, 36, 0.08);
+        border-left: 3px solid #fbbf24;
+        border-radius: 0 8px 8px 0;
+        padding: 14px 16px;
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.6;
+      }
+      .faq-answer-warning-title {
+        display: block;
+        font-weight: 700;
+        color: #fbbf24;
+        margin-bottom: 6px;
+        font-size: 0.85rem;
+        letter-spacing: 0.03em;
+      }
+      .faq-answer-new {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.7;
+      }
+
+      /* ── Progress timeline ── */
+      .android-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin: 28px 0;
+        position: relative;
+        padding-left: 32px;
+      }
+      .android-timeline::before {
+        content: "";
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        bottom: 10px;
+        width: 2px;
+        background: rgba(139, 92, 246, 0.2);
+        border-radius: 2px;
+      }
+      .android-timeline-item {
+        position: relative;
+        padding: 0 0 28px 20px;
+      }
+      .android-timeline-item:last-child {
+        padding-bottom: 0;
+      }
+      .android-timeline-dot {
+        position: absolute;
+        left: -26px;
+        top: 4px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(139, 92, 246, 0.3);
+        border: 2px solid rgba(139, 92, 246, 0.5);
+        box-sizing: border-box;
+      }
+      .android-timeline-dot.done {
+        background: #7c3aed;
+        border-color: #a78bfa;
+      }
+      .android-timeline-dot.active {
+        background: #a78bfa;
+        border-color: #c4b5fd;
+        box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.15);
+        animation: pulse-ring 2s ease-in-out infinite;
+      }
+      @keyframes pulse-ring {
+        0%,
+        100% {
+          box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.15);
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(167, 139, 250, 0.05);
+        }
+      }
+      .android-timeline-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .android-timeline-label.done {
+        color: #7c3aed;
+      }
+      .android-timeline-label.active {
+        color: #a78bfa;
+      }
+      .android-timeline-label.pending {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .android-timeline-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--mc-text, #fff);
+        margin: 0 0 4px;
+      }
+      .android-timeline-desc {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      /* Reuse andr-body prose styles */
+      .andr-body h2 {
+        font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+        font-weight: 800;
+        color: var(--mc-text, #fff);
+        margin: 0px 0 12px;
+        line-height: 1.3;
+      }
+      .andr-body h2:first-child {
+        margin-top: 0;
+      }
+      .andr-body p {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.75;
+        margin: 0 0 16px;
+      }
+    </style>
+    <link rel="stylesheet" href="/css/marketplace.css" />
+  </head>
+  <body>
+    <div id="mc-sidebar-overlay" class="mc-sidebar-overlay" onclick="toggleMobileSidebar()"></div>
+
+    <!-- TOP BAR -->
+    <header class="mc-topbar">
+      <button
+        id="mc-mobile-menu-btn"
+        class="mc-mobile-menu-btn"
+        aria-label="Open navigation menu"
+        onclick="toggleMobileSidebar()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 5h16" />
+          <path d="M4 12h16" />
+          <path d="M4 19h16" />
+        </svg>
+      </button>
+      <a href="/" class="mc-topbar-back">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Home
+      </a>
+      <span class="mc-topbar-title" style="align-items: center; justify-content: center; gap: 8px">
+        <img
+          src="https://bedrock-cosmos.app/icons/shootingstar.png"
+          alt=""
+          style="width: 24px; height: 24px; object-fit: contain"
+        />
+        <span style="font-size: 1rem; font-weight: 800; letter-spacing: 0.05em">Bedrock Cosmos</span>
+      </span>
+      <div class="mc-topbar-right">
+        <a href="/config/" class="mc-library-btn">My Library</a>
+      </div>
+    </header>
+
+    <div id="mc-sidebar-placeholder"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="mc-main">
+      <div class="stars-container" id="stars"></div>
+
+      <div class="article-wrap">
+        <article class="andr-body">
+          <div class="android-status-card">
+            <div class="android-status-card-header">
+              <div class="android-status-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 256 256"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="16"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="164" cy="148" r="12" fill="currentColor" stroke="none" />
+                  <circle cx="92" cy="148" r="12" fill="currentColor" stroke="none" />
+                  <path
+                    d="M24,184V161.13C24,103.65,70.15,56.2,127.63,56A104,104,0,0,1,232,160v24a8,8,0,0,1-8,8H32A8,8,0,0,1,24,184Z"
+                  />
+                  <line x1="32" y1="48" x2="63.07" y2="79.07" />
+                  <line x1="224" y1="48" x2="193.1" y2="78.9" />
+                </svg>
+              </div>
+              <h2>Bedrock Cosmos Android</h2>
+            </div>
+            <p>
+              We're hoping to release official Android support soon, but we don't have a firm timeline to share yet. Any
+              announcements will be made first on our Discord server and here on this page.
+            </p>
+            <div class="android-status-img" onclick="openLightbox('/imgs/android.png')" role="button" aria-label="Enlarge preview image" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('/imgs/android.png')">
+              <img
+                src="/imgs/android.png"
+                alt="Bedrock Cosmos App on Android"
+                width="320"
+                height="160"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <h2>Current Status</h2>
+          <div class="android-timeline">
+            <div class="android-timeline-item">
+              <div class="android-timeline-dot done"></div>
+              <div class="android-timeline-label done">Completed</div>
+              <div class="android-timeline-title">Windows version stable</div>
+              <p class="android-timeline-desc">
+                The Windows launcher is live, open-source, and actively maintained with regular feature updates.
+              </p>
+            </div>
+            <div class="android-timeline-item">
+              <div class="android-timeline-dot done"></div>
+              <div class="android-timeline-label done">Completed</div>
+              <div class="android-timeline-title">Android feasibility research</div>
+              <p class="android-timeline-desc">
+                We've confirmed Android support is achievable. A community contributor (Wadudi) has already built an
+                unofficial proof-of-concept.
+              </p>
+            </div>
+            <div class="android-timeline-item">
+              <div class="android-timeline-dot active"></div>
+              <div class="android-timeline-label active">In Progress</div>
+              <div class="android-timeline-title">Official Android build</div>
+              <p class="android-timeline-desc">
+                Active development on an official, supported Android release. No ETA — we'll announce when it's ready.
+              </p>
+            </div>
+            <div class="android-timeline-item">
+              <div class="android-timeline-dot"></div>
+              <div class="android-timeline-label pending">Upcoming</div>
+              <div class="android-timeline-title">Public release</div>
+              <p class="android-timeline-desc">
+                Once stable and tested, we'll release the official Android version and list it here on this page.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-answer-warning">
+            <span class="faq-answer-warning-title">⚠ Warning</span>
+            Please be aware of other people and/or services offering mobile support for Bedrock Cosmos currently! We
+            cannot confirm the safety of other third-party forks or software. The only Android build that is confirmed
+            safe is by <strong>Wadudi</strong>, who is listed in our Team page as a Contributor. However, this is still
+            unofficial and not supported by the Bedrock Cosmos team. Any future updates about official Android support
+            will be released on our website.
+          </div>
+        </article>
+      </div>
+
+      <div id="mc-footer-placeholder"></div>
+    </main>
+
+    <script></script>
+    <!-- Lightbox overlay -->
+    <div id="art-lightbox" role="dialog" aria-modal="true" onclick="closeLightbox()">
+      <span id="art-lightbox-close" aria-label="Close">&times;</span>
+      <img id="art-lightbox-img" src="" alt="Enlarged image" onclick="event.stopPropagation()" />
+    </div>
+
+    <script>
+      function openLightbox(src) {
+        const lb = document.getElementById("art-lightbox");
+        document.getElementById("art-lightbox-img").src = src;
+        lb.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeLightbox() {
+        document.getElementById("art-lightbox").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeLightbox();
+      });
+    </script>
+    <script src="../../js/shared.js"></script>
+    <script>
+      initSharedComponents({ activePath: "/" });
+    </script>
+  </body>
+</html>
