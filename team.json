@@ -30,23 +30,13 @@
     }
   },
   {
-    "name": "ItsMwamOffi",
-    "role": "Contributor",
-    "paramKey": "contributor",
-    "avatar": "https://pbs.twimg.com/profile_images/2025335760849608704/yZWUBqVN_400x400.jpg",
-    "link": "https://discord.gg/fanclub",
-    "color": "#fff3ca",
-    "nameplate": {
-      "nameColor": "#d6680e"
-    }
-  },
-  {
-    "name": "Wadudi",
-    "role": "Contributor",
-    "paramKey": "contributor",
-    "avatar": "https://cdn.discordapp.com/avatars/694171261500391505/603335d9004ba9386cdb7ed629950513.png",
-    "link": null,
-    "color": "#118ab2",
+    "name": "CenterX",
+    "role": "Translator",
+    "roleLabel": "Contributor, Translator (DE)",
+    "paramKey": ["contributor", "translator"],
+    "avatar": "https://cdn.discordapp.com/avatars/1182140541245341779/b082de5a37b1810e0aacba06bce22bf4.png",
+    "link": "https://github.com/center2055",
+    "color": "#091150",
     "nameplate": {
       "nameColor": "#d6680e"
     }
@@ -63,13 +53,23 @@
     }
   },
   {
-    "name": "CenterX",
-    "role": "Translator",
-    "roleLabel": "Contributor/Translator (DE)",
-    "paramKey": ["contributor", "translator"],
-    "avatar": "https://cdn.discordapp.com/avatars/1182140541245341779/b082de5a37b1810e0aacba06bce22bf4.png",
-    "link": "https://github.com/center2055",
-    "color": "#091150",
+    "name": "Wadudi",
+    "role": "Contributor",
+    "paramKey": "contributor",
+    "avatar": "https://cdn.discordapp.com/avatars/694171261500391505/603335d9004ba9386cdb7ed629950513.png",
+    "link": null,
+    "color": "#118ab2",
+    "nameplate": {
+      "nameColor": "#d6680e"
+    }
+  },
+  {
+    "name": "ItsMwamOffi",
+    "role": "Contributor",
+    "paramKey": "contributor",
+    "avatar": "https://pbs.twimg.com/profile_images/2025335760849608704/yZWUBqVN_400x400.jpg",
+    "link": "https://discord.gg/fanclub",
+    "color": "#fff3ca",
     "nameplate": {
       "nameColor": "#d6680e"
     }
@@ -177,7 +177,7 @@
   },
   {
     "name": "Lord HashyYT",
-    "role": "Youtuber",
+    "role": "YouTuber",
     "roleLabel": "Youtuber",
     "paramKey": "youtuber",
     "avatar": "https://cdn.discordapp.com/avatars/1057092293078831154/6d57ccb603ef6d574a944d8a8e0d99e9.png",
