@@ -1160,6 +1160,96 @@
     "creatorParam": true
   },
   {
+    "name": "MCC - Aqua Axolotls Cape",
+    "creator": "NAC",
+    "uuid": "cb4d8a68-f97d-40b5-b11e-59294826a0cc",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/NAC/MCCAquaAxolotlsCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/NAC/MCCAquaAxolotlsCape.png",
+    "category": "NAC",
+    "creatorParam": true
+  },
+  {
+    "name": "MCC - Blue Bats Cape",
+    "creator": "NAC",
+    "uuid": "f838ccc1-a8d2-4bf5-b820-2cbee6d6c7a6",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/NAC/MCCBlueBatsCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/NAC/MCCBlueBatsCape.png",
+    "category": "NAC",
+    "creatorParam": true
+  },
+  {
+    "name": "MCC - Cyan Coyotes Cape",
+    "creator": "NAC",
+    "uuid": "acf80f4c-f232-4608-aecf-7e9807bb9d4e",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/NAC/MCCCyanCoyotesCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/NAC/MCCCyanCoyotesCape.png",
+    "category": "NAC",
+    "creatorParam": true
+  },
+  {
+    "name": "MCC - Green Geckos Cape",
+    "creator": "NAC",
+    "uuid": "299d4eb2-645a-4929-af4c-9cc80b9d0745",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/NAC/MCCGreenGeckosCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/NAC/MCCGreenGeckosCape.png",
+    "category": "NAC",
+    "creatorParam": true
+  },
+  {
+    "name": "MCC - Lime Llamas Cape",
+    "creator": "NAC",
+    "uuid": "3b553920-305e-4b7b-8496-feacb2a0440b",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/NAC/MCCLimeLlamasCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/NAC/MCCLimeLlamasCape.png",
+    "category": "NAC",
+    "creatorParam": true
+  },
+  {
+    "name": "MCC - Orange Ocelots Cape",
+    "creator": "NAC",
+    "uuid": "cc2cd21c-407f-4bc5-858e-adcc7f4bb6db",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/NAC/MCCOrangeOcelotsCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/NAC/MCCOrangeOcelotsCape.png",
+    "category": "NAC",
+    "creatorParam": true
+  },
+  {
+    "name": "MCC - Pink Parrots Cape",
+    "creator": "NAC",
+    "uuid": "bf37ce64-ce9a-441a-a8f6-2be5fa08c282",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/NAC/MCCPinkParrotsCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/NAC/MCCPinkParrotsCape.png",
+    "category": "NAC",
+    "creatorParam": true
+  },
+  {
+    "name": "MCC - Purple Pandas Cape",
+    "creator": "NAC",
+    "uuid": "0bedf938-e537-453c-93d9-bfd63fa1fbe6",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/NAC/MCCPurplePandasCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/NAC/MCCPurplePandasCape.png",
+    "category": "NAC",
+    "creatorParam": true
+  },
+  {
+    "name": "MCC - Red Rabbits Cape",
+    "creator": "NAC",
+    "uuid": "02885b68-3289-4e06-afe5-205a88d372e2",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/NAC/MCCRedRabbitsCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/NAC/MCCRedRabbitsCape.png",
+    "category": "NAC",
+    "creatorParam": true
+  },
+  {
+    "name": "MCC - Yellow Yaks Cape",
+    "creator": "NAC",
+    "uuid": "5299cc99-f1e9-4e28-b4e4-ac47a82d4c8f",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/NAC/MCCYellowYaksCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/NAC/MCCYellowYaksCape.png",
+    "category": "NAC",
+    "creatorParam": true
+  },
+  {
     "name": "Blossom Cape",
     "creator": "Stars",
     "uuid": "b8657da9-d315-462f-9c0f-0dbb00fc208f",
