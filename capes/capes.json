@@ -1070,6 +1070,96 @@
     "creatorParam": true
   },
   {
+    "name": "Burger Cape",
+    "creator": "DL0ZE",
+    "uuid": "212ebbf7-ee8f-4de0-bf67-4290c5cf6bd9",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/DL0ZE/BurgerCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/DL0ZE/BurgerCape.png",
+    "category": "DL0ZE",
+    "creatorParam": true
+  },
+  {
+    "name": "Cake Cape",
+    "creator": "DL0ZE",
+    "uuid": "1bd4e3ce-fb7b-4842-b1a7-e20468061967",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/DL0ZE/CakeCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/DL0ZE/CakeCape.png",
+    "category": "DL0ZE",
+    "creatorParam": true
+  },
+  {
+    "name": "Crafting Table Cape",
+    "creator": "DL0ZE",
+    "uuid": "ecb7f519-cd5c-4ec3-8ceb-4c01873c68b1",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/DL0ZE/CraftingTableCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/DL0ZE/CraftingTableCape.png",
+    "category": "DL0ZE",
+    "creatorParam": true
+  },
+  {
+    "name": "Crescent Cape",
+    "creator": "DL0ZE",
+    "uuid": "88231694-f32b-462a-b288-2d88b439593f",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/DL0ZE/CrescentCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/DL0ZE/CrescentCape.png",
+    "category": "DL0ZE",
+    "creatorParam": true
+  },
+  {
+    "name": "Elf Cape",
+    "creator": "DL0ZE",
+    "uuid": "0d204940-7e98-4907-863c-1980f776659d",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/DL0ZE/ElfCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/DL0ZE/ElfCape.png",
+    "category": "DL0ZE",
+    "creatorParam": true
+  },
+  {
+    "name": "Moonlight Cape",
+    "creator": "DL0ZE",
+    "uuid": "ea1fc944-c910-4eee-a745-f3e147ce5fac",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/DL0ZE/MoonlightCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/DL0ZE/MoonlightCape.png",
+    "category": "DL0ZE",
+    "creatorParam": true
+  },
+  {
+    "name": "Pirate Pillager Cape",
+    "creator": "DL0ZE",
+    "uuid": "2e428c54-eccd-4d71-a71a-3362533decfd",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/DL0ZE/PiratePillagerCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/DL0ZE/PiratePillagerCape.png",
+    "category": "DL0ZE",
+    "creatorParam": true
+  },
+  {
+    "name": "Santa Cape",
+    "creator": "DL0ZE",
+    "uuid": "974c4527-a242-4349-a237-24d1be65ef6a",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/DL0ZE/SantaCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/DL0ZE/SantaCape.png",
+    "category": "DL0ZE",
+    "creatorParam": true
+  },
+  {
+    "name": "Witch Cape",
+    "creator": "DL0ZE",
+    "uuid": "a307660a-f491-4e95-8866-ac87dec0ee2e",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/DL0ZE/WitchCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/DL0ZE/WitchCape.png",
+    "category": "DL0ZE",
+    "creatorParam": true
+  },
+  {
+    "name": "Wither Cape",
+    "creator": "DL0ZE",
+    "uuid": "f3d65adc-08d9-4cc3-91a0-f933293b0549",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/DL0ZE/WitherCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/DL0ZE/WitherCape.png",
+    "category": "DL0ZE",
+    "creatorParam": true
+  },
+  {
     "name": "Blossom Cape",
     "creator": "Stars",
     "uuid": "b8657da9-d315-462f-9c0f-0dbb00fc208f",
