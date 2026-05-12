@@ -31,36 +31,36 @@
   },
   {
     "name": "CenterX",
-    "role": "Translator",
-    "roleLabel": "Contributor, Translator (DE)",
-    "paramKey": ["contributor", "translator"],
+    "role": "Developer",
+    "roleLabel": "Developer, Translator (DE)",
+    "paramKey": ["developer", "translator"],
     "avatar": "https://cdn.discordapp.com/avatars/1182140541245341779/b082de5a37b1810e0aacba06bce22bf4.png",
     "link": "https://github.com/center2055",
     "color": "#091150",
     "nameplate": {
-      "nameColor": "#d6680e"
+      "nameColor": "#6830cc"
     }
   },
   {
     "name": "MerelyMiserable",
-    "role": "Contributor",
-    "paramKey": "contributor",
+    "role": "Developer",
+    "paramKey": "developer",
     "avatar": "https://cdn.discordapp.com/avatars/786904872510423040/c01a9e6a2d61a29fdd60cba4fcefdb07.png",
     "link": "https://merely.is-a.dev/",
     "color": "#670097",
     "nameplate": {
-      "nameColor": "#d6680e"
+      "nameColor": "#6830cc"
     }
   },
   {
     "name": "Wadudi",
-    "role": "Contributor",
-    "paramKey": "contributor",
+    "role": "Developer",
+    "paramKey": "developer",
     "avatar": "https://cdn.discordapp.com/avatars/694171261500391505/603335d9004ba9386cdb7ed629950513.png",
     "link": null,
     "color": "#118ab2",
     "nameplate": {
-      "nameColor": "#d6680e"
+      "nameColor": "#6830cc"
     }
   },
   {
