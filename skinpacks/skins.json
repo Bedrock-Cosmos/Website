@@ -261,7 +261,7 @@
     {
       "name": "Deadmau5 Skin Pack",
       "uuid": "aa0b65fd-8cfe-43dc-a7c0-c306757fe1a3",
-      "banner": "https://bedrock-cosmos.app/banners/Deadmau5SkinPack.png",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
       "category": "Creator"
     },
     {
@@ -291,6 +291,30 @@
     {
       "name": "Matching Cosmetics 4",
       "uuid": "d1c19132-0b7d-453d-b39b-5b06a5fb30f9",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
+      "name": "Matching Cosmetics 5",
+      "uuid": "a2a191a7-ad0d-4802-a990-975538c7489f",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
+      "name": "Matching Cosmetics 6",
+      "uuid": "7a92c69c-d1c8-4c00-b3a2-cd9c7e650148",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
+      "name": "Matching Cosmetics 7",
+      "uuid": "dfc5ace1-fd1c-414c-8b1f-ec34e1bf7ba8",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
+      "name": "Matching Cosmetics 8",
+      "uuid": "0b18e5e0-9b6f-452b-9e89-1d3a9f6f95be",
       "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
       "category": "Creator"
     },
@@ -560,6 +584,22 @@
     },
     "d1c19132-0b7d-453d-b39b-5b06a5fb30f9": {
       "file": "Exports/ItemDetail_EMC4.json",
+      "category": "creators"
+    },
+    "a2a191a7-ad0d-4802-a990-975538c7489f": {
+      "file": "Exports/ItemDetail_EMC5.json",
+      "category": "creators"
+    },
+    "7a92c69c-d1c8-4c00-b3a2-cd9c7e650148": {
+      "file": "Exports/ItemDetail_EMC6.json",
+      "category": "creators"
+    },
+    "dfc5ace1-fd1c-414c-8b1f-ec34e1bf7ba8": {
+      "file": "Exports/ItemDetail_EMC7.json",
+      "category": "creators"
+    },
+    "0b18e5e0-9b6f-452b-9e89-1d3a9f6f95be": {
+      "file": "Exports/ItemDetail_EMC8.json",
       "category": "creators"
     },
     "17c404b3-3979-49a3-93cb-3f53e2e33eb6": {
