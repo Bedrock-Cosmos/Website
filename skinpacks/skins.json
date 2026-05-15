@@ -247,6 +247,30 @@
       "category": "Legacy"
     },
     {
+      "name": "6th Birthday Skin Pack",
+      "uuid": "1dafe8e5-aacc-4518-98ed-f6ce66bfba80",
+      "banner": "https://bedrock-cosmos.app/banners/6thBirthdaySkinPack.png",
+      "category": "Creator"
+    },
+    {
+      "name": "BionicBen Skin Pack",
+      "uuid": "aa8a18de-f2b0-40be-bc70-c4cd9dd6ae62",
+      "banner": "https://bedrock-cosmos.app/banners/BionicBenSkinPack.png",
+      "category": "Creator"
+    },
+    {
+      "name": "Deadmau5 Skin Pack",
+      "uuid": "aa0b65fd-8cfe-43dc-a7c0-c306757fe1a3",
+      "banner": "https://bedrock-cosmos.app/banners/Deadmau5SkinPack.png",
+      "category": "Creator"
+    },
+    {
+      "name": "Project Star Skin Pack",
+      "uuid": "0ce8d2eb-d178-4ae9-8060-00fd9714c93b",
+      "banner": "https://bedrock-cosmos.app/banners/ProjectStarSkinPack.png",
+      "category": "Creator"
+    },
+    {
       "name": "Matching Cosmetics 1",
       "uuid": "22688cde-3822-4bd8-9638-625713ba4dfd",
       "banner": "https://bedrock-cosmos.app/banners/EMC1.png",
@@ -268,24 +292,6 @@
       "name": "Matching Cosmetics 4",
       "uuid": "d1c19132-0b7d-453d-b39b-5b06a5fb30f9",
       "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
-      "category": "Creator"
-    },
-    {
-      "name": "6th Birthday Skin Pack",
-      "uuid": "1dafe8e5-aacc-4518-98ed-f6ce66bfba80",
-      "banner": "https://bedrock-cosmos.app/banners/6thBirthdaySkinPack.png",
-      "category": "Creator"
-    },
-    {
-      "name": "BionicBen Skin Pack",
-      "uuid": "aa8a18de-f2b0-40be-bc70-c4cd9dd6ae62",
-      "banner": "https://bedrock-cosmos.app/banners/BionicBenSkinPack.png",
-      "category": "Creator"
-    },
-    {
-      "name": "Project Star Skin Pack",
-      "uuid": "0ce8d2eb-d178-4ae9-8060-00fd9714c93b",
-      "banner": "https://bedrock-cosmos.app/banners/ProjectStarSkinPack.png",
       "category": "Creator"
     },
     {
