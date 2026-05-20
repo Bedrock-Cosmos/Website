@@ -337,7 +337,7 @@
       "category": "Creator"
     },
     {
-      "name": "Black Hole",
+      "name": "Black Hole Skin Pack",
       "uuid": "b96ad5fb-f58c-4a92-bbbc-44bb9244e732",
       "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
       "category": "Creator"
@@ -349,7 +349,7 @@
       "category": "Creator"
     },
     {
-      "name": "Doraemon",
+      "name": "Doraemon Skin Pack",
       "uuid": "ae90416f-1942-4c2b-a675-8d947fc53cf1",
       "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
       "category": "Creator"
@@ -361,18 +361,18 @@
       "category": "Creator"
     },
     {
-      "name": "Neon Genesis Evangelion",
+      "name": "Neon Genesis Evangelion Skin Pack",
       "uuid": "f6303374-6ab5-4079-baa0-6200189aa6a2",
       "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
       "category": "Creator"
     }
   ],
   "newlyAdded": [
-    { "name": "Black Hole", "creator": "ZeroMISTER JA" },
+    { "name": "Black Hole Skin Pack", "creator": "ZeroMISTER JA" },
     { "name": "Detective Conan Skin Pack", "creator": "ZeroMISTER JA" },
-    { "name": "Doraemon", "creator": "ZeroMISTER JA" },
+    { "name": "Doraemon Skin Pack", "creator": "ZeroMISTER JA" },
     { "name": "Hotel Transylvania Skin Pack", "creator": "ZeroMISTER JA" },
-    { "name": "Neon Genesis Evangelion", "creator": "ZeroMISTER JA" },
+    { "name": "Neon Genesis Evangelion Skin Pack", "creator": "ZeroMISTER JA" },
     { "name": "R.E.P.O SEMIBOTS", "creator": "YEH" },
     { "name": "R.E.P.O SEMIBOTS 5D", "creator": "YEH" }
   ],
@@ -621,7 +621,7 @@
       "category": "creators"
     },
     "b96ad5fb-f58c-4a92-bbbc-44bb9244e732": {
-      "file": "ZeroMISTER_JA/ItemDetail_BlackHole.json",
+      "file": "ZeroMISTER_JA/ItemDetail_BlackHoleSkinPack.json",
       "category": "creators"
     },
     "dedd7dce-a317-4786-930f-9c2357d25d82": {
@@ -629,7 +629,7 @@
       "category": "creators"
     },
     "ae90416f-1942-4c2b-a675-8d947fc53cf1": {
-      "file": "ZeroMISTER_JA/ItemDetail_Doraemon.json",
+      "file": "ZeroMISTER_JA/ItemDetail_DoraemonSkinPack.json",
       "category": "creators"
     },
     "7197503c-817f-4c5d-b570-67b2758d707b": {
@@ -637,7 +637,7 @@
       "category": "creators"
     },
     "f6303374-6ab5-4079-baa0-6200189aa6a2": {
-      "file": "ZeroMISTER_JA/ItemDetail_NeonGenesisEvangelion.json",
+      "file": "ZeroMISTER_JA/ItemDetail_NeonGenesisEvangelionSkinPack.json",
       "category": "creators"
     }
   },
