@@ -368,19 +368,25 @@
     }
   ],
   "newlyAdded": [
+    { "name": "Deadmau5 Skin Pack", "creator": "BionicBen" },
+    { "name": "Matching Cosmetics 5", "creator": "Exports" },
+    { "name": "Matching Cosmetics 6", "creator": "Exports" },
+    { "name": "Matching Cosmetics 7", "creator": "Exports" },
+    { "name": "Matching Cosmetics 8", "creator": "Exports" },
+    { "name": "LEGO(R) Minecraft(TM) Skin Pack", "creator": "YEH" },
+    { "name": "R.E.P.O SEMIBOTS", "creator": "YEH" },
+    { "name": "R.E.P.O SEMIBOTS: 5D", "creator": "YEH" },
     { "name": "Black Hole Skin Pack", "creator": "ZeroMISTER JA" },
     { "name": "Detective Conan Skin Pack", "creator": "ZeroMISTER JA" },
     { "name": "Doraemon Skin Pack", "creator": "ZeroMISTER JA" },
     { "name": "Hotel Transylvania Skin Pack", "creator": "ZeroMISTER JA" },
-    { "name": "Neon Genesis Evangelion Skin Pack", "creator": "ZeroMISTER JA" },
-    { "name": "R.E.P.O SEMIBOTS", "creator": "YEH" },
-    { "name": "R.E.P.O SEMIBOTS: 5D", "creator": "YEH" }
+    { "name": "Neon Genesis Evangelion Skin Pack", "creator": "ZeroMISTER JA" }
   ],
   "featured": [
     {
       "name": "Mario Mash-Up",
       "rating": "5.0",
-      "isNew": true,
+      "isNew": false,
       "label": "By Minecraft",
       "trailer": "sNcVYOPw6r0",
       "price": 0
@@ -388,7 +394,9 @@
     {
       "name": "LittleBigPlanet™ Mash-up",
       "rating": "4.3",
+      "isNew": false,
       "label": "By Minecraft",
+      "trailer": "cJgl_0JVMpc",
       "price": 990
     },
     { "name": "Skin Pack 4", "rating": "4.5", "price": 0 },
