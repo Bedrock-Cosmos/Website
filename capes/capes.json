@@ -888,11 +888,11 @@
     "category": "Custom"
   },
   {
-    "name": "CubeCraft Cape",
+    "name": "Essential CubeCraft Cape",
     "creator": "Essential",
     "uuid": "852bea8b-3645-4ef8-959b-b0dd23285e24",
-    "icon": "https://capes.bedrock-cosmos.app/icons/Essential/CubeCraftCape.png",
-    "texture": "https://bedrock-cosmos.app/capes/Essential/CubeCraftCape.png",
+    "icon": "https://capes.bedrock-cosmos.app/icons/Essential/EssentialCubeCraftCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/Essential/EssentialCubeCraftCape.png",
     "category": "Custom"
   },
   {
@@ -944,27 +944,27 @@
     "category": "Custom"
   },
   {
-    "name": "Copper Golem Cape Exposed",
+    "name": "Copper Golem (Exposed) Cape",
     "creator": "Essential",
     "uuid": "2c018d95-d44d-4b6b-b8a1-7135411ef257",
-    "icon": "https://capes.bedrock-cosmos.app/icons/Essential/CopperGolemCapeExposed.png",
-    "texture": "https://bedrock-cosmos.app/capes/Essential/CopperGolemCapeExposed.png",
+    "icon": "https://capes.bedrock-cosmos.app/icons/Essential/CopperGolemExposedCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/Essential/CopperGolemExposedCape.png",
     "category": "Custom"
   },
   {
-    "name": "Copper Golem Cape Weathered",
+    "name": "Copper Golem (Weathered) Cape",
     "creator": "Essential",
     "uuid": "def17786-1e66-44ee-aace-6f7ce7037dc0",
-    "icon": "https://capes.bedrock-cosmos.app/icons/Essential/CopperGolemCapeWeathered.png",
-    "texture": "https://bedrock-cosmos.app/capes/Essential/CopperGolemCapeWeathered.png",
+    "icon": "https://capes.bedrock-cosmos.app/icons/Essential/CopperGolemWeatheredCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/Essential/CopperGolemWeatheredCape.png",
     "category": "Custom"
   },
   {
-    "name": "Copper Golem Cape Oxidized",
+    "name": "Copper Golem (Oxidized) Cape",
     "creator": "Essential",
     "uuid": "1e20accc-ce9d-49ff-b9fd-88dff3f8ee98",
-    "icon": "https://capes.bedrock-cosmos.app/icons/Essential/CopperGolemCapeOxidized.png",
-    "texture": "https://bedrock-cosmos.app/capes/Essential/CopperGolemCapeOxidized.png",
+    "icon": "https://capes.bedrock-cosmos.app/icons/Essential/CopperGolemOxidizedCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/Essential/CopperGolemOxidizedCape.png",
     "category": "Custom"
   },
   {
@@ -1000,19 +1000,19 @@
     "category": "Custom"
   },
   {
-    "name": "Pride Cape",
+    "name": "Essential Pride Cape 1",
     "creator": "Essential",
     "uuid": "95a65048-d96d-4061-8c4c-8dfb3343ea6c",
-    "icon": "https://capes.bedrock-cosmos.app/icons/Essential/PrideCape.png",
-    "texture": "https://bedrock-cosmos.app/capes/Essential/PrideCape.png",
+    "icon": "https://capes.bedrock-cosmos.app/icons/Essential/EssentialPrideCape1.png",
+    "texture": "https://bedrock-cosmos.app/capes/Essential/EssentialPrideCape1.png",
     "category": "Custom"
   },
   {
-    "name": "Pride Cape 2",
+    "name": "Essential Pride Cape 2",
     "creator": "Essential",
     "uuid": "48d3ae91-5066-40f1-83f6-0a9d56166eff",
-    "icon": "https://capes.bedrock-cosmos.app/icons/Essential/PrideCape2.png",
-    "texture": "https://bedrock-cosmos.app/capes/Essential/PrideCape2.png",
+    "icon": "https://capes.bedrock-cosmos.app/icons/Essential/EssentialPrideCape2.png",
+    "texture": "https://bedrock-cosmos.app/capes/Essential/EssentialPrideCape2.png",
     "category": "Custom"
   },
   {
