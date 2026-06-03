@@ -64,6 +64,17 @@
     }
   },
   {
+    "name": "Foxyz the bear",
+    "role": "Contributor",
+    "paramKey": "contributor",
+    "avatar": "https://cdn.discordapp.com/avatars/857693497574162462/2f3fc59f3508988ce985b9cb5746f820.png",
+    "link": "null",
+    "color": "#fff3ca",
+    "nameplate": {
+      "nameColor": "#d6680e"
+    }
+  },
+  {
     "name": "ItsMwamOffi",
     "role": "Contributor",
     "paramKey": "contributor",
@@ -110,6 +121,17 @@
     }
   },
   {
+    "name": "DL0ZE",
+    "role": "Cosmos Creator",
+    "paramKey": "cosmos_creator",
+    "avatar": "https://cdn.discordapp.com/avatars/1086997226653503500/f4f9bd18feaff5725c436f1f2a93b0a6.png",
+    "link": "null",
+    "color": "#190b0c",
+    "nameplate": {
+      "nameColor": "#f1bef0"
+    }
+  },
+  {
     "name": "exports",
     "role": "Cosmos Creator",
     "paramKey": "cosmos_creator",
@@ -126,6 +148,28 @@
     }
   },
   {
+    "name": "nathan",
+    "role": "Cosmos Creator",
+    "paramKey": "cosmos_creator",
+    "avatar": "https://discord.com/assets/9855d7e3b9780976.png",
+    "link": "null",
+    "color": "#190b0c",
+    "nameplate": {
+      "nameColor": "#f1bef0"
+    }
+  },
+  {
+    "name": "𝒮𝒶𝒷𝒾𝓁𝒾𝓉𝓎",
+    "role": "Cosmos Creator",
+    "paramKey": "cosmos_creator",
+    "avatar": "https://cdn.discordapp.com/avatars/1219356119575822488/578c393cf403a5e7fb9e7c78a897755e.png",
+    "link": "null",
+    "color": "#190b0c",
+    "nameplate": {
+      "nameColor": "#f1bef0"
+    }
+  },
+  {
     "name": "yeh",
     "role": "Cosmos Creator",
     "paramKey": "cosmos_creator",
@@ -136,6 +180,30 @@
       "decoId": "a_40222dd9e7bb6e2949cd8f4bd857fe8b",
       "decoAlt": "I Love R.E.P.O.",
       "nameColor": "#f1bef0"
+    }
+  },
+  {
+    "name": "ika",
+    "role": "Translator",
+    "roleLabel": "Translator (JA)",
+    "paramKey": "translator",
+    "avatar": "https://cdn.discordapp.com/avatars/1008998058626920529/fae17cb74009512434d01589e908d349.png",
+    "link": null,
+    "color": "#d00000",
+    "nameplate": {
+      "nameColor": "#f1c40f"
+    }
+  },
+  {
+    "name": "Maplized",
+    "role": "Translator",
+    "roleLabel": "Translator (BN)",
+    "paramKey": "translator",
+    "avatar": "https://miro.medium.com/v2/resize:fit:256/0*8WdBp_k4REJoMkfF.png",
+    "link": null,
+    "color": "#00ff37",
+    "nameplate": {
+      "nameColor": "#f1c40f"
     }
   },
   {
@@ -151,13 +219,13 @@
     }
   },
   {
-    "name": "Maplized",
+    "name": "Staccato",
     "role": "Translator",
-    "roleLabel": "Translator (BN)",
+    "roleLabel": "Translator (UK)",
     "paramKey": "translator",
-    "avatar": "https://miro.medium.com/v2/resize:fit:256/0*8WdBp_k4REJoMkfF.png",
+    "avatar": "https://cdn.discordapp.com/avatars/597740875392483329/379e57ee58613af327d059f5f7112707.png",
     "link": null,
-    "color": "#00ff37",
+    "color": "#d00000",
     "nameplate": {
       "nameColor": "#f1c40f"
     }
