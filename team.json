@@ -151,7 +151,7 @@
     "name": "nathan",
     "role": "Cosmos Creator",
     "paramKey": "cosmos_creator",
-    "avatar": "https://discord.com/assets/9855d7e3b9780976.png",
+    "avatar": "https://i.imgur.com/p1SSrKL.png",
     "link": "null",
     "color": "#190b0c",
     "nameplate": {
@@ -159,7 +159,7 @@
     }
   },
   {
-    "name": "𝒮𝒶𝒷𝒾𝓁𝒾𝓉𝓎",
+    "name": "Sability",
     "role": "Cosmos Creator",
     "paramKey": "cosmos_creator",
     "avatar": "https://cdn.discordapp.com/avatars/1219356119575822488/578c393cf403a5e7fb9e7c78a897755e.png",
@@ -191,6 +191,8 @@
     "link": null,
     "color": "#d00000",
     "nameplate": {
+      "decoId": "a_3c97a2d37f433a7913a1c7b7a735d000",
+      "decoAlt": "Angry",
       "nameColor": "#f1c40f"
     }
   },
