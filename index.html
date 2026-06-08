@@ -18,19 +18,13 @@
     <meta property="og:site_name" content="Bedrock Cosmos" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Bedrock Cosmos | Minecraft Bedrock Custom Capes & Skin Packs"
-    />
+    <meta property="og:title" content="Bedrock Cosmos | Minecraft Bedrock Custom Capes & Skin Packs" />
     <meta
       property="og:description"
       content="Bedrock Cosmos is a free, open-source proxy for Minecraft Bedrock Edition that adds custom capes, reveals hidden marketplace packs, restores missing content, and adds custom skin packs."
     />
     <meta property="og:url" content="https://bedrock-cosmos.app/" />
-    <meta
-      property="og:image"
-      content="https://bedrock-cosmos.app/imgs/home.png"
-    />
+    <meta property="og:image" content="https://bedrock-cosmos.app/imgs/home.png" />
     <meta property="og:image:width" content="1920" />
     <meta property="og:image:height" content="1080" />
     <meta
@@ -39,45 +33,27 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:domain" content="bedrock-cosmos.app" />
-    <meta
-      name="twitter:title"
-      content="Bedrock Cosmos | Minecraft Bedrock Custom Capes & Skin Packs"
-    />
+    <meta name="twitter:title" content="Bedrock Cosmos | Minecraft Bedrock Custom Capes & Skin Packs" />
     <meta
       name="twitter:description"
       content="Bedrock Cosmos is a free, open-source proxy for Minecraft Bedrock Edition that adds custom capes, reveals hidden marketplace packs, restores missing content, and adds custom skin packs."
     />
-    <meta
-      name="twitter:image"
-      content="https://bedrock-cosmos.app/imgs/home.png"
-    />
+    <meta name="twitter:image" content="https://bedrock-cosmos.app/imgs/home.png" />
     <meta
       name="twitter:image:alt"
       content="Bedrock Cosmos - custom capes and skin packs for Minecraft Bedrock Edition"
     />
     <meta name="twitter:site" content="@BedrockCosmos" />
     <meta name="twitter:creator" content="@BedrockCosmos" />
-    <link
-      href="https://bedrock-cosmos.app/"
-      hreflang="x-default"
-      rel="alternate"
-    />
+    <link href="https://bedrock-cosmos.app/" hreflang="x-default" rel="alternate" />
     <meta name="theme-color" content="#5b21b6" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>Bedrock Cosmos | Minecraft Bedrock Custom Capes & Skin Packs</title>
     <link rel="preload" href="css/marketplace.css" as="style" />
     <link rel="stylesheet" href="css/marketplace.css" />
-    <link
-      rel="preload"
-      href="./icons/shootingstar.png"
-      as="image"
-      fetchpriority="high"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="./icons/shootingstar.png" as="image" fetchpriority="high" />
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -87,7 +63,7 @@
         "url": "https://bedrock-cosmos.app/",
         "downloadUrl": "https://github.com/Bedrock-Cosmos/Launcher/releases/latest",
         "softwareVersion": "1.0.1",
-        "operatingSystem": "Windows 10, Windows 11",
+        "operatingSystem": "Windows 10, Windows 11, Android",
         "applicationCategory": "GameApplication",
         "screenshot": "https://bedrock-cosmos.app/imgs/home.png",
         "featureList": "Custom Capes, Custom Skin Packs, Marketplace Highlights, Restored Content, Open Source, Lightweight",
@@ -176,7 +152,7 @@
             "name": "Which platforms does Bedrock Cosmos support?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Bedrock Cosmos currently supports Windows 10 and Windows 11 with Minecraft Bedrock Edition version 26.3 or higher. Preview Edition and Education Edition are not supported. Unofficial community builds for Android exist, but official mobile support is not yet available. We are actively working on expanding platform support in future releases."
+              "text": "Bedrock Cosmos supports Windows 10, Windows 11, and Android. The Windows launcher requires Minecraft Bedrock Edition version 26.3 or higher. Preview Edition and Education Edition are not supported. iOS support is not yet available."
             }
           },
           {
@@ -209,14 +185,6 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "The best place to get support is our Discord server, where both the development team and a helpful community of users are active. You can report bugs, ask setup questions, request features, and get troubleshooting help. For known issues and release notes, check the Changelogs page. You can also browse our GitHub repository to open issues directly."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "When will Bedrock Cosmos be coming to Android?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Official Android support is planned for a future release, though we don't have a firm timeline yet. Our current focus is on improving stability and adding new features to the Windows version first. Unofficial community builds for Android do exist, but these are not supported by the Bedrock Cosmos team. Follow our Discord or GitHub for announcements when Android support becomes available."
             }
           },
           {
@@ -287,56 +255,42 @@
         border-bottom: 2px solid #000;
         display: block;
       }
+      .home-hero-video-wrap {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .home-hero-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        min-width: calc(100vh * 16 / 9);
+        min-height: calc(100vw * 9 / 16);
+        transform: translate(-50%, -50%);
+        border: none;
+      }
       .home-hero-bg {
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-          135deg,
-          #0d0a1a 0%,
-          #180d30 40%,
-          #0f0a20 100%
-        );
+        z-index: 0;
+        background: linear-gradient(135deg, #0d0a1a 0%, #180d30 40%, #0f0a20 100%);
       }
       .home-hero-bg::after {
         content: "";
         position: absolute;
         inset: 0;
         background-image:
-          radial-gradient(
-            1px 1px at 15% 20%,
-            rgba(255, 255, 255, 0.35) 0%,
-            transparent 100%
-          ),
-          radial-gradient(
-            1px 1px at 72% 35%,
-            rgba(255, 255, 255, 0.25) 0%,
-            transparent 100%
-          ),
-          radial-gradient(
-            1.5px 1.5px at 40% 60%,
-            rgba(255, 255, 255, 0.3) 0%,
-            transparent 100%
-          ),
-          radial-gradient(
-            1px 1px at 85% 75%,
-            rgba(255, 255, 255, 0.2) 0%,
-            transparent 100%
-          ),
-          radial-gradient(
-            1px 1px at 55% 10%,
-            rgba(255, 255, 255, 0.2) 0%,
-            transparent 100%
-          ),
-          radial-gradient(
-            1px 1px at 25% 80%,
-            rgba(255, 255, 255, 0.15) 0%,
-            transparent 100%
-          ),
-          radial-gradient(
-            2px 2px at 90% 15%,
-            rgba(255, 255, 255, 0.2) 0%,
-            transparent 100%
-          );
+          radial-gradient(1px 1px at 15% 20%, rgba(255, 255, 255, 0.35) 0%, transparent 100%),
+          radial-gradient(1px 1px at 72% 35%, rgba(255, 255, 255, 0.25) 0%, transparent 100%),
+          radial-gradient(1.5px 1.5px at 40% 60%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+          radial-gradient(1px 1px at 85% 75%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+          radial-gradient(1px 1px at 55% 10%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+          radial-gradient(1px 1px at 25% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 100%),
+          radial-gradient(2px 2px at 90% 15%, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
       }
       .home-hero-icon-large {
         position: absolute;
@@ -363,12 +317,10 @@
       @keyframes heroGlow {
         0%,
         100% {
-          filter: drop-shadow(0 0 18px rgba(139, 92, 246, 0.55))
-            drop-shadow(0 0 40px rgba(139, 92, 246, 0.25));
+          filter: drop-shadow(0 0 18px rgba(139, 92, 246, 0.55)) drop-shadow(0 0 40px rgba(139, 92, 246, 0.25));
         }
         50% {
-          filter: drop-shadow(0 0 32px rgba(167, 139, 250, 0.85))
-            drop-shadow(0 0 70px rgba(139, 92, 246, 0.45));
+          filter: drop-shadow(0 0 32px rgba(167, 139, 250, 0.85)) drop-shadow(0 0 70px rgba(139, 92, 246, 0.45));
         }
       }
       .home-hero-icon-float {
@@ -391,12 +343,7 @@
         left: 0;
         right: 0;
         top: 0;
-        background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.92) 0%,
-          rgba(0, 0, 0, 0.5) 55%,
-          transparent 100%
-        );
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.5) 55%, transparent 100%);
         padding: 40px 28px 24px;
         display: flex;
         flex-direction: column;
@@ -726,11 +673,7 @@
     </style>
   </head>
   <body>
-    <div
-      id="mc-sidebar-overlay"
-      class="mc-sidebar-overlay"
-      onclick="toggleMobileSidebar()"
-    ></div>
+    <div id="mc-sidebar-overlay" class="mc-sidebar-overlay" onclick="toggleMobileSidebar()"></div>
     <header class="mc-topbar">
       <button
         id="mc-mobile-menu-btn"
@@ -758,20 +701,10 @@
       <a
         href="#"
         class="mc-topbar-back"
-        style="
-          pointer-events: none;
-          opacity: 0;
-          overflow: hidden;
-          width: 0;
-          padding: 0;
-          border: none;
-        "
+        style="pointer-events: none; opacity: 0; overflow: hidden; width: 0; padding: 0; border: none"
         aria-hidden="true"
       ></a>
-      <span
-        class="mc-topbar-title"
-        style="align-items: center; justify-content: center; gap: 8px"
-      >
+      <span class="mc-topbar-title" style="align-items: center; justify-content: center; gap: 8px">
         <img
           src="./icons/shootingstar.png"
           alt=""
@@ -785,8 +718,7 @@
             font-size: 1rem;
             font-weight: 800;
             letter-spacing: 0.05em;
-            font-family:
-              &quot;Noto Sans&quot;, &quot;Segoe UI&quot;, sans-serif;
+            font-family: &quot;Noto Sans&quot;, &quot;Segoe UI&quot;, sans-serif;
           "
           >Bedrock Cosmos</span
         >
@@ -800,6 +732,17 @@
       <div class="stars-container" id="stars"></div>
 
       <section class="home-hero">
+        <div class="home-hero-video-wrap">
+          <iframe
+            class="home-hero-video"
+            src="https://www.youtube.com/embed/lN1gJlh-7jQ?autoplay=1&mute=1&loop=1&playlist=lN1gJlh-7jQ&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="Bedrock Cosmos Trailer"
+            aria-hidden="true"
+          ></iframe>
+        </div>
         <div class="home-hero-bg"></div>
         <img
           src="./icons/shootingstar.png"
@@ -820,34 +763,37 @@
           decoding="async"
         />
         <div class="home-hero-overlay">
-          <h1>Bedrock Cosmos</h1>
+          <h1 id="hero-title">Bedrock Cosmos</h1>
           <p class="home-hero-desc">
-            A custom built proxy for Minecraft Bedrock Edition that adds custom
-            capes, skin packs, and restored content with new ways to customize
-            your experience.
+            A custom built proxy for Minecraft Bedrock Edition that adds custom capes, skin packs, and restored content
+            with new ways to customize your experience.
           </p>
           <div class="home-hero-row">
             <a
               href="https://github.com/Bedrock-Cosmos/Launcher/releases/download/1.0.1/BedrockCosmosSetup.exe"
               class="btn-download"
               id="download-btn"
-            ><svg id="download-btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M104,144v51.64a8,8,0,0,1-8,8,8.54,8.54,0,0,1-1.43-.13l-64-11.64A8,8,0,0,1,24,184V144a8,8,0,0,1,8-8H96A8,8,0,0,1,104,144Zm-2.87-89.78a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm5.13-102.14a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86Z"></path></svg>
+              ><svg
+                id="download-btn-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M104,144v51.64a8,8,0,0,1-8,8,8.54,8.54,0,0,1-1.43-.13l-64-11.64A8,8,0,0,1,24,184V144a8,8,0,0,1,8-8H96A8,8,0,0,1,104,144Zm-2.87-89.78a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm5.13-102.14a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86Z"
+                ></path>
+              </svg>
               <span id="download-btn-label">Download</span>
             </a>
-            <a
-              href="https://discord.com/invite/HRG2NapegP"
-              class="btn-learn-more"
-              id="discord-btn-hero"
-              target="_blank"
+            <a href="https://discord.com/invite/HRG2NapegP" class="btn-learn-more" id="discord-btn-hero" target="_blank"
               >Join Discord</a
             >
             <div class="home-hero-stats">
+              <span class="home-hero-stat"><strong id="downloadCount">&#x2014;</strong> downloads</span>
               <span class="home-hero-stat"
-                ><strong id="downloadCount">&#x2014;</strong> downloads</span
-              >
-              <span class="home-hero-stat"
-                ><strong><span id="discord-member-count"></span></strong>
-                members</span
+                ><strong><span id="discord-member-count"></span></strong> members</span
               >
             </div>
           </div>
@@ -898,13 +844,12 @@
               <div class="info-section-text">
                 <h2>Custom Capes</h2>
                 <p>
-                  Express yourself with an extensive library of custom capes.
-                  Bedrock Cosmos seamlessly adds tons of unique cape designs to
-                  your Minecraft Bedrock experience.
+                  Express yourself with an extensive library of custom capes. Bedrock Cosmos seamlessly adds tons of
+                  unique cape designs to your Minecraft Bedrock experience.
                 </p>
                 <p>
-                  Browse through a multitude of unique designs and equip your
-                  favorite cape to stand out in any server or world.
+                  Browse through a multitude of unique designs and equip your favorite cape to stand out in any server
+                  or world.
                 </p>
               </div>
             </div>
@@ -926,10 +871,8 @@
               <div class="info-section-text">
                 <h2>Marketplace Highlights</h2>
                 <p>
-                  Discover hidden gems in the Minecraft Marketplace. Bedrock
-                  Cosmos highlights packs that aren't always visible, helping
-                  you discover exclusive content not prominently shown in your
-                  region.
+                  Discover hidden gems in the Minecraft Marketplace. Bedrock Cosmos highlights packs that aren't always
+                  visible, helping you discover exclusive content not prominently shown in your region.
                 </p>
               </div>
             </div>
@@ -951,13 +894,11 @@
               <div class="info-section-text">
                 <h2>Restored Content</h2>
                 <p>
-                  Bedrock Cosmos fixes broken marketplace packs by restoring
-                  missing features. Get back capes, animations, and skins that
-                  were removed or broken in official updates.
+                  Bedrock Cosmos fixes broken marketplace packs by restoring missing features. Get back capes,
+                  animations, and skins that were removed or broken in official updates.
                 </p>
                 <p>
-                  Enjoy the full Minecraft Bedrock experience as it was meant to
-                  be, with all features fully functional.
+                  Enjoy the full Minecraft Bedrock experience as it was meant to be, with all features fully functional.
                 </p>
               </div>
             </div>
@@ -982,14 +923,11 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                Bedrock Cosmos is a free, open-source custom proxy for Minecraft
-                Bedrock Edition on Windows. It adds a large library of custom
-                capes and skin packs not available in the base game, reveals
-                hidden or region-locked Marketplace content, and restores
-                missing features — like capes, animations, and skins — that were
-                removed or broken in official pack updates. It runs as a
-                lightweight background process and requires no special technical
-                knowledge to install.
+                Bedrock Cosmos is a free, open-source custom proxy for Minecraft Bedrock Edition on Windows. It adds a
+                large library of custom capes and skin packs not available in the base game, reveals hidden or
+                region-locked Marketplace content, and restores missing features — like capes, animations, and skins —
+                that were removed or broken in official pack updates. It runs as a lightweight background process and
+                requires no special technical knowledge to install.
               </div>
             </div>
             <div class="faq-item-new">
@@ -1007,19 +945,15 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                Yes — Bedrock Cosmos is completely open source and publicly
-                available on GitHub. Anyone can read the full source code,
-                inspect every network request it makes, and even build it from
-                scratch themselves. It does not modify game files, inject code
-                into the game process, or transmit any personal data. The proxy
-                only intercepts cosmetic-related traffic to apply capes and skin
-                packs client-side.
+                Yes — Bedrock Cosmos is completely open source and publicly available on GitHub. Anyone can read the
+                full source code, inspect every network request it makes, and even build it from scratch themselves. It
+                does not modify game files, inject code into the game process, or transmit any personal data. The proxy
+                only intercepts cosmetic-related traffic to apply capes and skin packs client-side.
               </div>
             </div>
             <div class="faq-item-new">
               <div class="faq-question-new">
-                Which platforms does Bedrock Cosmos support?<span
-                  class="faq-chevron"
+                Which platforms does Bedrock Cosmos support?<span class="faq-chevron"
                   ><svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -1032,12 +966,9 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                Bedrock Cosmos currently supports Windows 10 and Windows 11 with
-                Minecraft Bedrock Edition version 26.3 or higher. Preview
-                Edition and Education Edition are not supported. Unofficial
-                community builds for Android exist, but official mobile support
-                is not yet available. We are actively working on expanding
-                platform support in future releases.
+                Bedrock Cosmos supports Windows 10, Windows 11, and Android. The Windows launcher requires Minecraft
+                Bedrock Edition version 26.3 or higher. Preview Edition and Education Edition are not supported. iOS
+                support is not yet available.
               </div>
             </div>
             <div class="faq-item-new">
@@ -1055,12 +986,10 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                No. Bedrock Cosmos operates entirely as a client-side cosmetic
-                proxy and does not provide any gameplay advantages, aimbots,
-                speed hacks, or anything that would violate Minecraft's terms of
-                service. It only affects how capes and skins are displayed on
-                your client. It does not interact with anti-cheat systems and
-                has no history of causing bans among its user base.
+                No. Bedrock Cosmos operates entirely as a client-side cosmetic proxy and does not provide any gameplay
+                advantages, aimbots, speed hacks, or anything that would violate Minecraft's terms of service. It only
+                affects how capes and skins are displayed on your client. It does not interact with anti-cheat systems
+                and has no history of causing bans among its user base.
               </div>
             </div>
             <div class="faq-item-new">
@@ -1078,18 +1007,15 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                At this time, only the capes built into the Bedrock Cosmos
-                launcher are available for use. We are working on a future
-                update that will let you upload and use your own custom cape
-                designs. In the meantime, if you're a creator interested in
-                having your capes featured in the app for all users to enjoy,
-                you can apply through our Discord server.
+                At this time, only the capes built into the Bedrock Cosmos launcher are available for use. We are
+                working on a future update that will let you upload and use your own custom cape designs. In the
+                meantime, if you're a creator interested in having your capes featured in the app for all users to
+                enjoy, you can apply through our Discord server.
               </div>
             </div>
             <div class="faq-item-new">
               <div class="faq-question-new">
-                Does Bedrock Cosmos affect game performance?<span
-                  class="faq-chevron"
+                Does Bedrock Cosmos affect game performance?<span class="faq-chevron"
                   ><svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -1102,11 +1028,9 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                No — Bedrock Cosmos is designed from the ground up to be
-                lightweight. It runs as a small background proxy process and
-                uses negligible CPU and memory. It does not inject into the game
-                process or modify any game files, so your FPS, loading times,
-                and overall gameplay experience remain completely unaffected.
+                No — Bedrock Cosmos is designed from the ground up to be lightweight. It runs as a small background
+                proxy process and uses negligible CPU and memory. It does not inject into the game process or modify any
+                game files, so your FPS, loading times, and overall gameplay experience remain completely unaffected.
               </div>
             </div>
             <div class="faq-item-new">
@@ -1124,18 +1048,15 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                The best place to get support is our Discord server, where both
-                the development team and a helpful community of users are
-                active. You can report bugs, ask setup questions, request
-                features, and get troubleshooting help. For known issues and
-                release notes, check the Changelogs page. You can also browse
+                The best place to get support is our Discord server, where both the development team and a helpful
+                community of users are active. You can report bugs, ask setup questions, request features, and get
+                troubleshooting help. For known issues and release notes, check the Changelogs page. You can also browse
                 our GitHub repository to open issues directly.
               </div>
             </div>
             <div class="faq-item-new">
               <div class="faq-question-new">
-                When will Bedrock Cosmos be coming to Android?<span
-                  class="faq-chevron"
+                Does Bedrock Cosmos work on Java Edition?<span class="faq-chevron"
                   ><svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -1148,38 +1069,8 @@
                 ></span>
               </div>
               <div class="faq-answer-new">
-                Official Android support is planned for a future release, though
-                we don't have a firm timeline yet. Our current focus is on
-                improving stability and adding new features to the Windows
-                version first. Unofficial community builds for Android do exist,
-                but these are not supported by the Bedrock Cosmos team. Follow
-                our Discord or GitHub for announcements when Android support
-                becomes available.
-                <div class="faq-answer-warning">
-                  <span class="faq-answer-warning-title">⚠ Warning</span>
-                  Please be aware of other people and/or services offering mobile support for Bedrock Cosmos currently! We cannot confirm the safety of other third-party forks or software. The only Android build that is confirmed safe is by <strong>Wadudi</strong>, who is listed in our Team page as a Contributor. However, this is still unofficial and not supported by the Bedrock Cosmos team. Any future updates about official Android support will be released on our website.
-                </div>
-              </div>
-            </div>
-            <div class="faq-item-new">
-              <div class="faq-question-new">
-                Does Bedrock Cosmos work on Java Edition?<span
-                  class="faq-chevron"
-                  ><svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="6 9 12 15 18 9" /></svg
-                ></span>
-              </div>
-              <div class="faq-answer-new">
-                No, Bedrock Cosmos is designed exclusively for Minecraft Bedrock
-                Edition. If you play Minecraft Java Edition, you can still wear
-                our capes using our partner
+                No, Bedrock Cosmos is designed exclusively for Minecraft Bedrock Edition. If you play Minecraft Java
+                Edition, you can still wear our capes using our partner
                 <a
                   href="https://minecraftcapes.net/"
                   target="_blank"
@@ -1187,17 +1078,8 @@
                   style="color: #a78bfa; text-decoration: underline"
                   >MinecraftCapes.net</a
                 >.<br /><br />
-                <strong>How to use our capes on Java Edition:</strong
-                ><br /><br />
-                <ol
-                  style="
-                    margin: 0;
-                    padding-left: 1.25em;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 6px;
-                  "
-                >
+                <strong>How to use our capes on Java Edition:</strong><br /><br />
+                <ol style="margin: 0; padding-left: 1.25em; display: flex; flex-direction: column; gap: 6px">
                   <li>
                     <strong>Download the Mod:</strong> Visit
                     <a
@@ -1229,8 +1111,7 @@
                       style="color: #a78bfa; text-decoration: underline"
                       >MinecraftCapes.net Your Profile</a
                     >
-                    and upload the file, then your cape will appear on you
-                    in-game.
+                    and upload the file, then your cape will appear on you in-game.
                   </li>
                 </ol>
               </div>
@@ -1244,8 +1125,7 @@
           <div class="team-header">
             <h2 class="team-section-title">Meet the Team</h2>
             <p class="team-section-desc">
-              Interested in helping us expand? Find out how you can contribute
-              in our Discord.
+              Interested in helping us expand? Find out how you can contribute in our Discord.
             </p>
           </div>
           <div class="team-box" id="team-box">
@@ -1397,11 +1277,7 @@
           font-size: 0.9rem !important;
         }
         .nameplate-user-name.dns-gradient {
-          background: linear-gradient(
-            90deg,
-            var(--dns-color-start, #903cda),
-            var(--dns-color-end, #1fb373)
-          );
+          background: linear-gradient(90deg, var(--dns-color-start, #903cda), var(--dns-color-end, #1fb373));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -1470,27 +1346,20 @@
       // ── Home-specific: Discord invite, download button, download count ──
       const DISCORD_FALLBACK = "https://discord.com/invite/HRG2NapegP";
       function setDiscordLinks(url) {
-        document
-          .querySelectorAll("#discord-btn-hero, #discord-btn-footer")
-          .forEach((el) => {
-            el.href = url;
-          });
+        document.querySelectorAll("#discord-btn-hero, #discord-btn-footer").forEach((el) => {
+          el.href = url;
+        });
       }
       async function fetchCurrentUsers() {
         try {
-          const res = await fetch(
-            "https://discord.com/api/v10/invites/HRG2NapegP?with_counts=true",
-          );
+          const res = await fetch("https://discord.com/api/v10/invites/HRG2NapegP?with_counts=true");
           const data = await res.json();
 
-          setDiscordLinks(
-            data.code ? `https://discord.gg/${data.code}` : DISCORD_FALLBACK,
-          );
+          setDiscordLinks(data.code ? `https://discord.gg/${data.code}` : DISCORD_FALLBACK);
 
           if (data.approximate_member_count !== undefined) {
             const el = document.getElementById("discord-member-count");
-            if (el)
-              el.textContent = data.approximate_member_count.toLocaleString();
+            if (el) el.textContent = data.approximate_member_count.toLocaleString();
           }
         } catch {
           setDiscordLinks(DISCORD_FALLBACK);
@@ -1505,7 +1374,9 @@
         if (!btn) return;
 
         if (platform === "android") {
-          btn.href = "https://bedrock-cosmos.app/android/";
+          const title = document.getElementById("hero-title");
+          if (title) title.textContent = "Pocket Cosmos";
+          btn.href = "https://github.com/Bedrock-Cosmos/PocketCosmosLevi/releases";
           btn.removeAttribute("download");
           if (label) label.textContent = "Download";
           if (icon) {
@@ -1513,7 +1384,9 @@
             icon.innerHTML = `<rect width="256" height="256" fill="none"/><circle cx="164" cy="148" r="12"/><circle cx="92" cy="148" r="12"/><path d="M24,184V161.13C24,103.65,70.15,56.2,127.63,56A104,104,0,0,1,232,160v24a8,8,0,0,1-8,8H32A8,8,0,0,1,24,184Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="32" y1="48" x2="63.07" y2="79.07" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="224" y1="48" x2="193.1" y2="78.9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>`;
           }
         } else if (platform === "ios") {
-          btn.href = "https://bedrock-cosmos.app/android/";
+          const title = document.getElementById("hero-title");
+          if (title) title.textContent = "Pocket Cosmos";
+          btn.href = "https://github.com/Bedrock-Cosmos/PocketCosmosLevi/releases";
           btn.removeAttribute("download");
           if (label) label.textContent = "Download";
           if (icon) {
@@ -1526,15 +1399,30 @@
 
       async function fetchLatestRelease() {
         const platform = typeof detectPlatform === "function" ? detectPlatform() : "windows";
-        // Only fetch the Windows release on non-mobile platforms
-        if (platform !== "windows") return;
 
         const btn = document.getElementById("download-btn");
         const label = document.getElementById("download-btn-label");
+
+        if (platform === "android" || platform === "ios") {
+          try {
+            const res = await fetch("https://api.github.com/repos/Bedrock-Cosmos/PocketCosmosLevi/releases/latest");
+            const data = await res.json();
+            const apk = data.assets.find((a) => a.name.endsWith(".apk"));
+            if (apk) {
+              btn.href = apk.browser_download_url;
+              if (label) label.textContent = `Download ${data.tag_name}`;
+            } else {
+              btn.href = data.html_url;
+            }
+          } catch (e) {
+            console.error("Error fetching Android release:", e);
+          }
+          return;
+        }
+
+        // Windows
         try {
-          const res = await fetch(
-            "https://api.github.com/repos/Bedrock-Cosmos/Launcher/releases/latest",
-          );
+          const res = await fetch("https://api.github.com/repos/Bedrock-Cosmos/Launcher/releases/latest");
           const data = await res.json();
           const exe = data.assets.find((a) => a.name.endsWith(".exe"));
           if (exe) {
@@ -1549,18 +1437,15 @@
       }
       async function fetchDownloadCount() {
         try {
-          const res = await fetch(
-            "https://api.github.com/repos/Bedrock-Cosmos/Launcher/releases",
-          );
-          const data = await res.json();
-          const total = data.reduce(
-            (sum, r) =>
-              sum + r.assets.reduce((s, a) => s + a.download_count, 0),
-            0,
-          );
-          document.getElementById("downloadCount").textContent = (
-            total + 1630
-          ).toLocaleString();
+          const [launcherRes, pocketRes] = await Promise.all([
+            fetch("https://api.github.com/repos/Bedrock-Cosmos/Launcher/releases"),
+            fetch("https://api.github.com/repos/Bedrock-Cosmos/PocketCosmosLevi/releases"),
+          ]);
+          const [launcherData, pocketData] = await Promise.all([launcherRes.json(), pocketRes.json()]);
+          const countRepo = (releases) =>
+            releases.reduce((sum, r) => sum + r.assets.reduce((s, a) => s + a.download_count, 0), 0);
+          const total = countRepo(launcherData) + countRepo(pocketData);
+          document.getElementById("downloadCount").textContent = (total + 1630).toLocaleString();
         } catch {
           document.getElementById("downloadCount").textContent = "220+";
         }
@@ -1575,18 +1460,14 @@
         q.addEventListener("click", () => {
           const item = q.closest(".faq-item-new");
           const wasActive = item.classList.contains("active");
-          document
-            .querySelectorAll(".faq-item-new")
-            .forEach((i) => i.classList.remove("active"));
+          document.querySelectorAll(".faq-item-new").forEach((i) => i.classList.remove("active"));
           if (!wasActive) item.classList.add("active");
         });
       });
 
       // ── Team section: render cards from team.json ──
-      const DISCORD_DECO_BASE =
-        "https://cdn.discordapp.com/avatar-decoration-presets/";
-      const DISCORD_VIDEO_BASE =
-        "https://cdn.discordapp.com/media/v1/collectibles-shop/";
+      const DISCORD_DECO_BASE = "https://cdn.discordapp.com/avatar-decoration-presets/";
+      const DISCORD_VIDEO_BASE = "https://cdn.discordapp.com/media/v1/collectibles-shop/";
       const CARDS_PER_ROW = 5;
 
       function buildNameplateCard(member) {
@@ -1637,19 +1518,10 @@
         nameEl.textContent = member.name;
         if (nameStyle === "neon") {
           nameEl.dataset.name = member.name;
-          nameEl.style.setProperty(
-            "--dns-neon-color",
-            np.neonColor ?? "#b088f6",
-          );
-          nameEl.style.setProperty(
-            "--dns-neon-stroke",
-            np.neonStroke ?? "#7d33ff",
-          );
+          nameEl.style.setProperty("--dns-neon-color", np.neonColor ?? "#b088f6");
+          nameEl.style.setProperty("--dns-neon-stroke", np.neonStroke ?? "#7d33ff");
         } else if (nameStyle === "gradient") {
-          nameEl.style.setProperty(
-            "--dns-color-start",
-            np.gradientStart ?? "#fff",
-          );
+          nameEl.style.setProperty("--dns-color-start", np.gradientStart ?? "#fff");
           nameEl.style.setProperty("--dns-color-end", np.gradientEnd ?? "#888");
         } else if (np.nameColor) {
           nameEl.style.color = np.nameColor;
@@ -1703,21 +1575,15 @@
         }
 
         // Re-attach click handler for URL update after cards are in the DOM
-        box
-          .querySelectorAll(".nameplate-null-user.nameplate-preview")
-          .forEach((card) => {
-            card.addEventListener("click", () => {
-              const nameEl = card.querySelector(".nameplate-user-name");
-              if (!nameEl) return;
-              const name = nameEl.textContent.trim();
-              const role = card.dataset.paramKey;
-              history.replaceState(
-                null,
-                "",
-                `/?${role}=${encodeURIComponent(name)}`,
-              );
-            });
+        box.querySelectorAll(".nameplate-null-user.nameplate-preview").forEach((card) => {
+          card.addEventListener("click", () => {
+            const nameEl = card.querySelector(".nameplate-user-name");
+            if (!nameEl) return;
+            const name = nameEl.textContent.trim();
+            const role = card.dataset.paramKey;
+            history.replaceState(null, "", `/?${role}=${encodeURIComponent(name)}`);
           });
+        });
       }
 
       renderTeam();
