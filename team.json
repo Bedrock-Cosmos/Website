@@ -64,6 +64,17 @@
     }
   },
   {
+    "name": "Clyraz",
+    "role": "Contributor",
+    "paramKey": "contributor",
+    "avatar": "https://cdn.discordapp.com/avatars/981532546024222720/feec32e1cadd869010ebad7199ab1f7b.png",
+    "link": "null",
+    "color": "#fff3ca",
+    "nameplate": {
+      "nameColor": "#d6680e"
+    }
+  },
+  {
     "name": "Foxyz the bear",
     "role": "Contributor",
     "paramKey": "contributor",
@@ -179,6 +190,17 @@
     "nameplate": {
       "decoId": "a_40222dd9e7bb6e2949cd8f4bd857fe8b",
       "decoAlt": "I Love R.E.P.O.",
+      "nameColor": "#f1bef0"
+    }
+  },
+  {
+    "name": "ありさー",
+    "role": "Cosmos Creator",
+    "paramKey": "cosmos_creator",
+    "avatar": "https://cdn.discordapp.com/guilds/1460766433536508201/users/483936241931517975/avatars/4fd4ba69583639930ae6729fec31e5bb.png",
+    "link": "null",
+    "color": "#190b0c",
+    "nameplate": {
       "nameColor": "#f1bef0"
     }
   },
