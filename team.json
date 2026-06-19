@@ -30,6 +30,17 @@
     }
   },
   {
+    "name": "Wadudi",
+    "role": "Developer",
+    "paramKey": "developer",
+    "avatar": "https://cdn.discordapp.com/avatars/694171261500391505/603335d9004ba9386cdb7ed629950513.png",
+    "link": null,
+    "color": "#118ab2",
+    "nameplate": {
+      "nameColor": "#6830cc"
+    }
+  },
+  {
     "name": "CenterX",
     "role": "Developer",
     "roleLabel": "Developer, Translator (DE)",
@@ -48,17 +59,6 @@
     "avatar": "https://cdn.discordapp.com/avatars/786904872510423040/c01a9e6a2d61a29fdd60cba4fcefdb07.png",
     "link": "https://merely.is-a.dev/",
     "color": "#670097",
-    "nameplate": {
-      "nameColor": "#6830cc"
-    }
-  },
-  {
-    "name": "Wadudi",
-    "role": "Developer",
-    "paramKey": "developer",
-    "avatar": "https://cdn.discordapp.com/avatars/694171261500391505/603335d9004ba9386cdb7ed629950513.png",
-    "link": null,
-    "color": "#118ab2",
     "nameplate": {
       "nameColor": "#6830cc"
     }
@@ -235,7 +235,7 @@
     "role": "Translator",
     "roleLabel": "Translator (VI)",
     "paramKey": "translator",
-    "avatar": "https://cdn.discordapp.com/avatars/992706184391954533/79d9cbe61adf32b3cfce786735440cb1.png",
+    "avatar": "https://cdn.discordapp.com/avatars/992706184391954533/7a6b078bab65f56004a64df144f1cfa6.png",
     "link": null,
     "color": "#d00000",
     "nameplate": {

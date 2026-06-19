@@ -411,6 +411,85 @@
       .btn-learn-more:hover {
         background: rgba(255, 255, 255, 0.18);
       }
+
+      /* ── Android Download Modal ── */
+      .android-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        background: rgba(0, 0, 0, 0);
+      }
+      .android-backdrop.open {
+        opacity: 1;
+        pointer-events: all;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        background: rgba(0, 0, 0, 0.65);
+      }
+      .android-modal {
+        background: var(--mc-panel, #1a1a2e);
+        border: 2px solid #5b21b6;
+        border-radius: 4px;
+        max-width: 510px;
+        width: 100%;
+        padding: 2rem 2rem 1.6rem;
+        box-shadow:
+          0 0 0 1px rgba(139, 92, 246, 0.15),
+          0 8px 40px rgba(0, 0, 0, 0.6),
+          0 0 60px rgba(91, 33, 182, 0.3);
+        transform: translateY(10px) scale(0.97);
+        transition: transform 0.2s ease;
+        position: relative;
+      }
+      .android-backdrop.open .android-modal {
+        transform: translateY(0) scale(1);
+      }
+      .android-modal-body {
+        font-size: 0.83rem;
+        line-height: 1.7;
+        color: var(--mc-text, #e2e2e2);
+        margin-bottom: 1.5rem;
+      }
+      .android-modal-body strong {
+        color: #8b5cf6;
+      }
+      .android-modal-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .android-dl-btn {
+        width: 100%;
+        padding: 0.65rem 1rem;
+        border-radius: 2px;
+        border: 2px solid #5b21b6;
+        background: #5b21b6;
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        transition:
+          background 0.15s,
+          border-color 0.15s;
+      }
+      .android-dl-btn:hover {
+        background: #8b5cf6;
+        border-color: #8b5cf6;
+      }
       .home-hero-stats {
         display: flex;
         align-items: center;
@@ -1339,6 +1418,43 @@
       <div id="mc-footer-placeholder"></div>
     </main>
 
+    <!-- Android Download Modal -->
+    <div
+      class="android-backdrop"
+      id="androidBackdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="androidModalTitle"
+    >
+      <div class="android-modal">
+        <div class="android-modal-body">
+          <strong>Pocket Cosmos</strong> is the Android edition of Bedrock Cosmos and is built upon a modded version of
+          LeviLauncher's Android app. This allows Bedrock Cosmos's proxy to run on your mobile device out of the box
+          without requiring hardware/network modifications. LeviLauncher and its contributors are not affiliated with
+          Bedrock Cosmos. Feel free to check out their
+          <a
+            href="https://github.com/LiteLDev/LeviLaunchroid"
+            target="_blank"
+            rel="noopener"
+            style="color: #a78bfa; text-decoration: underline"
+            >GitHub repository</a
+          >
+          to view their source code and license terms.<br /><br />
+          <strong>You must own a legitimate copy of Minecraft to use Pocket Cosmos.</strong>
+        </div>
+        <div class="android-modal-actions">
+          <a
+            id="android-modal-dl-btn"
+            href="https://github.com/Bedrock-Cosmos/PocketCosmosLevi/releases"
+            class="android-dl-btn"
+            target="_blank"
+            rel="noopener"
+            >Download APK</a
+          >
+        </div>
+      </div>
+    </div>
+
     <script src="./js/shared.js"></script>
     <script>
       initSharedComponents({ activePath: "/", starCount: 200 });
@@ -1376,13 +1492,18 @@
         if (platform === "android") {
           const title = document.getElementById("hero-title");
           if (title) title.textContent = "Pocket Cosmos";
-          btn.href = "https://github.com/Bedrock-Cosmos/PocketCosmosLevi/releases";
+          btn.removeAttribute("href");
           btn.removeAttribute("download");
+          btn.style.cursor = "pointer";
           if (label) label.textContent = "Download";
           if (icon) {
             icon.setAttribute("viewBox", "0 0 256 256");
             icon.innerHTML = `<rect width="256" height="256" fill="none"/><circle cx="164" cy="148" r="12"/><circle cx="92" cy="148" r="12"/><path d="M24,184V161.13C24,103.65,70.15,56.2,127.63,56A104,104,0,0,1,232,160v24a8,8,0,0,1-8,8H32A8,8,0,0,1,24,184Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="32" y1="48" x2="63.07" y2="79.07" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="224" y1="48" x2="193.1" y2="78.9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>`;
           }
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            openAndroidModal();
+          });
         } else if (platform === "ios") {
           const title = document.getElementById("hero-title");
           if (title) title.textContent = "Pocket Cosmos";
@@ -1408,11 +1529,16 @@
             const res = await fetch("https://api.github.com/repos/Bedrock-Cosmos/PocketCosmosLevi/releases/latest");
             const data = await res.json();
             const apk = data.assets.find((a) => a.name.endsWith(".apk"));
+            const modalBtn = document.getElementById("android-modal-dl-btn");
             if (apk) {
-              btn.href = apk.browser_download_url;
+              if (btn) btn.removeAttribute("href");
+              if (modalBtn) {
+                modalBtn.href = apk.browser_download_url;
+                modalBtn.textContent = `Download ${data.tag_name}`;
+              }
               if (label) label.textContent = `Download ${data.tag_name}`;
             } else {
-              btn.href = data.html_url;
+              if (modalBtn) modalBtn.href = data.html_url;
             }
           } catch (e) {
             console.error("Error fetching Android release:", e);
@@ -1450,6 +1576,27 @@
           document.getElementById("downloadCount").textContent = "220+";
         }
       }
+      // ── Android Download Modal ──
+      function openAndroidModal() {
+        var backdrop = document.getElementById("androidBackdrop");
+        if (backdrop) backdrop.classList.add("open");
+      }
+      function closeAndroidModal() {
+        var backdrop = document.getElementById("androidBackdrop");
+        if (backdrop) backdrop.classList.remove("open");
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        var backdrop = document.getElementById("androidBackdrop");
+        if (backdrop) {
+          backdrop.addEventListener("click", function (e) {
+            if (e.target === this) closeAndroidModal();
+          });
+        }
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeAndroidModal();
+        });
+      });
+
       initDownloadBtn();
       fetchLatestRelease();
       fetchCurrentUsers();
