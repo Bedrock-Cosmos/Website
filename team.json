@@ -181,6 +181,21 @@
     }
   },
   {
+    "name": "SRG64",
+    "role": "Cosmos Creator",
+    "paramKey": "cosmos_creator",
+    "avatar": "https://cdn.discordapp.com/avatars/874528976922640394/f8f00dde7af534a0e7a5d9ccdc7909ab.png",
+    "link": "null",
+    "color": "#190b0c",
+    "nameplate": {
+      "nameColor": "#f1bef0",
+      "videoId": "1514656842826125383",
+      "decoId": "a_cec06be6560073121dc9e0bfd9cb536f",
+      "decoAlt": "Gone Fishin'",
+      "nameFont": "8bit"
+    }
+  },
+  {
     "name": "yeh",
     "role": "Cosmos Creator",
     "paramKey": "cosmos_creator",
