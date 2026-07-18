@@ -616,12 +616,44 @@
     "category": "Vanilla"
   },
   {
+    "name": "Soul Cape",
+    "creator": "Minecraft Dungeons II",
+    "uuid": "a22db560-6235-4171-a286-5f86f5077bff",
+    "icon": "https://capes.bedrock-cosmos.app/icons/MinecraftDungeonsII/SoulCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/MinecraftDungeonsII/SoulCape.png",
+    "category": "Vanilla"
+  },
+  {
     "name": "Turtle Shell Cape",
     "creator": "Minecraft Dungeons",
     "uuid": "1a3f66b4-a66b-4a44-bb79-d795ca40bbf7",
     "icon": "https://capes.bedrock-cosmos.app/icons/MinecraftDungeons/TurtleShellCape.png",
     "texture": "https://bedrock-cosmos.app/capes/MinecraftDungeons/TurtleShellCape.png",
     "category": "Vanilla"
+  },
+  {
+    "name": "Twisted Cape",
+    "creator": "Minecraft Dungeons II",
+    "uuid": "435b2432-cea9-40cc-a488-995d78cded05",
+    "icon": "https://capes.bedrock-cosmos.app/icons/MinecraftDungeonsII/TwistedCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/MinecraftDungeonsII/TwistedCape.png",
+    "category": "Vanilla"
+  },
+  {
+    "name": "Android Cape",
+    "creator": "BionicBen",
+    "uuid": "5bba5540-377b-4ec2-9633-4551c4e82e37",
+    "icon": "https://capes.bedrock-cosmos.app/icons/AndroidCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/AndroidCape.png",
+    "category": "Custom"
+  },
+  {
+    "name": "Bed Cape",
+    "creator": "Liefubledo",
+    "uuid": "9fa8cacf-5aef-4415-b655-ab82df15656d",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BedNewCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BedNewCape.png",
+    "category": "Custom"
   },
   {
     "name": "Block Of Diamond Cape",
@@ -776,6 +808,22 @@
     "category": "Custom"
   },
   {
+    "name": "M Cape",
+    "creator": "SwagerOnline",
+    "uuid": "86c248d2-0615-40ff-afc1-e8d6a04435ed",
+    "icon": "https://capes.bedrock-cosmos.app/icons/MCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/MCape.png",
+    "category": "Custom"
+  },
+  {
+    "name": "Melon Cape",
+    "creator": "JakeMCPE",
+    "uuid": "8b7e5613-3394-43a5-8655-022bf2be0d6f",
+    "icon": "https://capes.bedrock-cosmos.app/icons/MelonCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/MelonCape.png",
+    "category": "Custom"
+  },
+  {
     "name": "Microsoft Cape",
     "creator": "Dexeo",
     "uuid": "4ca17959-173d-4ae0-ae15-d114ac23bb02",
@@ -837,6 +885,14 @@
     "uuid": "449308f3-1f33-4b92-ae94-f7fb198e2c01",
     "icon": "https://capes.bedrock-cosmos.app/icons/Pumpkin_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/Pumpkin.png",
+    "category": "Custom"
+  },
+  {
+    "name": "Squid Cape",
+    "creator": "MinecraftCapes",
+    "uuid": "64f80879-ff7c-4490-81f8-f081d2dc1bb5",
+    "icon": "https://capes.bedrock-cosmos.app/icons/SquidCape2.png",
+    "texture": "https://bedrock-cosmos.app/capes/SquidCape2.png",
     "category": "Custom"
   },
   {
@@ -1247,6 +1303,158 @@
     "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/NAC/MCCYellowYaksCape.png",
     "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/NAC/MCCYellowYaksCape.png",
     "category": "NAC",
+    "creatorParam": true
+  },
+  {
+    "name": "Bedrock Viewer Cape",
+    "creator": "Sability",
+    "uuid": "9ebb516e-b275-4652-a1e1-c66452d45227",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/BedrockViewerCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/BedrockViewerCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Black Hole Cape",
+    "creator": "Sability",
+    "uuid": "f95a3c09-b964-49f4-8bff-68f4c419d4c9",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/BlackHoleCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/BlackHoleCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Camo Cape",
+    "creator": "Sability",
+    "uuid": "b0458d60-382e-4b45-b9df-5098f1fc4dfa",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/CamoCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/CamoCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Chalkboard Cape",
+    "creator": "Sability",
+    "uuid": "be7d1076-4fd0-48eb-b7a3-309738e9ca51",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/ChalkboardCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/ChalkboardCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Cod Cape",
+    "creator": "Sability",
+    "uuid": "b00db69c-c9e4-434b-a1ce-b634f337b044",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/CodCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/CodCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Elemental Earth Cape",
+    "creator": "Sability",
+    "uuid": "30f99b01-fecf-44dd-be61-54d2bd6c3ce2",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/ElementalEarthCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/ElementalEarthCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Elemental Fire Cape",
+    "creator": "Sability",
+    "uuid": "ffe6af1f-7f35-4f38-b100-05355411a68a",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/ElementalFireCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/ElementalFireCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Elemental Water Cape",
+    "creator": "Sability",
+    "uuid": "53168159-664d-4233-97f0-719e4d1295bb",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/ElementalWaterCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/ElementalWaterCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Elemental Wind Cape",
+    "creator": "Sability",
+    "uuid": "68f1ff9b-d021-4f31-ae50-d040eaf7fe44",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/ElementalWindCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/ElementalWindCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Golden Cape",
+    "creator": "Sability",
+    "uuid": "efbbb230-9cdd-49ac-9103-1c305eecefac",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/GoldenCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/GoldenCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Sability Cake Cape",
+    "creator": "Sability",
+    "uuid": "d9ddbf1f-6dca-4327-a3cf-b2f243335959",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/SabilityCakeCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/SabilityCakeCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Sability Cookie Cape",
+    "creator": "Sability",
+    "uuid": "4cf60f66-8ee3-4a6f-b42b-b01db055ba61",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/SabilityCookieCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/SabilityCookieCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Sability Discord Cape",
+    "creator": "Sability",
+    "uuid": "b31df7dd-631c-47d6-9ddc-03f2a03c44ec",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/SabilityDiscordCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/SabilityDiscordCape.png",
+    "category": "Custom"
+  },
+  {
+    "name": "Sability Ghast Cape",
+    "creator": "Sability",
+    "uuid": "d726d93c-3d26-40d6-872d-c125281c6c73",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/SabilityGhastCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/SabilityGhastCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Sability MCPEDL Cape",
+    "creator": "Sability",
+    "uuid": "209d39aa-c197-4e6a-9452-17e2960e5d76",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/SabilityMCPEDLCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/SabilityMCPEDLCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "Sulfur Cube Cape",
+    "creator": "Sability",
+    "uuid": "d25169b8-cf46-4e58-a3a1-918a90c165c8",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/SulfurCubeCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/SulfurCubeCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
+    "name": "USB Charger Block Cape",
+    "creator": "Sability",
+    "uuid": "f1c2e968-6a50-494a-a969-875d0150b87a",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/USBChargerBlockCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/USBChargerBlockCape.png",
+    "category": "Sability",
     "creatorParam": true
   },
   {
