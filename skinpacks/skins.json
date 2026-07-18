@@ -247,6 +247,18 @@
       "category": "Legacy"
     },
     {
+      "name": "Alleis Skin Pack",
+      "uuid": "b1026ea3-1c85-492d-aa01-21a1d51829fe",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
+      "name": "Various Girls",
+      "uuid": "ee2e819d-323d-4245-b2a5-b679ae961402",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
       "name": "6th Birthday Skin Pack",
       "uuid": "1dafe8e5-aacc-4518-98ed-f6ce66bfba80",
       "banner": "https://bedrock-cosmos.app/banners/6thBirthdaySkinPack.png",
@@ -319,6 +331,12 @@
       "category": "Creator"
     },
     {
+      "name": "SRG's Voxel Skin Pack",
+      "uuid": "74694ab4-178f-4c60-a0dd-96ec4627390e",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
       "name": "LEGO(R) Minecraft(TM) Skin Pack",
       "uuid": "b20dc966-1071-4845-a7a0-b0d2acb253ce",
       "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
@@ -368,19 +386,9 @@
     }
   ],
   "newlyAdded": [
-    { "name": "Deadmau5 Skin Pack", "creator": "BionicBen" },
-    { "name": "Matching Cosmetics 5", "creator": "Exports" },
-    { "name": "Matching Cosmetics 6", "creator": "Exports" },
-    { "name": "Matching Cosmetics 7", "creator": "Exports" },
-    { "name": "Matching Cosmetics 8", "creator": "Exports" },
-    { "name": "LEGO(R) Minecraft(TM) Skin Pack", "creator": "YEH" },
-    { "name": "R.E.P.O SEMIBOTS", "creator": "YEH" },
-    { "name": "R.E.P.O SEMIBOTS: 5D", "creator": "YEH" },
-    { "name": "Black Hole Skin Pack", "creator": "ZeroMISTER JA" },
-    { "name": "Detective Conan Skin Pack", "creator": "ZeroMISTER JA" },
-    { "name": "Doraemon Skin Pack", "creator": "ZeroMISTER JA" },
-    { "name": "Hotel Transylvania Skin Pack", "creator": "ZeroMISTER JA" },
-    { "name": "Neon Genesis Evangelion Skin Pack", "creator": "ZeroMISTER JA" }
+    { "name": "Alleis Skin Pack", "creator": "Alleis Elis" },
+    { "name": "Various Girls", "creator": "Alleis Elis" },
+    { "name": "SRG's Voxel Skin Pack", "creator": "SRG64" }
   ],
   "featured": [
     {
@@ -568,6 +576,14 @@
       "file": "TheSimpsonsSkinPack/ItemDetail_TheSimpsonsSkinPack.json",
       "category": "skinpacks"
     },
+    "b1026ea3-1c85-492d-aa01-21a1d51829fe": {
+      "file": "Alleis_Elis/ItemDetail_AlleisSkinPack.json",
+      "category": "creators"
+    },
+    "ee2e819d-323d-4245-b2a5-b679ae961402": {
+      "file": "Alleis_Elis/ItemDetail_VariousGirls.json",
+      "category": "creators"
+    },
     "1dafe8e5-aacc-4518-98ed-f6ce66bfba80": {
       "file": "BionicBen/ItemDetail_6thBirthdaySkinPack.json",
       "category": "creators"
@@ -614,6 +630,10 @@
     },
     "0b18e5e0-9b6f-452b-9e89-1d3a9f6f95be": {
       "file": "Exports/ItemDetail_EMC8.json",
+      "category": "creators"
+    },
+    "74694ab4-178f-4c60-a0dd-96ec4627390e": {
+      "file": "SRG64/ItemDetail_SRGsVoxelSkinPack.json",
       "category": "creators"
     },
     "b20dc966-1071-4845-a7a0-b0d2acb253ce": {
