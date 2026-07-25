@@ -11,7 +11,10 @@ function toggleMobileSidebar() {
   const isOpen = sidebar.classList.toggle("mobile-open");
   overlay.classList.toggle("active", isOpen);
   btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  btn.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+  btn.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation menu" : "Open navigation menu",
+  );
 }
 
 /* ─── Stars Generator ────────────────────────────────────────── */
@@ -260,7 +263,11 @@ function injectSharedStyles() {
  * @param {string}  opts.starsId      - id of the stars container (default: "stars")
  * @param {number}  opts.starCount    - number of stars (default: 180)
  */
-function initSharedComponents({ activePath = "", starsId = "stars", starCount = 180 } = {}) {
+function initSharedComponents({
+  activePath = "",
+  starsId = "stars",
+  starCount = 180,
+} = {}) {
   injectSharedStyles();
 
   const sidebarPlaceholder = document.getElementById("mc-sidebar-placeholder");
