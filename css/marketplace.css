@@ -3296,22 +3296,6 @@ article.tt-card:hover .tt-play-icon {
   display: block;
 }
 
-.art-available-for-purchase {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.6rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 2px 8px;
-  border-radius: 2px;
-  background: rgba(240, 165, 0, 0.12);
-  color: #f0a500;
-  border: 1px solid rgba(240, 165, 0, 0.3);
-  margin-left: 6px;
-  vertical-align: middle;
-}
-
 .art-coming-soon {
   display: inline-flex;
   align-items: center;
