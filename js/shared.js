@@ -184,8 +184,9 @@ function getFooterHTML() {
       <div class="footer-section">
         <h3>Resources</h3>
         <a href="/about-us/">About Us</a>
+        <a href="/contact-us/">Contact Us</a>
         <a href="https://github.com/Bedrock-Cosmos/Launcher/releases/">Download</a>
-        <a href="https://github.com/orgs/Bedrock-Cosmos/repositories/">GitHub</a>
+        <a href="https://github.com/Bedrock-Cosmos/">GitHub</a>
       </div>
       <div class="footer-section">
         <h3>Legal</h3>
