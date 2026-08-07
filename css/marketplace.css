@@ -3295,6 +3295,23 @@ article.tt-card:hover .tt-play-icon {
   margin-top: 8px;
   display: block;
 }
+
+.art-available-for-purchase {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 2px;
+  background: rgba(240, 165, 0, 0.12);
+  color: #f0a500;
+  border: 1px solid rgba(240, 165, 0, 0.3);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
 .art-coming-soon {
   display: inline-flex;
   align-items: center;
@@ -3307,6 +3324,38 @@ article.tt-card:hover .tt-play-icon {
   background: rgba(240, 165, 0, 0.12);
   color: #f0a500;
   border: 1px solid rgba(240, 165, 0, 0.3);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.art-available {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 2px;
+  background: rgba(46, 160, 67, 0.12);
+  color: #2ea043;
+  border: 1px solid rgba(46, 160, 67, 0.3);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.art-unavailable {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 2px;
+  background: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.3);
   margin-left: 6px;
   vertical-align: middle;
 }
