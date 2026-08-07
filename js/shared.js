@@ -195,6 +195,7 @@ function getFooterHTML() {
       </div>
       <div class="footer-section">
         <h3>Partners</h3>
+        <a href="https://ambient.kitsuri.dev/">Ambient Launcher</a>
         <a href="https://minecraftcapes.net/">MinecraftCapes.net</a>
       </div>
     </div>
