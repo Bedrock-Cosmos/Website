@@ -196,6 +196,17 @@
     }
   },
   {
+    "name": "Wizardry",
+    "role": "Cosmos Creator",
+    "paramKey": "cosmos_creator",
+    "avatar": "https://cdn.discordapp.com/avatars/735852098499117087/c58d44114cdffc6d679fee26d7db3e2e.png",
+    "link": null,
+    "color": "#190b0c",
+    "nameplate": {
+      "nameColor": "#f1bef0"
+    }
+  },
+  {
     "name": "yeh",
     "role": "Cosmos Creator",
     "paramKey": "cosmos_creator",
@@ -262,7 +273,19 @@
     "role": "Translator",
     "roleLabel": "Translator (UK)",
     "paramKey": "translator",
-    "avatar": "https://cdn.discordapp.com/avatars/597740875392483329/379e57ee58613af327d059f5f7112707.png",
+    "avatar": "https://cdn.discordapp.com/avatars/597740875392483329/461130b538758dc1bba629c4df52d5a0.png",
+    "link": null,
+    "color": "#d00000",
+    "nameplate": {
+      "nameColor": "#f1c40f"
+    }
+  },
+  {
+    "name": "Zloy_Koshak",
+    "role": "Translator",
+    "roleLabel": "Translator (RU)",
+    "paramKey": "translator",
+    "avatar": "https://cdn.discordapp.com/avatars/1363215903189106749/c04d1eca2696ad6699be5768523fbd45.png",
     "link": null,
     "color": "#d00000",
     "nameplate": {
@@ -283,11 +306,24 @@
     }
   },
   {
+    "name": "nov",
+    "role": "Partner",
+    "paramKey": "partner",
+    "avatar": "https://cdn.discordapp.com/avatars/631840165291098132/a_51d78375345b33d7df263683f19b7653.png",
+    "link": "https://ambient.kitsuri.dev/",
+    "color": "#011266",
+    "nameplate": {
+      "decoId": "a_3c97a2d37f433a7913a1c7b7a735d000",
+      "decoAlt": "Angry",
+      "nameColor": "#7ac767"
+    }
+  },
+  {
     "name": "Lord HashyYT",
     "role": "YouTuber",
     "roleLabel": "YouTuber",
     "paramKey": "youtuber",
-    "avatar": "https://cdn.discordapp.com/avatars/1057092293078831154/6d57ccb603ef6d574a944d8a8e0d99e9.png",
+    "avatar": "https://cdn.discordapp.com/avatars/1057092293078831154/bdb2c5fde20f600aef1d7a16bf763bf6.png",
     "link": null,
     "color": "#00ff37",
     "nameplate": {
