@@ -3203,6 +3203,14 @@ article.tt-card:hover .tt-play-icon {
   line-height: 1.75;
   color: var(--mc-text);
 }
+.art-body p a {
+  color: #8b5cf6;
+  text-decoration: none;
+  font-weight: 700;
+}
+.art-body p a:hover {
+  text-decoration: underline;
+}
 .art-body h2 {
   font-size: 1.1rem;
   font-weight: 800;
