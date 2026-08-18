@@ -159,6 +159,17 @@
     }
   },
   {
+    "name": "Ocral",
+    "role": "Cosmos Creator",
+    "paramKey": "cosmos_creator",
+    "avatar": "https://cdn.discordapp.com/avatars/595541406630674433/c892042cec30808455a9181cf359226d.png",
+    "link": "null",
+    "color": "#190b0c",
+    "nameplate": {
+      "nameColor": "#f1bef0"
+    }
+  },
+  {
     "name": "nathan",
     "role": "Cosmos Creator",
     "paramKey": "cosmos_creator",
