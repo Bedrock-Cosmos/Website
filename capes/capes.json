@@ -664,6 +664,14 @@
     "category": "Custom"
   },
   {
+    "name": "Block Of Emerald Cape",
+    "creator": "Liefubledo",
+    "uuid": "505ae060-ec73-4d88-84b1-74de9b7c898f",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BlockOfEmeraldCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BlockOfEmeraldCape.png",
+    "category": "Custom"
+  },
+  {
     "name": "Block Of Gold Cape",
     "creator": "Liefubledo",
     "uuid": "43ad7ce2-3c38-4174-9104-b7c95e242c5a",
@@ -736,6 +744,14 @@
     "category": "Custom"
   },
   {
+    "name": "Emerald Cape",
+    "creator": "JakeMCPE",
+    "uuid": "9f3a002b-b223-4647-9aa7-846ce7f5ffa4",
+    "icon": "https://capes.bedrock-cosmos.app/icons/EmeraldCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/EmeraldCape.png",
+    "category": "Custom"
+  },
+  {
     "name": "Enchanting Table Cape",
     "creator": "Allkatrez",
     "uuid": "8228887d-30bb-44b8-978a-22fc464ff037",
@@ -757,6 +773,14 @@
     "uuid": "796e63d1-a146-4c63-b736-b9f0ce553ff2",
     "icon": "https://capes.bedrock-cosmos.app/icons/EyeOfEnder1_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/EyeOfEnder1.png",
+    "category": "Custom"
+  },
+  {
+    "name": "Fire Cape",
+    "creator": "Spyynz",
+    "uuid": "a36ea909-8876-46a8-bddb-c4116e63c9e6",
+    "icon": "https://capes.bedrock-cosmos.app/icons/FireCape1.png",
+    "texture": "https://bedrock-cosmos.app/capes/FireCape1.png",
     "category": "Custom"
   },
   {
@@ -789,6 +813,14 @@
     "uuid": "3aff5d54-a885-405c-9670-e794473ac3a7",
     "icon": "https://capes.bedrock-cosmos.app/icons/GoldenApple1_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/GoldenApple1.png",
+    "category": "Custom"
+  },
+  {
+    "name": "Guardian Cape",
+    "creator": "Unknown",
+    "uuid": "f4073563-8096-49a3-b590-9d1bc77a20c7",
+    "icon": "https://capes.bedrock-cosmos.app/icons/GuardianCape2.png",
+    "texture": "https://bedrock-cosmos.app/capes/GuardianCape2.png",
     "category": "Custom"
   },
   {
@@ -840,6 +872,14 @@
     "category": "Custom"
   },
   {
+    "name": "Oak Door Cape",
+    "creator": "Liefubledo",
+    "uuid": "86dcf5d2-6a31-4a78-a0fb-53d5f798f641",
+    "icon": "https://capes.bedrock-cosmos.app/icons/OakDoorCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/OakDoorCape.png",
+    "category": "Custom"
+  },
+  {
     "name": "Omniarchive Cape",
     "creator": "Crackers0106",
     "uuid": "b01a36e6-6426-4585-8eba-6024bea40820",
@@ -880,11 +920,51 @@
     "category": "Custom"
   },
   {
+    "name": "Poke Ball Cape",
+    "creator": "Avalanche_Ali",
+    "uuid": "27076531-21e4-4f5a-9e2e-0c6047edb317",
+    "icon": "https://capes.bedrock-cosmos.app/icons/PokeBallCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/PokeBallCape.png",
+    "category": "Custom"
+  },
+  {
+    "name": "Potato Cape",
+    "creator": "JakeMCPE",
+    "uuid": "c313e412-c582-4e9a-bd9d-aee981565a72",
+    "icon": "https://capes.bedrock-cosmos.app/icons/PotatoCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/PotatoCape.png",
+    "category": "Custom"
+  },
+  {
     "name": "Pumpkin Cape",
     "creator": "smartvong",
     "uuid": "449308f3-1f33-4b92-ae94-f7fb198e2c01",
     "icon": "https://capes.bedrock-cosmos.app/icons/Pumpkin_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/Pumpkin.png",
+    "category": "Custom"
+  },
+  {
+    "name": "Slime Cape",
+    "creator": "MinecraftCapes",
+    "uuid": "f8a54840-f633-4597-abdd-41f6c9a86f37",
+    "icon": "https://capes.bedrock-cosmos.app/icons/SlimeCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/SlimeCape.png",
+    "category": "Custom"
+  },
+  {
+    "name": "Soul Fire Cape",
+    "creator": "Spyynz",
+    "uuid": "007b46cc-421c-4ee3-8c7a-a2b63b8582e8",
+    "icon": "https://capes.bedrock-cosmos.app/icons/SoulFireCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/SoulFireCape.png",
+    "category": "Custom"
+  },
+  {
+    "name": "Space Invaders Cape",
+    "creator": "Avalanche_Ali",
+    "uuid": "dabf1c6d-e561-4dc4-bafd-636e8a6c4e95",
+    "icon": "https://capes.bedrock-cosmos.app/icons/SpaceInvadersCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/SpaceInvadersCape.png",
     "category": "Custom"
   },
   {
@@ -1090,6 +1170,15 @@
     "creatorParam": true
   },
   {
+    "name": "Bird Cape",
+    "creator": "BionicBen",
+    "uuid": "cae8049a-57f5-48c9-bfed-7ad77ea8d727",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/BionicBen/BirdCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/BionicBen/BirdCape.png",
+    "category": "BionicBen",
+    "creatorParam": true
+  },
+  {
     "name": "Bread Cape",
     "creator": "BionicBen",
     "uuid": "6acb51d1-dfe1-435e-803f-425f959b9382",
@@ -1117,11 +1206,29 @@
     "creatorParam": true
   },
   {
+    "name": "Neon Creeper Cape",
+    "creator": "BionicBen",
+    "uuid": "288d1363-a07b-4c29-916f-d2aa07748730",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/BionicBen/NeonCreeperCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/BionicBen/NeonCreeperCape.png",
+    "category": "BionicBen",
+    "creatorParam": true
+  },
+  {
     "name": "Scythe Cape",
     "creator": "BionicBen",
     "uuid": "1472a239-f11c-4462-a302-59bc9df01a8b",
     "icon": "https://capes.bedrock-cosmos.app/icons/Scythe_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/Scythe.png",
+    "category": "BionicBen",
+    "creatorParam": true
+  },
+  {
+    "name": "Sunset Cape",
+    "creator": "BionicBen",
+    "uuid": "420d9136-8916-4253-bcd1-ad6a45c983cc",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/BionicBen/SunsetCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/BionicBen/SunsetCape.png",
     "category": "BionicBen",
     "creatorParam": true
   },
@@ -1482,6 +1589,141 @@
     "icon": "https://capes.bedrock-cosmos.app/icons/Sunflower_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/Sunflower.png",
     "category": "Stars",
+    "creatorParam": true
+  },
+  {
+    "name": "Autumn Maple Cape",
+    "creator": "Wizardry",
+    "uuid": "ed93dc89-0ca0-429b-a011-a30fc7502c2d",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/AutumnMapleCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/AutumnMapleCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Beach Sunset Cape",
+    "creator": "Wizardry",
+    "uuid": "a29ed67d-33ff-4126-8eef-815aa12c5bec",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/BeachSunsetCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/BeachSunsetCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Coral Reef Cape",
+    "creator": "Wizardry",
+    "uuid": "bc2c4de7-4703-4d38-8996-a81060d638a9",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/CoralReefCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/CoralReefCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Desert Dusk Cape",
+    "creator": "Wizardry",
+    "uuid": "380a8a73-0f14-4747-b7b3-07febc968706",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/DesertDuskCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/DesertDuskCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Ember Volcano Cape",
+    "creator": "Wizardry",
+    "uuid": "992ee3eb-d073-4953-9e1e-879aec1b6154",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/EmberVolcanoCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/EmberVolcanoCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Glow Shroom Cape",
+    "creator": "Wizardry",
+    "uuid": "957395fa-f898-4c31-a3b3-8717eef69586",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/GlowShroomCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/GlowShroomCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Jellyfish Cape",
+    "creator": "Wizardry",
+    "uuid": "59bf18b7-17c1-4b6d-94fd-8bec303a06fc",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/JellyfishCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/JellyfishCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Lighthouse Cape",
+    "creator": "Wizardry",
+    "uuid": "b78b4eff-698a-4e45-b8a9-218b0b38e23c",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/LighthouseCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/LighthouseCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Milky Way Cape",
+    "creator": "Wizardry",
+    "uuid": "4a9dd3db-cb76-4907-b31e-ebd3b7acb603",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/MilkyWayCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/MilkyWayCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Northern Lights Cape",
+    "creator": "Wizardry",
+    "uuid": "829d2a65-bbb4-49c3-9d94-e9a13082c529",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/NorthernLightsCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/NorthernLightsCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Ocean Wave Cape",
+    "creator": "Wizardry",
+    "uuid": "6f17bb3a-f634-4e88-9213-acb4bd6e4bca",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/OceanWaveCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/OceanWaveCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Snowy Peak Cape",
+    "creator": "Wizardry",
+    "uuid": "4aa119f4-b89b-4df7-be02-500b1f71e115",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/SnowyPeakCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/SnowyPeakCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Torii Gate Cape",
+    "creator": "Wizardry",
+    "uuid": "6f42d39e-c982-4e4f-b1aa-5a7062dda07f",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/ToriiGateCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/ToriiGateCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Wisteria Cape",
+    "creator": "Wizardry",
+    "uuid": "8003b504-d210-45cc-9123-c7492936f035",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/WisteriaCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/WisteriaCape.png",
+    "category": "Wizardry",
+    "creatorParam": true
+  },
+  {
+    "name": "Wizardry Bedrock Cosmos Cape",
+    "creator": "Wizardry",
+    "uuid": "ffaa6c40-77d1-4321-b678-a9d925ff719b",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Wizardry/WizardryBedrockCosmosCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Wizardry/WizardryBedrockCosmosCape.png",
+    "category": "Wizardry",
     "creatorParam": true
   },
   {
