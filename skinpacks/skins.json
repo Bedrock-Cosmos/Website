@@ -253,6 +253,12 @@
       "category": "Creator"
     },
     {
+      "name": "Alleis Slop Pack",
+      "uuid": "8713ccc6-b61f-4d3a-9719-02b4c670967d",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
       "name": "Various Girls",
       "uuid": "ee2e819d-323d-4245-b2a5-b679ae961402",
       "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
@@ -331,6 +337,18 @@
       "category": "Creator"
     },
     {
+      "name": "Matching Cosmetics 9",
+      "uuid": "fc4de45c-9d1c-4909-87be-6e3366a857ba",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
+      "name": "Casual Knights Skin Pack",
+      "uuid": "43132398-078d-4a7f-b6b9-5ae469f1e727",
+      "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
+      "category": "Creator"
+    },
+    {
       "name": "SRG's Voxel Skin Pack",
       "uuid": "74694ab4-178f-4c60-a0dd-96ec4627390e",
       "banner": "https://bedrock-cosmos.app/banners/Placeholder.png",
@@ -387,7 +405,9 @@
   ],
   "newlyAdded": [
     { "name": "Alleis Skin Pack", "creator": "Alleis Elis" },
-    { "name": "Various Girls", "creator": "Alleis Elis" },
+    { "name": "Alleis Slop Pack", "creator": "Alleis Elis" },
+    { "name": "Matching Cosmetics 9", "creator": "Exports" },
+    { "name": "Casual Knights Skin Pack", "creator": "Mono" },
     { "name": "SRG's Voxel Skin Pack", "creator": "SRG64" }
   ],
   "featured": [
@@ -580,6 +600,10 @@
       "file": "Alleis_Elis/ItemDetail_AlleisSkinPack.json",
       "category": "creators"
     },
+    "8713ccc6-b61f-4d3a-9719-02b4c670967d": {
+      "file": "Alleis_Elis/ItemDetail_AlleisSlopPack.json",
+      "category": "creators"
+    },
     "ee2e819d-323d-4245-b2a5-b679ae961402": {
       "file": "Alleis_Elis/ItemDetail_VariousGirls.json",
       "category": "creators"
@@ -632,8 +656,16 @@
       "file": "Exports/ItemDetail_EMC8.json",
       "category": "creators"
     },
+    "fc4de45c-9d1c-4909-87be-6e3366a857ba": {
+      "file": "Exports/ItemDetail_EMC9.json",
+      "category": "creators"
+    },
     "74694ab4-178f-4c60-a0dd-96ec4627390e": {
       "file": "SRG64/ItemDetail_SRGsVoxelSkinPack.json",
+      "category": "creators"
+    },
+    "43132398-078d-4a7f-b6b9-5ae469f1e727": {
+      "file": "Mono/ItemDetail_CasualKnightsSkinPack.json",
       "category": "creators"
     },
     "b20dc966-1071-4845-a7a0-b0d2acb253ce": {
