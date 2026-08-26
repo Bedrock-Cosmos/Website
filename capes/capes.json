@@ -480,6 +480,14 @@
     "category": "Vanilla"
   },
   {
+    "name": "Corrupted Creeper Cape",
+    "creator": "Minecraft Dungeons II",
+    "uuid": "703106e8-a075-4b96-9ab6-f93a42c5b54c",
+    "icon": "https://capes.bedrock-cosmos.app/icons/MinecraftDungeonsII/CorruptedCreeperCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/MinecraftDungeonsII/CorruptedCreeperCape.png",
+    "category": "Vanilla"
+  },
+  {
     "name": "Cow Crusader Cape",
     "creator": "Minecraft Dungeons",
     "uuid": "cae14f00-efc1-4be9-afcf-513a125a8e91",
