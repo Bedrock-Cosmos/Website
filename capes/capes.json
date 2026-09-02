@@ -624,6 +624,14 @@
     "category": "Vanilla"
   },
   {
+    "name": "Special Cape",
+    "creator": "Minecraft Dungeons II",
+    "uuid": "6e51860c-f70c-4c87-b7e5-1cd1ac2143df",
+    "icon": "https://capes.bedrock-cosmos.app/icons/MinecraftDungeonsII/SpecialCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/MinecraftDungeonsII/SpecialCape.png",
+    "category": "Vanilla"
+  },
+  {
     "name": "Soul Cape",
     "creator": "Minecraft Dungeons II",
     "uuid": "a22db560-6235-4171-a286-5f86f5077bff",
