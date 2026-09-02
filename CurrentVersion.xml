@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <item>
   <version>1.1.2.0</version>
-  <responses_version>13</responses_version>
+  <responses_version>14</responses_version>
   <url>https://github.com/Bedrock-Cosmos/Website/raw/refs/heads/main/Launcher.zip</url>
   <mandatory minVersion="0.0.1.0">true</mandatory>
 </item>
