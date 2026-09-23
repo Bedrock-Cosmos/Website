@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8840203644395195"
-         crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8840203644395195"
+      crossorigin="anonymous"
+    ></script>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1564,6 +1567,20 @@
             );
             line(`  ✓  ${nameId}/${nameId}.json`);
 
+            // Shared creator-page link info. Used for BOTH the top-level
+            // `linksToInfo` and `namedLinksToInfoMap["dr.persona_creator_page"]`
+            // so the two always carry identical information.
+            const linksToInfo = {
+              linksTo: `PersonaCreatorPage_master_player_account!${accountId}`,
+              linkType: "external",
+              displayType: "store_layout.character_creator_screen",
+              screenTitle: {
+                value: screenTitleValue || creator,
+                replacements: [],
+              },
+              navigateInPlace: false,
+            };
+
             // Page.json
             const pageJson = {
               id: frontUUID,
@@ -1590,23 +1607,11 @@
                 { type: "persona_piece", uuid: manifestUUID, version: "1.0.0" },
               ],
               startDate: ts,
+              // Top-level link used when the creator's name is clicked.
+              // Every item NEEDS this (not just namedLinksToInfoMap).
+              linksToInfo: linksToInfo,
               namedLinksToInfoMap: {
-                "dr.persona_creator_page": Object.assign(
-                  {
-                    linksTo: `PersonaCreatorPage_master_player_account!${accountId}`,
-                    linkType: "external",
-                    displayType: "store_layout.character_creator_screen",
-                    navigateInPlace: false,
-                  },
-                  screenTitleValue
-                    ? {
-                        screenTitle: {
-                          value: screenTitleValue,
-                          replacements: [],
-                        },
-                      }
-                    : {},
-                ),
+                "dr.persona_creator_page": Object.assign({}, linksToInfo),
               },
             };
             outerZip.file(
