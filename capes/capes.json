@@ -544,14 +544,6 @@
     "category": "Vanilla"
   },
   {
-    "name": "Hero Cape",
-    "creator": "Minecraft Dungeons",
-    "uuid": "2de148de-3196-4dac-8e2a-a28e589da380",
-    "icon": "https://capes.bedrock-cosmos.app/icons/MinecraftDungeons/HeroCape.png",
-    "texture": "https://bedrock-cosmos.app/capes/MinecraftDungeons/HeroCape.png",
-    "category": "Vanilla"
-  },
-  {
     "name": "Iceologer Cape",
     "creator": "Minecraft Dungeons",
     "uuid": "1a20c9bd-838b-4dad-b1b0-4e93a66b5fad",
@@ -624,6 +616,14 @@
     "category": "Vanilla"
   },
   {
+    "name": "Slice Slayer Cape",
+    "creator": "Minecraft Dungeons II",
+    "uuid": "7573cbfd-e733-4f31-92db-788d8b9449d7",
+    "icon": "https://capes.bedrock-cosmos.app/icons/MinecraftDungeonsII/SliceSlayerCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/MinecraftDungeonsII/SliceSlayerCape.png",
+    "category": "Vanilla"
+  },
+  {
     "name": "Special Cape",
     "creator": "Minecraft Dungeons II",
     "uuid": "6e51860c-f70c-4c87-b7e5-1cd1ac2143df",
@@ -645,14 +645,6 @@
     "uuid": "1a3f66b4-a66b-4a44-bb79-d795ca40bbf7",
     "icon": "https://capes.bedrock-cosmos.app/icons/MinecraftDungeons/TurtleShellCape.png",
     "texture": "https://bedrock-cosmos.app/capes/MinecraftDungeons/TurtleShellCape.png",
-    "category": "Vanilla"
-  },
-  {
-    "name": "Twisted Cape",
-    "creator": "Minecraft Dungeons II",
-    "uuid": "435b2432-cea9-40cc-a488-995d78cded05",
-    "icon": "https://capes.bedrock-cosmos.app/icons/MinecraftDungeonsII/TwistedCape.png",
-    "texture": "https://bedrock-cosmos.app/capes/MinecraftDungeonsII/TwistedCape.png",
     "category": "Vanilla"
   },
   {
@@ -1236,6 +1228,15 @@
     "uuid": "1472a239-f11c-4462-a302-59bc9df01a8b",
     "icon": "https://capes.bedrock-cosmos.app/icons/Scythe_cape.png",
     "texture": "https://bedrock-cosmos.app/capes/Scythe.png",
+    "category": "BionicBen",
+    "creatorParam": true
+  },
+  {
+    "name": "Spicewood Cape",
+    "creator": "BionicBen",
+    "uuid": "1b8b7aa2-a45a-4c96-8e3e-701c34421631",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/BionicBen/SpicewoodCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/BionicBen/SpicewoodCape.png",
     "category": "BionicBen",
     "creatorParam": true
   },
