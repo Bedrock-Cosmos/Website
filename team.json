@@ -44,7 +44,10 @@
     "name": "CenterX",
     "role": "Developer",
     "roleLabel": "Developer, Translator (DE)",
-    "paramKey": ["developer", "translator"],
+    "paramKey": [
+      "developer",
+      "translator"
+    ],
     "avatar": "https://cdn.discordapp.com/avatars/1182140541245341779/194da5c4e7703458b41af6ab19d5febe.png",
     "link": "https://github.com/center2055",
     "color": "#091150",
@@ -60,7 +63,10 @@
     "link": "https://merely.is-a.dev/",
     "color": "#670097",
     "nameplate": {
-      "nameColor": "#6830cc"
+      "nameStyle": "gradient",
+      "gradientStart": "#9500ff",
+      "gradientEnd": "#d0adff",
+      "nameFont": "8bit"
     }
   },
   {
@@ -100,8 +106,11 @@
     "name": "Stars",
     "role": "Cosmos Creator",
     "roleLabel": "Cosmos Creator, Translator (ID)",
-    "paramKey": ["cosmos_creator", "translator"],
-    "avatar": "https://cdn.discordapp.com/avatars/895228843500126209/6ce022153bfb2e5f6e218f309a3f56e0.png",
+    "paramKey": [
+      "cosmos_creator",
+      "translator"
+    ],
+    "avatar": "https://cdn.discordapp.com/avatars/895228843500126209/df8a7a89f9f70ebed0e33009261002c2.png",
     "link": "https://www.youtube.com/@Hypervitaminosis",
     "color": "#29afe4",
     "nameplate": {
@@ -119,7 +128,10 @@
     "name": "ZeroMISTER JA",
     "role": "Cosmos Creator",
     "roleLabel": "Cosmos Creator, Translator (ES)",
-    "paramKey": ["cosmos_creator", "translator"],
+    "paramKey": [
+      "cosmos_creator",
+      "translator"
+    ],
     "avatar": "https://cdn.discordapp.com/avatars/698302354251841638/7e97d0bf8692fe2eb7c65f06856a1008.png",
     "link": "https://bedrock.lol/ZeroMISTERJA",
     "color": "#5eae5f",
@@ -162,11 +174,14 @@
     "name": "Ocral",
     "role": "Cosmos Creator",
     "paramKey": "cosmos_creator",
-    "avatar": "https://cdn.discordapp.com/avatars/595541406630674433/c892042cec30808455a9181cf359226d.png",
+    "avatar": "https://cdn.discordapp.com/avatars/595541406630674433/e5f5e132a3f6279f2dfa51e41a775816.png",
     "link": "null",
     "color": "#190b0c",
     "nameplate": {
-      "nameColor": "#f1bef0"
+      "nameStyle": "gradient",
+      "gradientStart": "#ff9595",
+      "gradientEnd": "#ff0005",
+      "nameFont": "modern"
     }
   },
   {
@@ -199,11 +214,13 @@
     "link": "null",
     "color": "#190b0c",
     "nameplate": {
-      "nameColor": "#f1bef0",
+      "nameStyle": "gradient",
+      "gradientStart": "#aaffe1",
+      "gradientEnd": "#ffaae9",
       "videoId": "1514656842826125383",
       "decoId": "a_cec06be6560073121dc9e0bfd9cb536f",
       "decoAlt": "Gone Fishin'",
-      "nameFont": "8bit"
+      "nameFont": "playpenSans"
     }
   },
   {
@@ -284,10 +301,12 @@
     "role": "Translator",
     "roleLabel": "Translator (UK)",
     "paramKey": "translator",
-    "avatar": "https://cdn.discordapp.com/avatars/597740875392483329/461130b538758dc1bba629c4df52d5a0.png",
+    "avatar": "https://cdn.discordapp.com/avatars/597740875392483329/03cc6dce2e34646cc6d122314928479d.png",
     "link": null,
     "color": "#d00000",
     "nameplate": {
+      "decoId": "a_8ffa2ba9bff18e96b76c2e66fd0d7fa3",
+      "decoAlt": "In Love",
       "nameColor": "#f1c40f"
     }
   },
@@ -313,7 +332,8 @@
     "nameplate": {
       "gradientColor": "#0131c2",
       "videoId": "1349849614198505602",
-      "nameColor": "#7ac767"
+      "nameStyle": "pop",
+      "nameColor": "#246fdf"
     }
   },
   {
@@ -324,9 +344,12 @@
     "link": "https://ambient.kitsuri.dev/",
     "color": "#011266",
     "nameplate": {
+      "videoId": "1428438925021548544",
       "decoId": "a_3c97a2d37f433a7913a1c7b7a735d000",
       "decoAlt": "Angry",
-      "nameColor": "#7ac767"
+      "nameStyle": "pop",
+      "nameColor": "#7e7282",
+      "nameFont": "tempo"
     }
   },
   {
