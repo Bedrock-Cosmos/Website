@@ -648,6 +648,62 @@
     "category": "Vanilla"
   },
   {
+    "name": "Bedrock Cosmos Cape",
+    "creator": "Bedrock Cosmos & Sability",
+    "uuid": "4329d8af-a6aa-4452-9ef7-fc6c205db185",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BedrockCosmosCapes/BedrockCosmosCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BedrockCosmosCapes/BedrockCosmosCape.png",
+    "category": "BedrockCosmos"
+  },
+  {
+    "name": "Bedrock Cosmos Classic Cape",
+    "creator": "Bedrock Cosmos",
+    "uuid": "6c563694-28b8-4c33-bb47-af78b460758a",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BedrockCosmosCapes/BedrockCosmosClassicCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BedrockCosmosCapes/BedrockCosmosClassicCape.png",
+    "category": "BedrockCosmos"
+  },
+  {
+    "name": "Halloween 2026 Cape",
+    "creator": "Bedrock Cosmos",
+    "uuid": "e43f2e0f-d5da-480e-80a8-d91e9a30c3e3",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BedrockCosmosCapes/Halloween2026Cape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BedrockCosmosCapes/Halloween2026Cape.png",
+    "category": "BedrockCosmos"
+  },
+  {
+    "name": "1K Milestone Cape",
+    "creator": "Bedrock Cosmos",
+    "uuid": "a25508e2-66c7-4fd9-890f-7d3dfeb17e1b",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BedrockCosmosCapes/1KMilestoneCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BedrockCosmosCapes/1KMilestoneCape.png",
+    "category": "BedrockCosmos"
+  },
+  {
+    "name": "5K Milestone Cape",
+    "creator": "Bedrock Cosmos",
+    "uuid": "a0d2d546-3432-4b2d-964e-ef61247ffff3",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BedrockCosmosCapes/5KMilestoneCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BedrockCosmosCapes/5KMilestoneCape.png",
+    "category": "BedrockCosmos"
+  },
+  {
+    "name": "10K Milestone Cape",
+    "creator": "Bedrock Cosmos",
+    "uuid": "348d4385-03fc-4392-8ee6-6fb47287e062",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BedrockCosmosCapes/10KMilestoneCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BedrockCosmosCapes/10KMilestoneCape.png",
+    "category": "BedrockCosmos"
+  },
+  {
+    "name": "50K Milestone Cape",
+    "creator": "Bedrock Cosmos",
+    "uuid": "f39fb836-63c6-4c54-bfac-f67d511d0a98",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BedrockCosmosCapes/50KMilestoneCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BedrockCosmosCapes/50KMilestoneCape.png",
+    "category": "BedrockCosmos"
+  },
+  {
     "name": "Android Cape",
     "creator": "BionicBen",
     "uuid": "5bba5540-377b-4ec2-9633-4551c4e82e37",
