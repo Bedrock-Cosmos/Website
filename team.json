@@ -185,6 +185,17 @@
     }
   },
   {
+    "name": "oxy",
+    "role": "Cosmos Creator",
+    "paramKey": "cosmos_creator",
+    "avatar": "https://cdn.discordapp.com/avatars/202389100672581632/a_1af9de57672f8b5af979bb51b63c0bbf.png",
+    "link": "null",
+    "color": "#190b0c",
+    "nameplate": {
+      "nameColor": "#f1bef0"
+    }
+  },
+  {
     "name": "nathan",
     "role": "Cosmos Creator",
     "paramKey": "cosmos_creator",
@@ -280,6 +291,18 @@
     "avatar": "https://miro.medium.com/v2/resize:fit:256/0*8WdBp_k4REJoMkfF.png",
     "link": null,
     "color": "#00ff37",
+    "nameplate": {
+      "nameColor": "#f1c40f"
+    }
+  },
+  {
+    "name": "net",
+    "role": "Translator",
+    "roleLabel": "Translator (PT)",
+    "paramKey": "translator",
+    "avatar": "https://cdn.discordapp.com/avatars/495741521912528898/d77c5fec014a8a79c55dd2727811c47d.png",
+    "link": null,
+    "color": "#d00000",
     "nameplate": {
       "nameColor": "#f1c40f"
     }
