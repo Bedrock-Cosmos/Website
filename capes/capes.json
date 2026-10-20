@@ -1486,6 +1486,123 @@
     "creatorParam": true
   },
   {
+    "name": "Senyawa Cactus Cape",
+    "creator": "Oxynix",
+    "uuid": "182de6eb-f5a4-4df3-b98b-46e619bb33ff",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Oxynix/SenyawaCactusCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Oxynix/SenyawaCactusCape.png",
+    "category": "Oxynix",
+    "creatorParam": true
+  },
+  {
+    "name": "Senyawa Dragon Cape",
+    "creator": "Oxynix",
+    "uuid": "f6b11332-dcbe-4bf8-a1e6-32c85e87ea6f",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Oxynix/SenyawaDragonCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Oxynix/SenyawaDragonCape.png",
+    "category": "Oxynix",
+    "creatorParam": true
+  },
+  {
+    "name": "Senyawa Fox Cape",
+    "creator": "Oxynix",
+    "uuid": "65ea5b25-a2d9-48d8-bd7e-a65d75105c2e",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Oxynix/SenyawaFoxCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Oxynix/SenyawaFoxCape.png",
+    "category": "Oxynix",
+    "creatorParam": true
+  },
+  {
+    "name": "Senyawa Heart Cape",
+    "creator": "Oxynix",
+    "uuid": "17fe35c6-966f-4305-a965-1fee8315e771",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Oxynix/SenyawaHeartCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Oxynix/SenyawaHeartCape.png",
+    "category": "Oxynix",
+    "creatorParam": true
+  },
+  {
+    "name": "Senyawa Heart Blue Cape",
+    "creator": "Oxynix",
+    "uuid": "5d9eb275-cc12-4a76-ad5e-48f93004fc3b",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Oxynix/SenyawaHeartBlueCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Oxynix/SenyawaHeartBlueCape.png",
+    "category": "Oxynix",
+    "creatorParam": true
+  },
+  {
+    "name": "Senyawa Heart Orange Cape",
+    "creator": "Oxynix",
+    "uuid": "98c1e5ba-aadd-4d0b-aa07-9f1b6bb1e5ea",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Oxynix/SenyawaHeartOrangeCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Oxynix/SenyawaHeartOrangeCape.png",
+    "category": "Oxynix",
+    "creatorParam": true
+  },
+  {
+    "name": "Senyawa Heart Red Cape",
+    "creator": "Oxynix",
+    "uuid": "f936f593-85be-4a34-9ae6-6efcef4716f5",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Oxynix/SenyawaHeartRedCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Oxynix/SenyawaHeartRedCape.png",
+    "category": "Oxynix",
+    "creatorParam": true
+  },
+  {
+    "name": "Senyawa Heart Yellow Cape",
+    "creator": "Oxynix",
+    "uuid": "1cd2c513-252a-4a14-8631-88151f0cf380",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Oxynix/SenyawaHeartYellowCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Oxynix/SenyawaHeartYellowCape.png",
+    "category": "Oxynix",
+    "creatorParam": true
+  },
+  {
+    "name": "Senyawa Heart White Cape",
+    "creator": "Oxynix",
+    "uuid": "7740cc30-0adb-461e-82bd-718e3d0b6d39",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Oxynix/SenyawaHeartWhiteCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Oxynix/SenyawaHeartWhiteCape.png",
+    "category": "Oxynix",
+    "creatorParam": true
+  },
+  {
+    "name": "Senyawa Sun Cape",
+    "creator": "Oxynix",
+    "uuid": "2901ec11-7baf-4d1e-a9fc-38e62b235c09",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Oxynix/SenyawaSunCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Oxynix/SenyawaSunCape.png",
+    "category": "Oxynix",
+    "creatorParam": true
+  },
+  {
+    "name": "Senyawa Sunglasses Cape",
+    "creator": "Oxynix",
+    "uuid": "0a5cc767-cd78-40ee-8d2c-6cd254372dfb",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Oxynix/SenyawaSunglassesCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Oxynix/SenyawaSunglassesCape.png",
+    "category": "Oxynix",
+    "creatorParam": true
+  },
+  {
+    "name": "Senyawa TV Cape",
+    "creator": "Oxynix",
+    "uuid": "e2614418-a9dc-46f2-a207-ba62c0a098f5",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Oxynix/SenyawaTVCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Oxynix/SenyawaTVCape.png",
+    "category": "Oxynix",
+    "creatorParam": true
+  },
+  {
+    "name": "Aurora Borealis Cape",
+    "creator": "Sability",
+    "uuid": "ebc1d202-4951-4e72-84d3-90c9e5e1c826",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/AuroraBorealisCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/AuroraBorealisCape.png",
+    "category": "Sability",
+    "creatorParam": true
+  },
+  {
     "name": "Bedrock Viewer Cape",
     "creator": "Sability",
     "uuid": "9ebb516e-b275-4652-a1e1-c66452d45227",
@@ -1565,6 +1682,16 @@
     "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/ElementalWindCape.png",
     "category": "Sability",
     "creatorParam": true
+  },
+  {
+    "name": "Fracture Cape",
+    "creator": "Sability",
+    "uuid": "993be541-63ae-45d5-830b-4aba8a58b774",
+    "icon": "https://capes.bedrock-cosmos.app/icons/CreatorCapes/Sability/FractureCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/CreatorCapes/Sability/FractureCape.png",
+    "category": "Sability",
+    "creatorParam": true
+
   },
   {
     "name": "Golden Cape",
