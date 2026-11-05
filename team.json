@@ -110,7 +110,7 @@
       "cosmos_creator",
       "translator"
     ],
-    "avatar": "https://cdn.discordapp.com/avatars/895228843500126209/df8a7a89f9f70ebed0e33009261002c2.png",
+    "avatar": "https://cdn.discordapp.com/avatars/895228843500126209/0b3df8d2b3391f432fdddb6e2f72b68f.png",
     "link": "https://www.youtube.com/@Hypervitaminosis",
     "color": "#29afe4",
     "nameplate": {
@@ -363,7 +363,7 @@
     "name": "nov",
     "role": "Partner",
     "paramKey": "partner",
-    "avatar": "https://cdn.discordapp.com/avatars/631840165291098132/a_51d78375345b33d7df263683f19b7653.png",
+    "avatar": "https://cdn.discordapp.com/avatars/631840165291098132/958fc611d1a6209000313a965cddf070.png",
     "link": "https://ambient.kitsuri.dev/",
     "color": "#011266",
     "nameplate": {
@@ -381,6 +381,18 @@
     "roleLabel": "YouTuber",
     "paramKey": "youtuber",
     "avatar": "https://cdn.discordapp.com/avatars/1057092293078831154/bdb2c5fde20f600aef1d7a16bf763bf6.png",
+    "link": null,
+    "color": "#00ff37",
+    "nameplate": {
+      "nameColor": "#d42020"
+    }
+  },
+  {
+    "name": "ろこい",
+    "role": "YouTuber",
+    "roleLabel": "YouTuber",
+    "paramKey": "youtuber",
+    "avatar": "https://cdn.discordapp.com/avatars/1135919605865517076/60f401a93d46a825acbac031277a70ed..png",
     "link": null,
     "color": "#00ff37",
     "nameplate": {
