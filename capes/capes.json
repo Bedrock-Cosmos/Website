@@ -704,6 +704,14 @@
     "category": "BedrockCosmos"
   },
   {
+    "name": "100KMilestoneCape",
+    "creator": "Bedrock Cosmos",
+    "uuid": "c65008ae-9c2b-4f22-8bd3-61278122db60",
+    "icon": "https://capes.bedrock-cosmos.app/icons/BedrockCosmosCapes/100KMilestoneCape.png",
+    "texture": "https://bedrock-cosmos.app/capes/BedrockCosmosCapes/100KMilestoneCape.png",
+    "category": "BedrockCosmos"
+  },
+  {
     "name": "Android Cape",
     "creator": "BionicBen",
     "uuid": "5bba5540-377b-4ec2-9633-4551c4e82e37",
